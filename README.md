@@ -1,18 +1,13 @@
-Animal Crossing  
-[![Build Status]][actions] [![DOL Progress]][Progress] [![REL Progress]][Progress] [![Discord Badge]][discord]
+PC port of Animal Crossing  
+[![Build Status]][actions] [![Discord Badge]][discord]
 =============
 
-[<img src="https://decomp.dev/ACreTeam/ac-decomp.svg?w=512&h=256" width="512" height="256">][Progress]
-
-[Build Status]: https://github.com/Prakxo/ac-decomp/actions/workflows/build.yml/badge.svg
-[actions]: https://github.com/Prakxo/ac-decomp/actions/workflows/build.yml
-[Progress]: https://decomp.dev/ACreTeam/ac-decomp
-[DOL Progress]: https://decomp.dev/ACReTeam/ac-decomp.svg?mode=shield&measure=code&category=dol&label=DOL
-[REL Progress]: https://decomp.dev/ACReTeam/ac-decomp.svg?mode=shield&measure=code&category=modules&label=REL
+[Build Status]: https://github.com/ACReTeam/forest/actions/workflows/build.yml/badge.svg
+[actions]: https://github.com/ACReTeam/forest/actions/workflows/build.yml
 [Discord Badge]: https://img.shields.io/discord/727908905392275526?color=%237289DA&logo=discord&logoColor=%23FFFFFF
 [discord]: https://discord.gg/hKx3FJJgrV
 
-A work-in-progress decompilation of Animal Crossing for the Nintendo GameCube.
+A work-in-progress PC port of Animal Crossing for the Nintendo GameCube.
 
 This repository does **not** contain any game assets or assembly whatsoever. An existing copy of the game is required.
 
@@ -20,20 +15,6 @@ Supported versions:
 
 - `GAFE01_00`: Rev 0 (USA)
 
-A decompilation of the original N64 version of the game is being worked on [here](https://github.com/zeldaret/af).
-
-<!--
-Quick Guides
-============
-
-- [Dumping Game Files](./docs/extract_game.md)
-- [Ghidra Setup](./docs/ghidra_setup.md)
-- [Generating Decomp Context](./docs/generating_decomp_context.md)
-- [decomp.me Basics](./docs/decomp_me_basics.md)
-- [Ghidra Basics](./docs/ghidra_basics.md)
-- [m2c Basics](./docs/m2c_basics.md)
-- [Decomp Basics](./docs/decomp_basics.md)
--->
 
 Dependencies
 ============
@@ -42,7 +23,6 @@ Windows
 --------
 
 On Windows, it's **highly recommended** to use native tooling. WSL or msys2 are **not** required.  
-When running under WSL, [objdiff](#diffing) is unable to get filesystem notifications for automatic rebuilds.
 
 - Install [Python](https://www.python.org/downloads/) and add it to `%PATH%`.
   - Also available from the [Windows Store](https://apps.microsoft.com/store/detail/python-311/9NRWMJP3717K).
@@ -108,17 +88,6 @@ Building
   ```sh
   ninja
   ```
-
-Diffing
-=======
-
-Once the initial build succeeds, an `objdiff.json` should exist in the project root.
-
-Download the latest release from [encounter/objdiff](https://github.com/encounter/objdiff). Under project settings, set `Project directory`. The configuration should be loaded automatically.
-
-Select an object from the left sidebar to begin diffing. Changes to the project will rebuild automatically: changes to source files, headers, `configure.py`, `splits.txt` or `symbols.txt`.
-
-![](assets/objdiff.png)
 
 Credits
 =======
