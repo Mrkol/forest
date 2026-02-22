@@ -8,7 +8,6 @@
 #include "libultra/os_thread.h"
 #include "jsyswrap.h"
 #include "m_card.h"
-#include "_mem.h"
 #include "padmgr.h"
 #include "libultra/setthreadpri.h"
 #include "m_msg.h"
@@ -17,6 +16,7 @@
 #include "dolphin/os.h"
 #include "libforest/osreport.h"
 #include "m_land.h"
+#include <string.h>
 
 // TODO: actually add all the stacks and headers
 
@@ -86,7 +86,7 @@ u32 entry(void) {
     return 0;
 }
 
-void main(void) {
+int main(void) {
     OSReport("どうぶつの森 main2 開始\n");
     HotStartEntry = &entry;
 }

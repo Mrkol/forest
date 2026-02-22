@@ -9,7 +9,6 @@
 #include "m_needlework_ovl.h"
 #include "m_catalog_ovl.h"
 #include "m_font.h"
-#include "_mem.h"
 #include "m_lib.h"
 #include "m_item_name.h"
 #include "ac_my_room.h"

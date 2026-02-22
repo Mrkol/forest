@@ -1,6 +1,6 @@
 #ifndef OS_TIME_H
 #define OS_TIME_H
-#include "types.h"
+#include <dolphin/types.h>
 #ifdef __cplusplus
 extern "C" {
 #endif

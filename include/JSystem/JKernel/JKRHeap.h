@@ -314,16 +314,23 @@ void JKRDefaultMemoryErrorRoutine(void*, u32, int);
 void* operator new(size_t);
 void* operator new(size_t, s32);
 void* operator new(size_t, JKRHeap*, int);
+
+// Placement new — only define if the compiler runtime hasn't already provided it.
+// MSVC's vcruntime_new.h and libstdc++ <new> define this; our version would conflict.
+#if !defined(_MSC_VER) && !defined(__GLIBCXX__)
 inline void* operator new(size_t, void* buf) {
     return buf;
-} // i believe this is actually part of MSL_C?
+}
+#else
+#include <new> // provides placement new
+#endif
 
 void* operator new[](size_t);
 void* operator new[](size_t, s32);
 void* operator new[](size_t, JKRHeap*, int);
 
-void operator delete(void*);
-void operator delete[](void*);
+void operator delete(void*) noexcept;
+void operator delete[](void*) noexcept;
 
 #endif
 #endif // !JKRHEAP_H

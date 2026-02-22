@@ -23,7 +23,6 @@
 #include "sys_math.h"
 #include "terminal.h"
 #include "dolphin/vi.h"
-#include "_mem.h"
 #include "initial_menu.h"
 #include "libforest/batconfig.h"
 #include "dolphin/os/OSAlarm.h"

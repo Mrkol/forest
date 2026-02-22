@@ -2,7 +2,7 @@
 #define JUTDIRECTPRINT_H
 
 #include "types.h"
-#include "libc/stdarg.h"
+#include <stdarg.h>
 
 #ifdef __cplusplus
 

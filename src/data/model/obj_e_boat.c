@@ -206,7 +206,7 @@ Gfx obj_e_boat_oar1_model[] = {
     gsSPEndDisplayList(),
 };
 
-cKF_Joint_R_c cKF_je_r_obj_e_boat_tbl[] = { { obj_e_boat_boat1_model, 2, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
+static cKF_Joint_R_c cKF_je_r_obj_e_boat_tbl[] = { { obj_e_boat_boat1_model, 2, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
                                             { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 300, 2200, 61036 } },
                                             { obj_e_boat_oar1_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
                                             { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 4000 } },
@@ -214,7 +214,7 @@ cKF_Joint_R_c cKF_je_r_obj_e_boat_tbl[] = { { obj_e_boat_boat1_model, 2, cKF_JOI
                                             { obj_e_boat_water2_model, 1, cKF_JOINT_FLAG_DISP_XLU, { 8400, 0, 0 } },
                                             { obj_e_boat_water3_model, 0, cKF_JOINT_FLAG_DISP_XLU, { 4600, 0, 0 } } };
 
-cKF_Skeleton_R_c cKF_bs_r_obj_e_boat = { ARRAY_COUNT(cKF_je_r_obj_e_boat_tbl), 5, cKF_je_r_obj_e_boat_tbl };
+static cKF_Skeleton_R_c cKF_bs_r_obj_e_boat = { ARRAY_COUNT(cKF_je_r_obj_e_boat_tbl), 5, cKF_je_r_obj_e_boat_tbl };
 
 u8 cKF_ckcb_r_obj_e_boat_tbl[] = { 0, 0, 7, 0, 0, 0, 0 };
 
@@ -228,6 +228,6 @@ s16 cKF_ds_obj_e_boat_tbl[] = { 1,    904,  648,  13,   1075, 212,  23,   1099, 
                                 5,    -143, 443,  20,   141,  303,  26,   177,  119,  40,  183, -81,  44,   156,
                                 -370, 60,   -141, -305, 65,   -173, -137, 81,   -180, 83 };
 
-cKF_Animation_R_c cKF_ba_r_obj_e_boat = {
+static cKF_Animation_R_c cKF_ba_r_obj_e_boat = {
     cKF_ckcb_r_obj_e_boat_tbl, cKF_ds_obj_e_boat_tbl, cKF_kn_obj_e_boat_tbl, cKF_c_obj_e_boat_tbl, -1, 81
 };

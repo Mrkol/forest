@@ -1,7 +1,7 @@
 #ifndef DB_H
 #define DB_H
 
-#include "types.h"
+#include <dolphin/types.h>
 #include <dolphin/db/DBInterface.h>
 
 #ifdef __cplusplus

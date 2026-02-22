@@ -1,6 +1,5 @@
 #include "Famicom/famicomPriv.h"
 
-#include "_mem.h"
 #include "dolphin/os.h"
 #include "libultra/libultra.h"
 #include "JSystem/JSystem.h"

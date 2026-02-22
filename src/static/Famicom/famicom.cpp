@@ -1,12 +1,11 @@
 #include "Famicom/famicomPriv.h"
 #include "Famicom/famicomInternal.hpp"
 
-#include "libc/string.h"
+#include <string.h>
 #include "dolphin/gx.h"
 #include "dolphin/os.h"
 #include "dolphin/mtx.h"
 #include "dolphin/card.h"
-#include "_mem.h"
 #include "libultra/libultra.h"
 #include "m_personal_id.h"
 #include "JSystem/JUtility/JUTDbPrint.h"
@@ -19,7 +18,7 @@
 #include "libc64/sprintf.h"
 #include "libjsys/jsyswrapper.h"
 #include "jsyswrap_cpp.h"
-#include "MSL_C/printf.h"
+#include <stdio.h>
 #include "jaudio_NES/emusound.h"
 #include "JSystem/JUtility/JUTProcBar.h"
 #include "JSystem/JUtility/JUTGamePad.h"
@@ -594,7 +593,7 @@ static int SetupResBanner(const ResTIMG*, u8*, size_t, size_t*, u8*);
 static int SetupResIcon(const ResTIMG*, u8*, size_t, size_t*, u16*, u16*);
 
 static void SetupExternCommentImage(u8* embedded_save_comment_img, u8* dst, u8* rom_file_comment_img) {
-    u32 size;
+    size_t size;
 
     switch (famicomCommon.memcard_game_header.flags0.comment_type) {
         case MEMCARD_COMMENT_TYPE_NONE:

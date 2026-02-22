@@ -153,7 +153,7 @@ bool JKRCompArchive::open(long entryNum) {
                                     JKRMainRamToAram((u8*)mem + arcHeader->header_length + arcHeader->file_data_offset +
                                                          mSizeOfMemPart,
                                                      mAramPart->getAddress(), mSizeOfAramPart, EXPAND_SWITCH_DEFAULT, 0,
-                                                     nullptr, -1, nullptr);
+                                                     nullptr, -1, 0);
                                 }
                             }
                         }

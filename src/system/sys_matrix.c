@@ -3,7 +3,7 @@
 #include "m_skin_matrix.h"
 #include "graph.h"
 #include "libc64/math64.h"
-#include "MSL_C/w_math.h"
+#include <math.h>
 #include "libforest/gbi_extensions.h"
 
 // clang-format off

@@ -5,7 +5,6 @@
 #include "dolphin/os/OSTime.h"
 #include "dolphin/base/PPCArch.h"
 #include "jaudio_NES/emusound.h"
-#include "_mem.h"
 #include "dolphin/os.h"
 
 #pragma optimizewithasm off
@@ -213,78 +212,78 @@ void* ksNesMapperInitFuncTbl[185][5] = {
     // 0    NROM
     {
         NULL,
-        ksNesLinecntIrqDefault,
-        ksNesLinecntIrqDefault,
-        ksNesLinecntIrqDefault,
-        ksNesLinecntIrqDefault
+        (void*)ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault
     },
     // 1    SxROM, MMC1
     {
-        ksNesInit01,
-        ksNesStore01_8000,
-        ksNesStore01_8000,
-        ksNesStore01_8000,
-        ksNesStore01_8000
+        (void*)ksNesInit01,
+        (void*)ksNesStore01_8000,
+        (void*)ksNesStore01_8000,
+        (void*)ksNesStore01_8000,
+        (void*)ksNesStore01_8000
     },
     // 2    UxROM
     {
         NULL,
-        ksNesStore02_8000,
-        ksNesStore02_8000,
-        ksNesStore02_8000,
-        ksNesStore02_8000
+        (void*)ksNesStore02_8000,
+        (void*)ksNesStore02_8000,
+        (void*)ksNesStore02_8000,
+        (void*)ksNesStore02_8000
     },
     // 3    CNROM
     {
-        ksNesInit03,
-        ksNesStore03_6000,
-        ksNesStore03_6000,
-        ksNesStore03_6000,
-        ksNesStore03_6000
+        (void*)ksNesInit03,
+        (void*)ksNesStore03_6000,
+        (void*)ksNesStore03_6000,
+        (void*)ksNesStore03_6000,
+        (void*)ksNesStore03_6000
     },
     // 4    TxROM, MMC3, MMC6
     {
-        ksNesInit04,
-        ksNesStore04_8000,
-        ksNesStore04_a000,
-        ksNesStore04_c000,
-        ksNesStore04_e000
+        (void*)ksNesInit04,
+        (void*)ksNesStore04_8000,
+        (void*)ksNesStore04_a000,
+        (void*)ksNesStore04_c000,
+        (void*)ksNesStore04_e000
     },
     // 5    ExROM, MMC5
     {
-        ksNesInit05,
-        ksNesLinecntIrqDefault,
-        ksNesLinecntIrqDefault,
-        ksNesLinecntIrqDefault,
-        ksNesLinecntIrqDefault
+        (void*)ksNesInit05,
+        (void*)ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault
     },
     // 6 
     {},
     // 7    AxROM
     {
-        ksNesInit07,
-        ksNesStore07_8000,
-        ksNesStore07_8000,
-        ksNesStore07_8000,
-        ksNesStore07_8000
+        (void*)ksNesInit07,
+        (void*)ksNesStore07_8000,
+        (void*)ksNesStore07_8000,
+        (void*)ksNesStore07_8000,
+        (void*)ksNesStore07_8000
     },
     // 8 
     {},
     // 9    PxROM, MMC2
     {
-        ksNesInit09,
-        ksNesStore09_8000,
-        ksNesStore09_a000,
-        ksNesStore09_c000,
-        ksNesStore09_e000
+        (void*)ksNesInit09,
+        (void*)ksNesStore09_8000,
+        (void*)ksNesStore09_a000,
+        (void*)ksNesStore09_c000,
+        (void*)ksNesStore09_e000
     },
     // 10   FxROM, MMC4
     {
         NULL,
-        ksNesStore0a_8000,
-        ksNesStore0a_a000,
-        ksNesStore09_c000,
-        ksNesStore09_e000
+        (void*)ksNesStore0a_8000,
+        (void*)ksNesStore0a_a000,
+        (void*)ksNesStore09_c000,
+        (void*)ksNesStore09_e000
     },
     // 11   Color Dreams
     {},
@@ -302,69 +301,69 @@ void* ksNesMapperInitFuncTbl[185][5] = {
     {},
     // 18   Jaleco SS8806
     {
-        ksNesInit12,
-        ksNesStore12_8000,
-        ksNesStore12_a000,
-        ksNesStore12_a000,
-        ksNesStore12_e000
+        (void*)ksNesInit12,
+        (void*)ksNesStore12_8000,
+        (void*)ksNesStore12_a000,
+        (void*)ksNesStore12_a000,
+        (void*)ksNesStore12_e000
     },
     // 19   Namco 163
     {
-        ksNesInit13,
-        ksNesStore13_8000,
-        ksNesStore13_8000,
-        ksNesStore13_c000,
-        ksNesStore13_e000
+        (void*)ksNesInit13,
+        (void*)ksNesStore13_8000,
+        (void*)ksNesStore13_8000,
+        (void*)ksNesStore13_c000,
+        (void*)ksNesStore13_e000
     },
     // 20
     {},
     // 21   VRC4a, VRC4c
     {
-        ksNesInit15,
-        ksNesStore19_8000,
-        ksNesStore19_a000,
-        ksNesStore19_b000,
-        ksNesStore19_e000
+        (void*)ksNesInit15,
+        (void*)ksNesStore19_8000,
+        (void*)ksNesStore19_a000,
+        (void*)ksNesStore19_b000,
+        (void*)ksNesStore19_e000
     },
     // 22   VRC2a
     {
         NULL,
-        ksNesStore16_8000,
-        ksNesStore16_a000,
-        ksNesStore16_b000,
-        ksNesStore16_b000
+        (void*)ksNesStore16_8000,
+        (void*)ksNesStore16_a000,
+        (void*)ksNesStore16_b000,
+        (void*)ksNesStore16_b000
     },
     // 23   VRC2b, VRC4e
     {
-        ksNesInit15,
-        ksNesStore16_8000,
-        ksNesStore17_a000,
-        ksNesStore17_b000,
-        ksNesStore17_e000
+        (void*)ksNesInit15,
+        (void*)ksNesStore16_8000,
+        (void*)ksNesStore17_a000,
+        (void*)ksNesStore17_b000,
+        (void*)ksNesStore17_e000
     },
     // 24   VRC6a
     {
-        ksNesInit18,
-        ksNesStore18_8000,
-        ksNesStore18_a000,
-        ksNesStore18_c000,
-        ksNesStore18_e000
+        (void*)ksNesInit18,
+        (void*)ksNesStore18_8000,
+        (void*)ksNesStore18_a000,
+        (void*)ksNesStore18_c000,
+        (void*)ksNesStore18_e000
     },
     // 25   VRC4b, VRC4d
     {
-        ksNesInit15,
-        ksNesStore19_8000,
-        ksNesStore19_a000,
-        ksNesStore19_b000,
-        ksNesStore19_e000
+        (void*)ksNesInit15,
+        (void*)ksNesStore19_8000,
+        (void*)ksNesStore19_a000,
+        (void*)ksNesStore19_b000,
+        (void*)ksNesStore19_e000
     },
     // 26   VRC6b
     {
-        ksNesInit1a,
-        ksNesStore18_8000,
-        ksNesStore18_a000,
-        ksNesStore18_c000,
-        ksNesStore18_e000
+        (void*)ksNesInit1a,
+        (void*)ksNesStore18_8000,
+        (void*)ksNesStore18_a000,
+        (void*)ksNesStore18_c000,
+        (void*)ksNesStore18_e000
     },
     // 27
     {},
@@ -446,43 +445,43 @@ void* ksNesMapperInitFuncTbl[185][5] = {
     {},
     // 66   GxROM, MxROM
     {
-        ksNesInit42,
-        ksNesStore42_8000,
-        ksNesStore42_8000,
-        ksNesStore42_8000,
-        ksNesStore42_8000
+        (void*)ksNesInit42,
+        (void*)ksNesStore42_8000,
+        (void*)ksNesStore42_8000,
+        (void*)ksNesStore42_8000,
+        (void*)ksNesStore42_8000
     },
     // 67
     {
-        ksNesInit43,
-        ksNesStore44_8000,
-        ksNesStore44_8000,
-        ksNesStore43_c000,
-        ksNesStore44_e000
+        (void*)ksNesInit43,
+        (void*)ksNesStore44_8000,
+        (void*)ksNesStore44_8000,
+        (void*)ksNesStore43_c000,
+        (void*)ksNesStore44_e000
     },
     // 68   After Burner
     {
         NULL,
-        ksNesStore44_8000,
-        ksNesStore44_8000,
-        ksNesStore44_c000,
-        ksNesStore44_e000
+        (void*)ksNesStore44_8000,
+        (void*)ksNesStore44_8000,
+        (void*)ksNesStore44_c000,
+        (void*)ksNesStore44_e000
     },
     // 69   FME-7, Sunsoft 5B
     {
-        ksNesInit45,
-        ksNesStore45_8000,
-        ksNesStore45_a000,
-        ksNesLinecntIrqDefault,
-        ksNesLinecntIrqDefault
+        (void*)ksNesInit45,
+        (void*)ksNesStore45_8000,
+        (void*)ksNesStore45_a000,
+        (void*)ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault
     },
     // 70
     {
         NULL,
-        ksNesStore46_8000,
-        ksNesStore46_8000,
-        ksNesStore46_8000,
-        ksNesStore46_8000
+        (void*)ksNesStore46_8000,
+        (void*)ksNesStore46_8000,
+        (void*)ksNesStore46_8000,
+        (void*)ksNesStore46_8000
     },
     // 71   Camerica/Codemasters
     {},
@@ -490,21 +489,21 @@ void* ksNesMapperInitFuncTbl[185][5] = {
     {},
     // 73   VRC3
     {
-        ksNesInit49,
-        ksNesLinecntIrqDefault,
-        ksNesStore49_a000,
-        ksNesStore49_c000,
-        ksNesStore02_8000
+        (void*)ksNesInit49,
+        (void*)ksNesLinecntIrqDefault,
+        (void*)ksNesStore49_a000,
+        (void*)ksNesStore49_c000,
+        (void*)ksNesStore02_8000
     },
     // 74   Pirate MMC3 derivative
     {},
     // 75   VRC1
     {
         NULL,
-        ksNesStore4b_8000,
-        ksNesStore4b_a000,
-        ksNesStore4b_a000,
-        ksNesStore4b_e000
+        (void*)ksNesStore4b_8000,
+        (void*)ksNesStore4b_a000,
+        (void*)ksNesStore4b_a000,
+        (void*)ksNesStore4b_e000
     },
     // 76   Namco 109 variant
     {},
@@ -528,29 +527,29 @@ void* ksNesMapperInitFuncTbl[185][5] = {
     {},
     // 86   JALECO-JF-13
     {
-        ksNesInit56,
-        ksNesLinecntIrqDefault,
-        ksNesLinecntIrqDefault,
-        ksNesLinecntIrqDefault,
-        ksNesLinecntIrqDefault,
+        (void*)ksNesInit56,
+        (void*)ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
     },
     // 87
     {
-        ksNesInit03,
-        ksNesStore57_6000,
-        ksNesStore57_6000,
-        ksNesStore57_6000,
-        ksNesStore57_6000
+        (void*)ksNesInit03,
+        (void*)ksNesStore57_6000,
+        (void*)ksNesStore57_6000,
+        (void*)ksNesStore57_6000,
+        (void*)ksNesStore57_6000
     },
     // 88
     {},
     // 89
     {
         NULL,
-        ksNesLinecntIrqDefault,
-        ksNesLinecntIrqDefault,
-        ksNesStore59_c000,
-        ksNesLinecntIrqDefault
+        (void*)ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
+        (void*)ksNesStore59_c000,
+        (void*)ksNesLinecntIrqDefault
     },
     // 90
     {},
@@ -560,11 +559,11 @@ void* ksNesMapperInitFuncTbl[185][5] = {
     {},
     // 93
     {
-        ksNesInit03,
-        ksNesStore5d_6000,
-        ksNesLinecntIrqDefault,
-        ksNesLinecntIrqDefault,
-        ksNesLinecntIrqDefault
+        (void*)ksNesInit03,
+        (void*)ksNesStore5d_6000,
+        (void*)ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault
     },
     // 94   Senjou no Ookami
     {},
@@ -748,11 +747,11 @@ void* ksNesMapperInitFuncTbl[185][5] = {
     {},
     // 184
     {
-        ksNesInit03,
-        ksNesStoreb8_6000,
-        ksNesLinecntIrqDefault,
-        ksNesLinecntIrqDefault,
-        ksNesLinecntIrqDefault,
+        (void*)ksNesInit03,
+        (void*)ksNesStoreb8_6000,
+        (void*)ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
     },
 };
 
@@ -770,1537 +769,1537 @@ typedef struct {
 KS_NES_INSTR ksNesInstJumpTbl[0x100] = {
     // 0x00 BRK
     {
-        ksNesInst_brk_00,
+        (void*)ksNesInst_brk_00,
         7, 2,
         NULL,
     },
     // 0x01 ORA X,ind
     {
-        ksNesInst_load8_dxi,
+        (void*)ksNesInst_load8_dxi,
         6, 2,
-        ksNesInst_ora_01
+        (void*)ksNesInst_ora_01
     },
     // 0x02 ILLEGAL INSTRUCTION
     {
-        ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
         8, 1,
         NULL,
     },
     // 0x03 ILLEGAL INSTRUCTION
     {
-        ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
         4, 1,
         NULL,
     },
     // 0x04 ILLEGAL INSTRUCTION
     {
-        ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
         5, 1,
         NULL,
     },
     // 0x05 ORA zpg
     {
-        ksNesInst_load8_zerop,
+        (void*)ksNesInst_load8_zerop,
         3, 2,
-        ksNesInst_ora_01
+        (void*)ksNesInst_ora_01
     },
     // 0x06 ASL zpg
     {
-        ksNesInst_load8_zerop,
+        (void*)ksNesInst_load8_zerop,
         5, 2,
-        ksNesInst_asl_06
+        (void*)ksNesInst_asl_06
     },
     // 0x07 ILLEGAL INSTRUCTION
     {
-        ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
         6, 1,
         NULL
     },
     // 0x08 PHP
     {
-        ksNesInst_php_08,
+        (void*)ksNesInst_php_08,
         3, 1,
-        ksNesLinecntIrqDefault
+        (void*)ksNesLinecntIrqDefault
     },
     // 0x09 ORA #
     {
-        ksNesInst_ora_01,
+        (void*)ksNesInst_ora_01,
         2, 2,
         NULL
     },
     // 0x0A ASL A
     {
-        ksNesInst_asl_0a,
+        (void*)ksNesInst_asl_0a,
         2, 1,
         NULL
     },
     // 0x0B ILLEGAL INSTRUCTION
     {
-        ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
         4, 1,
         NULL
     },
     // 0x0C ILLEGAL INSTRUCTION
     {
-        ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
         6, 1,
         NULL
     },
     // 0x0D ORA abs
     {
-        ksNesInst_load8_abs,
+        (void*)ksNesInst_load8_abs,
         4, 3,
-        ksNesInst_ora_01
+        (void*)ksNesInst_ora_01
     },
     // 0x0E ASL abs
     {
-        ksNesInst_load8_abs,
+        (void*)ksNesInst_load8_abs,
         6, 3,
-        ksNesInst_asl_06,
+        (void*)ksNesInst_asl_06,
     },
     // 0x0F ---
     {
-        ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
         5, 1,
         NULL
     },
     // 0x10 BPL rel
     {
-        ksNesInst_bpl_10,
+        (void*)ksNesInst_bpl_10,
         3, 2,
         NULL,
     },
     // 0x11 ORA ind,Y
     {
-        ksNesInst_load8_dyi,
+        (void*)ksNesInst_load8_dyi,
         5, 2,
-        ksNesInst_ora_01,
+        (void*)ksNesInst_ora_01,
     },
     // 0x12 ILLEGAL INSTRUCTION
     {
-        ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
         5, 1,
         NULL
     },
     // 0x13 ILLEGAL INSTRUCTION
     {
-        ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
         7, 1,
         NULL
     },
     // 0x14 ILLEGAL INSTRUCTION
     {
-        ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
         5, 1,
         NULL,
     },
     // 0x15 ORA zpg,X
     {
-        ksNesInst_load8_dx,
+        (void*)ksNesInst_load8_dx,
         4, 2,
-        ksNesInst_ora_01,
+        (void*)ksNesInst_ora_01,
     },
     // 0x16 ROL zpg
     {
-        ksNesInst_load8_dx,
+        (void*)ksNesInst_load8_dx,
         6, 2,
-        ksNesInst_asl_06,
+        (void*)ksNesInst_asl_06,
     },
     // 0x17 ILLEGAL INSTRUCTION
     {
-        ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
         6, 1,
         NULL,
     },
     // 0x18 CLC
     {
-        ksNesInst_clc_18,
+        (void*)ksNesInst_clc_18,
         2, 1,
         NULL,
     },
     // 0x19 ORA abs,Y
     {
-        ksNesInst_load8_absy,
+        (void*)ksNesInst_load8_absy,
         4, 3,
-        ksNesInst_ora_01,
+        (void*)ksNesInst_ora_01,
     },
     // 0x1A ILLEGAL INSTRUCTION
     {
-        ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
         2, 1,
         NULL,
     },
     // 0x1B ILLEGAL INSTRUCTION
     {
-        ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
         2, 1,
         NULL,
     },
     // 0x1C ILLEGAL INSTRUCTION
     {
-        ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
         6, 1,
         NULL,
     },
     // 0x1D ORA abs,X
     {
-        ksNesInst_load8_absx,
+        (void*)ksNesInst_load8_absx,
         4, 3,
-        ksNesInst_ora_01,
+        (void*)ksNesInst_ora_01,
     },
     // 0x1E ASL abs,X
     {
-        ksNesInst_load8_absx,
+        (void*)ksNesInst_load8_absx,
         7, 3,
-        ksNesInst_asl_06,
+        (void*)ksNesInst_asl_06,
     },
     // 0x1F ILLEGAL INSTRUCTION
     {
-        ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
         5, 1,
         NULL,
     },
     // 0x20 JSR abs
     {
-        ksNesInst_load16_imm,
+        (void*)ksNesInst_load16_imm,
         6, 3,
-        ksNesInst_jsr_20,
+        (void*)ksNesInst_jsr_20,
     },
     // 0x21 AND X,ind
     {
-        ksNesInst_load8_dxi,
+        (void*)ksNesInst_load8_dxi,
         6, 2,
-        ksNesInst_and_21,
+        (void*)ksNesInst_and_21,
     },
     // 0x22 ILLEGAL INSTRUCTION
     {
-        ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
         8, 1,
         NULL,
     },
     // 0x23 ILLEGAL INSTRUCTION
     {
-        ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
         4, 1,
         NULL,
     },
     // 0x24 BIT zpg
     {
-        ksNesInst_load8_zerop,
+        (void*)ksNesInst_load8_zerop,
         3, 2,
-        ksNesInst_bit_24,
+        (void*)ksNesInst_bit_24,
     },
     // 0x25 AND zpg
     {
-        ksNesInst_load8_zerop,
+        (void*)ksNesInst_load8_zerop,
         3, 2,
-        ksNesInst_and_21,
+        (void*)ksNesInst_and_21,
     },
     // 0x26 ROL zpg
     {
-        ksNesInst_load8_zerop,
+        (void*)ksNesInst_load8_zerop,
         5, 2,
-        ksNesInst_rol_26,
+        (void*)ksNesInst_rol_26,
     },
     // 0x27 ILLEGAL INSTRUCTION
     {
-        ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
         6, 1,
         NULL,
     },
     // 0x28 PLP impl
     {
-        ksNesInst_plp_28,
+        (void*)ksNesInst_plp_28,
         4, 1,
-        ksNesActivateIntrIRQ,
+        (void*)ksNesActivateIntrIRQ,
     },
     // 0x29 AND #
     {
-        ksNesInst_and_21,
+        (void*)ksNesInst_and_21,
         2, 2,
         NULL,
     },
     // 0x2A ROL A
     {
-        ksNesInst_rol_2a,
+        (void*)ksNesInst_rol_2a,
         2, 1,
         NULL,
     },
     // 0x2B ILLEGAL INSTRUCTION
     {
-        ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
         5, 1,
         NULL,
     },
     // 0x2C BIT abs
     {
-        ksNesInst_load8_abs,
+        (void*)ksNesInst_load8_abs,
         4, 3,
-        ksNesInst_bit_24,
+        (void*)ksNesInst_bit_24,
     },
     // 0x2D AND abs
     {
-        ksNesInst_load8_abs,
+        (void*)ksNesInst_load8_abs,
         4, 3,
-        ksNesInst_and_21,
+        (void*)ksNesInst_and_21,
     },
     // 0x2E ROL abs
     {
-        ksNesInst_load8_abs,
+        (void*)ksNesInst_load8_abs,
         6, 3,
-        ksNesInst_rol_26,
+        (void*)ksNesInst_rol_26,
     },
     // 0x2F ILLEGAL INSTRUCTION
     {
-        ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
         5, 1,
         NULL,
     },
     // 0x30 BMI rel
     {
-        ksNesInst_bmi_30,
+        (void*)ksNesInst_bmi_30,
         3, 2,
         NULL,
     },
     // 0x31 AND ind,Y
     {
-        ksNesInst_load8_dyi,
+        (void*)ksNesInst_load8_dyi,
         5, 2,
-        ksNesInst_and_21,
+        (void*)ksNesInst_and_21,
     },
     // 0x32 ILLEGAL INSTRUCTION
     {
-        ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
         5, 1,
         NULL,
     },
     // 0x33 ILLEGAL INSTRUCTION
     {
-        ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
         7, 1,
         NULL,
     },
     // 0x34 ILLEGAL INSTRUCTION
     {
-        ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
         4, 1,
         NULL,
     },
     // 0x35 AND zpg,X
     {
-        ksNesInst_load8_dx,
+        (void*)ksNesInst_load8_dx,
         4, 2,
-        ksNesInst_and_21,
+        (void*)ksNesInst_and_21,
     },
     // 0x36 ROL zpg,X
     {
-        ksNesInst_load8_dx,
+        (void*)ksNesInst_load8_dx,
         6, 2,
-        ksNesInst_rol_26,
+        (void*)ksNesInst_rol_26,
     },
     // 0x37 ILLEGAL INSTRUCTION
     {
-        ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
         6, 1,
         NULL,
     },
     // 0x38 SEC impl
     {
-        ksNesInst_sec_38,
+        (void*)ksNesInst_sec_38,
         2, 1,
         NULL,
     },
     // 0x39 AND abs,Y
     {
-        ksNesInst_load8_absy,
+        (void*)ksNesInst_load8_absy,
         4, 3,
-        ksNesInst_and_21,
+        (void*)ksNesInst_and_21,
     },
     // 0x3A ILLEGAL INSTRUCTION
     {
-        ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
         2, 1,
         NULL,
     },
     // 0x3B ILLEGAL INSTRUCTION
     {
-        ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
         2, 1,
         NULL,
     },
     // 0x3C ILLEGAL INSTRUCTION
     {
-        ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
         4, 1,
         NULL,
     },
     // 0x3D AND abs,X
     {
-        ksNesInst_load8_absx,
+        (void*)ksNesInst_load8_absx,
         4, 3,
-        ksNesInst_and_21,
+        (void*)ksNesInst_and_21,
     },
     // 0x3E ROL abs,X
     {
-        ksNesInst_load8_absx,
+        (void*)ksNesInst_load8_absx,
         7, 3,
-        ksNesInst_rol_26,
+        (void*)ksNesInst_rol_26,
     },
     // 0x3F ILLEGAL INSTRUCTION
     {
-        ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
         5, 1,
         NULL,
     },
     // 0x40 RTI impl
     {
-        ksNesInst_rti_40,
+        (void*)ksNesInst_rti_40,
         6, 1,
-        ksNesInst_rti_40_2,
+        (void*)ksNesInst_rti_40_2,
     },
     // 0x41 EOR X,ind
     {
-        ksNesInst_load8_dxi,
+        (void*)ksNesInst_load8_dxi,
         6, 2,
-        ksNesInst_eor_41,
+        (void*)ksNesInst_eor_41,
     },
     // 0x42 ILLEGAL INSTRUCTION
     {
-        ksNesInst_wdm_42,
+        (void*)ksNesInst_wdm_42,
         2, 2,
         NULL,
     },
     // 0x43 ILLEGAL INSTRUCTION
     {
-        ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
         4, 1,
         NULL,
     },
     // 0x44 ILLEGAL INSTRUCTION
     {
-        ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
         7, 1,
         NULL,
     },
     // 0x45 EOR zpg
     {
-        ksNesInst_load8_zerop,
+        (void*)ksNesInst_load8_zerop,
         3, 2,
-        ksNesInst_eor_41,
+        (void*)ksNesInst_eor_41,
     },
     // 0x46 LSR zpg
     {
-        ksNesInst_load8_zerop,
+        (void*)ksNesInst_load8_zerop,
         5, 2,
-        ksNesInst_lsr_46,
+        (void*)ksNesInst_lsr_46,
     },
     // 0x47 ILLEGAL INSTRUCTION
     {
-        ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
         6, 1,
         NULL,
     },
     // 0x48
     {
-        ksNesInst_pha_48,
+        (void*)ksNesInst_pha_48,
         3, 1,
         NULL,
     },
     // 0x49
     {
-        ksNesInst_eor_41,
+        (void*)ksNesInst_eor_41,
         2, 2,
         NULL,
     },
     // 0x4A
     {
-        ksNesInst_lsr_4a,
+        (void*)ksNesInst_lsr_4a,
         2, 1,
         NULL,
     },
     // 0x4B
     {
-        ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
         3, 1,
         NULL,
     },
     // 0x4C
     {
-        ksNesInst_load16_imm,
+        (void*)ksNesInst_load16_imm,
         3, 3,
-        ksNesInst_jmp_4c,
+        (void*)ksNesInst_jmp_4c,
     },
     // 0x4D
     {
-        ksNesInst_load8_abs,
+        (void*)ksNesInst_load8_abs,
         4, 3,
-        ksNesInst_eor_41,
+        (void*)ksNesInst_eor_41,
     },
     // 0x4E
     {
-        ksNesInst_load8_abs,
+        (void*)ksNesInst_load8_abs,
         6, 3,
-        ksNesInst_lsr_46,
+        (void*)ksNesInst_lsr_46,
     },
     // 0x4F
     {
-        ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
         5, 1,
         NULL,
     },
     // 0x50
     {
-        ksNesInst_bvc_50,
+        (void*)ksNesInst_bvc_50,
         3, 2,
         NULL,
     },
     // 0x51
     {
-        ksNesInst_load8_dyi,
+        (void*)ksNesInst_load8_dyi,
         5, 2,
-        ksNesInst_eor_41,
+        (void*)ksNesInst_eor_41,
     },
     // 0x52
     {
-        ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
         5, 1,
         NULL,
     },
     // 0x53
     {
-        ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
         7, 1,
         NULL,
     },
     // 0x54
     {
-        ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
         7, 1,
         NULL,
     },
     // 0x55
     {
-        ksNesInst_load8_dx,
+        (void*)ksNesInst_load8_dx,
         4, 2,
-        ksNesInst_eor_41,
+        (void*)ksNesInst_eor_41,
     },
     // 0x56
     {
-        ksNesInst_load8_dx,
+        (void*)ksNesInst_load8_dx,
         6, 2,
-        ksNesInst_lsr_46,
+        (void*)ksNesInst_lsr_46,
     },
     // 0x57
     {
-        ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
         6, 1,
         NULL,
     },
     // 0x58
     {
-        ksNesInst_cli_58,
+        (void*)ksNesInst_cli_58,
         2, 1,
         NULL,
     },
     // 0x59
     {
-        ksNesInst_load8_absy,
+        (void*)ksNesInst_load8_absy,
         4, 3,
-        ksNesInst_eor_41,
+        (void*)ksNesInst_eor_41,
     },
     // 0x5A
     {
-        ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
         3, 1,
         NULL,
     },
     // 0x5B
     {
-        ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
         2, 1,
         NULL,
     },
     // 0x5C
     {
-        ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
         4, 1,
         NULL,
     },
     // 0x5D
     {
-        ksNesInst_load8_absx,
+        (void*)ksNesInst_load8_absx,
         4, 3,
-        ksNesInst_eor_41,
+        (void*)ksNesInst_eor_41,
     },
     // 0x5E
     {
-        ksNesInst_load8_absx,
+        (void*)ksNesInst_load8_absx,
         7, 3,
-        ksNesInst_lsr_46,
+        (void*)ksNesInst_lsr_46,
     },
     // 0x5F
     {
-        ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
         5, 1,
         NULL,
     },
     // 0x60
     {
-        ksNesInst_rts_60,
+        (void*)ksNesInst_rts_60,
         6, 1,
         NULL,
     },
     // 0x61
     {
-        ksNesInst_load8_dxi,
+        (void*)ksNesInst_load8_dxi,
         6, 2,
-        ksNesInst_adc_61,
+        (void*)ksNesInst_adc_61,
     },
     // 0x62
     {
-        ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
         6, 1,
         NULL,
     },
     // 0x63
     {
-        ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
         4, 1,
         NULL,
     },
     // 0x64
     {
-        ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
         3, 1,
         NULL,
     },
     // 0x65
     {
-        ksNesInst_load8_zerop,
+        (void*)ksNesInst_load8_zerop,
         3, 2,
-        ksNesInst_adc_61,
+        (void*)ksNesInst_adc_61,
     },
     // 0x66
     {
-        ksNesInst_load8_zerop,
+        (void*)ksNesInst_load8_zerop,
         5, 2,
-        ksNesInst_ror_66,
+        (void*)ksNesInst_ror_66,
     },
     // 0x67
     {
-        ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
         6, 1,
         NULL,
     },
     // 0x68
     {
-        ksNesInst_pla_68,
+        (void*)ksNesInst_pla_68,
         4, 1,
         NULL,
     },
     // 0x69
     {
-        ksNesInst_adc_61,
+        (void*)ksNesInst_adc_61,
         2, 2,
         NULL,
     },
     // 0x6A
     {
-        ksNesInst_ror_6a,
+        (void*)ksNesInst_ror_6a,
         2, 1,
         NULL,
     },
     // 0x6B
     {
-        ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
         6, 1,
         NULL,
     },
     // 0x6C
     {
-        ksNesInst_load16_imm,
+        (void*)ksNesInst_load16_imm,
         5, 3,
-        ksNesInst_jmp_6c,
+        (void*)ksNesInst_jmp_6c,
     },
     // 0x6D
     {
-        ksNesInst_load8_abs,
+        (void*)ksNesInst_load8_abs,
         4, 3,
-        ksNesInst_adc_61,
+        (void*)ksNesInst_adc_61,
     },
     // 0x6E
     {
-        ksNesInst_load8_abs,
+        (void*)ksNesInst_load8_abs,
         6, 3,
-        ksNesInst_ror_66,
+        (void*)ksNesInst_ror_66,
     },
     // 0x6F
     {
-        ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
         5, 1,
         NULL,
     },
     // 0x70
     {
-        ksNesInst_bvs_70,
+        (void*)ksNesInst_bvs_70,
         3, 2,
         NULL,
     },
     // 0x71
     {
-        ksNesInst_load8_dyi,
+        (void*)ksNesInst_load8_dyi,
         5, 2,
-        ksNesInst_adc_61,
+        (void*)ksNesInst_adc_61,
     },
     // 0x72
     {
-        ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
         5, 1,
         NULL,
     },
     // 0x73
     {
-        ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
         7, 1,
         NULL,
     },
     // 0x74
     {
-        ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
         4, 1,
         NULL,
     },
     // 0x75
     {
-        ksNesInst_load8_dx,
+        (void*)ksNesInst_load8_dx,
         4, 2,
-        ksNesInst_adc_61,
+        (void*)ksNesInst_adc_61,
     },
     // 0x76
     {
-        ksNesInst_load8_dx,
+        (void*)ksNesInst_load8_dx,
         6, 2,
-        ksNesInst_ror_66,
+        (void*)ksNesInst_ror_66,
     },
     // 0x77
     {
-        ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
         6, 1,
         NULL,
     },
     // 0x78
     {
-        ksNesInst_sei_78,
+        (void*)ksNesInst_sei_78,
         2, 1,
         NULL,
     },
     // 0x79
     {
-        ksNesInst_load8_absy,
+        (void*)ksNesInst_load8_absy,
         4, 3,
-        ksNesInst_adc_61,
+        (void*)ksNesInst_adc_61,
     },
     // 0x7A
     {
-        ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
         4, 1,
         NULL,
     },
     // 0x7B
     {
-        ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
         2, 1,
         NULL,
     },
     // 0x7C
     {
-        ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
         6, 1,
         NULL,
     },
     // 0x7D
     {
-        ksNesInst_load8_absx,
+        (void*)ksNesInst_load8_absx,
         4, 3,
-        ksNesInst_adc_61,
+        (void*)ksNesInst_adc_61,
     },
     // 0x7E
     {
-        ksNesInst_load8_absx,
+        (void*)ksNesInst_load8_absx,
         7, 3,
-        ksNesInst_ror_66,
+        (void*)ksNesInst_ror_66,
     },
     // 0x7F
     {
-        ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
         5, 1,
         NULL,
     },
     // 0x80
     {
-        ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
         2, 1,
         NULL,
     },
     // 0x81
     {
-        ksNesInst_load8_dx,
+        (void*)ksNesInst_load8_dx,
         6, 2,
-        ksNesInst_sta_81,
+        (void*)ksNesInst_sta_81,
     },
     // 0x82
     {
-        ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
         4, 1,
         NULL,
     },
     // 0x83
     {
-        ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
         4, 1,
         NULL,
     },
     // 0x84
     {
-        ksNesInst_sty_84,
+        (void*)ksNesInst_sty_84,
         3, 2,
         NULL,
     },
     // 0x85
     {
-        ksNesInst_sta_85,
+        (void*)ksNesInst_sta_85,
         3, 2,
         NULL,
     },
     // 0x86
     {
-        ksNesInst_stx_86,
+        (void*)ksNesInst_stx_86,
         3, 2,
         NULL,
     },
     // 0x87
     {
-        ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
         6, 1,
         NULL,
     },
     // 0x88
     {
-        ksNesInst_dey_88,
+        (void*)ksNesInst_dey_88,
         2, 1,
         NULL,
     },
     // 0x89
     {
-        ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
         2, 1,
         NULL,
     },
     // 0x8A
     {
-        ksNesInst_txa_8a,
+        (void*)ksNesInst_txa_8a,
         2, 1,
         NULL,
     },
     // 0x8B
     {
-        ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
         3, 1,
         NULL,
     },
     // 0x8C
     {
-        ksNesInst_load16_imm,
+        (void*)ksNesInst_load16_imm,
         4, 3,
-        ksNesInst_sty_8c,
+        (void*)ksNesInst_sty_8c,
     },
     // 0x8D
     {
-        ksNesInst_load16_imm,
+        (void*)ksNesInst_load16_imm,
         4, 3,
-        ksNesInst_sta_8d,
+        (void*)ksNesInst_sta_8d,
     },
     // 0x8E
     {
-        ksNesInst_load16_imm,
+        (void*)ksNesInst_load16_imm,
         4, 3,
-        ksNesInst_stx_8e,
+        (void*)ksNesInst_stx_8e,
     },
     // 0x8F
     {
-        ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
         5, 1,
         NULL,
     },
     // 0x90
     {
-        ksNesInst_bcc_90,
+        (void*)ksNesInst_bcc_90,
         3, 2,
         NULL,
     },
     // 0x91
     {
-        ksNesInst_sta_91,
+        (void*)ksNesInst_sta_91,
         6, 2,
         NULL,
     },
     // 0x92
     {
-        ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
         5, 1,
         NULL,
     },
     // 0x93
     {
-        ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
         7, 1,
         NULL,
     },
     // 0x94
     {
-        ksNesInst_sty_94,
+        (void*)ksNesInst_sty_94,
         4, 2,
         NULL,
     },
     // 0x95
     {
-        ksNesInst_sta_95,
+        (void*)ksNesInst_sta_95,
         4, 2,
         NULL,
     },
     // 0x96
     {
-        ksNesInst_stx_96,
+        (void*)ksNesInst_stx_96,
         4, 2,
         NULL,
     },
     // 0x97
     {
-        ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
         6, 1,
         NULL,
     },
     // 0x98
     {
-        ksNesInst_tya_98,
+        (void*)ksNesInst_tya_98,
         2, 1,
         NULL,
     },
     // 0x99
     {
-        ksNesInst_load16_imm,
+        (void*)ksNesInst_load16_imm,
         5, 3,
-        ksNesInst_sta_99,
+        (void*)ksNesInst_sta_99,
     },
     // 0x9A
     {
-        ksNesInst_txs_9a,
+        (void*)ksNesInst_txs_9a,
         2, 1,
         NULL,
     },
     // 0x9B
     {
-        ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
         2, 1,
         NULL,
     },
     // 0x9C
     {
-        ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
         4, 1,
         NULL,
     },
     // 0x9D
     {
-        ksNesInst_load16_imm,
+        (void*)ksNesInst_load16_imm,
         5, 3,
-        ksNesInst_sta_9d,
+        (void*)ksNesInst_sta_9d,
     },
     // 0x9E
     {
-        ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
         5, 1,
         NULL,
     },
     // 0x9F
     {
-        ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
         5, 1,
         NULL,
     },
     // 0xA0
     {
-        ksNesInst_ldy_a0,
+        (void*)ksNesInst_ldy_a0,
         2, 2,
         NULL,
     },
     // 0xA1
     {
-        ksNesInst_load8_dxi,
+        (void*)ksNesInst_load8_dxi,
         6, 2,
-        ksNesInst_lda_a1,
+        (void*)ksNesInst_lda_a1,
     },
     // 0xA2
     {
-        ksNesInst_ldx_a2,
+        (void*)ksNesInst_ldx_a2,
         2, 2,
         NULL,
     },
     // 0xA3
     {
-        ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
         4, 1,
         NULL,
     },
     // 0xA4
     {
-        ksNesInst_load8_zerop,
+        (void*)ksNesInst_load8_zerop,
         3, 2,
-        ksNesInst_ldy_a0,
+        (void*)ksNesInst_ldy_a0,
     },
     // 0xA5
     {
-        ksNesInst_load8_zerop,
+        (void*)ksNesInst_load8_zerop,
         3, 2,
-        ksNesInst_lda_a1,
+        (void*)ksNesInst_lda_a1,
     },
     // 0xA6
     {
-        ksNesInst_load8_zerop,
+        (void*)ksNesInst_load8_zerop,
         3, 2,
-        ksNesInst_ldx_a2,
+        (void*)ksNesInst_ldx_a2,
     },
     // 0xA7
     {
-        ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
         6, 1,
         NULL,
     },
     // 0xA8
     {
-        ksNesInst_tay_a8,
+        (void*)ksNesInst_tay_a8,
         2, 1,
         NULL,
     },
     // 0xA9
     {
-        ksNesInst_lda_a1,
+        (void*)ksNesInst_lda_a1,
         2, 2,
         NULL,
     },
     // 0xAA
     {
-        ksNesInst_tax_aa,
+        (void*)ksNesInst_tax_aa,
         2, 1,
         NULL,
     },
     // 0xAB
     {
-        ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
         4, 1,
         NULL,
     },
     // 0xAC
     {
-        ksNesInst_load8_abs,
+        (void*)ksNesInst_load8_abs,
         4, 3,
-        ksNesInst_ldy_a0,
+        (void*)ksNesInst_ldy_a0,
     },
     // 0xAD
     {
-        ksNesInst_load8_abs,
+        (void*)ksNesInst_load8_abs,
         4, 3,
-        ksNesInst_lda_a1,
+        (void*)ksNesInst_lda_a1,
     },
     // 0xAE
     {
-        ksNesInst_load8_abs,
+        (void*)ksNesInst_load8_abs,
         4, 3,
-        ksNesInst_ldx_a2,
+        (void*)ksNesInst_ldx_a2,
     },
     // 0xAF
     {
-        ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
         5, 1,
         NULL,
     },
     // 0xB0
     {
-        ksNesInst_bcs_b0,
+        (void*)ksNesInst_bcs_b0,
         3, 2,
         NULL,
     },
     // 0xB1
     {
-        ksNesInst_load8_dyi,
+        (void*)ksNesInst_load8_dyi,
         5, 2,
-        ksNesInst_lda_a1,
+        (void*)ksNesInst_lda_a1,
     },
     // 0xB2
     {
-        ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
         5, 1,
         NULL,
     },
     // 0xB3
     {
-        ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
         7, 1,
         NULL,
     },
     // 0xB4
     {
-        ksNesInst_load8_dx,
+        (void*)ksNesInst_load8_dx,
         4, 2,
-        ksNesInst_ldy_a0,
+        (void*)ksNesInst_ldy_a0,
     },
     // 0xB5
     {
-        ksNesInst_load8_dx,
+        (void*)ksNesInst_load8_dx,
         4, 2,
-        ksNesInst_lda_a1,
+        (void*)ksNesInst_lda_a1,
     },
     // 0xB6
     {
-        ksNesInst_ldx_b6,
+        (void*)ksNesInst_ldx_b6,
         4, 2,
         NULL,
     },
     // 0xB7
     {
-        ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
         6, 1,
         NULL,
     },
     // 0xB8
     {
-        ksNesInst_clv_b8,
+        (void*)ksNesInst_clv_b8,
         2, 1,
         NULL,
     },
     // 0xB9
     {
-        ksNesInst_load8_absy,
+        (void*)ksNesInst_load8_absy,
         4, 3,
-        ksNesInst_lda_a1,
+        (void*)ksNesInst_lda_a1,
     },
     // 0xBA
     {
-        ksNesInst_tsx_ba,
+        (void*)ksNesInst_tsx_ba,
         2, 1,
         NULL,
     },
     // 0xBB
     {
-        ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
         2, 1,
         NULL,
     },
     // 0xBC
     {
-        ksNesInst_load8_absx,
+        (void*)ksNesInst_load8_absx,
         4, 3,
-        ksNesInst_ldy_a0,
+        (void*)ksNesInst_ldy_a0,
     },
     // 0xBD
     {
-        ksNesInst_load8_absx,
+        (void*)ksNesInst_load8_absx,
         4, 3,
-        ksNesInst_lda_a1,
+        (void*)ksNesInst_lda_a1,
     },
     // 0xBE
     {
-        ksNesInst_load8_absy,
+        (void*)ksNesInst_load8_absy,
         4, 3,
-        ksNesInst_ldx_a2,
+        (void*)ksNesInst_ldx_a2,
     },
     // 0xBF
     {
-        ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
         5, 1,
         NULL,
     },
     // 0xC0
     {
-        ksNesInst_cpy_c0,
+        (void*)ksNesInst_cpy_c0,
         2, 2,
         NULL,
     },
     // 0xC1
     {
-        ksNesInst_load8_dxi,
+        (void*)ksNesInst_load8_dxi,
         6, 2,
-        ksNesInst_cmp_c1,
+        (void*)ksNesInst_cmp_c1,
     },
     // 0xC2
     {
-        ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
         3, 1,
         NULL,
     },
     // 0xC3
     {
-        ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
         4, 1,
         NULL,
     },
     // 0xC4
     {
-        ksNesInst_load8_zerop,
+        (void*)ksNesInst_load8_zerop,
         3, 2,
-        ksNesInst_cpy_c0,
+        (void*)ksNesInst_cpy_c0,
     },
     // 0xC5
     {
-        ksNesInst_load8_zerop,
+        (void*)ksNesInst_load8_zerop,
         3, 2,
-        ksNesInst_cmp_c1,
+        (void*)ksNesInst_cmp_c1,
     },
     // 0xC6
     {
-        ksNesInst_load8_zerop,
+        (void*)ksNesInst_load8_zerop,
         5, 2,
-        ksNesInst_dec_c6,
+        (void*)ksNesInst_dec_c6,
     },
     // 0xC7
     {
-        ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
         6, 1,
         NULL,
     },
     // 0xC8
     {
-        ksNesInst_iny_c8,
+        (void*)ksNesInst_iny_c8,
         2, 1,
         NULL,
     },
     // 0xC9
     {
-        ksNesInst_cmp_c1,
+        (void*)ksNesInst_cmp_c1,
         2, 2,
         NULL,
     },
     // 0xCA
     {
-        ksNesInst_dex_ca,
+        (void*)ksNesInst_dex_ca,
         2, 1,
         NULL,
     },
     // 0xCB
     {
-        ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
         3, 1,
         NULL,
     },
     // 0xCC
     {
-        ksNesInst_load8_abs,
+        (void*)ksNesInst_load8_abs,
         4, 3,
-        ksNesInst_cpy_c0,
+        (void*)ksNesInst_cpy_c0,
     },
     // 0xCD
     {
-        ksNesInst_load8_abs,
+        (void*)ksNesInst_load8_abs,
         4, 3,
-        ksNesInst_cmp_c1,
+        (void*)ksNesInst_cmp_c1,
     },
     // 0xCE
     {
-        ksNesInst_load8_abs,
+        (void*)ksNesInst_load8_abs,
         6, 3,
-        ksNesInst_dec_c6,
+        (void*)ksNesInst_dec_c6,
     },
     // 0xCF
     {
-        ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
         5, 1,
         NULL,
     },
     // 0xD0
     {
-        ksNesInst_bne_d0,
+        (void*)ksNesInst_bne_d0,
         3, 2,
         NULL,
     },
     // 0xD1
     {
-        ksNesInst_load8_dyi,
+        (void*)ksNesInst_load8_dyi,
         5, 2,
-        ksNesInst_cmp_c1,
+        (void*)ksNesInst_cmp_c1,
     },
     // 0xD2
     {
-        ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
         5, 1,
         NULL,
     },
     // 0xD3
     {
-        ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
         7, 1,
         NULL,
     },
     // 0xD4
     {
-        ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
         6, 1,
         NULL,
     },
     // 0xD5
     {
-        ksNesInst_load8_dx,
+        (void*)ksNesInst_load8_dx,
         4, 2,
-        ksNesInst_cmp_c1,
+        (void*)ksNesInst_cmp_c1,
     },
     // 0xD6
     {
-        ksNesInst_load8_dx,
+        (void*)ksNesInst_load8_dx,
         6, 2,
-        ksNesInst_dec_c6,
+        (void*)ksNesInst_dec_c6,
     },
     // 0xD7
     {
-        ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
         6, 1,
         NULL,
     },
     // 0xD8
     {
-        ksNesInst_cld_d8,
+        (void*)ksNesInst_cld_d8,
         2, 1,
         NULL,
     },
     // 0xD9
     {
-        ksNesInst_load8_absy,
+        (void*)ksNesInst_load8_absy,
         4, 3,
-        ksNesInst_cmp_c1,
+        (void*)ksNesInst_cmp_c1,
     },
     // 0xDA
     {
-        ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
         3, 1,
         NULL,
     },
     // 0xDB
     {
-        ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
         3, 1,
         NULL,
     },
     // 0xDC
     {
-        ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
         6, 1,
         NULL,
     },
     // 0xDD
     {
-        ksNesInst_load8_absx,
+        (void*)ksNesInst_load8_absx,
         4, 3,
-        ksNesInst_cmp_c1,
+        (void*)ksNesInst_cmp_c1,
     },
     // 0xDE
     {
-        ksNesInst_load8_absx,
+        (void*)ksNesInst_load8_absx,
         7, 3,
-        ksNesInst_dec_c6,
+        (void*)ksNesInst_dec_c6,
     },
     // 0xDF
     {
-        ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
         5, 1,
         NULL,
     },
     // 0xE0
     {
-        ksNesInst_cpx_e0,
+        (void*)ksNesInst_cpx_e0,
         2, 2,
         NULL,
     },
     // 0xE1
     {
-        ksNesInst_load8_dxi,
+        (void*)ksNesInst_load8_dxi,
         6, 2,
-        ksNesInst_sbc_e1,
+        (void*)ksNesInst_sbc_e1,
     },
     // 0xE2
     {
-        ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
         3, 1,
         NULL,
     },
     // 0xE3
     {
-        ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
         4, 1,
         NULL,
     },
     // 0xE4
     {
-        ksNesInst_load8_zerop,
+        (void*)ksNesInst_load8_zerop,
         3, 2,
-        ksNesInst_cpx_e0,
+        (void*)ksNesInst_cpx_e0,
     },
     // 0xE5
     {
-        ksNesInst_load8_zerop,
+        (void*)ksNesInst_load8_zerop,
         3, 2,
-        ksNesInst_sbc_e1,
+        (void*)ksNesInst_sbc_e1,
     },
     // 0xE6
     {
-        ksNesInst_load8_zerop,
+        (void*)ksNesInst_load8_zerop,
         5, 2,
-        ksNesInst_inc_e6,
+        (void*)ksNesInst_inc_e6,
     },
     // 0xE7
     {
-        ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
         6, 1,
         NULL,
     },
     // 0xE8
     {
-        ksNesInst_inx_e8,
+        (void*)ksNesInst_inx_e8,
         2, 1,
         NULL,
     },
     // 0xE9
     {
-        ksNesInst_sbc_e1,
+        (void*)ksNesInst_sbc_e1,
         2, 2,
         NULL,
     },
     // 0xEA
     {
-        ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
         2, 1,
         NULL,
     },
     // 0xEB
     {
-        ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
         3, 1,
         NULL,
     },
     // 0xEC
     {
-        ksNesInst_load8_abs,
+        (void*)ksNesInst_load8_abs,
         4, 3,
-        ksNesInst_cpx_e0,
+        (void*)ksNesInst_cpx_e0,
     },
     // 0xED
     {
-        ksNesInst_load8_abs,
+        (void*)ksNesInst_load8_abs,
         4, 3,
-        ksNesInst_sbc_e1,
+        (void*)ksNesInst_sbc_e1,
     },
     // 0xEE
     {
-        ksNesInst_load8_abs,
+        (void*)ksNesInst_load8_abs,
         6, 3,
-        ksNesInst_inc_e6,
+        (void*)ksNesInst_inc_e6,
     },
     // 0xEF
     {
-        ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
         5, 1,
         NULL,
     },
     // 0xF0
     {
-        ksNesInst_beq_f0,
+        (void*)ksNesInst_beq_f0,
         3, 2,
         NULL,
     },
     // 0xF1
     {
-        ksNesInst_load8_dyi,
+        (void*)ksNesInst_load8_dyi,
         5, 2,
-        ksNesInst_sbc_e1,
+        (void*)ksNesInst_sbc_e1,
     },
     // 0xF2
     {
-        ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
         5, 1,
         NULL,
     },
     // 0xF3
     {
-        ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
         7, 1,
         NULL,
     },
     // 0xF4
     {
-        ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
         5, 1,
         NULL,
     },
     // 0xF5
     {
-        ksNesInst_load8_dx,
+        (void*)ksNesInst_load8_dx,
         4, 2,
-        ksNesInst_sbc_e1,
+        (void*)ksNesInst_sbc_e1,
     },
     // 0xF6
     {
-        ksNesInst_load8_dx,
+        (void*)ksNesInst_load8_dx,
         6, 2,
-        ksNesInst_inc_e6,
+        (void*)ksNesInst_inc_e6,
     },
     // 0xF7
     {
-        ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
         6, 1,
         NULL,
     },
     // 0xF8
     {
-        ksNesInst_sed_f8,
+        (void*)ksNesInst_sed_f8,
         2, 1,
         NULL,
     },
     // 0xF9
     {
-        ksNesInst_load8_absy,
+        (void*)ksNesInst_load8_absy,
         4, 3,
-        ksNesInst_sbc_e1,
+        (void*)ksNesInst_sbc_e1,
     },
     // 0xFA
     {
-        ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
         4, 1,
         NULL,
     },
     // 0xFB
     {
-        ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
         2, 1,
         NULL,
     },
     // 0xFC
     {
-        ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
         6, 1,
         NULL,
     },
     // 0xFD
     {
-        ksNesInst_load8_absx,
+        (void*)ksNesInst_load8_absx,
         4, 3,
-        ksNesInst_sbc_e1,
+        (void*)ksNesInst_sbc_e1,
     },
     // 0xFE
     {
-        ksNesInst_load8_absx,
+        (void*)ksNesInst_load8_absx,
         7, 3,
-        ksNesInst_inc_e6,
+        (void*)ksNesInst_inc_e6,
     },
     // 0xFF
     {
-        ksNesLinecntIrqDefault,
+        (void*)ksNesLinecntIrqDefault,
         5, 1,
         NULL,
     },
@@ -2608,8 +2607,10 @@ void ksNesPushResetButton(ksNesStateObj* sp) {
 
     sp->qd_disk_head_position.full = 0;
 
-    // fds control register initialized to 0x27, bit 5 on, transfer mode is read, motor is stopped, and transfer timing state is reset
-    sp->fds_control_register = KS_NES_FDS_CTRL_FLG_5 | KS_NES_FDS_CTRL_FLG_TRANSFER_MODE | KS_NES_FDS_CTRL_FLG_MOTOR | KS_NES_FDS_CTRL_FLG_TRANSFER_RESET;
+    // fds control register initialized to 0x27, bit 5 on, transfer mode is read, motor is stopped, and transfer timing
+    // state is reset
+    sp->fds_control_register = KS_NES_FDS_CTRL_FLG_5 | KS_NES_FDS_CTRL_FLG_TRANSFER_MODE | KS_NES_FDS_CTRL_FLG_MOTOR |
+                               KS_NES_FDS_CTRL_FLG_TRANSFER_RESET;
     sp->_16BC = 0x27;
 
     sp->motor_timer = 0;
@@ -2650,8 +2651,9 @@ int ksNesReset(ksNesCommonWorkObj* wp, ksNesStateObj* sp, u32 flags, u8* chrramp
 
     // looks like we're checking memory alignment.
     // maybe done for performance reasons?
-    if ((uint)wp & 0x1f || (uint)sp & 0x1f || (uint)&wp->draw_ctx & 0x1f || (uint)&wp->draw_ctx.ppu_scanline_regs & 0x1f ||
-        (uint)sp->ppu_chr_banks & 0x03 || (uint)&wp->draw_ctx.post_process_lut & 0x1f) {
+    if ((uint)wp & 0x1f || (uint)sp & 0x1f || (uint)&wp->draw_ctx & 0x1f ||
+        (uint)&wp->draw_ctx.ppu_scanline_regs & 0x1f || (uint)sp->ppu_chr_banks & 0x03 ||
+        (uint)&wp->draw_ctx.post_process_lut & 0x1f) {
         return 0x515;
     }
 
@@ -2731,7 +2733,8 @@ int ksNesReset(ksNesCommonWorkObj* wp, ksNesStateObj* sp, u32 flags, u8* chrramp
         // extract the chr ram/rom size from the ines header and convert it from 8k chunks to bytes.
         sp->chr_size = (size_t)sp->nesromp[0x5] << 0xd;
 
-        if ((sp->chr_size > 0x40000) && ((sp->mapper != KS_NES_MAPPER_MMC5 || (wp->chr_to_i8_buf_size < sp->chr_size << 2)))) {
+        if ((sp->chr_size > 0x40000) &&
+            ((sp->mapper != KS_NES_MAPPER_MMC5 || (wp->chr_to_i8_buf_size < sp->chr_size << 2)))) {
             return 0x584;
         }
 
@@ -2808,11 +2811,11 @@ int ksNesReset(ksNesCommonWorkObj* wp, ksNesStateObj* sp, u32 flags, u8* chrramp
 
     DCFlushRangeNoSync(wp->chr_to_u8_bufp, wp->chr_to_i8_buf_size);
 
-    sp->cpu_cycles_per_visible_scanline = -7614; // 113.6666666666... * 64 (close?)
+    sp->cpu_cycles_per_visible_scanline = -7614;  // 113.6666666666... * 64 (close?)
     sp->cpu_cycles_per_vblank_scanline = -0x2a00; // -10752
-    sp->cpu_cycles_for_nmi = -0x2800; // -10240
+    sp->cpu_cycles_for_nmi = -0x2800;             // -10240
 
-    sp->mapper_irq_handler = ksNesLinecntIrqDefault;
+    sp->mapper_irq_handler = (void*)ksNesLinecntIrqDefault;
 
     memcpy(sp->store_func, ksNesStoreFuncTblDefault, sizeof(ksNesStoreFuncTblDefault));
     memcpy(sp->store_ppu_func, ksNesStorePPUFuncTblDefault, sizeof(ksNesStorePPUFuncTblDefault));
@@ -2834,10 +2837,11 @@ int ksNesReset(ksNesCommonWorkObj* wp, ksNesStateObj* sp, u32 flags, u8* chrramp
     if (bbramp) {
         sp->cpu_6000_7fff = bbramp - 0x6000;
 
-        sp->store_func[3] = ksNesStoreBBRAM;
-        sp->load_func[3] = ksNesLoadBBRAM;
+        sp->store_func[3] = (void*)ksNesStoreBBRAM;
+        sp->load_func[3] = (void*)ksNesLoadBBRAM;
 
-        sp->bbram_mode_select = flags & 0x10 ? 3 : 0; // 0x10 = bbram multi-bank (0-3), unset = single-bank mode (only 0)
+        sp->bbram_mode_select =
+            flags & 0x10 ? 3 : 0; // 0x10 = bbram multi-bank (0-3), unset = single-bank mode (only 0)
     }
 
     if (*sp->nesromp == 1) {
@@ -2848,14 +2852,15 @@ int ksNesReset(ksNesCommonWorkObj* wp, ksNesStateObj* sp, u32 flags, u8* chrramp
         sp->cpu_c000_dfff = sp->bbramp - 0x6000;
         sp->cpu_e000_ffff = wp->noise_bufp - 0xe000;
 
-        sp->store_func[4] = ksNesStoreBBRAM;
-        sp->store_func[5] = ksNesStoreBBRAM;
-        sp->store_func[6] = ksNesStoreBBRAM;
-        sp->mapper_irq_handler = ksNesLinecntIrqQD;
+        sp->store_func[4] = (void*)ksNesStoreBBRAM;
+        sp->store_func[5] = (void*)ksNesStoreBBRAM;
+        sp->store_func[6] = (void*)ksNesStoreBBRAM;
+        sp->mapper_irq_handler = (void*)ksNesLinecntIrqQD;
 
         wp->noise_bufp[0xebd] = 0x42;
         sp->fds_disk_drive_status = 0x47; // same as below
-        sp->qd_drive.registers.drive_status = 0x47; // 0x40 = ?, 0x04 = disk write protected or ejected, 0x02 = disk not ready, 0x01 = disk not inserted
+        sp->qd_drive.registers.drive_status =
+            0x47; // 0x40 = ?, 0x04 = disk write protected or ejected, 0x02 = disk not ready, 0x01 = disk not inserted
         sp->qd_drive.registers.expansion_connector = 0x80; // battery voltage flag is good (0 = low, 1 = OK)
 
         // looks to be a special case for one particular rom
@@ -2981,7 +2986,7 @@ void ksNesEmuFrame(ksNesCommonWorkObj* wp, ksNesStateObj* sp, u32 flags) {
 #define REGISTER_TEMP_26 r26
 #define WRAM r31
 
-// clang-format off
+#ifdef __MWERKS__ // clang-format off
 asm u32 ksNesResetAsm(register ksNesCommonWorkObj* work, register ksNesStateObj* state)
 {
     register void* func_tbl;
@@ -7416,6 +7421,6 @@ L_8003DE94:
     b ksNesLinecntIrqDefault
 }
 
-// clang-format on
+#endif // clang-format on
 
 // void ksNesStoreBBRAM() {}

@@ -1,7 +1,7 @@
 #include "JSystem/JGadget/linklist.h"
 
-#include "MSL_CPP/algorithm.h"
-#include "MSL_CPP/iterator.h"
+#include <algorithm>
+#include <iterator>
 
 namespace JGadget {
 

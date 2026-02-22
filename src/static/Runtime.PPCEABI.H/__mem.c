@@ -1,4 +1,3 @@
-#include "_mem.h"
 
 __declspec(section ".init") void* memcpy(void* dst, const void* src, size_t size) {
     const unsigned char* s;

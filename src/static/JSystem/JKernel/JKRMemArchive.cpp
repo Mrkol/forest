@@ -191,7 +191,7 @@ u32 JKRMemArchive::fetchResource_subroutine(u8* src, u32 srcLength, u8* dst, u32
             return alignedSrc;
 
         case JKRCOMPRESSION_YAY0:
-        case JKRCOMPRESSION_YAZ0:
+        case JKRCOMPRESSION_YAZ0: {
             u32 expandSize = JKRDecompExpandSize(src);
 
             if (expandSize > alignedDst) {
@@ -200,6 +200,7 @@ u32 JKRMemArchive::fetchResource_subroutine(u8* src, u32 srcLength, u8* dst, u32
 
             JKRDecompress(src, dst, expandSize, 0);
             return expandSize;
+        }
 
         default: {
             JPANIC(709, ":::??? bad sequence\n");

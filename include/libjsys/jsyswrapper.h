@@ -2,6 +2,7 @@
 #define JSYSWRAPPER_H
 
 #include "dolphin/pad.h"
+#include "stdarg.h"
 #include "types.h"
 #include "JSystem/JKernel/JKREnum.h"
 #include "JSystem/JUtility/JUTEnum.h"

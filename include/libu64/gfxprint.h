@@ -1,6 +1,7 @@
 #ifndef GFXPRINT_H
 #define GFXPRINT_H
 
+#include "stdarg.h"
 #include "types.h"
 #include "libu64/u64types.h"
 #include "PR/mbi.h"

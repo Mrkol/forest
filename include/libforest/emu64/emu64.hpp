@@ -3,11 +3,10 @@
 
 #include "types.h"
 // #include "va_args.h"
-#include <libc/stdarg.h>
-#include "MSL_C/printf.h"
+#include <stdarg.h>
+#include <stdio.h>
 #include "libforest/gbi_extensions.h"
 #include "libforest/emu64/texture_cache.h"
-#include "dolphin/os/__ppc_eabi_init.h"
 #include "dolphin/gx.h"
 #include "dolphin/mtx.h"
 #include "sys_ucode.h"
@@ -578,7 +577,7 @@ class emu64 : public emu64_print {
     void emu64_init();
     void emu64_cleanup();
     void printInfo();
-    void panic(char* msg, char* file, int line);
+    void panic(const char* msg, char* file, int line);
 
     void emu64_change_ucode(void* ucode_p);
     void texconv_tile(u8* addr, u8* converted_addr, unsigned int wd, unsigned int fmt, unsigned int siz,
@@ -697,7 +696,7 @@ class emu64 : public emu64_print {
 
     /* N64 texture format[N64 bit size] -> dol texture format */
     static u8 nChans;
-    static char* warningString[EMU64_WARNING_COUNT];
+    static const char* warningString[EMU64_WARNING_COUNT];
     static u32 warningTime[EMU64_WARNING_COUNT];
     static bool displayWarning;
     static const u16 fmtxtbl[8][4];

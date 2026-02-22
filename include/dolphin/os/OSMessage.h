@@ -1,7 +1,7 @@
 #ifndef _DOLPHIN_OS_OSMESSAGE_H
 #define _DOLPHIN_OS_OSMESSAGE_H
 
-#include "types.h"
+#include <dolphin/types.h>
 #include "dolphin/os/OSUtil.h"
 #include "dolphin/os/OSThread.h"
 

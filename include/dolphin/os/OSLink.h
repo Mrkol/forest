@@ -24,8 +24,8 @@ struct OSModuleQueue {
     OSModuleInfo* tail;
 };
 
-OSModuleQueue __OSModuleList AT_ADDRESS(0x800030C8);
-void* __OSStringTable AT_ADDRESS(0x800030D0);
+extern OSModuleQueue __OSModuleList AT_ADDRESS(0x800030C8);
+extern void* __OSStringTable AT_ADDRESS(0x800030D0);
 
 struct OSModuleLink {
     OSModuleInfo* next;

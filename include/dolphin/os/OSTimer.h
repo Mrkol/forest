@@ -3,7 +3,7 @@
 #ifndef DOLPHIN_OS_TIMER_H
 #define DOLPHIN_OS_TIMER_H
 
-#include "types.h"
+#include <dolphin/types.h>
 #include "dolphin/os/OSAlarm.h"
 #include "dolphin/os/OSMessage.h"
 

@@ -2,13 +2,24 @@
 #define SYS_MATH_H
 
 #include "types.h"
-#include "MSL_C/math.h"
+#include <math.h>
 #include "libc64/qrand.h"
 #include "m_lib.h"
 
 #ifdef __cplusplus
 extern "C" {
 #endif
+
+#ifndef M_PI
+#define M_PI 3.14159265358979323846
+#endif
+
+#define PI M_PI
+#define F_PI ((f32)PI)
+
+#define SQRT2 (1.4142135623730950488016887242097)
+#define F_SQRT2 ((f32)SQRT2)
+#define F_SQRT2_DIV2 (0.707106f)
 
 #define SHT_MIN_S -32768 /* 0x8000 */
 #define SHT_MAX_S 32767  /* 0x7FFF */
@@ -23,13 +34,6 @@ extern "C" {
 
 #define USHT_MIN ((f32)USHT_MIN_S)
 #define USHT_MAX ((f32)USHT_MAX_S)
-
-#if VERSION >= VER_GAFU01_00
-extern u32 __float_max[];
-#define FLT_MAX (*(float*)__float_max)
-#else
-#define FLT_MAX (3.4028235e+38f)
-#endif
 
 /* Macro to generate a random float in the range of [0, n) */
 #define RANDOM_F(n) (fqrand() * (f32)(n))

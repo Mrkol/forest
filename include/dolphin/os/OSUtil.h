@@ -1,7 +1,7 @@
 #ifndef OS_UTIL_H
 #define OS_UTIL_H
 
-#include "types.h"
+#include <dolphin/types.h>
 
 #ifdef __cplusplus
 extern "C"

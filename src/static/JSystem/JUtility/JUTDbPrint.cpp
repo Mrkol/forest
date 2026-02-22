@@ -1,4 +1,4 @@
-#include "MSL_C/printf.h"
+#include <stdio.h>
 #include "JSystem/JUtility/JUTDbPrint.h"
 #include "JSystem/J2D/J2DGrafContext.h"
 #include "JSystem/JKernel/JKRHeap.h"
@@ -96,7 +96,7 @@ void JUTReport(int x, int y, const char* fmt, ...) {
     if (n >= 0) {
         JUTDbPrint::getManager()->enter(x, y, 1, buf, n < 256 ? n : 255);
     }
-    va_end();
+    va_end(vl);
 }
 
 void JUTReport(int x, int y, int duration, const char* fmt, ...) {

@@ -6,7 +6,6 @@
 #include "jaudio_NES/ipldec.h"
 #include "gba/GBAPriv.h"
 #include "dolphin/dsp.h"
-#include "_mem.h"
 
 static s32 F152(DSPTaskInfo* task) {
     s32 chan; // r31

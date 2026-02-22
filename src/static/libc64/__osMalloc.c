@@ -253,7 +253,7 @@ static void* __osMalloc_NoLock(OSArena* arena, u32 size) {
     return __osMallocAlign_NoLock(arena, size, 0);
 }
 
-extern void* __osMallocAlign(OSArena* arena, u32 size, u32 align) {
+extern void* __osMallocAlign(OSArena* arena, size_t size, size_t align) {
     void* ret;
     
     arena_lock(arena);
@@ -262,11 +262,11 @@ extern void* __osMallocAlign(OSArena* arena, u32 size, u32 align) {
     return ret;
 }
 
-extern void* __osMalloc(OSArena* arena, u32 size) {
+extern void* __osMalloc(OSArena* arena, size_t size) {
     return __osMallocAlign(arena, size, 0);
 }
 
-extern void* __osMallocR(OSArena* arena, u32 size) {
+extern void* __osMallocR(OSArena* arena, size_t size) {
     OSMemBlock* block;
     OSMemBlock* next;
     OSMemBlock* n;
@@ -394,7 +394,7 @@ static void* __osFree_NoLock_DEBUG(OSArena* arena, void* ptr) {
 }
 
 #pragma force_active on
-extern void* __osRealloc(OSArena* arena, void* ptr, u32 size) {
+extern void* __osRealloc(OSArena* arena, void* ptr, size_t size) {
     void* new_ptr;
     OSMemBlock* orig_block;
     OSMemBlock* next;
@@ -509,7 +509,7 @@ static int __osAnalyzeArena(OSArena* arena, u32* ptr) {
     return 0;
 }
 
-extern void __osGetFreeArena(OSArena* arena, u32* max_free_block_size, u32* free_blocks_size, u32* used_blocks_size) {
+extern void __osGetFreeArena(OSArena* arena, size_t* max_free_block_size, size_t* free_blocks_size, size_t* used_blocks_size) {
     u32 data[5];
     
     if (__osAnalyzeArena(arena, data) == 0) {
@@ -528,7 +528,7 @@ extern void __osGetFreeArena(OSArena* arena, u32* max_free_block_size, u32* free
 }
 
 extern u32 __osGetTotalFreeSize(OSArena* arena) {
-    u32 total_free_size;
+    size_t total_free_size;
 
     __osGetFreeArena(arena, NULL, &total_free_size, NULL);
     return total_free_size;
@@ -536,7 +536,7 @@ extern u32 __osGetTotalFreeSize(OSArena* arena) {
 
 #pragma force_active on
 extern u32 __osGetFreeSize(OSArena* arena) {
-    u32 free_size;
+    size_t free_size;
 
     __osGetFreeArena(arena, &free_size, NULL, NULL);
     return free_size;

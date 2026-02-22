@@ -1,7 +1,6 @@
 #include "m_event.h"
 
 #include "libultra/libultra.h"
-#include "_mem.h"
 #include "lb_reki.h"
 #include "ac_aprilfool_control_h.h"
 #include "m_common_data.h"
@@ -331,21 +330,6 @@ static lbRTC_year_t weekday1st_year = 0;
 static lbRTC_weekday_t weekday1st[16];
 static int n_rumor;
 static int rumor_table[40];
-
-// clang-format off
-BSS_ORDER_GROUP_START
-    BSS_ORDER_ITEM(n_today_events)
-    BSS_ORDER_ITEM(status_edge)
-    BSS_ORDER_ITEM(funeral)
-    BSS_ORDER_ITEM(dead)
-    BSS_ORDER_ITEM(weekday1st_year)
-    BSS_ORDER_ITEM(weekday1st)
-    BSS_ORDER_ITEM(event_today)
-    BSS_ORDER_ITEM(index_today)
-    BSS_ORDER_ITEM(n_rumor)
-    BSS_ORDER_ITEM(rumor_table)
-BSS_ORDER_GROUP_END
-// clang-format on
 
 static int last_day_of_month(lbRTC_month_t month) {
     static lbRTC_day_t last_day[lbRTC_MONTHS_MAX] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };

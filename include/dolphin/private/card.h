@@ -1,7 +1,7 @@
 #ifndef CARD_H
 #define CARD_H
 
-#include "types.h"
+#include <dolphin/types.h>
 #include "dolphin/card.h"
 #include "dolphin/dvd.h"
 #include "dolphin/os/OSAlarm.h"

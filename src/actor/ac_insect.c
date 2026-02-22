@@ -14,15 +14,6 @@ static aINS_CTRL_ACTOR* aINS_ctrlActor = NULL;
 static aINS_overlay_c aINS_overlay;
 static aINS_Clip_c aINS_clip;
 
-/* order .bss */
-#ifdef MUST_MATCH
-BSS_ORDER_GROUP_START
-BSS_ORDER_ITEM(aINS_ctrlActor);
-BSS_ORDER_ITEM(aINS_overlay);
-BSS_ORDER_ITEM(aINS_clip);
-BSS_ORDER_GROUP_END
-#endif
-
 static void aINS_actor_ct(ACTOR* actorx, GAME* game);
 static void aINS_actor_dt(ACTOR* actorx, GAME* game);
 static void aINS_actor_move(ACTOR* actorx, GAME* game);

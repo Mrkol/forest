@@ -6,7 +6,6 @@
 #include "m_msg.h"
 #include "m_bgm.h"
 #include "m_event.h"
-#include "_mem.h"
 
 /* Z-X */
 static f32 direct_vector[mDemo_DIRECT_NUM][2] = { { -1.0f, 0.0f },      { -F_SQRT2, F_SQRT2 }, { 0.0f, 1.0f },

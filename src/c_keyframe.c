@@ -1,6 +1,6 @@
 #include "c_keyframe.h"
 
-#include "MSL_C/w_math.h"
+#include <math.h>
 #include "graph.h"
 #include "libultra/libultra.h"
 #include "sys_math3d.h"

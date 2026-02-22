@@ -2,6 +2,9 @@
 #define _DOLPHIN_OSSERIAL_H
 
 #include <dolphin/hw_regs.h>
+#include <dolphin/types.h>
+#include <dolphin/os/OSContext.h>
+#include <dolphin/os/OSTime.h>
 
 #define CHAN_NONE -1
 
@@ -83,8 +86,8 @@ u32 SIGetTypeAsync(s32 chan, SITypeCallback callback);
 u32 SIProbe(s32 chan);
 char* SIGetTypeString(u32 type);
 
-// SISamplingRate.c
 void SISetSamplingRate(u32 msec);
+// SISamplingRate.c
 void SIRefreshSamplingRate(void);
 
 #if DEBUG

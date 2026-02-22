@@ -1,11 +1,12 @@
-#include "MSL_C/MSL_Common/float.h"
+#include <math.h>
+#include <float.h>
 
 #include <dolphin/base/PPCArch.h>
 #include <dolphin/gx.h>
 #include <dolphin/os.h>
 
-#include "MSL_C/printf.h"
-#include "libc/string.h"
+#include <stdio.h>
+#include <string.h>
 
 #include "JSystem/JUtility/JUTException.h"
 #include "JSystem/JUtility/JUTDirectPrint.h"
@@ -46,7 +47,7 @@ JUTErrorHandler JUTException::sPreUserCallback;
 JUTErrorHandler JUTException::sPostUserCallback;
 static CallbackObject exCallbackObject;
 void* JUTException::sConsoleBuffer;
-u32 JUTException::sConsoleBufferSize;
+size_t JUTException::sConsoleBufferSize;
 JUTConsole* JUTException::sConsole;
 u32 JUTException::msr;
 u32 JUTException::fpscr;
@@ -622,7 +623,9 @@ void JUTException::createFB() {
 
     mFrameMemory = (JUTExternalFB*)object;
 }
-// clang-format off
+
+
+#ifdef __MWERKS__ // clang-format off
 asm u32 JUTException::getFpscr() { // TODO: figure out if this is possible with asm
     fralloc
     mfmsr r5
@@ -635,7 +638,7 @@ asm u32 JUTException::getFpscr() { // TODO: figure out if this is possible with 
     frfree
     blr
 }
-// clang-format on
+#endif // clang-format on
 
 JUTErrorHandler JUTException::setPreUserCallback(JUTErrorHandler callback) {
     JUTErrorHandler previous = sPreUserCallback;

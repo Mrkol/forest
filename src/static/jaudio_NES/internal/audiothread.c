@@ -21,10 +21,10 @@
 #define AUDIO_STACK_SIZE 0x1000
 #define AUDIOPROC_MQ_BUF_COUNT 16
 
-#define AUDIOPROC_MESSAGE_UPDATE_DAC ((OSMessage)0)
-#define AUDIOPROC_MESSAGE_DSP_SYNC ((OSMessage)1)
-#define AUDIOPROC_MESSAGE_NEOS_SYNC ((OSMessage)2)
-#define AUDIOPROC_MESSAGE_3 ((OSMessage)3)
+#define AUDIOPROC_MESSAGE_UPDATE_DAC 0
+#define AUDIOPROC_MESSAGE_DSP_SYNC 1
+#define AUDIOPROC_MESSAGE_NEOS_SYNC 2
+#define AUDIOPROC_MESSAGE_3 3
 
 OSThread jac_audioThread;
 OSThread jac_neosThread;
@@ -48,7 +48,7 @@ extern int DspSyncCountCheck(void) {
 
 static void DspSync(void) {
     if (audioproc_mq_init) {
-        OSSendMessage(&audioproc_mq, AUDIOPROC_MESSAGE_DSP_SYNC, OS_MESSAGE_NOBLOCK);
+        OSSendMessage(&audioproc_mq, (OSMessage)AUDIOPROC_MESSAGE_DSP_SYNC, OS_MESSAGE_NOBLOCK);
     } else {
         DSPReleaseHalt();
     }
@@ -64,13 +64,13 @@ static void AudioSync(void) {
     first = FALSE;
     Probe_Start(4, "UPDATE-DAC");
     if (audioproc_mq_init) {
-        OSSendMessage(&audioproc_mq, AUDIOPROC_MESSAGE_UPDATE_DAC, OS_MESSAGE_NOBLOCK);
+        OSSendMessage(&audioproc_mq, (OSMessage)AUDIOPROC_MESSAGE_UPDATE_DAC, OS_MESSAGE_NOBLOCK);
     }
 }
 
 extern void NeosSync(void) {
     if (audioproc_mq_init) {
-        OSSendMessage(&audioproc_mq, AUDIOPROC_MESSAGE_NEOS_SYNC, OS_MESSAGE_BLOCK);
+        OSSendMessage(&audioproc_mq, (OSMessage)AUDIOPROC_MESSAGE_NEOS_SYNC, OS_MESSAGE_BLOCK);
     }
 }
 
@@ -116,12 +116,12 @@ static void* audioproc(void* param) {
 
         OSReceiveMessage(&audioproc_mq, &msg, OS_MESSAGE_BLOCK);
         switch ((int)msg) {
-            case (int)AUDIOPROC_MESSAGE_UPDATE_DAC:
+            case AUDIOPROC_MESSAGE_UPDATE_DAC:
                 Jac_UpdateDAC();
                 break;
-            case (int)AUDIOPROC_MESSAGE_DSP_SYNC:
+            case AUDIOPROC_MESSAGE_DSP_SYNC:
                 if (intcount == 0) {
-                    return;
+                    return 0;
                 }
 
                 intcount--;
@@ -135,10 +135,10 @@ static void* audioproc(void* param) {
                 }
 
                 break;
-            case (int)AUDIOPROC_MESSAGE_NEOS_SYNC:
+            case AUDIOPROC_MESSAGE_NEOS_SYNC:
                 CpuFrameEnd();
                 break;
-            case (int)AUDIOPROC_MESSAGE_3:
+            case AUDIOPROC_MESSAGE_3:
                 OSExitThread(NULL);
                 break;
         }
