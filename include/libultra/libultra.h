@@ -2,8 +2,8 @@
 #define LIBULTRA_H
 
 #include "types.h"
-#include "dolphin/os/OSTime.h"
-#include "dolphin/os/OSCache.h"
+#include <dolphin/os/OSTime.h>
+#include <dolphin/os/OSCache.h>
 #include "libultra/gu.h"
 #include "libultra/osMesg.h"
 #include "libultra/shutdown.h"

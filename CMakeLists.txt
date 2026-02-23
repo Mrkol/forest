@@ -12,6 +12,21 @@ if(PROJECT_SOURCE_DIR STREQUAL PROJECT_BINARY_DIR)
     )
 endif()
 
+# Use static MSVC runtime (/MT or /MTd) for consistency with Dawn/abseil
+set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
+
+include("cmake/get_cpm.cmake")
+
+set(CPM_aurora_SOURCE "${PROJECT_SOURCE_DIR}/../aurora")
+
+CPMAddPackage(
+  NAME aurora
+  GITHUB_REPOSITORY encounter/aurora
+  GIT_TAG bd20b65d59c2bd119e078ee87a8b896cc82994d2
+  OPTIONS
+    "AURORA_ENABLE_GX OFF"
+)
+
 # ==============================================================================
 # Global settings
 # ==============================================================================
@@ -38,6 +53,12 @@ set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 
 # Base include directories shared by ALL targets
 add_library(forest_includes INTERFACE)
+# Aurora provides replacement Dolphin SDK headers (gx, pad, si, vi, mtx, types).
+# Place aurora's include dir BEFORE our own so its dolphin/ headers take precedence
+# over the project's stubs for the APIs aurora implements.
+target_include_directories(forest_includes BEFORE INTERFACE
+    ${aurora_SOURCE_DIR}/include
+)
 target_include_directories(forest_includes INTERFACE
     ${CMAKE_SOURCE_DIR}/include
     ${CMAKE_SOURCE_DIR}    # for "assets/..." includes in bootdata/logo sources
@@ -852,9 +873,13 @@ set(FOREST_ALL_LIBS ${FOREST_STATIC_LIBS} ${FOREST_REL_LIBS})
 
 add_executable(forest_dol src/pc/dol_main.c)
 target_link_libraries(forest_dol PRIVATE
-    -Wl,--start-group
     ${FOREST_STATIC_LIBS}
-    -Wl,--end-group
+    aurora::core
+    aurora::pad
+    aurora::si
+    aurora::main
+    aurora::mtx
+    aurora::vi
 )
 set_target_properties(forest_dol PROPERTIES
     OUTPUT_NAME "animal_crossing"

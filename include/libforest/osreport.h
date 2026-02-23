@@ -1,10 +1,10 @@
 #ifndef OSREPORT_H
 #define OSREPORT_H
 
-#include "dolphin/types.h"
+#include <dolphin/types.h>
 // #include "va_args.h"
-#include "dolphin/os/OSMutex.h"
-#include "dolphin/os/OSThread.h"
+#include <dolphin/os/OSMutex.h>
+#include <dolphin/os/OSThread.h>
 
 #ifdef __cplusplus
 extern "C" {

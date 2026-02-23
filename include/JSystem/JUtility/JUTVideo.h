@@ -2,10 +2,10 @@
 #define JUTVIDEO_H
 
 #include "types.h"
-#include "dolphin/os/OSTime.h"
-#include "dolphin/os.h"
-#include "dolphin/gx.h"
-#include "dolphin/vi.h"
+#include <dolphin/os/OSTime.h>
+#include <dolphin/os.h>
+#include <dolphin/gx.h>
+#include <dolphin/vi.h>
 
 #ifdef __cplusplus
 
@@ -18,8 +18,8 @@ struct JUTVideo {
 
     static JUTVideo* createManager(const GXRenderModeObj*);
     static void destroyManager();
-    static void preRetraceProc(unsigned long);
-    static void postRetraceProc(unsigned long);
+    static void preRetraceProc(u32);
+    static void postRetraceProc(u32);
     static void drawDoneCallback();
 
     u32 getEfbHeight() const {

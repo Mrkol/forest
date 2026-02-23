@@ -1,12 +1,12 @@
 #include "dvderr.h"
 
 #include "libultra/libultra.h"
-#include "dolphin/dvd.h"
+#include <dolphin/dvd.h>
 #include "libforest/gbi_extensions.h"
 #include "libforest/emu64/emu64_wrapper.h"
 #include "jsyswrap.h"
-#include "dolphin/vi.h"
-#include "dolphin/gx.h"
+#include <dolphin/vi.h>
+#include <dolphin/gx.h>
 
 /* imports */
 static u8 dvd_keikoku_moji1_1_tex[] ATTRIBUTE_ALIGN(32) = {

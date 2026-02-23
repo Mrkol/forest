@@ -1,5 +1,5 @@
 #include "jaudio_NES/os.h"
-#include "dolphin/os.h"
+#include <dolphin/os.h>
 #include "jaudio_NES/dummyrom.h"
 #include "jaudio_NES/sample.h"
 

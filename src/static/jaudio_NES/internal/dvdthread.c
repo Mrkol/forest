@@ -1,11 +1,11 @@
 #include "jaudio_NES/dvdthread.h"
 #include "jaudio_NES/sample.h"
 #include "jaudio_NES/aictrl.h"
-#include "dolphin/os.h"
-#include "dolphin/dvd.h"
-#include "dolphin/ar.h"
+#include <dolphin/os.h>
+#include <dolphin/dvd.h>
+#include <dolphin/ar.h>
 #include "string.h"
-#include "dolphin/os/OSTime.h"
+#include <dolphin/os/OSTime.h>
 
 typedef struct DVDCall_ {
     u32 owner;

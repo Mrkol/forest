@@ -1,7 +1,7 @@
 #ifndef JMACRO_H
 #define JMACRO_H
 
-#include "dolphin/os.h"
+#include <dolphin/os.h>
 #include "libforest/osreport.h"
 
 #define JLOG(msg) (OSReport(msg))

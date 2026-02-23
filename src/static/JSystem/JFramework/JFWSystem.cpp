@@ -1,6 +1,6 @@
-#include "dolphin/dvd.h"
-#include "dolphin/gx.h"
-#include "dolphin/os.h"
+#include <dolphin/dvd.h>
+#include <dolphin/gx.h>
+#include <dolphin/os.h>
 #include "JSystem/JKernel/JKRAram.h"
 #include "JSystem/JKernel/JKRHeap.h"
 #include "JSystem/JKernel/JKRExpHeap.h"

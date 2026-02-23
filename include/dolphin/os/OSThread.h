@@ -6,7 +6,7 @@ extern "C"
 {
 #endif
 
-#include "dolphin/os/OSContext.h"
+#include <dolphin/os/OSContext.h>
 
 typedef struct OSThread OSThread;
 typedef struct OSThreadQueue OSThreadQueue;

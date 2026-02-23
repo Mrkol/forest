@@ -4,7 +4,7 @@
 #include "jaudio_NES/melody.h"
 #include "jaudio_NES/rhythm.h"
 #include "jaudio_NES/radio.h"
-#include "dolphin/os/OSRtc.h"
+#include <dolphin/os/OSRtc.h>
 #include "m_common_data.h"
 #include "m_camera2.h"
 #include "sys_math.h"

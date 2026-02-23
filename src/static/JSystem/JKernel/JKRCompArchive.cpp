@@ -8,7 +8,7 @@
 #include "JSystem/JSystem.h"
 #include "JSystem/JUtility/JUTAssertion.h"
 
-JKRCompArchive::JKRCompArchive(long entryNum, EMountDirection mountDirection) : JKRArchive(entryNum, MOUNT_COMP) {
+JKRCompArchive::JKRCompArchive(s32 entryNum, EMountDirection mountDirection) : JKRArchive(entryNum, MOUNT_COMP) {
     mMountDirection = mountDirection;
     if (!open(entryNum)) {
         return;
@@ -51,7 +51,7 @@ JKRCompArchive::~JKRCompArchive() {
     mIsMounted = false;
 }
 
-bool JKRCompArchive::open(long entryNum) {
+bool JKRCompArchive::open(s32 entryNum) {
     mArcInfoBlock = nullptr;
     _60 = 0;
     mAramPart = nullptr;

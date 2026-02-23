@@ -2,7 +2,7 @@
 #define JKRDECOMP_H
 
 #include "types.h"
-#include "dolphin/os/OSMessage.h"
+#include <dolphin/os/OSMessage.h>
 #include "JSystem/JKernel/JKRDvdFile.h"
 #include "JSystem/JKernel/JKRThread.h"
 #include "JSystem/JKernel/JKRAram.h"

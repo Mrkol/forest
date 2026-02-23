@@ -11,7 +11,7 @@
 #include "jaudio_NES/bankdrv.h"
 #include "jaudio_NES/driverinterface.h"
 
-#include "dolphin/os/OSError.h"
+#include <dolphin/os/OSError.h>
 #include <dolphin/os/OSFastCast.h>
 #include <dolphin/os.h>
 

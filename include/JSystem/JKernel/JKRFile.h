@@ -2,8 +2,8 @@
 #define JKRFILE_H
 
 #include "types.h"
-#include "dolphin/dvd.h"
-#include "dolphin/os.h"
+#include <dolphin/dvd.h>
+#include <dolphin/os.h>
 #include "JSystem/JSupport/JSUList.h"
 #include "JSystem/JKernel/JKRDisposer.h"
 #include "JSystem/JKernel/JKRMacro.h"

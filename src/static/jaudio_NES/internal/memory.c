@@ -6,7 +6,7 @@
 #include "jaudio_NES/track.h"
 #include "jaudio_NES/os.h"
 #include "jaudio_NES/system.h"
-#include "dolphin/os.h"
+#include <dolphin/os.h>
 
 void DirtyWave(s32);
 void* __Nas_SzCacheCheck_Inner(s32 a, s32 b, s32 c);

@@ -5,7 +5,7 @@
 
 #include "types.h"
 #include "libultra/os_pfs.h"
-#include "dolphin/os/OSMessage.h"
+#include <dolphin/os/OSMessage.h>
 
 #ifdef __cplusplus
 extern "C" {

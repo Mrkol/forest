@@ -6,7 +6,7 @@
 #include "jaudio_NES/memory.h"
 #include "jaudio_NES/sub_sys.h"
 #include "jaudio_NES/system.h"
-#include "dolphin/os.h"
+#include <dolphin/os.h>
 
 #define COMMON_SCRIPT_END -1
 

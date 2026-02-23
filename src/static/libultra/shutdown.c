@@ -1,8 +1,8 @@
 #include "libultra/libultra.h"
-#include "dolphin/os.h"
-#include "dolphin/dvd.h"
-#include "dolphin/pad.h"
-#include "dolphin/gx.h"
+#include <dolphin/os.h>
+#include <dolphin/dvd.h>
+#include <dolphin/pad.h>
+#include <dolphin/gx.h>
 #include "jaudio_NES/game64.h"
 #include "libultra/initialize.h"
 #include "libjsys/jsyswrapper.h"

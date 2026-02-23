@@ -1,8 +1,8 @@
 #include "executor.h"
 
-#include "dolphin/os/__ppc_eabi_init.h"
-#include "dolphin/os.h"
-#include "dolphin/os/OSContext.h"
+#include <dolphin/os/__ppc_eabi_init.h>
+#include <dolphin/os.h>
+#include <dolphin/os/OSContext.h>
 #include "terminal.h"
 #include "main.h"
 

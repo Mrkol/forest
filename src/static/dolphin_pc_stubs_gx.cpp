@@ -49,7 +49,7 @@ void GXClearVtxDesc(void) {}
 void GXSetNumTexGens(u8 n) { (void)n; }
 void GXEnableTexOffsets(GXTexCoordID c, GXBool line, GXBool point) { (void)c;(void)line;(void)point; }
 
-void GXInitTexObj(GXTexObj* o, void* img, u16 w, u16 h, GXTexFmt fmt, GXTexWrapMode ws, GXTexWrapMode wt, u8 mip) { (void)o;(void)img;(void)w;(void)h;(void)fmt;(void)ws;(void)wt;(void)mip; }
+void GXInitTexObj(GXTexObj* o, const void* img, u16 w, u16 h, GXTexFmt fmt, GXTexWrapMode ws, GXTexWrapMode wt, GXBool mip) { (void)o;(void)img;(void)w;(void)h;(void)fmt;(void)ws;(void)wt;(void)mip; }
 void GXLoadTexObj(GXTexObj* o, GXTexMapID id) { (void)o;(void)id; }
 
 void GXSetNumChans(u8 n) { (void)n; }
@@ -103,10 +103,10 @@ void PSVECNormalize(const Vec* src, Vec* dst) { (void)src;(void)dst; }
 void C_MTXLightOrtho(Mtx mtx, f32 t, f32 b, f32 l, f32 r, f32 scaleS, f32 scaleT, f32 transS, f32 transT) { (void)mtx;(void)t;(void)b;(void)l;(void)r;(void)scaleS;(void)scaleT;(void)transS;(void)transT; }
 
 /* GX Texture (additional) */
-void GXInitTexObjCI(GXTexObj* o, void* img, u16 w, u16 h, GXCITexFmt fmt, GXTexWrapMode ws, GXTexWrapMode wt, u8 mip, u32 tlut) { (void)o;(void)img;(void)w;(void)h;(void)fmt;(void)ws;(void)wt;(void)mip;(void)tlut; }
+void GXInitTexObjCI(GXTexObj* o, const void* img, u16 w, u16 h, GXCITexFmt fmt, GXTexWrapMode ws, GXTexWrapMode wt, GXBool mip, u32 tlut) { (void)o;(void)img;(void)w;(void)h;(void)fmt;(void)ws;(void)wt;(void)mip;(void)tlut; }
 void GXInitTexObjLOD(GXTexObj* o, GXTexFilter minF, GXTexFilter magF, f32 minL, f32 maxL, f32 bias, GXBool biasClamp, GXBool edgeLod, GXAnisotropy aniso) { (void)o;(void)minF;(void)magF;(void)minL;(void)maxL;(void)bias;(void)biasClamp;(void)edgeLod;(void)aniso; }
-void GXInitTlutObj(GXTlutObj* o, void* lut, GXTlutFmt fmt, u16 n) { (void)o;(void)lut;(void)fmt;(void)n; }
-void GXLoadTlut(GXTlutObj* o, u32 idx) { (void)o;(void)idx; }
+void GXInitTlutObj(GXTlutObj* o, const void* lut, GXTlutFmt fmt, u16 n) { (void)o;(void)lut;(void)fmt;(void)n; }
+void GXLoadTlut(const GXTlutObj* o, GXTlut idx) { (void)o;(void)idx; }
 
 /* GX Tev */
 void GXSetTevColor(GXTevRegID id, GXColor c) { (void)id;(void)c; }
@@ -154,7 +154,7 @@ void GXSetDrawDoneCallback(GXDrawDoneCallback cb) { (void)cb; }
 /* GX FrameBuffer */
 void GXSetCopyClear(GXColor c, u32 z) { (void)c;(void)z; }
 void GXSetCopyClamp(GXFBClamp c) { (void)c; }
-void GXSetCopyFilter(GXBool aa, const u8 (*sample)[2], GXBool vf, const u8* vfilter) { (void)aa;(void)sample;(void)vf;(void)vfilter; }
+void GXSetCopyFilter(GXBool aa, u8 sample[12][2], GXBool vf, u8* vfilter) { (void)aa;(void)sample;(void)vf;(void)vfilter; }
 void GXSetDispCopySrc(u16 left, u16 top, u16 wd, u16 ht) { (void)left;(void)top;(void)wd;(void)ht; }
 void GXSetDispCopyDst(u16 wd, u16 ht) { (void)wd;(void)ht; }
 void GXSetDispCopyGamma(GXGamma g) { (void)g; }

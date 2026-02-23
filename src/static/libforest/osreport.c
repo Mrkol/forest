@@ -1,6 +1,6 @@
 #include "libforest/osreport.h"
-#include "dolphin/os/OSInterrupt.h"
-#include "dolphin/os/OSRtc.h"
+#include <dolphin/os/OSInterrupt.h>
+#include <dolphin/os/OSRtc.h>
 
 #include <stdio.h>
 #ifdef TARGET_PC

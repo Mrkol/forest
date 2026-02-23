@@ -48,6 +48,3 @@ int JSUFileInputStream::seekPos(s32 offset, JSUStreamSeekFrom from) {
 
     return this->mPosition - pos;
 }
-
-JSUFileOutputStream::JSUFileOutputStream(JKRFile* file) {
-}

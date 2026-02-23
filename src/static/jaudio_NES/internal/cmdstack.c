@@ -1,6 +1,6 @@
 #include "jaudio_NES/cmdstack.h"
 #include "jaudio_NES/playercall.h"
-#include "dolphin/os.h"
+#include <dolphin/os.h>
 
 JPorthead_ cmd_once;
 JPorthead_ cmd_stay;

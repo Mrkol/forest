@@ -1,6 +1,6 @@
 #include "libultra/libultra.h"
-#include "dolphin/os.h"
-#include "dolphin/os/OSTime.h"
+#include <dolphin/os.h>
+#include <dolphin/os/OSTime.h>
 
 extern OSTime __osTimeOffset;
 s32 osAppNMIBuffer[16];

@@ -1,6 +1,6 @@
 #include "jaudio_NES/fxinterface.h"
 
-#include "dolphin/os.h"
+#include <dolphin/os.h>
 #include "jaudio_NES/sample.h"
 
 static u16 SEND_TABLE[] = {

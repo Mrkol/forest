@@ -6,8 +6,8 @@
 #include "m_common_data.h"
 #include "zurumode.h"
 #include "libultra/libultra.h"
-#include "dolphin/vi.h"
-#include "dolphin/dvd.h"
+#include <dolphin/vi.h>
+#include <dolphin/dvd.h>
 #include "boot.h"
 #include "sys_math.h"
 #include "m_nmibuf.h"

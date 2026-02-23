@@ -2,7 +2,7 @@
 #include "terminal.h"
 // #include "va_args.h"
 #include "jsyswrap.h"
-#include "dolphin/os.h"
+#include <dolphin/os.h>
 
 static fault* this = NULL;
 static fault fault_class;

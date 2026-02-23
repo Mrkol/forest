@@ -45,7 +45,7 @@ JKRDvdArchive::~JKRDvdArchive() {
     }
 }
 
-bool JKRDvdArchive::open(long entryNum) {
+bool JKRDvdArchive::open(s32 entryNum) {
     mArcInfoBlock = nullptr;
     _60 = 0;
     mDirectories = nullptr;
@@ -140,7 +140,7 @@ void* JKRDvdArchive::fetchResource(void* data, u32 compressedSize, SDIFileEntry*
     return data;
 }
 
-u32 JKRDvdArchive::fetchResource_subroutine(long entryNum, u32 offset, u32 size, u8* data, u32 expandSize,
+u32 JKRDvdArchive::fetchResource_subroutine(s32 entryNum, u32 offset, u32 size, u8* data, u32 expandSize,
                                             int fileCompression, int archiveCompression) {
     u32 prevAlignedSize, alignedSize;
 
@@ -195,7 +195,7 @@ u32 JKRDvdArchive::fetchResource_subroutine(long entryNum, u32 offset, u32 size,
     return 0;
 }
 
-u32 JKRDvdArchive::fetchResource_subroutine(long entryNum, u32 offset, u32 size, JKRHeap* heap, int fileCompression,
+u32 JKRDvdArchive::fetchResource_subroutine(s32 entryNum, u32 offset, u32 size, JKRHeap* heap, int fileCompression,
                                             int archiveCompression, u8** pBuf) {
     u32 alignedSize = ALIGN_NEXT(size, 32);
 

@@ -4,8 +4,8 @@
 #include "types.h"
 
 #include "GBA/gba.h"
-#include "dolphin/os.h"
-#include "dolphin/dsp.h"
+#include <dolphin/os.h>
+#include <dolphin/dsp.h>
 
 #ifdef __cplusplus
 extern "C" {

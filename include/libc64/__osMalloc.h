@@ -2,7 +2,7 @@
 #define OS_MALLOC_H
 
 #include "types.h"
-#include "dolphin/os/OSTime.h"
+#include <dolphin/os/OSTime.h>
 #include "libultra/osThread.h"
 #include "libultra/osMesg.h"
 #include "libultra/ultratypes.h"

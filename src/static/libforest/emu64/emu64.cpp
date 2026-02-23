@@ -5,12 +5,12 @@
 #include "terminal.h"
 #include "boot.h"
 #include "libc64/sprintf.h"
-#include "dolphin/mtx.h"
-#include "dolphin/os/OSFastCast.h"
-#include "dolphin/os.h"
+#include <dolphin/mtx.h>
+#include <dolphin/os/OSFastCast.h>
+#include <dolphin/os.h>
 // #include "va_args.h"
 #include "jsyswrap.h"
-#include "dolphin/PPCArch.h"
+#include <dolphin/PPCArch.h>
 
 // this pragma may be unnecessary
 #pragma inline_depth(1024)
@@ -601,7 +601,7 @@ static void emu64_init2(GXRenderModeObj* render_mode) {
     GXEnableTexOffsets(GX_TEXCOORD6, GX_FALSE, GX_FALSE);
     GXEnableTexOffsets(GX_TEXCOORD7, GX_FALSE, GX_FALSE);
 
-    PSMTXIdentity(m);
+    MTXIdentity(m);
     GXLoadPosMtxImm(m, GX_PNMTX0);
     GXLoadNrmMtxImm(m, GX_PNMTX0);
     GXSetCurrentMtx(GX_PNMTX0);
@@ -695,12 +695,12 @@ void emu64::emu64_init() {
     static f32 AAfar = 1.0f;
 
     C_MTXOrtho(this->ortho_mtx, 1.0f, -1.0f, -1.0f, 1.0f, AAnear, AAfar);
-    PSMTXIdentity(this->perspective_mtx);
-    PSMTXIdentity(this->projection_mtx);
-    PSMTXIdentity(this->original_projection_mtx);
-    PSMTXIdentity(this->position_mtx);
-    PSMTXIdentity(this->model_view_mtx_stack[0]);
-    PSMTXIdentity(this->position_mtx_stack[0]);
+    MTXIdentity(this->perspective_mtx);
+    MTXIdentity(this->projection_mtx);
+    MTXIdentity(this->original_projection_mtx);
+    MTXIdentity(this->position_mtx);
+    MTXIdentity(this->model_view_mtx_stack[0]);
+    MTXIdentity(this->position_mtx_stack[0]);
     GXSetProjection(this->ortho_mtx, GX_ORTHOGRAPHIC);
     GXLoadPosMtxImm(this->perspective_mtx, GX_VA_PNMTXIDX);
     GXLoadNrmMtxImm(this->perspective_mtx, GX_VA_PNMTXIDX);
@@ -3749,7 +3749,7 @@ void emu64::dl_G_LOADTLUT() {
                     }
 
                     GXInitTlutObj(&this->tlut_objs[tlut_name], aligned_addr, GX_TL_RGB5A3, count);
-                    GXLoadTlut(&this->tlut_objs[tlut_name], tlut_name);
+                    GXLoadTlut(&this->tlut_objs[tlut_name], (GXTlut)tlut_name);
 
                     EMU64_INFOF("GXInitTlutObj %08x %d pal_no=%d\n", tlut_addr, count, tlut_name);
                 }
@@ -3783,7 +3783,7 @@ void emu64::dl_G_LOADTLUT() {
                     while (count != 0) {
                         tlut_addresses[tlut_name] = (void*)addr;
                         GXInitTlutObj(&this->tlut_objs[tlut_name], tlut, GX_TL_RGB5A3, count);
-                        GXLoadTlut(&this->tlut_objs[tlut_name], tlut_name);
+                        GXLoadTlut(&this->tlut_objs[tlut_name], (GXTlut)tlut_name);
 
                         EMU64_INFOF("GXInitTlutObj %08x %d pal_no=%d\n", addr, (u16)count, tlut_name);
 
@@ -4473,7 +4473,7 @@ void emu64::dl_G_VTX() {
 
             /* Check vertex normal modification type. In AC/e+ only VECNormalize is utilized. */
             if (aflags[AFLAGS_VTX_NORMAL_MODIFY_TYPE] == 0 && (this->geometry_mode & G_TEXTURE_GEN) != 0) {
-                PSVECNormalize(&emu_vtx_p->normal, &emu_vtx_p->normal);
+                VECNormalize(&emu_vtx_p->normal, &emu_vtx_p->normal);
             } else if (aflags[AFLAGS_VTX_NORMAL_MODIFY_TYPE] == 2) {
                 emu_vtx_p->normal.x *= (1.0f / 120.0f);
                 emu_vtx_p->normal.y *= (1.0f / 120.0f);
@@ -4486,9 +4486,9 @@ void emu64::dl_G_VTX() {
 
             /* Convert vectors to correct space */
             if ((emu_vtx_p->flag & MTX_NONSHARED) == MTX_SHARED) {
-                PSMTXMultVec(position_mtx, &emu_vtx_p->position,
+                MTXMultVec(position_mtx, &emu_vtx_p->position,
                              &emu_vtx_p->position); /* Position -> Projection Matrix */
-                PSMTXMultVec(this->model_view_mtx, &emu_vtx_p->normal, &emu_vtx_p->normal); /* Normal -> View Matrix */
+                MTXMultVec(this->model_view_mtx, &emu_vtx_p->normal, &emu_vtx_p->normal); /* Normal -> View Matrix */
             }
 
             /* Color */
@@ -4943,7 +4943,7 @@ void emu64::dl_G_CULLDL() {
             /* MTX_NONSHARED */
             Vec oVec;
             if (aflags[AFLAGS_USE_GUVECMULT] == 0) {
-                PSMTXMultVec(this->position_mtx_stack[this->mtx_stack_size], &vtx->position, &oVec);
+                MTXMultVec(this->position_mtx_stack[this->mtx_stack_size], &vtx->position, &oVec);
             } else {
                 guMtxXFM1F_dol(this->position_mtx_stack[this->mtx_stack_size], vtx->position.x, vtx->position.y,
                                vtx->position.z, &oVec.x, &oVec.y, &oVec.z);
@@ -5319,7 +5319,7 @@ void emu64::dl_G_MOVEMEM() {
                         this->lights[l_idx].attenuation.kq = fastcast_float(&light->p.kq) / 256.0f * 0.000488f;
 
                         if (aflags[AFLAGS_LIGHT_MOVE_TO_MODEL_SPACE] != 0) {
-                            PSMTXMultVec(this->position_mtx_stack[this->mtx_stack_size], &this->lights[l_idx].position,
+                            MTXMultVec(this->position_mtx_stack[this->mtx_stack_size], &this->lights[l_idx].position,
                                          &this->lights[l_idx].position);
                         }
                     } else {
