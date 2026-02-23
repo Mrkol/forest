@@ -5,6 +5,7 @@
 extern OSTime __osTimeOffset;
 s32 osAppNMIBuffer[16];
 
+#ifndef TARGET_PC
 void bcopy(void* __src, void* __dst, size_t __n) {
     memmove(__dst, __src, __n);
 }
@@ -16,6 +17,7 @@ int bcmp(void* __s1, void* __s2, size_t __n) {
 void bzero(void* __s, size_t __n) {
     memset(__s, 0, __n);
 }
+#endif
 
 void osSyncPrintf(const char* format, ...) {
     va_list arg;
