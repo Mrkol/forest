@@ -39,7 +39,7 @@ enum {
 #define artificial_padding(lastOffset, currentOffset, typeOfLastMember) \
     u8 __##currentOffset##padding[currentOffset - lastOffset - sizeof(typeOfLastMember)]
 
-typedef struct _FISH_PRIVATE_DATA;
+struct _FISH_PRIVATE_DATA;
 
 typedef void (*PRIV_FISH_CONSTRUCTOR)(struct _FISH_PRIVATE_DATA*, GAME*);
 typedef void (*PRIV_FISH_MOVE)(struct _FISH_PRIVATE_DATA*, GAME*);
@@ -185,7 +185,6 @@ typedef struct _MUSEUM_FISH_ACTOR {
 //  data
 extern ACTOR_PROFILE Museum_Fish_Profile;
 // technically static, but this helps with vscode includes
-extern xyz_t suisou_pos[5];
 extern int kusa_group_tbl[14];
 extern xyz_t kusa_pos[14];
 extern xyz_t hasu_pos;
