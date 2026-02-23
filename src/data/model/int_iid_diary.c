@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_iid_diary_v[];
 static u8 int_iid_diary[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_iid_diary/int_iid_diary.inc"
 };
@@ -75,3 +74,4 @@ Gfx int_iid_diary_model[] = {
     gsSPNTrianglesInit_5b(2, 25, 26, 27, 25, 27, 28, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

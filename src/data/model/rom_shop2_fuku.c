@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx rom_shop2_fuku_v[];
 static u16 rom_conveni_ent_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/rom_shop2_fuku/rom_conveni_ent_pal.inc"
 };
@@ -261,3 +260,4 @@ Gfx rom_shop2_fuku_model[] = {
     gsSPNTrianglesInit_5b(2, 20, 21, 22, 21, 23, 22, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_tak_cone01_v[];
 static u16 int_tak_cone02_asi_tex_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_tak_cone01/int_tak_cone02_asi_tex_pal.inc"
 };
@@ -60,3 +59,4 @@ Gfx int_tak_cone01_onT_model[] = {
     gsSPNTriangles_5b(18, 3, 19, 0, 0, 0, 0, 0, 0, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

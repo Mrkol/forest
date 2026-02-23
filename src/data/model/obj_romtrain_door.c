@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx obj_romtrain_door_v[];
 u16 obj_romtrain_door_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/obj_romtrain_door_pal.inc"
 };
@@ -75,3 +74,4 @@ cKF_Joint_R_c cKF_je_r_obj_romtrain_door_tbl[] = {
 
 cKF_Skeleton_R_c cKF_bs_r_obj_romtrain_door = { ARRAY_COUNT(cKF_je_r_obj_romtrain_door_tbl), 3,
                                                 cKF_je_r_obj_romtrain_door_tbl };
+

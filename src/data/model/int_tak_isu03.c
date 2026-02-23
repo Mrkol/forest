@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_tak_isu03_v[];
 u16 int_tak_isu03_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_tak_isu03_pal.inc"
 };
@@ -61,3 +60,4 @@ Gfx int_tak_isu03_onT_model[] = {
     gsSPNTriangles_5b(8, 9, 2, 9, 6, 2, 2, 1, 8, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

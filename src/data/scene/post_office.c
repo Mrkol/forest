@@ -6,7 +6,7 @@ extern s16 POST_OFFICE_ctrl_actor_data[];
 extern Actor_data POST_OFFICE_actor_data[];
 extern s16 POST_OFFICE_object_bank[];
 
-extern Scene_Word_u post_office_info[] = {
+Scene_Word_u post_office_info[] = {
     mSc_DATA_SOUND(0, 0),                                  // Sound data
     mSc_DATA_DOOR_DATA(1, POST_OFFICE_door_data),          // Door data
     mSc_DATA_PLAYER(POST_OFFICE_player_data),              // Player Data
@@ -19,7 +19,7 @@ extern Scene_Word_u post_office_info[] = {
     mSc_DATA_END(),                            // End of scene data
 };
 
-extern Actor_data POST_OFFICE_player_data[] = {
+Actor_data POST_OFFICE_player_data[] = {
     {
         mAc_PROFILE_PLAYER, // profile
         { 100, 0, 200 },    // position
@@ -28,7 +28,7 @@ extern Actor_data POST_OFFICE_player_data[] = {
     },
 };
 
-extern s16 POST_OFFICE_ctrl_actor_data[] = {
+s16 POST_OFFICE_ctrl_actor_data[] = {
     mAc_PROFILE_BIRTH_CONTROL,  // 0
     mAc_PROFILE_NPC2,           // 1
     mAc_PROFILE_TOOLS,          // 2
@@ -41,7 +41,7 @@ extern s16 POST_OFFICE_ctrl_actor_data[] = {
     mAc_PROFILE_HOUSE_CLOCK,    // 9
 };
 
-extern Actor_data POST_OFFICE_actor_data[] = {
+Actor_data POST_OFFICE_actor_data[] = {
     {
         mAc_PROFILE_ROOM_SUNSHINE_POSTHOUSE, // profile
         { 40, 0, 160 },                      // position
@@ -62,11 +62,11 @@ extern Actor_data POST_OFFICE_actor_data[] = {
     },
 };
 
-extern s16 POST_OFFICE_object_bank[] = {
+s16 POST_OFFICE_object_bank[] = {
     ACTOR_OBJ_BANK_POSTHOUSE, // 0
 };
 
-extern Door_data_c POST_OFFICE_door_data[] = {
+Door_data_c POST_OFFICE_door_data[] = {
     {
         SCENE_TEST2,     // scene
         1,               // exit orientation

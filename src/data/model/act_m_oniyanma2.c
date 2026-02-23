@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx act_m_oniyanma_v[];
 static Vtx act_m_oniyanma_v[] = {
 #include "assets/act_m_oniyanma2/act_m_oniyanma_v.inc"
 };
@@ -110,3 +109,4 @@ Gfx act_m_mu_oniyanma2_2T_model[] = {
     gsSP2Triangles(3, 4, 5, 0, 3, 5, 0, 0),
     gsSPEndDisplayList(),
 };
+

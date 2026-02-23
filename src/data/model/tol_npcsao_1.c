@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx tol_npcsao_1_v[];
 u16 tol_npcsao_1_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/tol_npcsao_1_pal.inc"
 };
@@ -58,3 +57,4 @@ Gfx tol_npcsao_1_uki_model[] = {
     gsSPNTriangles_5b(7, 1, 0, 7, 0, 8, 0, 0, 0, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

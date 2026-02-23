@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_sum_bon_momiji_v[];
 u16 int_sum_bon_momiji_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_sum_bon_momiji_pal.inc"
 };
@@ -81,3 +80,4 @@ Gfx int_sum_bon_momiji_onT_model[] = {
     gsSPNTriangles_5b(0, 8, 9, 8, 10, 11, 6, 11, 10, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

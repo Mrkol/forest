@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_ike_jny_sirser201_v[];
 u16 int_ike_jny_sirser02_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_ike_jny_sirser02_pal.inc"
 };
@@ -98,3 +97,4 @@ Gfx int_ike_jny_sirser201_body_model[] = {
     gsSPNTriangles_5b(5, 4, 7, 5, 8, 3, 9, 1, 0, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

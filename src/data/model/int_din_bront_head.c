@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_din_bront_head_v[];
 static u16 int_din_bront_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_din_bront_head/int_din_bront_pal.inc"
 };
@@ -79,3 +78,4 @@ Gfx int_din_bront_headT_model[] = {
     gsSPNTriangles_5b(9, 0, 12, 0, 2, 12, 11, 10, 12, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

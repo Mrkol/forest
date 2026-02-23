@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx crw_bag1_v[];
 u16 crw_bag1_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/crw_bag1_pal.inc"
 };
@@ -53,3 +52,4 @@ Gfx crw_bag1_body_model[] = {
     gsSPNTriangles_5b(18, 19, 20, 21, 22, 23, 20, 24, 18, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

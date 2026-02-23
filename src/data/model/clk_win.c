@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx clk_win_v[];
 u8 maru[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/maru.inc"
 };
@@ -93,3 +92,4 @@ Gfx clk_win_mode[] = {
                        0, 0, COMBINED),
     gsSPEndDisplayList(),
 };
+

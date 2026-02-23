@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_yaz_rocket_v[];
 u16 int_yaz_rocket_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_yaz_rocket_pal.inc"
 };
@@ -58,3 +57,4 @@ Gfx int_yaz_rocket_body_model[] = {
     gsSPNTriangles_5b(11, 9, 8, 10, 11, 8, 0, 0, 0, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_nog_medaka_v[];
 static u16 int_nog_medaka_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_nog_medaka/int_nog_medaka_pal.inc"
 };
@@ -147,3 +146,4 @@ cKF_Joint_R_c cKF_je_r_int_nog_medaka_tbl[] = {
 };
 
 cKF_Skeleton_R_c cKF_bs_r_int_nog_medaka = { ARRAY_COUNT(cKF_je_r_int_nog_medaka_tbl), 4, cKF_je_r_int_nog_medaka_tbl };
+

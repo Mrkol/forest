@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_yos_b_feeder_v[];
 u16 int_yaz_b_feeder_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_yaz_b_feeder_pal.inc"
 };
@@ -87,3 +86,4 @@ Gfx int_yaz_b_feeder_body_model[] = {
     gsSPNTrianglesInit_5b(1, 6, 7, 8, 0, 0, 0, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

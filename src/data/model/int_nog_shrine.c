@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_nog_shrine_v[];
 u16 int_nog_shrine_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_nog_shrine_pal.inc"
 };
@@ -118,3 +117,4 @@ Gfx int_nog_shrine_waterT_model[] = {
     gsSPNTriangles_5b(17, 19, 20, 17, 20, 18, 0, 0, 0, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

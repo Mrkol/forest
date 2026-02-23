@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_yos_turkey_mirror_v[];
 u16 int_yos_turkey_mirror_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_yos_turkey_mirror_pal.inc"
 };
@@ -111,3 +110,4 @@ Gfx int_yos_turkey_mirror_env_model[] = {
     gsSPNTriangles_5b(0, 2, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

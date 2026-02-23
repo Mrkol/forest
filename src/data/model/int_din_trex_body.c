@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_din_trex_body_v[];
 static u16 int_din_trex_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_din_trex_body/int_din_trex_pal.inc"
 };
@@ -83,3 +82,4 @@ Gfx int_din_trex_bodyT_model[] = {
     gsSPNTriangles_5b(29, 21, 25, 29, 25, 30, 24, 26, 25, 21, 29, 22),
     gsSPEndDisplayList(),
 };
+

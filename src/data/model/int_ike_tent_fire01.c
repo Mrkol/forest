@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_ike_tent_fire01_v[];
 static u16 int_sum_ayu_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_ike_tent_fire01/int_sum_ayu_pal.inc"
 };
@@ -197,3 +196,4 @@ cKF_Joint_R_c cKF_je_r_int_ike_tent_fire01_tbl[] = {
 
 cKF_Skeleton_R_c cKF_bs_r_int_ike_tent_fire01 = { ARRAY_COUNT(cKF_je_r_int_ike_tent_fire01_tbl), 2,
                                                   cKF_je_r_int_ike_tent_fire01_tbl };
+

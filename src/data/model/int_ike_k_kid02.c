@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_ike_k_kid02_v[];
 u16 int_ike_k_kid02_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_ike_k_kid02_pal.inc"
 };
@@ -124,3 +123,4 @@ Gfx int_ike_k_kid02_onT_model[] = {
     gsSPNTriangles_5b(8, 10, 11, 0, 0, 0, 0, 0, 0, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

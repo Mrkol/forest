@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx obj_suisou1_v[];
 u16 obj_suisou1_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/obj_suisou1_pal.inc"
 };
@@ -143,3 +142,4 @@ Gfx act_mus_fish_set_mode[] = {
     gsSPLoadGeometryMode(G_ZBUFFER | G_SHADE | G_CULL_BACK | G_FOG | G_LIGHTING | G_SHADING_SMOOTH | G_DECAL_LEQUAL),
     gsSPEndDisplayList(),
 };
+

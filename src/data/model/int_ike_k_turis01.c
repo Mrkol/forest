@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_ike_k_turis01_v[];
 u16 int_ike_k_turis01_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_ike_k_turis01_pal.inc"
 };
@@ -133,3 +132,4 @@ Gfx int_ike_k_turis01_body_model[] = {
     gsSPNTriangles_5b(9, 18, 14, 14, 13, 19, 9, 19, 10, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

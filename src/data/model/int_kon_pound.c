@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_kon_pound_v[];
 u16 int_kon_pound_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_kon_pound_pal.inc"
 };
@@ -100,3 +99,4 @@ Gfx int_kon_pound_alphaT_model[] = {
     gsSPNTriangles_5b(0, 4, 5, 0, 5, 6, 0, 0, 0, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

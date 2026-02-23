@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_sum_pl_benjyami_v[];
 u16 int_sum_pl_benjyami_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_sum_pl_benjyami_pal.inc"
 };
@@ -75,3 +74,4 @@ Gfx int_sum_pl_benjyami_onT_model[] = {
     gsSPNTriangles_5b(1, 0, 15, 1, 15, 17, 19, 15, 0, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

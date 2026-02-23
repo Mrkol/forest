@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_ike_art_sya_v[];
 u16 int_ike_art_sya_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_ike_art_sya_pal.inc"
 };
@@ -72,3 +71,4 @@ Gfx int_ike_art_sya01_onT_model[] = {
     gsSPNTriangles_5b(23, 27, 26, 0, 0, 0, 0, 0, 0, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

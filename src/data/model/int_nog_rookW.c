@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_nog_rookW_v[];
 u16 int_nog_rookW_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_nog_rookW_pal.inc"
 };
@@ -63,3 +62,4 @@ Gfx int_nog_rookWT_model[] = {
     gsSPNTriangles_5b(24, 25, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

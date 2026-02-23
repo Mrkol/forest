@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_ike_k_sum01_v[];
 u16 int_ike_k_sum01_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_ike_k_sum01_pal.inc"
 };
@@ -63,3 +62,4 @@ Gfx int_ike_k_sum01_body_model[] = {
     gsSPNTriangles_5b(9, 19, 14, 14, 19, 17, 14, 17, 15, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx tol_kenjyu_1_v[];
 u16 tol_kenjyu_1_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/tol_kenjyu_1_pal.inc"
 };
@@ -42,3 +41,4 @@ Gfx tol_kenjyu_1T_model[] = {
     gsSPNTrianglesInit_5b(1, 0, 1, 2, 0, 0, 0, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_iku_gold_green_v[];
 u16 int_iku_gold_green_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_iku_gold_green_pal.inc"
 };
@@ -76,3 +75,4 @@ Gfx int_iku_gold_green_model[] = {
     gsSPNTriangles_5b(12, 14, 15, 0, 0, 0, 0, 0, 0, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

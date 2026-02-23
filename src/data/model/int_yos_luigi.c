@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_yos_luigi_v[];
 u16 int_yos_luigi_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_yos_luigi_pal.inc"
 };
@@ -128,3 +127,4 @@ Gfx int_yos_luigi_body_model[] = {
     gsSPNTrianglesInit_5b(1, 27, 28, 29, 0, 0, 0, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

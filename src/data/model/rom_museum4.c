@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx rom_museum4_v[];
 extern u8 cliff_tex_dummy[];
 extern u8 cliff_pal_dummy[];
 extern u8 earth_tex_dummy[];
@@ -177,3 +176,4 @@ Gfx rom_museum4_model[] = {
     gsSPNTriangles_5b(1, 8, 9, 8, 3, 10, 0, 0, 0, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

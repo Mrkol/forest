@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_sum_fruittable03_v[];
 u16 int_sum_fruittable03_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_sum_fruittable03_pal.inc"
 };
@@ -50,3 +49,4 @@ Gfx int_sum_fruittable03_on_model[] = {
     gsSPNTriangles_5b(14, 16, 12, 0, 0, 0, 0, 0, 0, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

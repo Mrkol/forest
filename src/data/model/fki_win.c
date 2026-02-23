@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx fki_win_v[];
 u8 fki_win_w2_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/fki_win_w2_tex.inc"
 };
@@ -74,3 +73,4 @@ Gfx fki_win_mode[] = {
     gsSPTexture(0, 0, 0, G_TX_RENDERTILE, G_ON),
     gsSPEndDisplayList(),
 };
+

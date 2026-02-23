@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_nog_lawnmower_v[];
 u16 int_nog_lawnmower_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_nog_lawnmower_pal.inc"
 };
@@ -87,3 +86,4 @@ Gfx int_nog_lawnmower_bodyT_model[] = {
     gsSPNTriangles_5b(8, 9, 10, 10, 11, 8, 10, 12, 11, 10, 13, 12),
     gsSPEndDisplayList(),
 };
+

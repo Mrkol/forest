@@ -291,7 +291,7 @@ static Gfx obj_e_boat_oar1_model[] = {
     gsSPEndDisplayList(),
 };
 
-extern cKF_Joint_R_c cKF_je_r_obj_e_boat_tbl[] = {
+cKF_Joint_R_c cKF_je_r_obj_e_boat_tbl[] = {
     /* joint 0 */ obj_e_boat_boat1_model,
     2,
     cKF_JOINT_FLAG_DISP_OPA,
@@ -336,7 +336,7 @@ extern cKF_Joint_R_c cKF_je_r_obj_e_boat_tbl[] = {
     0,
 };
 
-extern cKF_Skeleton_R_c cKF_bs_r_obj_e_boat = { 7, // 7 total joints
+cKF_Skeleton_R_c cKF_bs_r_obj_e_boat = { 7, // 7 total joints
                                                 5, // 5 displayed joints (rendered joints)
                                                 cKF_je_r_obj_e_boat_tbl };
 
@@ -376,6 +376,6 @@ static s16 cKF_ds_obj_e_boat_tbl[] = {
     81, -180, 83
 };
 
-extern cKF_Animation_R_c cKF_ba_r_obj_e_boat = {
+cKF_Animation_R_c cKF_ba_r_obj_e_boat = {
     cKF_ckcb_r_obj_e_boat_tbl, cKF_ds_obj_e_boat_tbl, cKF_kn_obj_e_boat_tbl, cKF_c_obj_e_boat_tbl, -1, 81
 };

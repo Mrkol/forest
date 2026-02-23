@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_tak_megami_v[];
 u16 int_tak_magami_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_tak_magami_pal.inc"
 };
@@ -169,3 +168,4 @@ Gfx int_tak_megami_onT_model[] = {
     gsSPNTriangles_5b(16, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28),
     gsSPEndDisplayList(),
 };
+

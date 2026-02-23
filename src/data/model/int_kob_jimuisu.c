@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_kob_jimuisu_v[];
 u16 int_kob_jimuisu_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_kob_jimuisu_pal.inc"
 };
@@ -101,3 +100,4 @@ Gfx int_kob_jimuisu_onT_model[] = {
     gsSPNTriangles_5b(20, 22, 21, 19, 18, 23, 19, 23, 20, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

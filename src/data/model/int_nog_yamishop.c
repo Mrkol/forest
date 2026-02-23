@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_nog_yamishop_v[];
 u16 int_nog_yamishop_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_nog_yamishop_pal.inc"
 };
@@ -74,3 +73,4 @@ Gfx int_nog_yamishop_offT_model[] = {
     gsSPNTriangles_5b(6, 7, 8, 4, 6, 8, 0, 0, 0, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

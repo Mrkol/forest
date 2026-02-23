@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_sum_pl_gomunoki_v[];
 u16 int_sum_pl_gomunoki_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_sum_pl_gomunoki_pal.inc"
 };
@@ -79,3 +78,4 @@ Gfx int_sum_pl_gomunoki_onT_model[] = {
     gsSPNTriangles_5b(8, 13, 11, 0, 0, 0, 0, 0, 0, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

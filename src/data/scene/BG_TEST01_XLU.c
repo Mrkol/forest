@@ -3,7 +3,7 @@
 extern Actor_data BG_TEST01_XLU_player_data[];
 extern s16 BG_TEST01_XLU_ctrl_actor_data[];
 
-extern Scene_Word_u BG_TEST01_XLU_info[] = {
+Scene_Word_u BG_TEST01_XLU_info[] = {
     mSc_DATA_SOUND(0, 0),                                    // Sound data
     mSc_DATA_PLAYER(BG_TEST01_XLU_player_data),              // Player Data
     mSc_DATA_CTRL_ACTORS(11, BG_TEST01_XLU_ctrl_actor_data), // Control actors
@@ -12,7 +12,7 @@ extern Scene_Word_u BG_TEST01_XLU_info[] = {
     mSc_DATA_END(),                             // End of scene data
 };
 
-extern Actor_data BG_TEST01_XLU_player_data[] = {
+Actor_data BG_TEST01_XLU_player_data[] = {
     {
         mAc_PROFILE_PLAYER, // profile
         { 340, 0, 430 },    // position
@@ -21,7 +21,7 @@ extern Actor_data BG_TEST01_XLU_player_data[] = {
     },
 };
 
-extern s16 BG_TEST01_XLU_ctrl_actor_data[] = {
+s16 BG_TEST01_XLU_ctrl_actor_data[] = {
     mAc_PROFILE_BIRTH_CONTROL,  // 0
     mAc_PROFILE_NPC,            // 1
     mAc_PROFILE_STRUCTURE,      // 2

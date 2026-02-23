@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx act_m_okuwa_b_v[];
 u8 act_m_okuwa_txt[] = {
 #include "assets/act_m_okuwa_txt.inc"
 };
@@ -99,3 +98,4 @@ cKF_Joint_R_c cKF_je_r_act_m_okuwa_b_tbl[] = {
 };
 
 cKF_Skeleton_R_c cKF_bs_r_act_m_okuwa_b = { ARRAY_COUNT(cKF_je_r_act_m_okuwa_b_tbl), 3, cKF_je_r_act_m_okuwa_b_tbl };
+

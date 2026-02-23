@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_yos_pbstove_v[];
 u16 int_yos_pbstove_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_yos_pbstove_pal.inc"
 };
@@ -87,3 +86,4 @@ Gfx int_yos_pbstove_body_model[] = {
     gsSPNTrianglesInit_5b(3, 0, 1, 2, 3, 4, 5, 6, 7, 8),
     gsSPEndDisplayList(),
 };
+

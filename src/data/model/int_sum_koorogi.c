@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_sum_koorogi_v[];
 u16 int_sum_koorogi_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_sum_koorogi_pal.inc"
 };
@@ -187,3 +186,4 @@ cKF_Joint_R_c cKF_je_r_int_sum_koorogi_tbl[] = {
 
 cKF_Skeleton_R_c cKF_bs_r_int_sum_koorogi = { ARRAY_COUNT(cKF_je_r_int_sum_koorogi_tbl), 7,
                                               cKF_je_r_int_sum_koorogi_tbl };
+

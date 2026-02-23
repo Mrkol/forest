@@ -52,7 +52,7 @@ static Vtx rom_train_in_v[] = {
 #include "assets/field/bg/rom_train_in_v.inc"
 };
 
-extern Gfx rom_train_in_modelT[] = {
+Gfx rom_train_in_modelT[] = {
     gsSPTexture(0, 0, 0, 0, G_ON),
     gsDPSetCombineLERP(PRIMITIVE, ENVIRONMENT, TEXEL0, ENVIRONMENT, TEXEL0, 0, PRIMITIVE, 0, 0, 0, 0, COMBINED, 0, 0, 0,
                        COMBINED),
@@ -108,7 +108,7 @@ extern Gfx rom_train_in_modelT[] = {
     gsSPEndDisplayList(),
 };
 
-extern Gfx rom_train_in_model[] = {
+Gfx rom_train_in_model[] = {
     gsSPTexture(0, 0, 0, 0, G_ON),
     gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, TEXEL0, PRIMITIVE, 0, COMBINED, 0, 0, 0, 0, COMBINED),
     gsDPSetRenderMode(G_RM_FOG_SHADE_A, G_RM_AA_ZB_TEX_EDGE2),

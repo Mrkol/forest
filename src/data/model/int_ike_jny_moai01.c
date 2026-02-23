@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_ike_jny_moai01_v[];
 u16 int_ike_jny_moai01_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_ike_jny_moai01_pal.inc"
 };
@@ -85,3 +84,4 @@ Gfx int_ike_jny_moai01_body_model[] = {
     gsSPNTriangles_5b(6, 0, 7, 3, 6, 7, 3, 7, 8, 8, 7, 2),
     gsSPEndDisplayList(),
 };
+

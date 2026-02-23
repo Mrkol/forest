@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_sum_gre_counter01_v[];
 u16 int_sum_gre_counter01_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_sum_gre_counter01_pal.inc"
 };
@@ -90,3 +89,4 @@ Gfx int_sum_counter01_onT_model[] = {
     gsSPNTrianglesInit_5b(2, 12, 13, 14, 12, 14, 15, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

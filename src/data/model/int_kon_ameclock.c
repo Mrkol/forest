@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_kon_ameclock_v[];
 u16 int_kon_ameclock_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_kon_ameclock_pal.inc"
 };
@@ -143,3 +142,4 @@ cKF_Joint_R_c cKF_je_r_int_kon_ameclock_tbl[] = {
 
 cKF_Skeleton_R_c cKF_bs_r_int_kon_ameclock = { ARRAY_COUNT(cKF_je_r_int_kon_ameclock_tbl), 4,
                                                cKF_je_r_int_kon_ameclock_tbl };
+

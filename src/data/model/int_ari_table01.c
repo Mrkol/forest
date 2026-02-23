@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_ari_table01_v[];
 static u16 int_ari_nagaisu1_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_ari_table01/int_ari_nagaisu1_pal.inc"
 };
@@ -74,3 +73,4 @@ Gfx int_ari_table01_01T_model[] = {
     gsSPNTrianglesInit_5b(2, 0, 1, 2, 0, 3, 1, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

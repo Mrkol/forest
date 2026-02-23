@@ -5,7 +5,7 @@ extern s16 TEST03_ctrl_actor_data[];
 extern Actor_data TEST03_actor_data[];
 extern s16 TEST03_object_bank[];
 
-extern Scene_Word_u test03_info[] = {
+Scene_Word_u test03_info[] = {
     mSc_DATA_SOUND(0, 0),                             // Sound data
     mSc_DATA_PLAYER(TEST03_player_data),              // Player Data
     mSc_DATA_CTRL_ACTORS(12, TEST03_ctrl_actor_data), // Control actors
@@ -16,7 +16,7 @@ extern Scene_Word_u test03_info[] = {
     mSc_DATA_END(),                             // End of scene data
 };
 
-extern Actor_data TEST03_player_data[] = {
+Actor_data TEST03_player_data[] = {
     {
         mAc_PROFILE_PLAYER, // profile
         { 320, 200, 1600 }, // position
@@ -25,7 +25,7 @@ extern Actor_data TEST03_player_data[] = {
     },
 };
 
-extern s16 TEST03_ctrl_actor_data[] = {
+s16 TEST03_ctrl_actor_data[] = {
     mAc_PROFILE_EFFECTBG,       // 0
     mAc_PROFILE_BIRTH_CONTROL,  // 1
     mAc_PROFILE_NPC,            // 2
@@ -40,7 +40,7 @@ extern s16 TEST03_ctrl_actor_data[] = {
     mAc_PROFILE_BALL,           // 11
 };
 
-extern Actor_data TEST03_actor_data[] = {
+Actor_data TEST03_actor_data[] = {
     {
         mAc_PROFILE_UKI, // profile
         { 340, 0, 430 }, // position
@@ -55,7 +55,7 @@ extern Actor_data TEST03_actor_data[] = {
     },
 };
 
-extern s16 TEST03_object_bank[] = {
+s16 TEST03_object_bank[] = {
     ACTOR_OBJ_BANK_UKI,      // 0
     ACTOR_OBJ_BANK_PSNOWMAN, // 1
     ACTOR_OBJ_BANK_AIRPLANE, // 2

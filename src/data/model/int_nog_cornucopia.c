@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_nog_cornucopia_v[];
 u16 int_nog_cornucopia_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_nog_cornucopia_pal.inc"
 };
@@ -94,3 +93,4 @@ Gfx int_nog_cornucopiaT_model[] = {
     gsSPNTriangles_5b(2, 12, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

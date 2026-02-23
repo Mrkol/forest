@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_tak_cube_v[];
 u8 int_tak_cube_body_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_tak_cube_body_tex.inc"
 };
@@ -96,3 +95,4 @@ Gfx int_tak_cube_glass_onT_model[] = {
     gsSPNTriangles_5b(0, 9, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

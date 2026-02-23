@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_sum_blue_lowchest01_v[];
 u16 int_sum_blue_lowchest01_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_sum_blue_lowchest01_pal.inc"
 };
@@ -105,3 +104,4 @@ cKF_Joint_R_c cKF_je_r_int_sum_blue_lowchest01_tbl[] = {
 
 cKF_Skeleton_R_c cKF_bs_r_int_sum_blue_lowchest01 = { ARRAY_COUNT(cKF_je_r_int_sum_blue_lowchest01_tbl), 2,
                                                       cKF_je_r_int_sum_blue_lowchest01_tbl };
+

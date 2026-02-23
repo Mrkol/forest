@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_sum_pl_hirasabo_v[];
 u16 int_sum_pl_hirasabo_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_sum_pl_hirasabo_pal.inc"
 };
@@ -81,3 +80,4 @@ Gfx int_sum_pl_hirasabo_onT_model[] = {
     gsSPNTriangles_5b(6, 8, 9, 10, 0, 11, 8, 10, 12, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

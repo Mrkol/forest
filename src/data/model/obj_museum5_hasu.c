@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx obj_museum5_hasu_v[];
 u16 obj_museum5_hasu_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/obj_museum5_hasu_pal.inc"
 };
@@ -78,3 +77,4 @@ cKF_Joint_R_c cKF_je_r_obj_museum5_hasu_tbl[] = {
 
 cKF_Skeleton_R_c cKF_bs_r_obj_museum5_hasu = { ARRAY_COUNT(cKF_je_r_obj_museum5_hasu_tbl), 3,
                                                cKF_je_r_obj_museum5_hasu_tbl };
+

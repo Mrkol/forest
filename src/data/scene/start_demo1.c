@@ -4,7 +4,7 @@ extern Door_data_c START_DEMO1_door_data[];
 extern Actor_data START_DEMO1_player_data[];
 extern s16 START_DEMO1_ctrl_actor_data[];
 
-extern Scene_Word_u start_demo1_info[] = {
+Scene_Word_u start_demo1_info[] = {
     mSc_DATA_SOUND(0, 0),                                 // Sound data
     mSc_DATA_DOOR_DATA(1, START_DEMO1_door_data),         // Door data
     mSc_DATA_PLAYER(START_DEMO1_player_data),             // Player Data
@@ -16,7 +16,7 @@ extern Scene_Word_u start_demo1_info[] = {
     mSc_DATA_END(),                          // End of scene data
 };
 
-extern Actor_data START_DEMO1_player_data[] = {
+Actor_data START_DEMO1_player_data[] = {
     {
         mAc_PROFILE_PLAYER, // profile
         { 120, 0, 340 },    // position
@@ -25,7 +25,7 @@ extern Actor_data START_DEMO1_player_data[] = {
     },
 };
 
-extern s16 START_DEMO1_ctrl_actor_data[] = {
+s16 START_DEMO1_ctrl_actor_data[] = {
     mAc_PROFILE_BIRTH_CONTROL,  // 0
     mAc_PROFILE_NPC2,           // 1
     mAc_PROFILE_TOOLS,          // 2
@@ -34,7 +34,7 @@ extern s16 START_DEMO1_ctrl_actor_data[] = {
     mAc_PROFILE_WEATHER,        // 5
 };
 
-extern Door_data_c START_DEMO1_door_data[] = {
+Door_data_c START_DEMO1_door_data[] = {
     {
         SCENE_FG,           // scene
         1,                  // exit orientation

@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx obj_art01_v[];
 u16 obj_art01_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/obj_art01_pal.inc"
 };
@@ -84,3 +83,4 @@ Gfx obj_art01_model[] = {
     gsSP2Triangles(3, 20, 21, 0, 3, 21, 0, 0),
     gsSPEndDisplayList(),
 };
+

@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx logo_us_back_v[];
 u8 logo_us_back_4_tex_4i4_txt[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/logo_us_back_4_tex_4i4_txt.inc"
 };
@@ -57,3 +56,4 @@ Gfx logo_us_backA_model[] = {
     gsSPNTrianglesInit_5b(2, 0, 1, 2, 0, 2, 3, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

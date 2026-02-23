@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_tak_yoroi_v[];
 u16 int_tak_yoroi_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_tak_yoroi_pal.inc"
 };
@@ -111,3 +110,4 @@ Gfx int_tak_yoroi_onT_model[] = {
     gsSPNTriangles_5b(23, 20, 24, 26, 19, 21, 26, 21, 27, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

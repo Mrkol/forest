@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_sum_namazu_v[];
 static u16 int_sum_namazu_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_sum_namazu/int_sum_namazu_pal.inc"
 };
@@ -143,3 +142,4 @@ cKF_Joint_R_c cKF_je_r_int_sum_namazu_tbl[] = {
 };
 
 cKF_Skeleton_R_c cKF_bs_r_int_sum_namazu = { ARRAY_COUNT(cKF_je_r_int_sum_namazu_tbl), 4, cKF_je_r_int_sum_namazu_tbl };
+

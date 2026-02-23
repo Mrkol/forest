@@ -1,7 +1,7 @@
-extern u16 int_nog_yubin_on_pal[] ATTRIBUTE_ALIGN(32) = {
+u16 int_nog_yubin_on_pal[] ATTRIBUTE_ALIGN(32) = {
     #include "assets/int_nog_yubin_on_pal.inc"
 };
-extern u16 int_nog_yubin_off_pal[] ATTRIBUTE_ALIGN(32) = {
+u16 int_nog_yubin_off_pal[] ATTRIBUTE_ALIGN(32) = {
     #include "assets/int_nog_yubin_off_pal.inc"
 };
 

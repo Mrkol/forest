@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_sum_x_piano_v[];
 u16 int_sum_x_piano_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_sum_x_piano_pal.inc"
 };
@@ -97,3 +96,4 @@ Gfx int_sum_x_piano_onT_model[] = {
     gsSPNTriangles_5b(17, 18, 19, 20, 21, 22, 20, 22, 23, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

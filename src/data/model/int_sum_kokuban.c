@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_sum_kokuban_v[];
 u16 int_sum_kokuban_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_sum_kokuban_pal.inc"
 };
@@ -95,3 +94,4 @@ Gfx int_sum_kokuban_onT_model[] = {
     gsSPNTriangles_5b(9, 10, 11, 0, 0, 0, 0, 0, 0, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

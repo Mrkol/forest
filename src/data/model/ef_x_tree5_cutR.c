@@ -6,7 +6,6 @@
 #include "ef_effect_control.h"
 
 extern u8 obj_w_tree_cutL_tex_txt[];
-extern Vtx ef_x_tree5_cutR_v[];
 extern u8 ef_w_tree_light_modeset[];
 extern u8 ef_w_tree_leaf_modeset[];
 extern u8 ef_w_tree_trunk_modeset[];
@@ -52,3 +51,4 @@ cKF_Joint_R_c cKF_je_r_ef_x_tree5_cutR_tbl[] = {
 
 cKF_Skeleton_R_c cKF_bs_r_ef_x_tree5_cutR = { ARRAY_COUNT(cKF_je_r_ef_x_tree5_cutR_tbl), 3,
                                               cKF_je_r_ef_x_tree5_cutR_tbl };
+

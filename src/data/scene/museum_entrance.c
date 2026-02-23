@@ -6,7 +6,7 @@ extern s16 MUSEUM_ENTRANCE_ctrl_actor_data[];
 extern Actor_data MUSEUM_ENTRANCE_actor_data[];
 extern s16 MUSEUM_ENTRANCE_object_bank[];
 
-extern Scene_Word_u museum_entrance_info[] = {
+Scene_Word_u museum_entrance_info[] = {
     mSc_DATA_SOUND(0, 1),                                      // Sound data
     mSc_DATA_DOOR_DATA(4, MUSEUM_ENTRANCE_door_data),          // Door data
     mSc_DATA_PLAYER(MUSEUM_ENTRANCE_player_data),              // Player Data
@@ -19,7 +19,7 @@ extern Scene_Word_u museum_entrance_info[] = {
     mSc_DATA_END(),                            // End of scene data
 };
 
-extern Actor_data MUSEUM_ENTRANCE_player_data[] = {
+Actor_data MUSEUM_ENTRANCE_player_data[] = {
     {
         mAc_PROFILE_PLAYER, // profile
         { 240, 0, 200 },    // position
@@ -28,7 +28,7 @@ extern Actor_data MUSEUM_ENTRANCE_player_data[] = {
     },
 };
 
-extern s16 MUSEUM_ENTRANCE_ctrl_actor_data[] = {
+s16 MUSEUM_ENTRANCE_ctrl_actor_data[] = {
     mAc_PROFILE_BIRTH_CONTROL,  // 0
     mAc_PROFILE_NPC2,           // 1
     mAc_PROFILE_INSECT,         // 2
@@ -43,7 +43,7 @@ extern s16 MUSEUM_ENTRANCE_ctrl_actor_data[] = {
     mAc_PROFILE_HOUSE_CLOCK,    // 11
 };
 
-extern Actor_data MUSEUM_ENTRANCE_actor_data[] = {
+Actor_data MUSEUM_ENTRANCE_actor_data[] = {
     {
         mAc_PROFILE_ROOM_SUNSHINE_MUSEUM, // profile
         { 123, -270, 180 },               // position
@@ -70,11 +70,11 @@ extern Actor_data MUSEUM_ENTRANCE_actor_data[] = {
     },
 };
 
-extern s16 MUSEUM_ENTRANCE_object_bank[] = {
+s16 MUSEUM_ENTRANCE_object_bank[] = {
     ACTOR_OBJ_BANK_EF_MUSEUM, // 0
 };
 
-extern Door_data_c MUSEUM_ENTRANCE_door_data[] = {
+Door_data_c MUSEUM_ENTRANCE_door_data[] = {
     {
         SCENE_MUSEUM_ROOM_PAINTING, // scene
         4,                          // exit orientation

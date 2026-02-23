@@ -5,8 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx camera_v[];
-extern Vtx darrow_v[];
 u8 no_txt[] = {
 #include "assets/no_txt.inc"
 };
@@ -73,3 +71,4 @@ Gfx RCP_debug_texture_16x16_8[] = {
     gsSP2Triangles(0, 2, 1, 0, 1, 2, 3, 0),
     gsSPEndDisplayList(),
 };
+

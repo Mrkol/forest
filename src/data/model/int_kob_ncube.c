@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_kob_ncube_v[];
 u16 int_kob_ncube_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_kob_ncube_pal.inc"
 };
@@ -88,3 +87,4 @@ Gfx int_kob_ncube_onT_model[] = {
     gsSPNTriangles_5b(16, 18, 19, 0, 0, 0, 0, 0, 0, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

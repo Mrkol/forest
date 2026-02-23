@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_yos_kflag_v[];
 u8 int_yos_kflag_pat[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_yos_kflag_pat.inc"
 };
@@ -50,3 +49,4 @@ Gfx int_yos_kflag_obj_model[] = {
     gsSPNTriangles_5b(11, 10, 8, 7, 12, 8, 12, 13, 8, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_kob_getabako1_v[];
 u16 int_kob_getabako1_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_kob_getabako1_pal.inc"
 };
@@ -119,3 +118,4 @@ Gfx int_kob_getabako1_onT_model[] = {
     gsSPNTrianglesInit_5b(2, 11, 12, 13, 11, 13, 14, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

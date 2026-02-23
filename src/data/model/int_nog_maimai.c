@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_nog_maimai_v[];
 u16 int_nog_maimai_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_nog_maimai_pal.inc"
 };
@@ -149,3 +148,4 @@ cKF_Joint_R_c cKF_je_r_int_nog_maimai_tbl[] = {
 };
 
 cKF_Skeleton_R_c cKF_bs_r_int_nog_maimai = { ARRAY_COUNT(cKF_je_r_int_nog_maimai_tbl), 5, cKF_je_r_int_nog_maimai_tbl };
+

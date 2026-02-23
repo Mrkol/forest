@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_hos_mario_hata_v[];
 u16 int_hos_mario_hata_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_hos_mario_hata_pal.inc"
 };
@@ -62,3 +61,4 @@ Gfx int_hos_mario_hata_all_model[] = {
     gsSPNTriangles_5b(20, 22, 23, 0, 0, 0, 0, 0, 0, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

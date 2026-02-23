@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_sum_taru01_v[];
 u16 it_sum_taru01_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/it_sum_taru01_pal.inc"
 };
@@ -60,3 +59,4 @@ Gfx int_sum_taru01_onT_model[] = {
     gsSPNTrianglesInit_5b(2, 0, 2, 3, 8, 9, 10, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

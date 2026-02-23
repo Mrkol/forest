@@ -6,7 +6,6 @@
 #include "ef_effect_control.h"
 
 extern u8 ef_s_cedar_leaf_modeset[];
-extern Vtx ef_s_cedar5_shake_v[];
 Vtx ef_s_cedar5_shake_v[] = {
 #include "assets/ef_s_cedar5_shake_v.inc"
 };
@@ -35,3 +34,4 @@ cKF_Joint_R_c cKF_je_r_ef_s_cedar5_shake_tbl[] = {
 
 cKF_Skeleton_R_c cKF_bs_r_ef_s_cedar5_shake = { ARRAY_COUNT(cKF_je_r_ef_s_cedar5_shake_tbl), 1,
                                                 cKF_je_r_ef_s_cedar5_shake_tbl };
+

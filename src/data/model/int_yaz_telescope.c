@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_yaz_telescope_v[];
 u16 int_yaz_telescope_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_yaz_telescope_pal.inc"
 };
@@ -80,3 +79,4 @@ Gfx int_yaz_telescope_body_model[] = {
     gsSPNTrianglesInit_5b(1, 25, 26, 27, 0, 0, 0, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

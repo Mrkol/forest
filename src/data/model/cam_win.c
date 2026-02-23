@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx cam_win_v[];
 static u8 ct_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/cam_win/ct_tex.inc"
 };
@@ -152,3 +151,4 @@ Gfx elc_win_moji2T_model[] = {
     gsSPNTrianglesInit_5b(2, 0, 1, 2, 1, 3, 2, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

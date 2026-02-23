@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx crw_cobra_v[];
 u16 crw_cobra_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/crw_cobra_pal.inc"
 };
@@ -43,3 +42,4 @@ Gfx crw_cobra_model[] = {
     gsSPNTriangles_5b(0, 12, 13, 6, 14, 15, 0, 0, 0, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

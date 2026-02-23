@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_kon_snowbed_v[];
 u16 int_kon_snowbed_tex_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_kon_snowbed_tex_pal.inc"
 };
@@ -72,3 +71,4 @@ Gfx int_kon_snoebed_onT_model[] = {
     gsSPNTriangles_5b(19, 20, 11, 10, 21, 19, 8, 7, 21, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

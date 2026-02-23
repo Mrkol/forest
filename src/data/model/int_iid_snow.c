@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_iid_snow_v[];
 u16 int_iid_snow_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_iid_snow_pal.inc"
 };
@@ -207,3 +206,4 @@ Gfx int_iid_snowT_model[] = {
     gsSPNTriangles_5b(11, 7, 13, 0, 0, 0, 0, 0, 0, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

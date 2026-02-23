@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_kon_isi02_v[];
 u16 int_kon_isi02_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_kon_isi02_pal.inc"
 };
@@ -61,3 +60,4 @@ Gfx int_kon_isi02_on_model[] = {
     gsSPNTriangles_5b(19, 23, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

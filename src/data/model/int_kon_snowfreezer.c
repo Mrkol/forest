@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_kon_snowfreezer_v[];
 static u16 int_kon_snowtansu_tex_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_kon_snowfreezer/int_kon_snowtansu_tex_pal.inc"
 };
@@ -87,3 +86,4 @@ Gfx int_kon_snowfreezer01_bodyT_model[] = {
     gsSPNTriangles_5b(11, 12, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

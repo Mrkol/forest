@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_tak_nikki01_v[];
 u16 int_tak_nikki01_name_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_tak_nikki01_name_pal.inc"
 };
@@ -85,3 +84,4 @@ Gfx int_tak_nikki01_onT_model[] = {
     gsSPNTrianglesInit_5b(1, 0, 1, 2, 0, 0, 0, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

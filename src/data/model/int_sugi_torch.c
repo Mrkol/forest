@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_sugi_torch_v[];
 u16 int_sugi_touch_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_sugi_touch_pal.inc"
 };
@@ -131,3 +130,4 @@ cKF_Joint_R_c cKF_je_r_int_sugi_torch_tbl[] = { { sugi_tu_bar_model, 2, cKF_JOIN
                                                 { sugi_tu_core_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } } };
 
 cKF_Skeleton_R_c cKF_bs_r_int_sugi_torch = { ARRAY_COUNT(cKF_je_r_int_sugi_torch_tbl), 3, cKF_je_r_int_sugi_torch_tbl };
+

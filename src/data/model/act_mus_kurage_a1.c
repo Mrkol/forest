@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx act_mus_kurage_a1_v[];
 static u16 act_f37_kurage_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/act_mus_kurage_a1/act_f37_kurage_pal.inc"
 };
@@ -63,3 +62,4 @@ Gfx act_mus_kurage_sakana_body_model[] = {
     gsSPNTriangles_5b(17, 24, 19, 0, 0, 0, 0, 0, 0, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_iku_mario_hatena_v[];
 u16 int_iku_mario_hatena_a_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_iku_mario_hatena_a_pal.inc"
 };
@@ -67,3 +66,4 @@ Gfx int_iku_mario_hatena_model_a_model[] = {
     gsSPNTriangles_5b(7, 8, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

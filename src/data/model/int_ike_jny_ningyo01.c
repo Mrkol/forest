@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_ike_jny_ningyo01_v[];
 u16 int_ike_jny_ningyo01_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_ike_jny_ningyo01_pal.inc"
 };
@@ -85,3 +84,4 @@ Gfx int_ike_jny_ningyo01_body_model[] = {
     gsSPNTriangles_5b(10, 14, 0, 8, 7, 13, 5, 10, 3, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

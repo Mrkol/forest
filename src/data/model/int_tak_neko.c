@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_tak_neko_v[];
 u16 int_tak_neko_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_tak_neko_pal.inc"
 };
@@ -106,3 +105,4 @@ Gfx int_tak_neko_onT_model[] = {
     gsSPNTrianglesInit_5b(2, 6, 7, 8, 9, 10, 11, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

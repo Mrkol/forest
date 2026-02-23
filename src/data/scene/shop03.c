@@ -4,7 +4,7 @@ extern Door_data_c SHOP03_door_data[];
 extern Actor_data SHOP03_player_data[];
 extern s16 SHOP03_ctrl_actor_data[];
 
-extern Scene_Word_u shop03_info[] = {
+Scene_Word_u shop03_info[] = {
     mSc_DATA_SOUND(0, 0),                             // Sound data
     mSc_DATA_DOOR_DATA(1, SHOP03_door_data),          // Door data
     mSc_DATA_PLAYER(SHOP03_player_data),              // Player Data
@@ -15,7 +15,7 @@ extern Scene_Word_u shop03_info[] = {
     mSc_DATA_END(),                            // End of scene data
 };
 
-extern Actor_data SHOP03_player_data[] = {
+Actor_data SHOP03_player_data[] = {
     {
         mAc_PROFILE_PLAYER, // profile
         { 320, 0, 460 },    // position
@@ -24,7 +24,7 @@ extern Actor_data SHOP03_player_data[] = {
     },
 };
 
-extern s16 SHOP03_ctrl_actor_data[] = {
+s16 SHOP03_ctrl_actor_data[] = {
     mAc_PROFILE_BIRTH_CONTROL,  // 0
     mAc_PROFILE_SHOP_DESIGN,    // 1
     mAc_PROFILE_TOOLS,          // 2
@@ -42,7 +42,7 @@ extern s16 SHOP03_ctrl_actor_data[] = {
     mAc_PROFILE_NPC2,           // 14
 };
 
-extern Door_data_c SHOP03_door_data[] = {
+Door_data_c SHOP03_door_data[] = {
     {
         SCENE_TEST2,     // scene
         1,               // exit orientation

@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_sum_liccachair_v[];
 u16 int_sum_liccachair_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_sum_liccachair_pal.inc"
 };
@@ -75,3 +74,4 @@ Gfx int_sum_liccachair_onT_model[] = {
     gsSPNTrianglesInit_5b(2, 3, 4, 5, 3, 5, 6, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_kon_tubo3_v[];
 u16 int_kon_tubo3_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_kon_tubo3_pal.inc"
 };
@@ -73,3 +72,4 @@ Gfx int_kon_tubo3_onT_model[] = {
     gsSPNTriangles_5b(7, 8, 1, 9, 10, 8, 11, 12, 10, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

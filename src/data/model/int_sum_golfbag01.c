@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_sum_golfbag01_v[];
 static u16 int_sum_golfbag_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_sum_golfbag01/int_sum_golfbag_pal.inc"
 };
@@ -104,3 +103,4 @@ Gfx int_sum_golfbag01_on_model[] = {
     gsSPNTrianglesInit_5b(2, 0, 1, 2, 3, 4, 5, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

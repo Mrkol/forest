@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx obj_museum5_kusa1_v[];
 static u8 obj_museum5_kusa1_tex_txt[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/obj_museum5_kusa1/obj_museum5_kusa1_tex_txt.inc"
 };
@@ -99,3 +98,4 @@ cKF_Joint_R_c cKF_je_r_obj_museum5_kusa1_tbl[] = {
 
 cKF_Skeleton_R_c cKF_bs_r_obj_museum5_kusa1 = { ARRAY_COUNT(cKF_je_r_obj_museum5_kusa1_tbl), 4,
                                                 cKF_je_r_obj_museum5_kusa1_tbl };
+

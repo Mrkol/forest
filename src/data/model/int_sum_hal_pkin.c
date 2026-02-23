@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_sum_hal_pkin_v[];
 u16 int_sum_hal_pkin_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_sum_hal_pkin_pal.inc"
 };
@@ -71,3 +70,4 @@ Gfx int_sum_hal_pkin_onT_model[] = {
     gsSPNTriangles_5b(12, 13, 9, 12, 14, 13, 9, 13, 15, 16, 14, 8),
     gsSPEndDisplayList(),
 };
+

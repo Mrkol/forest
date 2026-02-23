@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_nog_kamakura_v[];
 u16 int_nog_kamakura_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_nog_kamakura_pal.inc"
 };
@@ -70,3 +69,4 @@ Gfx int_nog_kamakura_onT_model[] = {
     gsSPNTriangles_5b(10, 24, 14, 14, 25, 17, 0, 0, 0, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

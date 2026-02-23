@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_ike_art_fel_v[];
 u16 int_ike_art_fel_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_ike_art_fel_pal.inc"
 };
@@ -72,3 +71,4 @@ Gfx int_ike_art_fel01_onT_model[] = {
     gsSPNTrianglesInit_5b(2, 14, 15, 16, 14, 17, 15, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

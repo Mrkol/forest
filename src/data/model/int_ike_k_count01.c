@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_ike_k_count01_v[];
 u16 int_ike_k_count01_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_ike_k_count01_pal.inc"
 };
@@ -60,3 +59,4 @@ Gfx int_ike_k_count01_body_model[] = {
     gsSPNTriangles_5b(21, 19, 20, 22, 23, 21, 20, 22, 21, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

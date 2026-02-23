@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_nog_dump_v[];
 u16 int_nog_dump_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_nog_dump_pal.inc"
 };
@@ -114,3 +113,4 @@ Gfx int_nog_dumpT_model[] = {
     gsSPNTriangles_5b(8, 4, 1, 7, 6, 10, 7, 10, 11, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

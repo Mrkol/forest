@@ -5,7 +5,7 @@ extern Actor_data MUSEUM_FOSSIL_player_data[];
 extern s16 MUSEUM_FOSSIL_ctrl_actor_data[];
 extern s16 MUSEUM_FOSSIL_object_bank[];
 
-extern Scene_Word_u museum_fossil_info[] = {
+Scene_Word_u museum_fossil_info[] = {
     mSc_DATA_SOUND(0, 1),                                    // Sound data
     mSc_DATA_DOOR_DATA(1, MUSEUM_FOSSIL_door_data),          // Door data
     mSc_DATA_PLAYER(MUSEUM_FOSSIL_player_data),              // Player Data
@@ -17,7 +17,7 @@ extern Scene_Word_u museum_fossil_info[] = {
     mSc_DATA_END(),                            // End of scene data
 };
 
-extern Actor_data MUSEUM_FOSSIL_player_data[] = {
+Actor_data MUSEUM_FOSSIL_player_data[] = {
     {
         mAc_PROFILE_PLAYER, // profile
         { 120, 0, 150 },    // position
@@ -26,7 +26,7 @@ extern Actor_data MUSEUM_FOSSIL_player_data[] = {
     },
 };
 
-extern s16 MUSEUM_FOSSIL_ctrl_actor_data[] = {
+s16 MUSEUM_FOSSIL_ctrl_actor_data[] = {
     mAc_PROFILE_BIRTH_CONTROL,  // 0
     mAc_PROFILE_NPC2,           // 1
     mAc_PROFILE_INSECT,         // 2
@@ -41,11 +41,11 @@ extern s16 MUSEUM_FOSSIL_ctrl_actor_data[] = {
     mAc_PROFILE_MUSEUM_FOSSIL,  // 11
 };
 
-extern s16 MUSEUM_FOSSIL_object_bank[] = {
+s16 MUSEUM_FOSSIL_object_bank[] = {
     ACTOR_OBJ_BANK_HOUSE_GOKI, // 0
 };
 
-extern Door_data_c MUSEUM_FOSSIL_door_data[] = {
+Door_data_c MUSEUM_FOSSIL_door_data[] = {
     {
         SCENE_MUSEUM_ENTRANCE, // scene
         0,                     // exit orientation

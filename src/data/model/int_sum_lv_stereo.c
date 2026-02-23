@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_sum_lv_stereo_v[];
 u16 int_sum_lv_stereo_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_sum_lv_stereo_pal.inc"
 };
@@ -76,3 +75,4 @@ Gfx int_sum_lv_stereo_onT_model[] = {
     gsSPNTriangles_5b(18, 19, 17, 0, 0, 0, 0, 0, 0, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_sum_asi_plant01_v[];
 u16 int_sum_asi_plant01_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_sum_asi_plant01_pal.inc"
 };
@@ -71,3 +70,4 @@ Gfx int_sum_asi_plant01_onT_model[] = {
     gsSPNTriangles_5b(15, 14, 7, 15, 7, 6, 19, 15, 6, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_sum_sofe02_v[];
 u16 int_sum_sofe02_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_sum_sofe02_pal.inc"
 };
@@ -84,3 +83,4 @@ Gfx int_sum_sofe02_on_model[] = {
     gsSPNTriangles_5b(1, 13, 14, 1, 14, 4, 14, 15, 4, 14, 16, 15),
     gsSPEndDisplayList(),
 };
+

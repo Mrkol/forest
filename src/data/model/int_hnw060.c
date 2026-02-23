@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_hnw060_v[];
 u16 int_hnw060_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_hnw060_pal.inc"
 };
@@ -163,3 +162,4 @@ cKF_Joint_R_c cKF_je_r_int_hnw060_tbl[] = { { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, 
                                             { int_hnw060_armR_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } } };
 
 cKF_Skeleton_R_c cKF_bs_r_int_hnw060 = { ARRAY_COUNT(cKF_je_r_int_hnw060_tbl), 4, cKF_je_r_int_hnw060_tbl };
+

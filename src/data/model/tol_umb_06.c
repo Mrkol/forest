@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx tol_umb_06_v[];
 u16 tol_umb_06_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/tol_umb_06_pal.inc"
 };
@@ -61,3 +60,4 @@ Gfx e_umb06_model[] = {
     gsSPNTriangles_5b(19, 15, 12, 23, 24, 25, 11, 25, 9, 25, 11, 23),
     gsSPEndDisplayList(),
 };
+

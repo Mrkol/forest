@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_nog_ari_v[];
 u16 int_nog_ari_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_nog_ari_pal.inc"
 };
@@ -102,3 +101,4 @@ Gfx int_nog_ari_onT_model[] = {
     gsSPNTriangles_5b(6, 9, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

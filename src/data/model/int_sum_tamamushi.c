@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_sum_tamamushi_v[];
 u16 int_sum_tamamushi_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_sum_tamamushi_pal.inc"
 };
@@ -154,3 +153,4 @@ cKF_Joint_R_c cKF_je_r_int_sum_tamamushi_tbl[] = {
 
 cKF_Skeleton_R_c cKF_bs_r_int_sum_tamamushi = { ARRAY_COUNT(cKF_je_r_int_sum_tamamushi_tbl), 5,
                                                 cKF_je_r_int_sum_tamamushi_tbl };
+

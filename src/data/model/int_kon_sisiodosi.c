@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_kon_sisiodosi_v[];
 u16 int_kon_sisiodosi_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_kon_sisiodosi_pal.inc"
 };
@@ -135,3 +134,4 @@ cKF_Joint_R_c cKF_je_r_int_kon_sisiodosi_tbl[] = {
 
 cKF_Skeleton_R_c cKF_bs_r_int_kon_sisiodosi = { ARRAY_COUNT(cKF_je_r_int_kon_sisiodosi_tbl), 2,
                                                 cKF_je_r_int_kon_sisiodosi_tbl };
+

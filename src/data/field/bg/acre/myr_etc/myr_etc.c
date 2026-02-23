@@ -65,7 +65,7 @@ static Gfx myr_koteiT_model[] = {
     gsSPEndDisplayList(),
 };
 
-extern Gfx myr_etc_model[] = {
+Gfx myr_etc_model[] = {
     gsDPPipeSync(),
     gsSPDisplayList(myr_kotei_model),
     gsSPDisplayList(myr_koteiT_model),

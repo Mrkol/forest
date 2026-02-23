@@ -1,6 +1,6 @@
 #include "m_field_make.h"
 
-extern u16 mFM_cliff_pal[mFM_FIELD_PAL_NUM][16] = {
+u16 mFM_cliff_pal[mFM_FIELD_PAL_NUM][16] = {
   {
     #include "assets/mFM_cliff_pal_0.inc"
   },

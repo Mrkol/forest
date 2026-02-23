@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx rom_shop4_2w_v[];
 static u16 rom_shop4_1_floor_tex_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/rom_shop4_2w/rom_shop4_1_floor_tex_pal.inc"
 };
@@ -209,3 +208,4 @@ Gfx rom_shop4_2w_model[] = {
     gsSPNTrianglesInit_5b(2, 0, 1, 2, 0, 2, 3, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

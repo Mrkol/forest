@@ -6,7 +6,7 @@ extern s16 MUSEUM_PICTURE_ctrl_actor_data[];
 extern Actor_data MUSEUM_PICTURE_actor_data[];
 extern s16 MUSEUM_PICTURE_object_bank[];
 
-extern Scene_Word_u museum_picture_info[] = {
+Scene_Word_u museum_picture_info[] = {
     mSc_DATA_SOUND(0, 1),                                     // Sound data
     mSc_DATA_DOOR_DATA(1, MUSEUM_PICTURE_door_data),          // Door data
     mSc_DATA_PLAYER(MUSEUM_PICTURE_player_data),              // Player Data
@@ -19,7 +19,7 @@ extern Scene_Word_u museum_picture_info[] = {
     mSc_DATA_END(),                            // End of scene data
 };
 
-extern Actor_data MUSEUM_PICTURE_player_data[] = {
+Actor_data MUSEUM_PICTURE_player_data[] = {
     {
         mAc_PROFILE_PLAYER, // profile
         { 120, 0, 150 },    // position
@@ -28,7 +28,7 @@ extern Actor_data MUSEUM_PICTURE_player_data[] = {
     },
 };
 
-extern s16 MUSEUM_PICTURE_ctrl_actor_data[] = {
+s16 MUSEUM_PICTURE_ctrl_actor_data[] = {
     mAc_PROFILE_BIRTH_CONTROL,  // 0
     mAc_PROFILE_NPC2,           // 1
     mAc_PROFILE_INSECT,         // 2
@@ -42,7 +42,7 @@ extern s16 MUSEUM_PICTURE_ctrl_actor_data[] = {
     mAc_PROFILE_MY_ROOM,        // 10
 };
 
-extern Actor_data MUSEUM_PICTURE_actor_data[] = {
+Actor_data MUSEUM_PICTURE_actor_data[] = {
     {
         mAc_PROFILE_MUSEUM_PICTURE, // profile
         { 40, 40, 40 },             // position
@@ -51,11 +51,11 @@ extern Actor_data MUSEUM_PICTURE_actor_data[] = {
     },
 };
 
-extern s16 MUSEUM_PICTURE_object_bank[] = {
+s16 MUSEUM_PICTURE_object_bank[] = {
     ACTOR_OBJ_BANK_MUSEUM_PICTURE, // 0
 };
 
-extern Door_data_c MUSEUM_PICTURE_door_data[] = {
+Door_data_c MUSEUM_PICTURE_door_data[] = {
     {
         SCENE_MUSEUM_ENTRANCE, // scene
         0,                     // exit orientation

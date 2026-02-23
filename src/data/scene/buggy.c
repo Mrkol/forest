@@ -4,7 +4,7 @@ extern Door_data_c BUGGY_door_data[];
 extern Actor_data BUGGY_player_data[];
 extern s16 BUGGY_ctrl_actor_data[];
 
-extern Scene_Word_u buggy_info[] = {
+Scene_Word_u buggy_info[] = {
     mSc_DATA_SOUND(0, 0),                           // Sound data
     mSc_DATA_DOOR_DATA(1, BUGGY_door_data),         // Door data
     mSc_DATA_PLAYER(BUGGY_player_data),             // Player Data
@@ -14,7 +14,7 @@ extern Scene_Word_u buggy_info[] = {
     mSc_DATA_END(),                            // End of scene data
 };
 
-extern Actor_data BUGGY_player_data[] = {
+Actor_data BUGGY_player_data[] = {
     {
         mAc_PROFILE_PLAYER, // profile
         { 160, 0, 260 },    // position
@@ -23,7 +23,7 @@ extern Actor_data BUGGY_player_data[] = {
     },
 };
 
-extern s16 BUGGY_ctrl_actor_data[] = {
+s16 BUGGY_ctrl_actor_data[] = {
     mAc_PROFILE_BIRTH_CONTROL,  // 0
     mAc_PROFILE_NPC2,           // 1
     mAc_PROFILE_TOOLS,          // 2
@@ -34,7 +34,7 @@ extern s16 BUGGY_ctrl_actor_data[] = {
     mAc_PROFILE_WEATHER,        // 7
 };
 
-extern Door_data_c BUGGY_door_data[] = {
+Door_data_c BUGGY_door_data[] = {
     {
         SCENE_FG,         // scene
         1,                // exit orientation

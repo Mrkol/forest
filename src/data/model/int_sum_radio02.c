@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_sum_radio02_v[];
 u16 int_radio02_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_radio02_pal.inc"
 };
@@ -69,3 +68,4 @@ Gfx int_sum_radio02_onT_model[] = {
     gsSPNTriangles_5b(16, 18, 19, 17, 20, 21, 17, 21, 18, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

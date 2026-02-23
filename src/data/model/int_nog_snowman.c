@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_nog_snowman_v[];
 u16 int_nog_snowman_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_nog_snowman_pal.inc"
 };
@@ -53,3 +52,4 @@ Gfx int_nog_snowman_model[] = {
     gsSPNTriangles_5b(20, 24, 2, 2, 1, 20, 0, 0, 0, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

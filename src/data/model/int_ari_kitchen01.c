@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_ari_kitchen01_v[];
 u16 int_ari_kitchen01_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_ari_kitchen01_pal.inc"
 };
@@ -89,3 +88,4 @@ Gfx int_ari_kitchen01_01T_model[] = {
     gsSPNTriangles_5b(3, 5, 13, 0, 0, 0, 0, 0, 0, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

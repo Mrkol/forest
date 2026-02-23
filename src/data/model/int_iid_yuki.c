@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_iid_yuki_v[];
 u16 int_iid_yuki_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_iid_yuki_pal.inc"
 };
@@ -95,3 +94,4 @@ Gfx int_iid_yukiT_model[] = {
     gsSPNTriangles_5b(4, 6, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

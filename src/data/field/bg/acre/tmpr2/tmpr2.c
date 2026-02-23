@@ -88,12 +88,12 @@ static Gfx tmpr2_grp_grd_s_r1_1_waterT[] = {
     gsSPEndDisplayList(),
 };
 
-extern Gfx tmpr2_modelT[] = {
+Gfx tmpr2_modelT[] = {
     gsSPDisplayList(tmpr2_grp_grd_s_r1_1_waterT),
     gsSPEndDisplayList(),
 };
 
-extern Gfx tmpr2_model[] = {
+Gfx tmpr2_model[] = {
     gsSPDisplayList(tmpr2_grp_grd_s_r1_1_grass),
     gsSPDisplayList(tmpr2_grp_grd_s_r1_1_river),
     gsSPEndDisplayList(),

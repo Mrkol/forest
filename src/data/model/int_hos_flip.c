@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_hos_flip_v[];
 u16 int_hos_flip_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_hos_flip_pal.inc"
 };
@@ -65,3 +64,4 @@ Gfx int_hos_flip_model_model[] = {
     gsSPNTriangles_5b(12, 14, 15, 0, 0, 0, 0, 0, 0, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

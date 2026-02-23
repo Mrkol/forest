@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_hos_mario_kinoko_v[];
 u16 int_hos_mario_kinoko_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_hos_mario_kinoko_pal.inc"
 };
@@ -52,3 +51,4 @@ Gfx int_hos_mario_kinoko_all_model[] = {
     gsSPNTriangles_5b(0, 3, 10, 0, 0, 0, 0, 0, 0, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

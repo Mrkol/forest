@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_din_bront_tail_v[];
 static u16 int_din_bront_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_din_bront_tail/int_din_bront_pal.inc"
 };
@@ -66,3 +65,4 @@ Gfx int_din_bront_tailT_model[] = {
     gsSPNTrianglesInit_5b(2, 0, 1, 2, 0, 2, 3, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_sum_uwa_vase02_v[];
 u16 int_sum_uwa_vase02_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_sum_uwa_vase02_pal.inc"
 };
@@ -70,3 +69,4 @@ Gfx int_sum_uwa_vase02_onT_model[] = {
     gsSPNTriangles_5b(10, 11, 8, 16, 15, 14, 5, 17, 14, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

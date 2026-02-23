@@ -108,11 +108,11 @@ static Vtx grd_yamishop_v[] = {
 #include "assets/field/bg/grd_yamishop_v.inc"
 };
 
-extern Gfx grd_yamishop_modelT[] = {
+Gfx grd_yamishop_modelT[] = {
     gsSPEndDisplayList(),
 };
 
-extern Gfx grd_yamishop_model[] = {
+Gfx grd_yamishop_model[] = {
     gsSPTexture(0, 0, 0, 0, G_ON),
     gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, TEXEL0, PRIMITIVE, 0, COMBINED, 0, 0, 0, 0, COMBINED),
     gsDPSetRenderMode(G_RM_FOG_SHADE_A, G_RM_AA_ZB_TEX_EDGE2),

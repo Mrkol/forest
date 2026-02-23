@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_iid_benti_v[];
 u16 int_iid_benchi_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_iid_benchi_pal.inc"
 };
@@ -128,3 +127,4 @@ Gfx int_iid_benti_model[] = {
     gsSPNTrianglesInit_5b(2, 16, 17, 18, 18, 19, 16, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

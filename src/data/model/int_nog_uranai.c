@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_nog_uranai_v[];
 u16 int_nog_uranai_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_nog_uranai_pal.inc"
 };
@@ -75,3 +74,4 @@ Gfx int_nog_uranai_onT_model[] = {
     gsSPNTriangles_5b(3, 2, 11, 0, 0, 0, 0, 0, 0, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

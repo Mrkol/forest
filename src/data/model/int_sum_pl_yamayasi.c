@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_sum_pl_yamayasi_v[];
 u16 int_sum_pl_yamayasi_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_sum_pl_yamayasi_pal.inc"
 };
@@ -76,3 +75,4 @@ Gfx int_sum_pl_yamayasi_onT_model[] = {
     gsSPNTriangles_5b(6, 3, 8, 9, 5, 10, 11, 9, 12, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

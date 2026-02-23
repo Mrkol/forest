@@ -144,7 +144,7 @@ static Vtx rom_shop4_fuku_v[] = {
 #include "assets/field/bg/rom_shop4_fuku_v.inc"
 };
 
-extern Gfx rom_shop4_fuku_modelT[] = {
+Gfx rom_shop4_fuku_modelT[] = {
     gsSPTexture(0, 0, 0, 0, G_ON),
     gsDPSetCombineLERP(0, 0, 0, PRIMITIVE, TEXEL0, 0, PRIM_LOD_FRAC, 0, 0, 0, 0, COMBINED, 0, 0, 0, COMBINED),
     gsDPSetPrimColor(0, 140, 50, 0, 40, 255),
@@ -175,7 +175,7 @@ extern Gfx rom_shop4_fuku_modelT[] = {
     gsSPEndDisplayList(),
 };
 
-extern Gfx rom_shop4_fuku_model[] = {
+Gfx rom_shop4_fuku_model[] = {
     gsSPTexture(0, 0, 0, 0, G_ON),
     gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, TEXEL0, PRIMITIVE, 0, COMBINED, 0, 0, 0, 0, COMBINED),
     gsDPSetRenderMode(G_RM_FOG_SHADE_A, G_RM_AA_ZB_TEX_EDGE2),

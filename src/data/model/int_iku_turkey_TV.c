@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_iku_turkey_TV_v[];
 u16 int_iku_turkey_TV_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_iku_turkey_TV_pal.inc"
 };
@@ -101,3 +100,4 @@ Gfx int_iku_turkey_TV_model_a_model[] = {
     gsSPNTriangles_5b(20, 25, 18, 28, 29, 26, 0, 0, 0, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx ef_sphere_light_v[];
 u8 ef_sphere_light_tex_4i4_rgb_i4[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/ef_sphere_light_tex_4i4_rgb_i4.inc"
 };
@@ -51,3 +50,4 @@ Gfx ef_sphere_light_model[] = {
     gsSPNTriangles_5b(14, 9, 12, 7, 9, 14, 5, 0, 2, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

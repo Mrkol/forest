@@ -3,7 +3,7 @@
 extern Actor_data EVENT_NOTIFICATION_player_data[];
 extern s16 EVENT_NOTIFICATION_ctrl_actor_data[];
 
-extern Scene_Word_u event_notification_info[] = {
+Scene_Word_u event_notification_info[] = {
     mSc_DATA_SOUND(0, 0),                                         // Sound data
     mSc_DATA_PLAYER(EVENT_NOTIFICATION_player_data),              // Player Data
     mSc_DATA_CTRL_ACTORS(12, EVENT_NOTIFICATION_ctrl_actor_data), // Control actors
@@ -12,7 +12,7 @@ extern Scene_Word_u event_notification_info[] = {
     mSc_DATA_END(),                             // End of scene data
 };
 
-extern Actor_data EVENT_NOTIFICATION_player_data[] = {
+Actor_data EVENT_NOTIFICATION_player_data[] = {
     {
         mAc_PROFILE_PLAYER, // profile
         { 940, 0, 940 },    // position
@@ -21,7 +21,7 @@ extern Actor_data EVENT_NOTIFICATION_player_data[] = {
     },
 };
 
-extern s16 EVENT_NOTIFICATION_ctrl_actor_data[] = {
+s16 EVENT_NOTIFICATION_ctrl_actor_data[] = {
     mAc_PROFILE_EFFECTBG,        // 0
     mAc_PROFILE_BIRTH_CONTROL,   // 1
     mAc_PROFILE_STRUCTURE,       // 2

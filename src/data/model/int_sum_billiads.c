@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_sum_billiads_v[];
 u16 int_sum_billards_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_sum_billards_pal.inc"
 };
@@ -94,3 +93,4 @@ Gfx int_sum_billiads_onT_model[] = {
     gsSPNTrianglesInit_5b(2, 20, 21, 22, 23, 24, 22, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

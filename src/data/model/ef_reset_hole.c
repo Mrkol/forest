@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx ef_reset_hole_v[];
 u16 ef_reset_hole_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/ef_reset_hole_pal.inc"
 };
@@ -46,3 +45,4 @@ Gfx ef_reset_hole_modelT[] = {
     gsSPNTrianglesInit_5b(1, 0, 1, 2, 0, 0, 0, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx crw_rei1_v[];
 u16 crw_rei1_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/crw_rei1_pal.inc"
 };
@@ -81,3 +80,4 @@ Gfx crw_rei1_body_model[] = {
     gsSPNTrianglesInit_5b(3, 5, 6, 7, 5, 7, 8, 5, 9, 6),
     gsSPEndDisplayList(),
 };
+

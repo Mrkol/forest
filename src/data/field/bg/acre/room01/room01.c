@@ -82,7 +82,7 @@ static Gfx room01_grp_room01[] = {
     gsSPEndDisplayList(),
 };
 
-extern Gfx room01_model[] = {
+Gfx room01_model[] = {
     gsDPPipeSync(),
     gsSPTexture(65535, 65535, 0, 0, G_ON),
     gsDPSetRenderMode(G_RM_NOOP, G_RM_AA_ZB_TEX_EDGE2),

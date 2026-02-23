@@ -17,7 +17,7 @@ static Vtx grd_s_m_6_v[] = {
 #include "assets/field/bg/grd_s_m_6_v.inc"
 };
 
-extern Gfx grd_s_m_6_model[] = {
+Gfx grd_s_m_6_model[] = {
     gsSPTexture(0, 0, 0, 0, G_ON),
     gsDPSetCombineLERP(PRIMITIVE, ENVIRONMENT, TEXEL0, ENVIRONMENT, 0, 0, 0, 0, COMBINED, 0, SHADE, 0, 0, 0, 0, COMBINED),
     gsDPSetPrimColor(0, 255, 32, 48, 144, 255),
@@ -298,7 +298,7 @@ extern Gfx grd_s_m_6_model[] = {
     gsSPEndDisplayList(),
 };
 
-extern Gfx grd_s_m_6_modelT[] = {
+Gfx grd_s_m_6_modelT[] = {
     gsSPTexture(0, 0, 0, 0, G_ON),
     gsDPSetCombineLERP(TEXEL1, 0, TEXEL0, TEXEL0, TEXEL1, 0, TEXEL0, 0, PRIMITIVE, 0, SHADE, COMBINED, 0, 0, 0, COMBINED),
     gsDPSetPrimColor(0, 255, 60, 120, 255, 255),

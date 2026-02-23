@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_sum_bon_pira_v[];
 u16 int_sum_bon_pira_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_sum_bon_pira_pal.inc"
 };
@@ -97,3 +96,4 @@ Gfx int_sum_boke_pira_onT_model[] = {
     gsSPNTriangles_5b(3, 5, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

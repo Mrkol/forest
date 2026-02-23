@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_sugi_barbecue_v[];
 u16 int_sugi_barbecue_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_sugi_barbecue_pal.inc"
 };
@@ -96,3 +95,4 @@ Gfx sugi_barbecue_model[] = {
     gsSPNTriangles_5b(12, 19, 13, 0, 0, 0, 0, 0, 0, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

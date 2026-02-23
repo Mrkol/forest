@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx clk_hiniti_v[];
 u8 clk_win_suuji1_TA_tex_txt[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/clk_win_suuji1_TA_tex_txt.inc"
 };
@@ -170,3 +169,4 @@ cKF_Joint_R_c cKF_je_r_clk_hiniti_tbl[] = { { clk_win_hiniti1_top_model, 2, cKF_
                                             { clk_win_hiniti3_bottom_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } } };
 
 cKF_Skeleton_R_c cKF_bs_r_clk_hiniti = { ARRAY_COUNT(cKF_je_r_clk_hiniti_tbl), 3, cKF_je_r_clk_hiniti_tbl };
+

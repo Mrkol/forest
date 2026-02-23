@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx act_mus_kaeru_a1_v[];
 static u8 act_mus_kaeru_a1_body_tex_txt[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/act_mus_kaeru_a1/act_mus_kaeru_a1_body_tex_txt.inc"
 };
@@ -112,3 +111,4 @@ cKF_Joint_R_c cKF_je_r_act_mus_kaeru_a1_tbl[] = {
 
 cKF_Skeleton_R_c cKF_bs_r_act_mus_kaeru_a1 = { ARRAY_COUNT(cKF_je_r_act_mus_kaeru_a1_tbl), 4,
                                                cKF_je_r_act_mus_kaeru_a1_tbl };
+

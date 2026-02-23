@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx ef_s_tree4_cutL_v[];
 extern u8 obj_s_tree_cutL_tex_txt[];
 extern u8 ef_s_tree_trunk_modeset[];
 extern u8 ef_s_tree_leaf_modeset[];
@@ -42,3 +41,4 @@ cKF_Joint_R_c cKF_je_r_ef_s_tree4_cutL_tbl[] = {
 
 cKF_Skeleton_R_c cKF_bs_r_ef_s_tree4_cutL = { ARRAY_COUNT(cKF_je_r_ef_s_tree4_cutL_tbl), 2,
                                               cKF_je_r_ef_s_tree4_cutL_tbl };
+

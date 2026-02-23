@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_nog_xtree_v[];
 u16 int_plant02_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_plant02_pal.inc"
 };
@@ -49,3 +48,4 @@ Gfx int_nog_xtreeT_model[] = {
     gsSPNTriangles_5b(14, 15, 13, 0, 0, 0, 0, 0, 0, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

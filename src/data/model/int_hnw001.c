@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_hnw001_v[];
 u8 cKF_ckcb_r_int_hnw001_tbl[] ATTRIBUTE_ALIGN(32) = { 56, 7, 7, 0, 7, 0, 7 };
 
 s16 cKF_kn_int_hnw001_tbl[] = { 2, 2, 2, 2, 2, 2, 2, 2, 4, 4, 2, 2, 4, 2, 2 };
@@ -149,3 +148,4 @@ cKF_Joint_R_c cKF_je_r_int_hnw001_tbl[] = { { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, 
                                             { int_hnw001_armR_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } } };
 
 cKF_Skeleton_R_c cKF_bs_r_int_hnw001 = { ARRAY_COUNT(cKF_je_r_int_hnw001_tbl), 4, cKF_je_r_int_hnw001_tbl };
+

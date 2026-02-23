@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_iku_cocoa_v[];
 u16 int_iku_cocoa_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_iku_cocoa_pal.inc"
 };
@@ -69,3 +68,4 @@ Gfx int_iku_cocoa_off_model[] = {
     gsSPNTriangles_5b(11, 13, 14, 8, 7, 15, 8, 15, 16, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

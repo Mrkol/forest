@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx crw_hasu1_v[];
 u16 crw_hasu1_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/crw_hasu1_pal.inc"
 };
@@ -54,3 +53,4 @@ Gfx crw_hasu1_body_model[] = {
     gsSPNTrianglesInit_5b(3, 21, 22, 23, 21, 23, 24, 25, 26, 27),
     gsSPEndDisplayList(),
 };
+

@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx obj_clock_shop4_v[];
 u16 obj_clock_shop4_2_pal[] = {
 #include "assets/obj_clock_shop4_2_pal.inc"
 };
@@ -174,3 +173,4 @@ cKF_Joint_R_c cKF_je_r_obj_clock_shop4_tbl[] = {
 
 cKF_Skeleton_R_c cKF_bs_r_obj_clock_shop4 = { ARRAY_COUNT(cKF_je_r_obj_clock_shop4_tbl), 4,
                                               cKF_je_r_obj_clock_shop4_tbl };
+

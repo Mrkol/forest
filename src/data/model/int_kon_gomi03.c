@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_kon_gomi03_v[];
 u16 int_kon_gomi03_gururi_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_kon_gomi03_gururi_pal.inc"
 };
@@ -73,3 +72,4 @@ Gfx int_kon_gomi03_onT_model[] = {
     gsSPNTriangles_5b(8, 2, 9, 10, 0, 3, 10, 3, 11, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

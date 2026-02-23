@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_yaz_mario_flower_v[];
 u16 int_yaz_mario_flower_a_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_yaz_mario_flower_a_pal.inc"
 };
@@ -71,3 +70,4 @@ Gfx int_yaz_mario_flower_body_model[] = {
     gsSPNTriangles_5b(17, 19, 21, 20, 18, 17, 21, 15, 17, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

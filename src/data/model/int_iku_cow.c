@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_iku_cow_v[];
 u16 int_iku_cow_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_iku_cow_pal.inc"
 };
@@ -74,3 +73,4 @@ Gfx int_iku_cow_model[] = {
     gsSPNTriangles_5b(4, 5, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

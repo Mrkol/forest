@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_yos_cactus_v[];
 u16 int_yos_cactus_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_yos_cactus_pal.inc"
 };
@@ -42,3 +41,4 @@ Gfx int_yos_cactus_obj_model[] = {
     gsSPNTriangles_5b(14, 15, 16, 17, 18, 19, 17, 20, 21, 14, 22, 23),
     gsSPEndDisplayList(),
 };
+

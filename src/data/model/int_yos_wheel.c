@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_yos_wheel_v[];
 u16 int_yos_wheel_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_yos_wheel_pal.inc"
 };
@@ -67,3 +66,4 @@ Gfx int_yos_wheel_obj_model[] = {
     gsSPNTriangles_5b(25, 26, 23, 27, 28, 29, 29, 30, 27, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

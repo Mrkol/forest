@@ -7,7 +7,6 @@
 
 extern u8 ef_w_cedar_light_modeset[];
 extern u8 ef_w_cedar_leaf_modeset[];
-extern Vtx ef_x_cedar5_shake_v[];
 Vtx ef_x_cedar5_shake_v[] = {
 #include "assets/ef_x_cedar5_shake_v.inc"
 };
@@ -49,3 +48,4 @@ cKF_Joint_R_c cKF_je_r_ef_x_cedar5_shake_tbl[] = {
 
 cKF_Skeleton_R_c cKF_bs_r_ef_x_cedar5_shake = { ARRAY_COUNT(cKF_je_r_ef_x_cedar5_shake_tbl), 2,
                                                 cKF_je_r_ef_x_cedar5_shake_tbl };
+

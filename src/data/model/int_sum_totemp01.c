@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_sum_totemp01_v[];
 u16 int_sum_totemp01_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_sum_totemp01_pal.inc"
 };
@@ -76,3 +75,4 @@ Gfx int_sum_totemp01_onT_model[] = {
     gsSPNTriangles_5b(12, 14, 15, 0, 0, 0, 0, 0, 0, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

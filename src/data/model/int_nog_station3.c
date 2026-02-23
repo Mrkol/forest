@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_nog_station3_v[];
 u8 int_nog_station3_bese_tex_txt[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_nog_station3_bese_tex_txt.inc"
 };
@@ -119,3 +118,4 @@ cKF_Joint_R_c cKF_je_r_int_nog_station3_tbl[] = {
 
 cKF_Skeleton_R_c cKF_bs_r_int_nog_station3 = { ARRAY_COUNT(cKF_je_r_int_nog_station3_tbl), 3,
                                                cKF_je_r_int_nog_station3_tbl };
+

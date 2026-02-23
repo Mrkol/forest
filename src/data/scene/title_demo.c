@@ -5,7 +5,7 @@ extern s16 TITLE_DEMO_ctrl_actor_data[];
 extern Actor_data TITLE_DEMO_actor_data[];
 extern s16 TITLE_DEMO_object_bank[];
 
-extern Scene_Word_u title_demo_info[] = {
+Scene_Word_u title_demo_info[] = {
     mSc_DATA_SOUND(0, 0),                                 // Sound data
     mSc_DATA_PLAYER(TITLE_DEMO_player_data),              // Player Data
     mSc_DATA_CTRL_ACTORS(10, TITLE_DEMO_ctrl_actor_data), // Control actors
@@ -16,7 +16,7 @@ extern Scene_Word_u title_demo_info[] = {
     mSc_DATA_END(),                             // End of scene data
 };
 
-extern Actor_data TITLE_DEMO_player_data[] = {
+Actor_data TITLE_DEMO_player_data[] = {
     {
         mAc_PROFILE_PLAYER, // profile
         { 2240, 0, 1600 },  // position
@@ -25,7 +25,7 @@ extern Actor_data TITLE_DEMO_player_data[] = {
     },
 };
 
-extern s16 TITLE_DEMO_ctrl_actor_data[] = {
+s16 TITLE_DEMO_ctrl_actor_data[] = {
     mAc_PROFILE_EFFECTBG,       // 0
     mAc_PROFILE_BIRTH_CONTROL,  // 1
     mAc_PROFILE_NPC,            // 2
@@ -38,7 +38,7 @@ extern s16 TITLE_DEMO_ctrl_actor_data[] = {
     mAc_PROFILE_QUEST_MANAGER,  // 9
 };
 
-extern Actor_data TITLE_DEMO_actor_data[] = {
+Actor_data TITLE_DEMO_actor_data[] = {
     {
         mAc_PROFILE_UKI, // profile
         { 340, 0, 430 }, // position
@@ -47,6 +47,6 @@ extern Actor_data TITLE_DEMO_actor_data[] = {
     },
 };
 
-extern s16 TITLE_DEMO_object_bank[] = {
+s16 TITLE_DEMO_object_bank[] = {
     ACTOR_OBJ_BANK_UKI, // 0
 };

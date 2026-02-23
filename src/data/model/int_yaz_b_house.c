@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_yaz_b_house_v[];
 u16 int_yaz_b_house_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_yaz_b_house_pal.inc"
 };
@@ -79,3 +78,4 @@ Gfx int_yaz_b_house_body_model[] = {
     gsSPNTriangles_5b(8, 10, 12, 0, 0, 0, 0, 0, 0, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

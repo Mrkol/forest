@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_sum_liccalowtable_v[];
 u16 int_sum_liccalowtable_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_sum_liccalowtable_pal.inc"
 };
@@ -73,3 +72,4 @@ Gfx int_sum_liccalowtable_onT_model[] = {
     gsSPNTriangles_5b(4, 11, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

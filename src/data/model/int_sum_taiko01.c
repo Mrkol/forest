@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_sum_taiko01_v[];
 u16 int_sum_taiko01_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_sum_taiko01_pal.inc"
 };
@@ -78,3 +77,4 @@ Gfx int_sum_taiko01_on_model[] = {
     gsSPNTriangles_5b(28, 30, 29, 0, 0, 0, 0, 0, 0, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

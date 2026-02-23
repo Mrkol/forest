@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_sum_danna_v[];
 u16 int_sum_danna_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_sum_danna_pal.inc"
 };
@@ -167,3 +166,4 @@ cKF_Joint_R_c cKF_je_r_int_sum_danna_tbl[] = { { int_sum_danna_base_model, 4, cK
                                                { int_sum_danna_side_model, 0, cKF_JOINT_FLAG_DISP_XLU, { 0, 0, 0 } } };
 
 cKF_Skeleton_R_c cKF_bs_r_int_sum_danna = { ARRAY_COUNT(cKF_je_r_int_sum_danna_tbl), 6, cKF_je_r_int_sum_danna_tbl };
+

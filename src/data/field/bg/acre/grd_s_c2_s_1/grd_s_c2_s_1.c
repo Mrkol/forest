@@ -13,11 +13,11 @@ static Vtx grd_s_c2_s_1_v[] = {
 #include "assets/field/bg/grd_s_c2_s_1_v.inc"
 };
 
-extern Gfx grd_s_c2_s_1_modelT[] = {
+Gfx grd_s_c2_s_1_modelT[] = {
     gsSPEndDisplayList(),
 };
 
-extern Gfx grd_s_c2_s_1_model[] = {
+Gfx grd_s_c2_s_1_model[] = {
     gsSPTexture(0, 0, 0, 0, G_ON),
     gsDPSetRenderMode(G_RM_FOG_SHADE_A, G_RM_AA_ZB_TEX_EDGE2),
     gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, TEXEL0, PRIMITIVE, 0, COMBINED, 0, 0, 0, 0, COMBINED),

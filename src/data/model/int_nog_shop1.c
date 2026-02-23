@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_nog_shop1_v[];
 u16 int_nog_shop1_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_nog_shop1_pal.inc"
 };
@@ -87,3 +86,4 @@ Gfx int_nog_shop1_offT_model[] = {
     gsSPNTriangles_5b(1, 4, 5, 6, 7, 5, 6, 5, 4, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

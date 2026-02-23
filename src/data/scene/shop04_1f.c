@@ -5,7 +5,7 @@ extern Actor_data SHOP04_1F_player_data[];
 extern s16 SHOP04_1F_ctrl_actor_data[];
 extern s16 SHOP04_1F_object_bank[];
 
-extern Scene_Word_u shop04_1f_info[] = {
+Scene_Word_u shop04_1f_info[] = {
     mSc_DATA_SOUND(0, 0),                                // Sound data
     mSc_DATA_DOOR_DATA(1, SHOP04_1F_door_data),          // Door data
     mSc_DATA_PLAYER(SHOP04_1F_player_data),              // Player Data
@@ -17,7 +17,7 @@ extern Scene_Word_u shop04_1f_info[] = {
     mSc_DATA_END(),                            // End of scene data
 };
 
-extern Actor_data SHOP04_1F_player_data[] = {
+Actor_data SHOP04_1F_player_data[] = {
     {
         mAc_PROFILE_PLAYER, // profile
         { 320, 0, 540 },    // position
@@ -26,7 +26,7 @@ extern Actor_data SHOP04_1F_player_data[] = {
     },
 };
 
-extern s16 SHOP04_1F_ctrl_actor_data[] = {
+s16 SHOP04_1F_ctrl_actor_data[] = {
     mAc_PROFILE_BIRTH_CONTROL,  // 0
     mAc_PROFILE_SHOP_DESIGN,    // 1
     mAc_PROFILE_NPC2,           // 2
@@ -44,11 +44,11 @@ extern s16 SHOP04_1F_ctrl_actor_data[] = {
     mAc_PROFILE_SHOP_UMBRELLA,  // 14
 };
 
-extern s16 SHOP04_1F_object_bank[] = {
+s16 SHOP04_1F_object_bank[] = {
     ACTOR_OBJ_BANK_13, // 0
 };
 
-extern Door_data_c SHOP04_1F_door_data[] = {
+Door_data_c SHOP04_1F_door_data[] = {
     {
         SCENE_DEPART_2,  // scene
         0,               // exit orientation

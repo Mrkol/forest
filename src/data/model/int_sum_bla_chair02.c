@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_sum_bla_chair02_v[];
 u16 int_sum_bla_chair02_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_sum_bla_chair02_pal.inc"
 };
@@ -63,3 +62,4 @@ Gfx int_sum_bra_chair02_onT_model[] = {
     gsSPNTrianglesInit_5b(3, 6, 7, 8, 6, 9, 7, 9, 10, 7),
     gsSPEndDisplayList(),
 };
+

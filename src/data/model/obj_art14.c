@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx obj_art14_v[];
 u16 obj_art14_pal[] = {
 #include "assets/obj_art14_pal.inc"
 };
@@ -84,3 +83,4 @@ Gfx obj_art14_model[] = {
     gsSP2Triangles(13, 20, 21, 0, 13, 21, 10, 0),
     gsSPEndDisplayList(),
 };
+

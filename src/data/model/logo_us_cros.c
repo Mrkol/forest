@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx logo_us_cros_v[];
 static u16 logo_us_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/logo_us_cros/logo_us_pal.inc"
 };
@@ -95,3 +94,4 @@ cKF_Joint_R_c cKF_je_r_logo_us_cros_tbl[] = { { NULL, 4, cKF_JOINT_FLAG_DISP_OPA
                                               { logo_us_zs_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 4500, 0, 0 } } };
 
 cKF_Skeleton_R_c cKF_bs_r_logo_us_cros = { ARRAY_COUNT(cKF_je_r_logo_us_cros_tbl), 5, cKF_je_r_logo_us_cros_tbl };
+

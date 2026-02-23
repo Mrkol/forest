@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx act_m_akiakane_v[];
 static Vtx act_m_akiakane_v[] = {
 #include "assets/act_m_akiakane2/act_m_akiakane_v.inc"
 };
@@ -110,3 +109,4 @@ Gfx act_m_mu_akiakane2_2T_model[] = {
     gsSP2Triangles(4, 2, 1, 0, 4, 1, 5, 0),
     gsSPEndDisplayList(),
 };
+

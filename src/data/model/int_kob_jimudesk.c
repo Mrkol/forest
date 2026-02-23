@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_kob_jimudesk_v[];
 u16 int_kob_jimudesk_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_kob_jimudesk_pal.inc"
 };
@@ -100,3 +99,4 @@ Gfx int_kob_jimudesk_onT_model[] = {
     gsSPNTriangles_5b(12, 14, 15, 0, 0, 0, 0, 0, 0, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

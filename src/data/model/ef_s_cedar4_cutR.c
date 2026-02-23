@@ -6,7 +6,6 @@
 #include "ef_effect_control.h"
 
 extern u8 ef_s_cedar_leaf_modeset[];
-extern Vtx ef_s_cedar4_cutR_v[];
 extern u8 ef_s_cedar_trunk_modeset[];
 extern u8 obj_s_cedar_cutL_tex_txt[];
 Vtx ef_s_cedar4_cutR_v[] = {
@@ -45,3 +44,4 @@ cKF_Joint_R_c cKF_je_r_ef_s_cedar4_cutR_tbl[] = {
 
 cKF_Skeleton_R_c cKF_bs_r_ef_s_cedar4_cutR = { ARRAY_COUNT(cKF_je_r_ef_s_cedar4_cutR_tbl), 2,
                                                cKF_je_r_ef_s_cedar4_cutR_tbl };
+

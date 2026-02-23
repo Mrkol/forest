@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_kon_cracker_v[];
 u16 int_kon_cracker_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_kon_cracker_pal.inc"
 };
@@ -205,3 +204,4 @@ cKF_Joint_R_c cKF_je_r_int_kon_cracker_tbl[] = {
 
 cKF_Skeleton_R_c cKF_bs_r_int_kon_cracker = { ARRAY_COUNT(cKF_je_r_int_kon_cracker_tbl), 8,
                                               cKF_je_r_int_kon_cracker_tbl };
+

@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_tak_apollo1_v[];
 u16 int_tak_apollo1_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_tak_apollo1_pal.inc"
 };
@@ -120,3 +119,4 @@ Gfx int_tak_apollo1_onT_model[] = {
     gsSPNTrianglesInit_5b(2, 19, 20, 21, 22, 23, 24, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

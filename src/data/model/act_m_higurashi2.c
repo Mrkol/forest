@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx act_m_higurashi_v[];
 static Vtx act_m_higurashi_v[] = {
 #include "assets/act_m_higurashi2/act_m_higurashi_v.inc"
 };
@@ -79,3 +78,4 @@ Gfx act_m_mu_higurashi1_2T_model[] = {
     gsSP2Triangles(4, 5, 6, 0, 4, 6, 7, 0),
     gsSPEndDisplayList(),
 };
+

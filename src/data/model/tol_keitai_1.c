@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx tol_keitai_1_v[];
 u16 tol_keitai_1_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/tol_keitai_1_pal.inc"
 };
@@ -75,3 +74,4 @@ cKF_Joint_R_c cKF_je_r_tol_keitai_1_tbl[] = { { NULL, 1, cKF_JOINT_FLAG_DISP_OPA
                                               { main2_keitai1_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 800, 0, 0 } } };
 
 cKF_Skeleton_R_c cKF_bs_r_tol_keitai_1 = { ARRAY_COUNT(cKF_je_r_tol_keitai_1_tbl), 2, cKF_je_r_tol_keitai_1_tbl };
+

@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_iku_saku_b_v[];
 u16 int_iku_saku_b_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_iku_saku_b_pal.inc"
 };
@@ -53,3 +52,4 @@ Gfx int_iku_saku_b_model_model[] = {
     gsSPNTriangles_5b(0, 7, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

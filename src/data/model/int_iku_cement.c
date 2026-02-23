@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_iku_cement_v[];
 u16 int_iku_cement_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_iku_cement_pal.inc"
 };
@@ -99,3 +98,4 @@ Gfx int_iku_cement_model_model[] = {
     gsSPNTriangles_5b(18, 19, 16, 0, 0, 0, 0, 0, 0, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

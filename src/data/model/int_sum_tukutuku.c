@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_sum_tukutuku_v[];
 u16 int_sum_tukutuku_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_sum_tukutuku_pal.inc"
 };
@@ -185,3 +184,4 @@ cKF_Joint_R_c cKF_je_r_int_sum_tukutuku_tbl[] = {
 
 cKF_Skeleton_R_c cKF_bs_r_int_sum_tukutuku = { ARRAY_COUNT(cKF_je_r_int_sum_tukutuku_tbl), 6,
                                                cKF_je_r_int_sum_tukutuku_tbl };
+

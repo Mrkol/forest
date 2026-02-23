@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx act_mus_ito_a1_v[];
 static u16 int_sum_ito_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/act_mus_ito_a1/int_sum_ito_pal.inc"
 };
@@ -63,3 +62,4 @@ cKF_Joint_R_c cKF_je_r_act_mus_ito_a1_tbl[] = {
 };
 
 cKF_Skeleton_R_c cKF_bs_r_act_mus_ito_a1 = { ARRAY_COUNT(cKF_je_r_act_mus_ito_a1_tbl), 2, cKF_je_r_act_mus_ito_a1_tbl };
+

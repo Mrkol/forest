@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_yaz_fish_trophy_v[];
 u8 int_yaz_fish_trophy_fish_txt[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_yaz_fish_trophy_fish_txt.inc"
 };
@@ -90,3 +89,4 @@ Gfx int_yaz_fish_trophy_base_model[] = {
     gsSPNTriangles_5b(20, 22, 23, 0, 0, 0, 0, 0, 0, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

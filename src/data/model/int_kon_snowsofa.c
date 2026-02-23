@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_kon_snowsofa_v[];
 u16 int_kon_snowsofa_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_kon_snowsofa_pal.inc"
 };
@@ -73,3 +72,4 @@ Gfx int_kon_snowsofaT_model[] = {
     gsSPNTriangles_5b(4, 5, 6, 4, 6, 7, 7, 5, 4, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

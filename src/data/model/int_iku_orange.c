@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_iku_orange_v[];
 u16 int_iku_orange_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_iku_orange_pal.inc"
 };
@@ -63,3 +62,4 @@ Gfx int_iku_orange_model_a_model[] = {
     gsSPNTriangles_5b(5, 11, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

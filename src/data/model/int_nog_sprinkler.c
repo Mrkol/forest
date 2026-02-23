@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_nog_sprinkler_v[];
 u8 int_noga_sprinkler[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_noga_sprinkler.inc"
 };
@@ -83,3 +82,4 @@ Gfx int_nog_sprinkler_bodyT_model[] = {
     gsSPNTrianglesInit_5b(2, 4, 5, 6, 4, 6, 7, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

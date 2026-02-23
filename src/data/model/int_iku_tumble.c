@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_iku_tumble_v[];
 u16 int_iku_tumble_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_iku_tumble_pal.inc"
 };
@@ -43,3 +42,4 @@ Gfx int_iku_tumble_model[] = {
     gsSPNTriangles_5b(14, 20, 11, 0, 0, 0, 0, 0, 0, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

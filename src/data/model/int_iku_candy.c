@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_iku_candy_v[];
 u16 int_iku_candy_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_iku_candy_pal.inc"
 };
@@ -62,3 +61,4 @@ Gfx int_iku_candy_off_model[] = {
     gsSPNTriangles_5b(7, 1, 0, 7, 0, 3, 7, 3, 4, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

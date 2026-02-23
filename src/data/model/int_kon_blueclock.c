@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_kon_blueclock_v[];
 u16 int_kon_blueclock_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_kon_blueclock_pal.inc"
 };
@@ -129,3 +128,4 @@ cKF_Joint_R_c cKF_je_r_int_kon_blueclock_tbl[] = {
 
 cKF_Skeleton_R_c cKF_bs_r_int_kon_blueclock = { ARRAY_COUNT(cKF_je_r_int_kon_blueclock_tbl), 4,
                                                 cKF_je_r_int_kon_blueclock_tbl };
+

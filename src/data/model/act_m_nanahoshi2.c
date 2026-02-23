@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx act_m_nanahoshi_v[];
 static Vtx act_m_nanahoshi_v[] = {
 #include "assets/act_m_nanahoshi2/act_m_nanahoshi_v.inc"
 };
@@ -91,3 +90,4 @@ Gfx act_m_mu_nanahoshi2T_model[] = {
     gsSP1Triangle(7, 5, 14, 0),
     gsSPEndDisplayList(),
 };
+

@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_din_mammoth_body_v[];
 static u16 int_din_mammoth_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_din_mammoth_body/int_din_mammoth_pal.inc"
 };
@@ -91,3 +90,4 @@ Gfx int_din_mammoth_bodyT_model[] = {
     gsSPNTriangles_5b(20, 25, 23, 19, 28, 16, 20, 23, 18, 20, 18, 17),
     gsSPEndDisplayList(),
 };
+

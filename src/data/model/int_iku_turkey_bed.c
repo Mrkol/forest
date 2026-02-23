@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_iku_turkey_bed_v[];
 u16 int_iku_turkey_bed_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_iku_turkey_bed_pal.inc"
 };
@@ -118,3 +117,4 @@ Gfx int_iku_turkey_bed_model_b_model[] = {
     gsSPNTriangles_5b(3, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

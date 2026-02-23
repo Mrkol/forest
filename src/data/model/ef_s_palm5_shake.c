@@ -6,7 +6,6 @@
 #include "ef_effect_control.h"
 
 extern u8 ef_s_palm_leaf_modeset[];
-extern Vtx ef_s_palm5_shake_v[];
 Vtx ef_s_palm5_shake_v[] = {
 #include "assets/ef_s_palm5_shake_v.inc"
 };
@@ -31,3 +30,4 @@ cKF_Joint_R_c cKF_je_r_ef_s_palm5_shake_tbl[] = { { NULL, 1, cKF_JOINT_FLAG_DISP
 
 cKF_Skeleton_R_c cKF_bs_r_ef_s_palm5_shake = { ARRAY_COUNT(cKF_je_r_ef_s_palm5_shake_tbl), 1,
                                                cKF_je_r_ef_s_palm5_shake_tbl };
+

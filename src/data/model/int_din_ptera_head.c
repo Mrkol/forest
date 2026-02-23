@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_din_ptera_head_v[];
 static u16 int_din_ptera_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_din_ptera_head/int_din_ptera_pal.inc"
 };
@@ -97,3 +96,4 @@ Gfx int_din_ptera_headT_model[] = {
     gsSPNTriangles_5b(10, 12, 0, 3, 10, 0, 5, 12, 6, 9, 12, 10),
     gsSPEndDisplayList(),
 };
+

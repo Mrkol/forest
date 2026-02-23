@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_kob_locker1_v[];
 u16 int_kob_locker_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_kob_locker_pal.inc"
 };
@@ -93,3 +92,4 @@ cKF_Joint_R_c cKF_je_r_int_kob_locker1_tbl[] = {
 
 cKF_Skeleton_R_c cKF_bs_r_int_kob_locker1 = { ARRAY_COUNT(cKF_je_r_int_kob_locker1_tbl), 2,
                                               cKF_je_r_int_kob_locker1_tbl };
+

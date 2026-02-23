@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_ike_jny_syon01_v[];
 u8 int_ike_jny_syon01_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_ike_jny_syon01_tex.inc"
 };
@@ -128,3 +127,4 @@ Gfx int_ike_jny_syon01_off_model[] = {
     gsSPNTriangles_5b(0, 4, 3, 2, 5, 4, 2, 4, 0, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

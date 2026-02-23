@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_sum_okuwa_v[];
 u16 int_sum_okuwa_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_sum_okuwa_pal.inc"
 };
@@ -148,3 +147,4 @@ cKF_Joint_R_c cKF_je_r_int_sum_okuwa_tbl[] = { { int_sum_okuwa_base_model, 4, cK
                                                { int_sum_okuwa_side_model, 0, cKF_JOINT_FLAG_DISP_XLU, { 0, 0, 0 } } };
 
 cKF_Skeleton_R_c cKF_bs_r_int_sum_okuwa = { ARRAY_COUNT(cKF_je_r_int_sum_okuwa_tbl), 5, cKF_je_r_int_sum_okuwa_tbl };
+

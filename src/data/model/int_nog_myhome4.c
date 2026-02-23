@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_nog_myhome4_v[];
 u8 int_nog_myhome4_body_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_nog_myhome4_body_tex.inc"
 };
@@ -84,3 +83,4 @@ Gfx int_nog_myhome4_onT_model[] = {
     gsSPNTriangles_5b(5, 7, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

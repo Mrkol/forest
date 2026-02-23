@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_iku_chair_v[];
 u16 int_iku_chair_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_iku_chair_pal.inc"
 };
@@ -77,3 +76,4 @@ Gfx int_iku_chair_model_model[] = {
     gsSPNTriangles_5b(11, 16, 14, 0, 0, 0, 0, 0, 0, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

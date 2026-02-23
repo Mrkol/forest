@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_sum_ayu_v[];
 static u16 int_sum_ayu_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_sum_ayu/int_sum_ayu_pal.inc"
 };
@@ -138,3 +137,4 @@ cKF_Joint_R_c cKF_je_r_int_sum_ayu_tbl[] = { { NULL, 1, cKF_JOINT_FLAG_DISP_OPA,
                                              { int_sum_ayu_sakana_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 500, 0, 0 } } };
 
 cKF_Skeleton_R_c cKF_bs_r_int_sum_ayu = { ARRAY_COUNT(cKF_je_r_int_sum_ayu_tbl), 4, cKF_je_r_int_sum_ayu_tbl };
+

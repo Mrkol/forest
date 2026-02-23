@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_sugi_kpool_v[];
 u16 int_sugi_kpool_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_sugi_kpool_pal.inc"
 };
@@ -86,3 +85,4 @@ Gfx sugi_kpool_model[] = {
     gsSPNTriangles_5b(1, 23, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx obj_museum5_v[];
 u16 obj_museum5_on_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/obj_museum5_on_pal.inc"
 };
@@ -295,3 +294,4 @@ Gfx obj_museum5_model[] = {
     gsSPNTriangles_5b(2, 4, 5, 6, 5, 4, 6, 7, 5, 7, 8, 5),
     gsSPEndDisplayList(),
 };
+

@@ -4,7 +4,7 @@ extern Door_data_c TENT_door_data[];
 extern Actor_data TENT_player_data[];
 extern s16 TENT_ctrl_actor_data[];
 
-extern Scene_Word_u tent_info[] = {
+Scene_Word_u tent_info[] = {
     mSc_DATA_SOUND(0, 0),                           // Sound data
     mSc_DATA_DOOR_DATA(1, TENT_door_data),          // Door data
     mSc_DATA_PLAYER(TENT_player_data),              // Player Data
@@ -15,7 +15,7 @@ extern Scene_Word_u tent_info[] = {
     mSc_DATA_END(),                            // End of scene data
 };
 
-extern Actor_data TENT_player_data[] = {
+Actor_data TENT_player_data[] = {
     {
         mAc_PROFILE_PLAYER, // profile
         { 120, 0, 100 },    // position
@@ -24,7 +24,7 @@ extern Actor_data TENT_player_data[] = {
     },
 };
 
-extern s16 TENT_ctrl_actor_data[] = {
+s16 TENT_ctrl_actor_data[] = {
     mAc_PROFILE_BIRTH_CONTROL,  // 0
     mAc_PROFILE_MY_ROOM,        // 1
     mAc_PROFILE_NPC2,           // 2
@@ -38,7 +38,7 @@ extern s16 TENT_ctrl_actor_data[] = {
     mAc_PROFILE_WEATHER,        // 10
 };
 
-extern Door_data_c TENT_door_data[] = {
+Door_data_c TENT_door_data[] = {
     {
         SCENE_FG,         // scene
         1,                // exit orientation

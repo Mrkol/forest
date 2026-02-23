@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx ef_wipe3_v[];
 extern u8 ef_wape_tex[];
 Vtx ef_wipe3_v[] = {
 #include "assets/ef_wipe3_v.inc"
@@ -43,3 +42,4 @@ Gfx ef_wipe3_modelT[] = {
     gsSPNTriangles_5b(0, 3, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

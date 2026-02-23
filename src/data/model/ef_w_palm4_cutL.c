@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx ef_w_palm4_cutL_v[];
 extern u8 obj_w_palm_cutL_tex_txt[];
 extern u8 ef_w_palm_leaf_modeset[];
 extern u8 ef_w_palm_trunk_modeset[];
@@ -43,3 +42,4 @@ cKF_Joint_R_c cKF_je_r_ef_w_palm4_cutL_tbl[] = {
 
 cKF_Skeleton_R_c cKF_bs_r_ef_w_palm4_cutL = { ARRAY_COUNT(cKF_je_r_ef_w_palm4_cutL_tbl), 2,
                                               cKF_je_r_ef_w_palm4_cutL_tbl };
+

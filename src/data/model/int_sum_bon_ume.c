@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_sum_bon_ume_v[];
 u16 int_sum_bon_ume_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_sum_bon_ume_pal.inc"
 };
@@ -90,3 +89,4 @@ Gfx int_sum_bon_ume_onT_model[] = {
     gsSPNTriangles_5b(7, 13, 14, 0, 0, 0, 0, 0, 0, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

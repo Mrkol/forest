@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx rom_train_out_v[];
 u16 rom_train_4_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/rom_train_4_pal.inc"
 };
@@ -121,3 +120,4 @@ Gfx rom_train_out_bgsky_model[] = {
     gsSPNTriangles_5b(4, 6, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

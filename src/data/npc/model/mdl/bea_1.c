@@ -587,4 +587,4 @@ static cKF_Joint_R_c cKF_je_r_bea_1_tbl[] = {
 };
 // clang-format on
 
-extern cKF_Skeleton_R_c cKF_bs_r_bea_1 = { 26, 12, cKF_je_r_bea_1_tbl };
+cKF_Skeleton_R_c cKF_bs_r_bea_1 = { 26, 12, cKF_je_r_bea_1_tbl };

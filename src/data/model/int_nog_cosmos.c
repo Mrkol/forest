@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_nog_cosmos_v[];
 u8 int_nog_cosmos_grass_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_nog_cosmos_grass_tex.inc"
 };
@@ -60,3 +59,4 @@ Gfx int_nog_cosmosT_model[] = {
     gsSPNTrianglesInit_5b(2, 0, 1, 2, 0, 2, 3, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

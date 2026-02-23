@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_sum_bla_lanp_v[];
 u16 int_sum_bla_lanp_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_sum_bla_lanp_pal.inc"
 };
@@ -100,3 +99,4 @@ Gfx int_sum_bla_lanp_offT_model[] = {
     gsSPNTrianglesInit_5b(2, 0, 1, 2, 0, 3, 4, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

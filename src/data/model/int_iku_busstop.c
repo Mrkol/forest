@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_iku_busstop_v[];
 u16 int_iku_busstop_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_iku_busstop_pal.inc"
 };
@@ -44,3 +43,4 @@ Gfx int_iku_busstop_model_model[] = {
     gsSPNTriangles_5b(12, 14, 15, 0, 0, 0, 0, 0, 0, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

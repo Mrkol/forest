@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx ef_wipe1_v[];
 u8 ef_wape_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/ef_wape_tex.inc"
 };
@@ -46,3 +45,4 @@ Gfx ef_wipe1_modelT[] = {
     gsSPNTrianglesInit_5b(2, 0, 1, 2, 0, 2, 3, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

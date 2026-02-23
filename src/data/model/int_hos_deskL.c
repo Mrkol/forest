@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_hos_deskL_v[];
 u16 int_hos_deskL_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_hos_deskL_pal.inc"
 };
@@ -50,3 +49,4 @@ Gfx int_hos_deskL_model_model[] = {
     gsSPNTriangles_5b(2, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

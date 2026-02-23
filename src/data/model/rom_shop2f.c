@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx rom_shop2f_v[];
 Vtx rom_shop2f_v[] = {
 #include "assets/rom_shop2f_v.inc"
 };
@@ -48,3 +47,4 @@ Gfx rom_shop2f_model[] = {
     gsSPNTriangles_5b(3, 5, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

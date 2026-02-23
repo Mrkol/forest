@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_sum_poptable01_v[];
 static u16 int_sum_poptable01_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_sum_poptable01/int_sum_poptable01_pal.inc"
 };
@@ -72,3 +71,4 @@ Gfx int_sum_poptable01_onT_model[] = {
     gsSPNTrianglesInit_5b(2, 15, 16, 17, 15, 17, 18, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

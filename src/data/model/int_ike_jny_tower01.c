@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_ike_jny_tower01_v[];
 u8 int_ike_jny_tower01[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_ike_jny_tower01.inc"
 };
@@ -109,3 +108,4 @@ Gfx int_ike_jny_tower01_body_model[] = {
     gsSPNTriangles_5b(24, 26, 27, 0, 0, 0, 0, 0, 0, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_nog_zassou_v[];
 u16 int_nog_zassou_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_nog_zassou_pal.inc"
 };
@@ -56,3 +55,4 @@ Gfx int_nog_zassouT_model[] = {
     gsSPNTriangles_5b(4, 6, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

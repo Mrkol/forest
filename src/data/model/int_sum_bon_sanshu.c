@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_sum_bon_sanshu_v[];
 u16 int_sum_bon_sanshu_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_sum_bon_sanshu_pal.inc"
 };
@@ -95,3 +94,4 @@ Gfx int_sum_bon_sanshu_onT_model[] = {
     gsSPNTrianglesInit_5b(1, 13, 14, 15, 0, 0, 0, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

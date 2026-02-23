@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_tak_tent_lamp_v[];
 u16 int_tak_tent_lamp_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_tak_tent_lamp_pal.inc"
 };
@@ -47,3 +46,4 @@ Gfx obj_tent_lamp_offT_model[] = {
     gsSPNTriangles_5b(24, 23, 25, 26, 24, 25, 26, 25, 27, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

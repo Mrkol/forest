@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_nog_kumo_v[];
 u16 int_nog_kumo_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_nog_kumo_pal.inc"
 };
@@ -162,3 +161,4 @@ cKF_Joint_R_c cKF_je_r_int_nog_kumo_tbl[] = { { NULL, 1, cKF_JOINT_FLAG_DISP_OPA
                                               { int_nog_kumo_body_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 1000, 0, 0 } } };
 
 cKF_Skeleton_R_c cKF_bs_r_int_nog_kumo = { ARRAY_COUNT(cKF_je_r_int_nog_kumo_tbl), 6, cKF_je_r_int_nog_kumo_tbl };
+

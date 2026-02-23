@@ -24,7 +24,7 @@ static Vtx grd_player_select_v[] = {
 #include "assets/field/bg/grd_player_select_v.inc"
 };
 
-extern Gfx grd_player_select_modelT[] = {
+Gfx grd_player_select_modelT[] = {
     gsSPTexture(0, 0, 0, 0, G_ON),
     gsDPSetCombineLERP(PRIMITIVE, ENVIRONMENT, TEXEL0, ENVIRONMENT, TEXEL0, 0, TEXEL1, TEXEL1, 0, 0, 0, COMBINED,
                        COMBINED, 0, PRIM_LOD_FRAC, 0),
@@ -54,7 +54,7 @@ extern Gfx grd_player_select_modelT[] = {
     gsSPEndDisplayList(),
 };
 
-extern Gfx grd_player_select_model[] = {
+Gfx grd_player_select_model[] = {
     gsSPTexture(0, 0, 0, 0, G_ON),
     gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, PRIMITIVE, 0, 0, 0, COMBINED, 0, 0, 0, COMBINED),
     gsDPSetPrimColor(0, 255, 255, 255, 255, 255),

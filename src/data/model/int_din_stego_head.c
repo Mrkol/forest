@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_din_stego_head_v[];
 static u16 int_din_stego_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_din_stego_head/int_din_stego_pal.inc"
 };
@@ -83,3 +82,4 @@ Gfx int_din_stego_headT_model[] = {
     gsSPNTrianglesInit_5b(1, 26, 27, 28, 0, 0, 0, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

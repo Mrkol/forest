@@ -16,11 +16,11 @@ static Vtx tmp4_v[] = {
 #include "assets/field/bg/tmp4_v.inc"
 };
 
-extern Gfx tmp4_modelT[] = {
+Gfx tmp4_modelT[] = {
     gsSPEndDisplayList(),
 };
 
-extern Gfx tmp4_model[] = {
+Gfx tmp4_model[] = {
     gsSPTexture(65535, 65535, 0, 0, G_ON),
     gsDPPipeSync(),
     gsDPSetRenderMode(G_RM_FOG_SHADE_A, G_RM_AA_ZB_TEX_EDGE2),

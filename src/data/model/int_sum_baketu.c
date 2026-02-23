@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_sum_baketu_v[];
 u16 int_sum_baketu_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_sum_baketu_pal.inc"
 };
@@ -59,3 +58,4 @@ Gfx int_sum_baketu_onT_model[] = {
     gsSPNTriangles_5b(7, 8, 6, 9, 7, 4, 10, 9, 2, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

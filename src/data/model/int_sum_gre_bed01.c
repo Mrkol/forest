@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_sum_gre_bed01_v[];
 u16 int_sum_gre_bed01_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_sum_gre_bed01_pal.inc"
 };
@@ -89,3 +88,4 @@ Gfx int_sum_gre_bed01_onT_model[] = {
     gsSPNTriangles_5b(18, 14, 17, 20, 19, 18, 20, 18, 21, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_ike_jpn_tansu01_v[];
 u16 int_ike_jpn_tansu01_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_ike_jpn_tansu01_pal.inc"
 };
@@ -80,3 +79,4 @@ Gfx int_ike_jpn_tansu01_onT_model[] = {
     gsSPNTrianglesInit_5b(2, 4, 5, 6, 4, 6, 7, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_tak_noise_v[];
 u16 int_tak_noise_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_tak_noise_pal.inc"
 };
@@ -69,3 +68,4 @@ Gfx int_tak_noise_onT_model[] = {
     gsSPNTriangles_5b(18, 19, 20, 18, 20, 21, 18, 21, 22, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_tak_rocket1_v[];
 u16 int_tak_rocket1_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_tak_rocket1_pal.inc"
 };
@@ -95,3 +94,4 @@ Gfx int_tak_rocket1_onT_model[] = {
     gsSPNTriangles_5b(8, 6, 9, 0, 0, 0, 0, 0, 0, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

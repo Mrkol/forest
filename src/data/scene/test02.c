@@ -3,7 +3,7 @@
 extern Actor_data TEST02_player_data[];
 extern s16 TEST02_ctrl_actor_data[];
 
-extern Scene_Word_u test02_info[] = {
+Scene_Word_u test02_info[] = {
     mSc_DATA_SOUND(0, 0),                             // Sound data
     mSc_DATA_PLAYER(TEST02_player_data),              // Player Data
     mSc_DATA_CTRL_ACTORS(12, TEST02_ctrl_actor_data), // Control actors
@@ -12,7 +12,7 @@ extern Scene_Word_u test02_info[] = {
     mSc_DATA_END(),                             // End of scene data
 };
 
-extern Actor_data TEST02_player_data[] = {
+Actor_data TEST02_player_data[] = {
     {
         mAc_PROFILE_PLAYER, // profile
         { 320, 200, 1600 }, // position
@@ -21,7 +21,7 @@ extern Actor_data TEST02_player_data[] = {
     },
 };
 
-extern s16 TEST02_ctrl_actor_data[] = {
+s16 TEST02_ctrl_actor_data[] = {
     mAc_PROFILE_EFFECTBG,       // 0
     mAc_PROFILE_BIRTH_CONTROL,  // 1
     mAc_PROFILE_NPC,            // 2

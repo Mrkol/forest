@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx rom_kamakura_v[];
 u16 rom_kamakura_carp_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/rom_kamakura_carp_pal.inc"
 };
@@ -299,3 +298,4 @@ Gfx rom_kamakura_ring_modelT[] = {
     gsSP2Triangles(0, 1, 2, 0, 0, 2, 3, 0),
     gsSPEndDisplayList(),
 };
+

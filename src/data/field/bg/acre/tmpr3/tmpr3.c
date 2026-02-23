@@ -23,7 +23,7 @@ static Vtx tmpr3_v[] = {
 #include "assets/field/bg/tmpr3_v.inc"
 };
 
-extern Gfx tmpr3_modelT[] = {
+Gfx tmpr3_modelT[] = {
     gsSPTexture(65535, 65535, 0, 0, G_ON),
     gsDPPipeSync(),
     gsDPSetCombineLERP(PRIMITIVE, ENVIRONMENT, TEXEL0, ENVIRONMENT, 0, 0, 0, 0, COMBINED, 0, SHADE, 0, 0, 0, 0,
@@ -115,7 +115,7 @@ extern Gfx tmpr3_modelT[] = {
     gsSPEndDisplayList(),
 };
 
-extern Gfx tmpr3_model[] = {
+Gfx tmpr3_model[] = {
     gsSPTexture(65535, 65535, 0, 0, G_ON),
     gsDPPipeSync(),
     gsDPSetRenderMode(G_RM_FOG_SHADE_A, G_RM_AA_ZB_TEX_EDGE2),

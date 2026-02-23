@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_ike_prores_mat01_v[];
 u16 int_ike_prores_mat01_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_ike_prores_mat01_pal.inc"
 };
@@ -61,3 +60,4 @@ Gfx int_ike_prores_mat1_onT_model[] = {
     gsSPNTriangles_5b(14, 15, 12, 0, 0, 0, 0, 0, 0, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

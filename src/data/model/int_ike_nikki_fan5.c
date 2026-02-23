@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_ike_nikki_fan5_v[];
 u16 int_ike_nikki_fan5_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_ike_nikki_fan5_pal.inc"
 };
@@ -53,3 +52,4 @@ Gfx int_ike_nikki_fan5_on_model[] = {
     gsSPNTriangles_5b(4, 6, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_nog_queenB_v[];
 u16 int_nog_queenB_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_nog_queenB_pal.inc"
 };
@@ -64,3 +63,4 @@ Gfx int_nog_queenBT_model[] = {
     gsSPNTriangles_5b(21, 17, 16, 0, 0, 0, 0, 0, 0, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

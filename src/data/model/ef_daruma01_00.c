@@ -5,8 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx ef_daruma01_02_v[];
-extern Vtx ef_daruma01_01_v[];
 u16 ef_daruma01_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/ef_daruma01_pal.inc"
 };
@@ -83,3 +81,4 @@ Gfx ef_daruma01_02_model[] = {
     gsSPNTriangles_5b(5, 4, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

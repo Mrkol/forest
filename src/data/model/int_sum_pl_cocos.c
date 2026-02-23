@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_sum_pl_cocos_v[];
 u16 int_sum_pl_cocos_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_sum_pl_cocos_pal.inc"
 };
@@ -78,3 +77,4 @@ Gfx int_sum_pl_cocos_onT_model[] = {
     gsSPNTriangles_5b(21, 23, 24, 25, 15, 26, 23, 25, 27, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

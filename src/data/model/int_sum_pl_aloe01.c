@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_sum_pl_aloe01_v[];
 u16 int_sum_pl_aloe01_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_sum_pl_aloe01_pal.inc"
 };
@@ -68,3 +67,4 @@ Gfx int_sum_pl_aloe01_onT_model[] = {
     gsSPNTriangles_5b(29, 31, 30, 0, 0, 0, 0, 0, 0, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_iid_surf_v[];
 u16 int_iid_surf_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_iid_surf_pal.inc"
 };
@@ -133,3 +132,4 @@ Gfx int_iid_surf_model[] = {
     gsSPNTriangles_5b(1, 5, 2, 4, 6, 7, 4, 7, 5, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

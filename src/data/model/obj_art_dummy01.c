@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx obj_art_dummy01_v[];
 u16 obj_art_dummy01_pal[] = {
 #include "assets/obj_art_dummy01_pal.inc"
 };
@@ -84,3 +83,4 @@ Gfx obj_art_dummy01_model[] = {
     gsSP2Triangles(0, 1, 2, 0, 0, 2, 3, 0),
     gsSPEndDisplayList(),
 };
+

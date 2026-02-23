@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx act_m_dango_v[];
 static Vtx act_m_dango_v[] = {
 #include "assets/act_m_dango2/act_m_dango_v.inc"
 };
@@ -79,3 +78,4 @@ Gfx act_m_mu_dango2T_model[] = {
     gsSP2Triangles(3, 4, 1, 0, 1, 4, 2, 0),
     gsSPEndDisplayList(),
 };
+

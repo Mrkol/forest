@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_din_trikera_body_v[];
 static u16 int_din_trikera_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_din_trikera_body/int_din_trikera_pal.inc"
 };
@@ -83,3 +82,4 @@ Gfx int_din_trikera_bodyT_model[] = {
     gsSPNTriangles_5b(21, 20, 25, 24, 21, 25, 27, 22, 28, 27, 28, 26),
     gsSPEndDisplayList(),
 };
+

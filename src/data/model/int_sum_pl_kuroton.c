@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_sum_pl_kuroton_v[];
 static u16 int_sum_pl_kuroton_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_sum_pl_kuroton/int_sum_pl_kuroton_pal.inc"
 };
@@ -76,3 +75,4 @@ Gfx int_sum_pl_kuroton_onT_model[] = {
     gsSPNTriangles_5b(8, 9, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

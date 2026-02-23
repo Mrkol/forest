@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx rom_shop3w_v[];
 static u16 rom_shop3_ent_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/rom_shop3w/rom_shop3_ent_pal.inc"
 };
@@ -383,3 +382,4 @@ Gfx rom_shop3w_model[] = {
     gsSPNTriangles_5b(11, 13, 12, 0, 0, 0, 0, 0, 0, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

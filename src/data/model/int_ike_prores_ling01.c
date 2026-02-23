@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_ike_prores_ling01_v[];
 static u16 int_ike_prores_ling01_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_ike_prores_ling01/int_ike_prores_ling01_pal.inc"
 };
@@ -105,3 +104,4 @@ Gfx int_ike_prores_ling01_onT_model[] = {
     gsSPNTriangles_5b(25, 26, 27, 25, 28, 26, 18, 20, 29, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

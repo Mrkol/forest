@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_sum_clchest03_v[];
 u16 int_sum_clchest03_pal01_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_sum_clchest03_pal01_pal.inc"
 };
@@ -122,3 +121,4 @@ cKF_Joint_R_c cKF_je_r_int_sum_clchest03_tbl[] = {
 
 cKF_Skeleton_R_c cKF_bs_r_int_sum_clchest03 = { ARRAY_COUNT(cKF_je_r_int_sum_clchest03_tbl), 2,
                                                 cKF_je_r_int_sum_clchest03_tbl };
+

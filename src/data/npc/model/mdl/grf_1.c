@@ -751,4 +751,4 @@ static cKF_Joint_R_c cKF_je_r_grf_1_tbl[] = {
 };
 // clang-format on
 
-extern cKF_Skeleton_R_c cKF_bs_r_grf_1 = { 26, 14, cKF_je_r_grf_1_tbl };
+cKF_Skeleton_R_c cKF_bs_r_grf_1 = { 26, 14, cKF_je_r_grf_1_tbl };

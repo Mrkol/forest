@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx act_m_kamakiri_v[];
 static Vtx act_m_kamakiri_v[] = {
 #include "assets/act_m_kamakiri2/act_m_kamakiri_v.inc"
 };
@@ -87,3 +86,4 @@ Gfx act_m_mu_kamakiri2_2T_model[] = {
     gsSP2Triangles(0, 2, 1, 0, 0, 3, 2, 0),
     gsSPEndDisplayList(),
 };
+

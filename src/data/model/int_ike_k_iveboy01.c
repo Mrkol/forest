@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_ike_k_iveboy01_v[];
 u16 int_ike_k_iveboy01_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_ike_k_iveboy01_pal.inc"
 };
@@ -172,3 +171,4 @@ Gfx int_ike_k_iveboy01_onT_model[] = {
     gsSPNTriangles_5b(12, 14, 15, 0, 0, 0, 0, 0, 0, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

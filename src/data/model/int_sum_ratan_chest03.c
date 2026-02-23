@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_sum_ratan_chest03_v[];
 u16 int_sum_ratan_chest03_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_sum_ratan_chest03_pal.inc"
 };
@@ -82,3 +81,4 @@ Gfx int_sum_ratan_chest03_onT_model[] = {
     gsSPNTrianglesInit_5b(2, 26, 27, 28, 26, 28, 29, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

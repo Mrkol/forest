@@ -694,7 +694,7 @@ extern Gfx grd_s_il_4_modelT[];
 extern Gfx rom_tent_model[];
 extern Gfx rom_tent_modelT[];
 
-extern mFM_bg_data_c data_bgd[] = {
+mFM_bg_data_c data_bgd[] = {
     {
         BG_TYPE_ROOM01,
         room01_model,
@@ -11612,4 +11612,4 @@ extern mFM_bg_data_c data_bgd[] = {
     },
 };
 
-extern int data_bgd_number = ARRAY_COUNT(data_bgd);
+int data_bgd_number = ARRAY_COUNT(data_bgd);

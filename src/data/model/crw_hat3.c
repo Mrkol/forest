@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx crw_hat3_v[];
 u16 crw_hat3_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/crw_hat3_pal.inc"
 };
@@ -56,3 +55,4 @@ Gfx crw_hat3_body_model[] = {
     gsSPNTriangles_5b(6, 0, 2, 1, 5, 2, 4, 6, 2, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

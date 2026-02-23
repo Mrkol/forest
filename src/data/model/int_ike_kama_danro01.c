@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_ike_kama_danro01_v[];
 static u16 int_ike_kama_danro01_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_ike_kama_danro01/int_ike_kama_danro01_pal.inc"
 };
@@ -159,3 +158,4 @@ Gfx int_ike_kama_danro01_on_model[] = {
     gsSPNTriangles_5b(7, 8, 9, 10, 11, 12, 13, 14, 15, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

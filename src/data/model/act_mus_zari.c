@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx act_mus_zari_v[];
 u16 act_mus_zari_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/act_mus_zari_pal.inc"
 };
@@ -93,3 +92,4 @@ cKF_Joint_R_c cKF_je_r_act_mus_zari_tbl[] = { { NULL, 1, cKF_JOINT_FLAG_DISP_OPA
                                               { act_mus_zari_tail_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 1118, 0, 0 } } };
 
 cKF_Skeleton_R_c cKF_bs_r_act_mus_zari = { ARRAY_COUNT(cKF_je_r_act_mus_zari_tbl), 5, cKF_je_r_act_mus_zari_tbl };
+

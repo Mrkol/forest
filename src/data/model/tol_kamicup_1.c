@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx tol_kamicup_1_v[];
 u16 tol_kamicup_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/tol_kamicup_pal.inc"
 };
@@ -42,3 +41,4 @@ Gfx tol_kamicup_1T_model[] = {
     gsSPNTriangles_5b(16, 18, 19, 0, 0, 0, 0, 0, 0, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

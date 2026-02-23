@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_nog_burner_v[];
 u16 int_nog_burner_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_nog_burner_pal.inc"
 };
@@ -70,3 +69,4 @@ Gfx int_nog_burner_model[] = {
     gsSPNTriangles_5b(12, 13, 14, 15, 16, 17, 19, 20, 21, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

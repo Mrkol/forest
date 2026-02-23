@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_sum_misin01_v[];
 u16 int_sum_misin01_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_sum_misin01_pal.inc"
 };
@@ -132,3 +131,4 @@ Gfx int_sum_misin01_onT_model[] = {
     gsSPNTriangles_5b(7, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

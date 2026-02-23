@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx crw_biscus2_v[];
 u16 crw_biscus2_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/crw_biscus2_pal.inc"
 };
@@ -71,3 +70,4 @@ Gfx crw_biscus2_body_model[] = {
     gsSPNTriangles_5b(27, 29, 26, 0, 0, 0, 0, 0, 0, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

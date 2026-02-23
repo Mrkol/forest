@@ -5,7 +5,7 @@ extern s16 FIELD_TOOL_FIELD_ctrl_actor_data[];
 extern Actor_data FIELD_TOOL_FIELD_actor_data[];
 extern s16 FIELD_TOOL_FIELD_object_bank[];
 
-extern Scene_Word_u field_tool_field_info[] = {
+Scene_Word_u field_tool_field_info[] = {
     mSc_DATA_SOUND(0, 0),                                      // Sound data
     mSc_DATA_PLAYER(FIELD_TOOL_FIELD_player_data),             // Player Data
     mSc_DATA_CTRL_ACTORS(9, FIELD_TOOL_FIELD_ctrl_actor_data), // Control actors
@@ -16,7 +16,7 @@ extern Scene_Word_u field_tool_field_info[] = {
     mSc_DATA_END(),                             // End of scene data
 };
 
-extern Actor_data FIELD_TOOL_FIELD_player_data[] = {
+Actor_data FIELD_TOOL_FIELD_player_data[] = {
     {
         mAc_PROFILE_PLAYER, // profile
         { 2240, 0, 1600 },  // position
@@ -25,7 +25,7 @@ extern Actor_data FIELD_TOOL_FIELD_player_data[] = {
     },
 };
 
-extern s16 FIELD_TOOL_FIELD_ctrl_actor_data[] = {
+s16 FIELD_TOOL_FIELD_ctrl_actor_data[] = {
     mAc_PROFILE_EFFECTBG,       // 0
     mAc_PROFILE_BIRTH_CONTROL,  // 1
     mAc_PROFILE_NPC,            // 2
@@ -37,7 +37,7 @@ extern s16 FIELD_TOOL_FIELD_ctrl_actor_data[] = {
     mAc_PROFILE_QUEST_MANAGER,  // 8
 };
 
-extern Actor_data FIELD_TOOL_FIELD_actor_data[] = {
+Actor_data FIELD_TOOL_FIELD_actor_data[] = {
     {
         mAc_PROFILE_UKI, // profile
         { 340, 0, 430 }, // position
@@ -46,6 +46,6 @@ extern Actor_data FIELD_TOOL_FIELD_actor_data[] = {
     },
 };
 
-extern s16 FIELD_TOOL_FIELD_object_bank[] = {
+s16 FIELD_TOOL_FIELD_object_bank[] = {
     ACTOR_OBJ_BANK_UKI, // 0
 };

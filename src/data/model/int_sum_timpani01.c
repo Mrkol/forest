@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_sum_timpani01_v[];
 u16 int_sum_timpani01_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_sum_timpani01_pal.inc"
 };
@@ -81,3 +80,4 @@ Gfx int_sum_timpani01_on_model[] = {
     gsSPNTriangles_5b(8, 13, 17, 18, 13, 15, 5, 8, 19, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

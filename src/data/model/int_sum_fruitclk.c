@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_sum_fruitclk_v[];
 u16 int_sum_fruitclk_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_sum_fruitclk_pal.inc"
 };
@@ -112,3 +111,4 @@ cKF_Joint_R_c cKF_je_r_int_sum_fruitclk_tbl[] = {
 
 cKF_Skeleton_R_c cKF_bs_r_int_sum_fruitclk = { ARRAY_COUNT(cKF_je_r_int_sum_fruitclk_tbl), 3,
                                                cKF_je_r_int_sum_fruitclk_tbl };
+

@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_yos_gnome_v[];
 u16 int_yos_gnome_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_yos_gnome_pal.inc"
 };
@@ -62,3 +61,4 @@ Gfx int_yos_gnome_body_model[] = {
     gsSPNTriangles_5b(7, 8, 9, 8, 7, 10, 11, 12, 13, 14, 13, 12),
     gsSPEndDisplayList(),
 };
+

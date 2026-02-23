@@ -44,11 +44,11 @@ static Vtx rom_museum3_v[] = {
 #include "assets/field/bg/rom_museum3_v.inc"
 };
 
-extern Gfx rom_museum3_modelT[] = {
+Gfx rom_museum3_modelT[] = {
     gsSPEndDisplayList(),
 };
 
-extern Gfx rom_museum3_model[] = {
+Gfx rom_museum3_model[] = {
     gsSPTexture(0, 0, 0, 0, G_ON),
     gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, TEXEL0, COMBINED, 0, PRIMITIVE, 0, 0, 0, 0, COMBINED),
     gsDPSetRenderMode(G_RM_FOG_SHADE_A, G_RM_AA_ZB_TEX_EDGE2),

@@ -1,6 +1,6 @@
 #include "m_field_make.h"
 
-extern u16 mFM_beach_pal[mFM_FIELD_PAL_NUM][16] = {
+u16 mFM_beach_pal[mFM_FIELD_PAL_NUM][16] = {
   {
     #include "assets/mFM_beach_pal_0.inc"
   },

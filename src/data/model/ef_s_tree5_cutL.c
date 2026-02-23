@@ -7,7 +7,6 @@
 
 extern u8 ef_s_tree_trunk_modeset[];
 extern u8 ef_s_tree_leaf_modeset[];
-extern Vtx ef_s_tree5_cutL_v[];
 extern u8 obj_s_tree_cutL_tex_txt[];
 Vtx ef_s_tree5_cutL_v[] = {
 #include "assets/ef_s_tree5_cutL_v.inc"
@@ -44,3 +43,4 @@ cKF_Joint_R_c cKF_je_r_ef_s_tree5_cutL_tbl[] = {
 
 cKF_Skeleton_R_c cKF_bs_r_ef_s_tree5_cutL = { ARRAY_COUNT(cKF_je_r_ef_s_tree5_cutL_tbl), 2,
                                               cKF_je_r_ef_s_tree5_cutL_tbl };
+

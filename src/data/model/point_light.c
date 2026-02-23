@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern u8 elf_layA0_txt[];
 Vtx point_light_v[] = {
 #include "assets/point_light_v.inc"
 };
@@ -33,3 +32,4 @@ Gfx point_light_model[] = {
 u8 elf_layA0_txt[] = {
 #include "assets/elf_layA0_txt.inc"
 };
+

@@ -7,7 +7,6 @@
 
 extern u8 ef_w_palm_trunk_modeset[];
 extern u8 ef_w_palm_leaf_modeset[];
-extern Vtx ef_w_palm3_cutL_v[];
 extern u8 obj_w_palm_cutS_tex_txt[];
 Vtx ef_w_palm3_cutL_v[] = {
 #include "assets/ef_w_palm3_cutL_v.inc"
@@ -41,3 +40,4 @@ cKF_Joint_R_c cKF_je_r_ef_w_palm3_cutL_tbl[] = {
 
 cKF_Skeleton_R_c cKF_bs_r_ef_w_palm3_cutL = { ARRAY_COUNT(cKF_je_r_ef_w_palm3_cutL_tbl), 2,
                                               cKF_je_r_ef_w_palm3_cutL_tbl };
+

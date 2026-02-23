@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx rom_shop2w_v[];
 static u16 rom_conveni_ent_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/rom_shop2w/rom_conveni_ent_pal.inc"
 };
@@ -260,3 +259,4 @@ Gfx rom_shop2w_model[] = {
     gsSPNTriangles_5b(5, 4, 17, 0, 0, 0, 0, 0, 0, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx mny_win_v[];
 u8 mny_win_money_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/mny_win_money_tex.inc"
 };
@@ -49,3 +48,4 @@ Gfx mny_win_ueT_model[] = {
     gsSPNTriangles_5b(5, 7, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

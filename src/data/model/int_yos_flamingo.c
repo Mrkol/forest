@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_yos_flamingo_v[];
 u16 int_yos_flamingo_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_yos_flamingo_pal.inc"
 };
@@ -58,3 +57,4 @@ Gfx int_yos_flamingo_body_model[] = {
     gsSPNTriangles_5b(6, 2, 9, 8, 1, 0, 8, 9, 10, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

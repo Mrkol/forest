@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_nog_tri_bed01_v[];
 u16 int_nog_tri_bed01_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_nog_tri_bed01_pal.inc"
 };
@@ -42,3 +41,4 @@ Gfx int_nog_tri_bed01T_model[] = {
     gsSPNTriangles_5b(13, 15, 16, 17, 18, 19, 17, 19, 20, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_kon_taiju_v[];
 u16 int_kon_taiju_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_kon_taiju_pal.inc"
 };
@@ -94,3 +93,4 @@ Gfx int_kon_taiju_onT_model[] = {
     gsSPNTrianglesInit_5b(2, 14, 15, 16, 17, 18, 19, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

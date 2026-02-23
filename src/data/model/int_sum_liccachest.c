@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_sum_liccachest_v[];
 u16 int_sum_liccachest_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_sum_liccachest_pal.inc"
 };
@@ -125,3 +124,4 @@ cKF_Joint_R_c cKF_je_r_int_sum_liccachest_tbl[] = {
 
 cKF_Skeleton_R_c cKF_bs_r_int_sum_liccachest = { ARRAY_COUNT(cKF_je_r_int_sum_liccachest_tbl), 3,
                                                  cKF_je_r_int_sum_liccachest_tbl };
+

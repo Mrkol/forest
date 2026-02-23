@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_sum_whi_mirror_v[];
 u16 int_sum_whi_mirror_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_sum_whi_mirror_pal.inc"
 };
@@ -113,3 +112,4 @@ Gfx int_sum_whi_mirror_onT_model[] = {
     gsSPNTrianglesInit_5b(2, 12, 13, 14, 12, 14, 15, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

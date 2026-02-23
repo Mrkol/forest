@@ -5301,7 +5301,7 @@ extern unsigned char end_1_mouth5_TA_tex_txt[];
 extern unsigned char end_1_mouth6_TA_tex_txt[];
 extern unsigned char end_1_tmem_txt[];
 
-extern aNPC_draw_data_c npc_draw_data_tbl[] = {
+aNPC_draw_data_c npc_draw_data_tbl[] = {
     {
         ACTOR_OBJ_BANK_133,
         ACTOR_OBJ_BANK_134,

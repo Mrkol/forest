@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_nog_pawnW_v[];
 u16 int_nog_pawnW_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_nog_pawnW_pal.inc"
 };
@@ -75,3 +74,4 @@ cKF_Joint_R_c cKF_je_r_int_nog_pawnW_tbl[] = { { int_nog_pawnW_base_model, 1, cK
                                                { NULL, 0, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } } };
 
 cKF_Skeleton_R_c cKF_bs_r_int_nog_pawnW = { ARRAY_COUNT(cKF_je_r_int_nog_pawnW_tbl), 2, cKF_je_r_int_nog_pawnW_tbl };
+

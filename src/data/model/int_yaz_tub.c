@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_yaz_tub_v[];
 u16 int_yaz_tub_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_yaz_tub_pal.inc"
 };
@@ -69,3 +68,4 @@ Gfx int_yaz_tub_body_model[] = {
     gsSPNTriangles_5b(0, 19, 1, 20, 21, 22, 20, 22, 23, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

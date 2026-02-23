@@ -6,7 +6,6 @@
 #include "ef_effect_control.h"
 
 extern u8 ef_w_palm_trunk_modeset[];
-extern Vtx ef_w_palm5_cutR_v[];
 extern u8 ef_w_palm_leaf_modeset[];
 extern u8 obj_w_palm_cutL_tex_txt[];
 Vtx ef_w_palm5_cutR_v[] = {
@@ -47,3 +46,4 @@ cKF_Joint_R_c cKF_je_r_ef_w_palm5_cutR_tbl[] = {
 
 cKF_Skeleton_R_c cKF_bs_r_ef_w_palm5_cutR = { ARRAY_COUNT(cKF_je_r_ef_w_palm5_cutR_tbl), 2,
                                               cKF_je_r_ef_w_palm5_cutR_tbl };
+

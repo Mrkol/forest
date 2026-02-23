@@ -39,8 +39,6 @@ static u8 aBTD_island_ldr[] = {
 #include "assets/aBTD_island_ldr.inc"
 };
 #else
-extern u8 aBTD_island_prg[];
-extern u8 aBTD_island_ldr[];
 #endif
 
 static void aBTD_setupAction(BOAT_DEMO_ACTOR* boat_demo, GAME_PLAY* play, int action);
@@ -73,3 +71,4 @@ static void aBTD_actor_dt(ACTOR* actorx, GAME* game) {
 #include "../src/actor/ac_boat_demo_move.c_inc"
 
 #pragma pop
+

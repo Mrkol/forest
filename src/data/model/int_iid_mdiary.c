@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_iid_mdiary_v[];
 u8 int_iid_mdiary[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_iid_mdiary.inc"
 };
@@ -81,3 +80,4 @@ Gfx int_iid_mdiary_model[] = {
     gsSPNTrianglesInit_5b(2, 25, 26, 27, 25, 27, 28, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

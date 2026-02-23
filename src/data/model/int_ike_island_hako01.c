@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_ike_island_hako01_v[];
 u16 int_ike_island_hako01_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_ike_island_hako01_pal.inc"
 };
@@ -259,3 +258,4 @@ cKF_Joint_R_c cKF_je_r_int_ike_island_hako01_tbl[] = {
 
 cKF_Skeleton_R_c cKF_bs_r_int_ike_island_hako01 = { ARRAY_COUNT(cKF_je_r_int_ike_island_hako01_tbl), 5,
                                                     cKF_je_r_int_ike_island_hako01_tbl };
+

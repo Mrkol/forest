@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_nog_turip_v[];
 u8 int_nog_turip_grass_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_nog_turip_grass_tex.inc"
 };
@@ -65,3 +64,4 @@ Gfx int_nog_turipT_model[] = {
     gsSPNTriangles_5b(9, 10, 7, 11, 12, 13, 13, 14, 11, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

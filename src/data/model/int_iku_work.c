@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_iku_work_v[];
 u16 int_iku_work_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_iku_work_pal.inc"
 };
@@ -44,3 +43,4 @@ Gfx int_iku_work_model_model[] = {
     gsSPNTriangles_5b(25, 26, 27, 28, 29, 30, 0, 0, 0, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

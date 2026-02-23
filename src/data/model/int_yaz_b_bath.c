@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_yaz_b_bath_v[];
 u16 int_yaz_b_bath_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_yaz_b_bath_pal.inc"
 };
@@ -87,3 +86,4 @@ Gfx int_yaz_b_bath_body_model[] = {
     gsSPNTriangles_5b(7, 10, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

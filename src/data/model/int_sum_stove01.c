@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_sum_stove01_v[];
 u16 int_sum_stove01_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_sum_stove01_pal.inc"
 };
@@ -119,3 +118,4 @@ Gfx int_sum_stove_offT_model[] = {
     gsSPNTrianglesInit_5b(1, 0, 1, 2, 0, 0, 0, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

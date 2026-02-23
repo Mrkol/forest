@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_yos_turkey_watch_v[];
 u16 int_yos_turkey_clk_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_yos_turkey_clk_pal.inc"
 };
@@ -118,3 +117,4 @@ cKF_Joint_R_c cKF_je_r_int_yos_turkey_watch_tbl[] = {
 
 cKF_Skeleton_R_c cKF_bs_r_int_yos_turkey_watch = { ARRAY_COUNT(cKF_je_r_int_yos_turkey_watch_tbl), 3,
                                                    cKF_je_r_int_yos_turkey_watch_tbl };
+

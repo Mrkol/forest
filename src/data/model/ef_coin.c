@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx ef_coin_v[];
 u8 ef_coin_tex_txt[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/ef_coin_tex_txt.inc"
 };
@@ -68,3 +67,4 @@ Gfx ef_coin_modelT[] = {
     gsSPNTriangles_5b(25, 21, 9, 22, 26, 27, 22, 27, 23, 24, 28, 6),
     gsSPEndDisplayList(),
 };
+

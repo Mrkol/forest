@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx ef_car01_v[];
 u8 ef_car01_1_int_i4[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/ef_car01_1_int_i4.inc"
 };
@@ -73,3 +72,4 @@ Gfx ef_carhosi01_00_modelT[] = {
     gsSPNTrianglesInit_5b(2, 0, 1, 2, 1, 3, 2, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

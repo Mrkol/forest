@@ -152,7 +152,7 @@ static Vtx grd_post_office_v[] = {
 #include "assets/field/bg/grd_post_office_v.inc"
 };
 
-extern Gfx grd_post_office_modelT[] = {
+Gfx grd_post_office_modelT[] = {
     gsSPTexture(0, 0, 0, 0, G_ON),
     gsDPSetCombineLERP(PRIMITIVE, ENVIRONMENT, TEXEL0, ENVIRONMENT, TEXEL0, 0, PRIMITIVE, 0, 0, 0, 0, COMBINED, 0, 0, 0,
                        COMBINED),
@@ -169,7 +169,7 @@ extern Gfx grd_post_office_modelT[] = {
     gsSPEndDisplayList(),
 };
 
-extern Gfx grd_post_office_model[] = {
+Gfx grd_post_office_model[] = {
     gsSPTexture(0, 0, 0, 0, G_ON),
     gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, TEXEL0, PRIMITIVE, 0, COMBINED, 0, 0, 0, 0, COMBINED),
     gsDPSetRenderMode(G_RM_FOG_SHADE_A, G_RM_AA_ZB_TEX_EDGE2),

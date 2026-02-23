@@ -228,7 +228,7 @@ static Vtx rom_tailor_v[] = {
 #include "assets/field/bg/rom_tailor_v.inc"
 };
 
-extern Gfx rom_tailor_modelT[] = {
+Gfx rom_tailor_modelT[] = {
     gsSPTexture(0, 0, 0, 0, G_ON),
     gsDPSetCombineLERP(0, 0, 0, PRIMITIVE, TEXEL0, 0, PRIMITIVE, 0, 0, 0, 0, COMBINED, 0, 0, 0, COMBINED),
     gsDPSetPrimColor(0, 255, 0, 0, 30, 80),
@@ -263,7 +263,7 @@ extern Gfx rom_tailor_modelT[] = {
     gsSPEndDisplayList(),
 };
 
-extern Gfx rom_tailor_model[] = {
+Gfx rom_tailor_model[] = {
     gsSPTexture(0, 0, 0, 0, G_ON),
     gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, 0, 0, 0, TEXEL0, PRIMITIVE, 0, COMBINED, 0, 0, 0, 0, COMBINED),
     gsDPSetRenderMode(G_RM_FOG_SHADE_A, G_RM_AA_ZB_TEX_EDGE2),

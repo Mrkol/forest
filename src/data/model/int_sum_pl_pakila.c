@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_sum_pl_pakila_v[];
 u16 int_sum_pl_pakila_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_sum_pl_pakila_pal.inc"
 };
@@ -79,3 +78,4 @@ Gfx int_sum_pl_pakila_onT_model[] = {
     gsSPNTriangles_5b(18, 13, 1, 1, 17, 19, 1, 19, 2, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

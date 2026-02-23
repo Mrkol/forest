@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx obj_clock_museum1_v[];
 u8 obj_clock_museum1_hari_tex_txt[] = {
 #include "assets/obj_clock_museum1_hari_tex_txt.inc"
 };
@@ -145,3 +144,4 @@ cKF_Joint_R_c cKF_je_r_obj_clock_museum1_tbl[] = {
 
 cKF_Skeleton_R_c cKF_bs_r_obj_clock_museum1 = { ARRAY_COUNT(cKF_je_r_obj_clock_museum1_tbl), 3,
                                                 cKF_je_r_obj_clock_museum1_tbl };
+

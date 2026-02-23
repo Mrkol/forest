@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx dia_hyouji_v[];
 u8 dir_win_diary_tex[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/dir_win_diary_tex.inc"
 };
@@ -97,3 +96,4 @@ Gfx dia_init_mode[] = {
     gsSPTexture(0, 0, 0, G_TX_RENDERTILE, G_ON),
     gsSPEndDisplayList(),
 };
+

@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_sum_popchair02_v[];
 u16 int_sum_popchair02_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_sum_popchair02_pal.inc"
 };
@@ -69,3 +68,4 @@ Gfx int_sum_popchair02_onT_model[] = {
     gsSPNTriangles_5b(3, 4, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

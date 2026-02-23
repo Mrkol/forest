@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_iku_bugzapper_v[];
 u16 int_iku_bugzapper_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_iku_bugzapper_pal.inc"
 };
@@ -84,3 +83,4 @@ Gfx int_iku_bugzapper_off_model[] = {
     gsSPNTriangles_5b(4, 6, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_yaz_wagon_v[];
 u16 int_yaz_wagon_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_yaz_wagon_pal.inc"
 };
@@ -76,3 +75,4 @@ Gfx int_wagon_body_model[] = {
     gsSPNTriangles_5b(21, 22, 23, 0, 0, 0, 0, 0, 0, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

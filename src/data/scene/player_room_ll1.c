@@ -6,7 +6,7 @@ extern s16 PLAYER_ROOM_LL1_ctrl_actor_data[];
 extern Actor_data PLAYER_ROOM_LL1_actor_data[];
 extern s16 PLAYER_ROOM_LL1_object_bank[];
 
-extern Scene_Word_u player_room_ll1_info[] = {
+Scene_Word_u player_room_ll1_info[] = {
     mSc_DATA_SOUND(0, 1),                                      // Sound data
     mSc_DATA_DOOR_DATA(2, PLAYER_ROOM_LL1_door_data),          // Door data
     mSc_DATA_PLAYER(PLAYER_ROOM_LL1_player_data),              // Player Data
@@ -19,7 +19,7 @@ extern Scene_Word_u player_room_ll1_info[] = {
     mSc_DATA_END(),                            // End of scene data
 };
 
-extern Actor_data PLAYER_ROOM_LL1_player_data[] = {
+Actor_data PLAYER_ROOM_LL1_player_data[] = {
     {
         mAc_PROFILE_PLAYER, // profile
         { 200, 0, 350 },    // position
@@ -28,7 +28,7 @@ extern Actor_data PLAYER_ROOM_LL1_player_data[] = {
     },
 };
 
-extern s16 PLAYER_ROOM_LL1_ctrl_actor_data[] = {
+s16 PLAYER_ROOM_LL1_ctrl_actor_data[] = {
     mAc_PROFILE_BIRTH_CONTROL,  // 0
     mAc_PROFILE_NPC2,           // 1
     mAc_PROFILE_INSECT,         // 2
@@ -43,7 +43,7 @@ extern s16 PLAYER_ROOM_LL1_ctrl_actor_data[] = {
     mAc_PROFILE_MY_INDOOR,      // 11
 };
 
-extern Actor_data PLAYER_ROOM_LL1_actor_data[] = {
+Actor_data PLAYER_ROOM_LL1_actor_data[] = {
     {
         mAc_PROFILE_ROOM_SUNSHINE, // profile
         { 40, 0, 200 },            // position
@@ -58,12 +58,12 @@ extern Actor_data PLAYER_ROOM_LL1_actor_data[] = {
     },
 };
 
-extern s16 PLAYER_ROOM_LL1_object_bank[] = {
+s16 PLAYER_ROOM_LL1_object_bank[] = {
     ACTOR_OBJ_BANK_ROOM_SUNSHINE, // 0
     ACTOR_OBJ_BANK_HOUSE_GOKI,           // 1
 };
 
-extern Door_data_c PLAYER_ROOM_LL1_door_data[] = {
+Door_data_c PLAYER_ROOM_LL1_door_data[] = {
     {
         SCENE_MY_ROOM_BASEMENT_LL1, // scene
         6,                          // exit orientation

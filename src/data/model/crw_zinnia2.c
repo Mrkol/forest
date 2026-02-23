@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx crw_zinnia2_v[];
 u16 crw_zinnia2_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/crw_zinnia2_pal.inc"
 };
@@ -68,3 +67,4 @@ Gfx crw_zinnia2_body_model[] = {
     gsSPNTriangles_5b(3, 5, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

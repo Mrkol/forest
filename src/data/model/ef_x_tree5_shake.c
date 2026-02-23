@@ -6,7 +6,6 @@
 #include "ef_effect_control.h"
 
 extern u8 ef_w_tree_light_modeset[];
-extern Vtx ef_x_tree5_shake_v[];
 extern u8 ef_w_tree_leaf_modeset[];
 Vtx ef_x_tree5_shake_v[] = {
 #include "assets/ef_x_tree5_shake_v.inc"
@@ -38,3 +37,4 @@ cKF_Joint_R_c cKF_je_r_ef_x_tree5_shake_tbl[] = {
 
 cKF_Skeleton_R_c cKF_bs_r_ef_x_tree5_shake = { ARRAY_COUNT(cKF_je_r_ef_x_tree5_shake_tbl), 2,
                                                cKF_je_r_ef_x_tree5_shake_tbl };
+

@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_kon_snowtv_v[];
 u16 int_kon_snowtv_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_kon_snowtv_pal.inc"
 };
@@ -115,3 +114,4 @@ Gfx int_kon_snowtv_body_model[] = {
     gsSPNTrianglesInit_5b(3, 8, 9, 10, 8, 11, 12, 8, 13, 14),
     gsSPEndDisplayList(),
 };
+

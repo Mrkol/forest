@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_sum_blue_chest01_v[];
 u16 int_sum_blue_chest01_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_sum_blue_chest01_pal.inc"
 };
@@ -86,3 +85,4 @@ Gfx int_sum_blue_chest01_onT_model[] = {
     gsSPNTriangles_5b(22, 17, 16, 0, 0, 0, 0, 0, 0, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_din_hutaba_head_v[];
 static u16 int_din_hutaba_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_din_hutaba_head/int_din_hutaba_pal.inc"
 };
@@ -82,3 +81,4 @@ Gfx int_din_hutaba_headT_model[] = {
     gsSPNTriangles_5b(18, 23, 24, 18, 24, 14, 24, 12, 14, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

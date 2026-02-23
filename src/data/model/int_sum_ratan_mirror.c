@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_sum_ratan_mirror_v[];
 u16 int_sum_ratan_mirror_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_sum_ratan_mirror_pal.inc"
 };
@@ -112,3 +111,4 @@ Gfx int_sum_ratan_mirror_onT_model[] = {
     gsSPNTrianglesInit_5b(2, 24, 25, 26, 24, 26, 27, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

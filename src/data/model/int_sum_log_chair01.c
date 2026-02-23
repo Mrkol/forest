@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_sum_log_chair01_v[];
 u16 int_sum_log_chair01_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_sum_log_chair01_pal.inc"
 };
@@ -81,3 +80,4 @@ Gfx int_sum_log_chair01_onT_model[] = {
     gsSPNTriangles_5b(12, 14, 15, 16, 17, 18, 16, 18, 19, 0, 0, 0),
     gsSPEndDisplayList(),
 };
+

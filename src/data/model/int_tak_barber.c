@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern Vtx int_tak_barber_v[];
 u16 int_tak_barber_body_pal[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/int_tak_barber_body_pal.inc"
 };
@@ -122,3 +121,4 @@ cKF_Joint_R_c cKF_je_r_int_tak_barber_tbl[] = {
 };
 
 cKF_Skeleton_R_c cKF_bs_r_int_tak_barber = { ARRAY_COUNT(cKF_je_r_int_tak_barber_tbl), 3, cKF_je_r_int_tak_barber_tbl };
+

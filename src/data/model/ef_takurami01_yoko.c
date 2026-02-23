@@ -5,7 +5,6 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-extern u8 ef_takurami01_1[];
 u8 ef_takurami01_0us[] ATTRIBUTE_ALIGN(32) = {
 #include "assets/ef_takurami01_0us.inc"
 };
@@ -87,3 +86,4 @@ Gfx ef_takurami01_menu_render_mode[] = {
     gsDPSetRenderMode(G_RM_FOG_SHADE_A, G_RM_ZB_XLU_SURF2),
     gsSPEndDisplayList(),
 };
+
