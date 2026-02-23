@@ -402,7 +402,7 @@ static u8* nextSrcData(u8* nowData) {
             break;
         }
         // Oopsies, forgot to call the function
-#ifndef FIXES
+#if !defined(FIXES) && !defined(TARGET_PC)
         if (JKRDvdRipper::isErrorRetry == false) {
             return nullptr;
         }
