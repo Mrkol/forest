@@ -167,7 +167,7 @@ cKF_Animation_R_c cKF_ba_r_obj_clock_shop1 = { cKF_ckcb_r_obj_clock_shop1_tbl,
 cKF_Joint_R_c cKF_je_r_obj_clock_shop1_tbl[] = {
     { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 1375 } },
     { obj_clock_shop1_base_model, 3, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
-    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 6000, 0, 65036 } },
+    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 6000, 0, -500 } },
     { obj_clock_shop1_pend_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
     { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 7000, 0, 0 } },
     { obj_clock_shop1_short_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },

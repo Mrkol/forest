@@ -159,7 +159,7 @@ cKF_Animation_R_c cKF_ba_r_int_ike_jny_hariko01 = { cKF_ckcb_r_int_ike_jny_harik
                                                     101 };
 
 cKF_Joint_R_c cKF_je_r_int_ike_jny_hariko01_tbl[] = {
-    { int_ike_jny_hariko01_body_model, 1, cKF_JOINT_FLAG_DISP_OPA, { 120, 1252, 65409 } },
+    { int_ike_jny_hariko01_body_model, 1, cKF_JOINT_FLAG_DISP_OPA, { 120, 1252, -127 } },
     { int_ike_jny_hariko01_head_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } }
 };
 

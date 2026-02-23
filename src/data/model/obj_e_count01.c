@@ -138,7 +138,7 @@ Gfx obj_e_count_down_model[] = {
 };
 
 cKF_Joint_R_c cKF_je_r_obj_e_count01_tbl[] = { { obj_e_count_back_model, 5, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
-                                               { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 0, 6500, 61536 } },
+                                               { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 0, 6500, -4000 } },
                                                { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
                                                { obj_e_count_down_model, 1, cKF_JOINT_FLAG_DISP_OPA, { 3000, 0, 0 } },
                                                { obj_e_count_new_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },

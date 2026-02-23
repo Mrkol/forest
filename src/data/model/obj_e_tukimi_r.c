@@ -149,8 +149,8 @@ Gfx obj_e_tukimi_r_ho1_model[] = {
 };
 
 cKF_Joint_R_c cKF_je_r_obj_e_tukimi_r_tbl[] = {
-    { obj_e_tukimi_r_dai_model, 7, cKF_JOINT_FLAG_DISP_OPA, { 0, 63536, 0 } },
-    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 64320, 4800, 63736 } },
+    { obj_e_tukimi_r_dai_model, 7, cKF_JOINT_FLAG_DISP_OPA, { 0, -2000, 0 } },
+    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { -1216, 4800, -1800 } },
     { obj_e_tukimi_r_kuki1_model, 1, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
     { obj_e_tukimi_r_ho1_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 500, 0, 0 } },
     { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 1100, 4800, 500 } },
@@ -331,10 +331,10 @@ Gfx obj_e_tukimi_l_ho1_model[] = {
 };
 
 cKF_Joint_R_c cKF_je_r_obj_e_tukimi_l_tbl[] = { { obj_e_tukimi_l_dai_model, 7, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
-                                                { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 64220, 2800, 600 } },
+                                                { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { -1316, 2800, 600 } },
                                                 { obj_e_tukimi_l_kuki1_model, 1, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
                                                 { obj_e_tukimi_l_ho1_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 500, 0, 0 } },
-                                                { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 1200, 2800, 63636 } },
+                                                { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 1200, 2800, -1900 } },
                                                 { obj_e_tukimi_l_kuki2_model, 1, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
                                                 { obj_e_tukimi_l_ho2_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 500, 0, 0 } },
                                                 { obj_e_tukimi_l_endai_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },

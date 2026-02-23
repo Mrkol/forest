@@ -90,7 +90,7 @@ cKF_Animation_R_c cKF_ba_r_int_nog_tri_chest02 = { cKF_ckcb_r_int_nog_tri_chest0
                                                    12 };
 
 cKF_Joint_R_c cKF_je_r_int_nog_tri_chest02_tbl[] = {
-    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 64161, 3625, 0 } },
+    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { -1375, 3625, 0 } },
     { int_nog_tri_chest02_base_model, 2, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
     { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 1500, 2750, 0 } },
     { int_nog_tri_chest02_doorR_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },

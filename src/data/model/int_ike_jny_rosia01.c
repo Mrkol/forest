@@ -142,13 +142,13 @@ cKF_Animation_R_c cKF_ba_r_int_ike_jny_rosia01 = { cKF_ckcb_r_int_ike_jny_rosia0
 
 cKF_Joint_R_c cKF_je_r_int_ike_jny_rosia01_tbl[] = {
     { int_ike_jny_rosia01_lb_model, 1, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
-    { NULL, 2, cKF_JOINT_FLAG_DISP_OPA, { 64906, 1348, 64636 } },
-    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 1832, 64414, 64489 } },
+    { NULL, 2, cKF_JOINT_FLAG_DISP_OPA, { -630, 1348, -900 } },
+    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 1832, -1122, -1047 } },
     { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
     { int_ike_jny_rosia01_2mb_model, 2, cKF_JOINT_FLAG_DISP_OPA, { 1269, 0, 0 } },
-    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 567, 64651, 64771 } },
+    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 567, -885, -765 } },
     { int_ike_jny_rosia01_m_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
-    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 64584, 0, 0 } },
+    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { -952, 0, 0 } },
     { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
     { int_ike_jny_rosia01_2sb_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 952, 0, 0 } },
     { int_ike_jny_rosia01_l_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } }

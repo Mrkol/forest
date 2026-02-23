@@ -97,7 +97,7 @@ cKF_Animation_R_c cKF_ba_r_int_sum_blue_bureau01 = { cKF_ckcb_r_int_sum_blue_bur
                                                      16 };
 
 cKF_Joint_R_c cKF_je_r_int_sum_blue_bureau01_tbl[] = {
-    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 1250, 3625, 65336 } },
+    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 1250, 3625, -200 } },
     { sum_blue_bureau01_base_model, 1, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
     { sum_blue_bureau01_door_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 1500, 0, 0 } }
 };

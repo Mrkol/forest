@@ -116,7 +116,7 @@ Gfx obj_s_bridgeA_step4_model[] = {
 };
 
 cKF_Joint_R_c cKF_je_r_obj_s_bridgeA_tbl[] = {
-    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 6000, 4000, 59536 } },
+    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 6000, 4000, -6000 } },
     { obj_s_bridgeA_base_model, 1, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
     { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 2828, 0, 0 } },
     { obj_s_bridgeA_step2_model, 1, cKF_JOINT_FLAG_DISP_OPA, { 4000, 0, 0 } },
@@ -252,7 +252,7 @@ Gfx obj_w_bridgeA_step4_model[] = {
 };
 
 cKF_Joint_R_c cKF_je_r_obj_w_bridgeA_tbl[] = {
-    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 6000, 4000, 59536 } },
+    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 6000, 4000, -6000 } },
     { obj_w_bridgeA_base_model, 1, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
     { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 2828, 0, 0 } },
     { obj_w_bridgeA_step2_model, 1, cKF_JOINT_FLAG_DISP_OPA, { 4000, 0, 0 } },

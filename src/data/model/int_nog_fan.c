@@ -110,7 +110,7 @@ cKF_Animation_R_c cKF_ba_r_int_nog_fan = {
     cKF_ckcb_r_int_nog_fan_tbl, cKF_ds_int_nog_fan_tbl, cKF_kn_int_nog_fan_tbl, cKF_c_int_nog_fan_tbl, -1, 321
 };
 
-cKF_Joint_R_c cKF_je_r_int_nog_fan_tbl[] = { { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 64829, 2500, 64829 } },
+cKF_Joint_R_c cKF_je_r_int_nog_fan_tbl[] = { { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { -707, 2500, -707 } },
                                              { bece_int_nog_fan_model, 1, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
                                              { head_int_nog_fan_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 550, 0, 0 } } };
 

@@ -155,7 +155,7 @@ cKF_Animation_R_c cKF_ba_r_int_nog_mino = {
     cKF_ckcb_r_int_nog_mino_tbl, cKF_ds_int_nog_mino_tbl, cKF_kn_int_nog_mino_tbl, cKF_c_int_nog_mino_tbl, -1, 257
 };
 
-cKF_Joint_R_c cKF_je_r_int_nog_mino_tbl[] = { { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 3255, 52626, 63676 } },
+cKF_Joint_R_c cKF_je_r_int_nog_mino_tbl[] = { { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 3255, -12910, -1860 } },
                                               { int_nog_mino_base_model, 5, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
                                               { int_nog_mino_body_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
                                               { int_nog_mino_glass_model, 0, cKF_JOINT_FLAG_DISP_XLU, { 0, 0, 0 } },

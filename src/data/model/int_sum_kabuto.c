@@ -127,7 +127,7 @@ cKF_Animation_R_c cKF_ba_r_int_sum_kabuto = { cKF_ckcb_r_int_sum_kabuto_tbl,
 
 cKF_Joint_R_c cKF_je_r_int_sum_kabuto_tbl[] = {
     { int_sum_kabuto_base_model, 3, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
-    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 0, 64586, 0 } },
+    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 0, -950, 0 } },
     { int_sum_kabuto_body_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
     { int_sum_kabuto_glass_model, 0, cKF_JOINT_FLAG_DISP_XLU, { 0, 0, 0 } },
     { int_sum_kabuto_side_model, 0, cKF_JOINT_FLAG_DISP_XLU, { 0, 0, 0 } }

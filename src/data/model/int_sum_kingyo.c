@@ -131,7 +131,7 @@ cKF_Animation_R_c cKF_ba_r_int_sum_kingyo = { cKF_ckcb_r_int_sum_kingyo_tbl,
                                               513 };
 
 cKF_Joint_R_c cKF_je_r_int_sum_kingyo_tbl[] = {
-    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 0, 60536, 0 } },
+    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 0, -5000, 0 } },
     { int_sum_kingyo_base_model, 3, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
     { int_sum_kingyo_body_model, 0, cKF_JOINT_FLAG_DISP_XLU, { 0, 0, 0 } },
     { int_sum_kingyo_glass_model, 0, cKF_JOINT_FLAG_DISP_XLU, { 0, 0, 0 } },

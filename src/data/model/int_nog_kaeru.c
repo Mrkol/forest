@@ -196,7 +196,7 @@ cKF_Animation_R_c cKF_ba_r_int_nog_kaeru = {
 };
 
 cKF_Joint_R_c cKF_je_r_int_nog_kaeru_tbl[] = {
-    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 64398, 498, 1138 } },
+    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { -1138, 498, 1138 } },
     { int_sum_kaeru_base_model, 4, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
     { int_sum_kaeru_evw_model, 0, cKF_JOINT_FLAG_DISP_XLU, { 0, 0, 0 } },
     { int_sum_kaeru_leg_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },

@@ -66,7 +66,7 @@ Gfx obj_romtrain_door_model[] = {
 };
 
 cKF_Joint_R_c cKF_je_r_obj_romtrain_door_tbl[] = {
-    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 2000, 0, 51036 } },
+    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 2000, 0, -14500 } },
     { obj_romtrain_base_model, 1, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
     { obj_romtrain_door_model, 1, cKF_JOINT_FLAG_DISP_OPA, { 16000, 0, 0 } },
     { obj_romtrain_glass_model, 0, cKF_JOINT_FLAG_DISP_XLU, { 0, 0, 0 } }

@@ -190,9 +190,9 @@ cKF_Animation_R_c cKF_ba_r_int_kon_cracker = { cKF_ckcb_r_int_kon_cracker_tbl,
                                                33 };
 
 cKF_Joint_R_c cKF_je_r_int_kon_cracker_tbl[] = {
-    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 672, 3000, 64864 } },
+    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 672, 3000, -672 } },
     { int_kon_cracker_ball3_model, 5, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
-    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 1050, 63636, 0 } },
+    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 1050, -1900, 0 } },
     { int_kon_cracker_ball1_model, 1, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
     { int_kon_cracker_ito1_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
     { int_kon_cracker_hasira_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },

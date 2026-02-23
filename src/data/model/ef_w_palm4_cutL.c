@@ -34,7 +34,7 @@ Gfx ef_w_palm4_cutL_trunk_model[] = {
 };
 
 cKF_Joint_R_c cKF_je_r_ef_w_palm4_cutL_tbl[] = {
-    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 64786, 0, 0 } },
+    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { -750, 0, 0 } },
     { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
     { ef_w_palm4_cutL_trunk_model, 1, cKF_JOINT_FLAG_DISP_OPA, { 2000, 0, 0 } },
     { ef_w_palm4_cutL_leaf_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 4000, 0, 0 } }

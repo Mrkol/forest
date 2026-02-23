@@ -92,7 +92,7 @@ cKF_Animation_R_c cKF_ba_r_int_sum_bla_chest01 = { cKF_ckcb_r_int_sum_bla_chest0
                                                    10 };
 
 cKF_Joint_R_c cKF_je_r_int_sum_bla_chest01_tbl[] = {
-    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 0, 41536, 1600 } },
+    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 0, -24000, 1600 } },
     { int_sum_bla_chest01_base_model, 1, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
     { int_sum_bra_chest01_door_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 1, 0, 0 } }
 };

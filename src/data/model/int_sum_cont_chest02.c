@@ -124,7 +124,7 @@ cKF_Animation_R_c cKF_ba_r_int_sum_cont_chest02 = { cKF_ckcb_r_int_sum_cont_ches
                                                     12 };
 
 cKF_Joint_R_c cKF_je_r_int_sum_cont_chest02_tbl[] = {
-    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 63961, 3625, 65411 } },
+    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { -1575, 3625, -125 } },
     { int_sum_cont_chest02_base_model, 2, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
     { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 1500, 3150, 0 } },
     { int_sum_cont_chest02_doorR_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },

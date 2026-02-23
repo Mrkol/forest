@@ -90,9 +90,9 @@ Gfx act_m_hirata_b_base_model[] = {
 };
 
 cKF_Joint_R_c cKF_je_r_act_m_hirata_b_tbl[] = {
-    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 300, 0, 64536 } },
+    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 300, 0, -1000 } },
     { act_m_hirata_b_base_model, 2, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
-    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 1500, 64936, 0 } },
+    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 1500, -600, 0 } },
     { act_m_hirata_b_right_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
     { act_m_hirata_b_left_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 1500, 0, 0 } }
 };

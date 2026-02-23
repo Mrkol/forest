@@ -108,7 +108,7 @@ cKF_Animation_R_c cKF_ba_r_int_ike_jny_houi01 = { cKF_ckcb_r_int_ike_jny_houi01_
                                                   21 };
 
 cKF_Joint_R_c cKF_je_r_int_ike_jny_houi01_tbl[] = {
-    { int_ike_jny_houi01_off_model, 2, cKF_JOINT_FLAG_DISP_XLU, { 0, 64536, 0 } },
+    { int_ike_jny_houi01_off_model, 2, cKF_JOINT_FLAG_DISP_XLU, { 0, -1000, 0 } },
     { int_ike_jny_houi01_on_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
     { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
     { int_ike_jny_houi01_on_hari_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 1000, 0, 0 } }

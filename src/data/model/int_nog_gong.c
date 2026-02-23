@@ -108,9 +108,9 @@ cKF_Animation_R_c cKF_ba_r_int_nog_gong = {
     cKF_ckcb_r_int_nog_gong_tbl, cKF_ds_int_nog_gong_tbl, cKF_kn_int_nog_gong_tbl, cKF_c_int_nog_gong_tbl, -1, 10
 };
 
-cKF_Joint_R_c cKF_je_r_int_nog_gong_tbl[] = { { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 65036 } },
+cKF_Joint_R_c cKF_je_r_int_nog_gong_tbl[] = { { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, -500 } },
                                               { int_nog_gong_base_model, 3, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
-                                              { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 0, 65036, 500 } },
+                                              { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 0, -500, 500 } },
                                               { int_nog_gong_hammer_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
                                               { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 0, 750, 0 } },
                                               { int_nog_gong_spring_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },

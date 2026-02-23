@@ -112,11 +112,11 @@ Gfx obj_s_post_flag_ne_model[] = {
     gsSPEndDisplayList(),
 };
 
-cKF_Joint_R_c cKF_je_r_obj_s_post_tbl[] = { { obj_s_post_main_model, 2, cKF_JOINT_FLAG_DISP_OPA, { 550, 0, 65086 } },
-                                            { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 63656, 2200, 100 } },
+cKF_Joint_R_c cKF_je_r_obj_s_post_tbl[] = { { obj_s_post_main_model, 2, cKF_JOINT_FLAG_DISP_OPA, { 550, 0, -450 } },
+                                            { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { -1880, 2200, 100 } },
                                             { obj_s_post_flag_ne_model, 1, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
                                             { obj_s_post_flag_saki_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
-                                            { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 64369, 2000, 1167 } },
+                                            { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { -1167, 2000, 1167 } },
                                             { obj_s_post_front_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } } };
 
 cKF_Skeleton_R_c cKF_bs_r_obj_s_post = { ARRAY_COUNT(cKF_je_r_obj_s_post_tbl), 4, cKF_je_r_obj_s_post_tbl };

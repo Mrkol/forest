@@ -249,7 +249,7 @@ cKF_Animation_R_c cKF_ba_r_int_ike_island_hako02 = { cKF_ckcb_r_int_ike_island_h
 
 cKF_Joint_R_c cKF_je_r_int_ike_island_hako01_tbl[] = {
     { int_ike_island_hako01_in1_off_model, 4, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
-    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 264, 1900, 64832 } },
+    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 264, 1900, -704 } },
     { int_ike_island_hako01_top_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
     { int_ike_island_hako01_in2_off_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
     { int_ike_island_hako01_in3_off_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },

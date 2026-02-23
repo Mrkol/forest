@@ -144,11 +144,11 @@ Gfx obj_s_frag_fragC_model[] = {
     gsSPEndDisplayList(),
 };
 
-cKF_Joint_R_c cKF_je_r_obj_s_frag_tbl[] = { { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 65036, 63536, 0 } },
+cKF_Joint_R_c cKF_je_r_obj_s_frag_tbl[] = { { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { -500, -2000, 0 } },
                                             { obj_s_frag_pole_model, 1, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
                                             { obj_s_frag_base_model, 1, cKF_JOINT_FLAG_DISP_XLU, { 1000, 0, 0 } },
                                             { obj_s_frag_wire_model, 1, cKF_JOINT_FLAG_DISP_XLU, { 1000, 0, 0 } },
-                                            { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 13250, 64536, 0 } },
+                                            { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 13250, -1000, 0 } },
                                             { obj_s_frag_fragA_model, 1, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
                                             { obj_s_frag_fragB_model, 1, cKF_JOINT_FLAG_DISP_OPA, { 1250, 0, 0 } },
                                             { obj_s_frag_fragC_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 1250, 0, 0 } } };
@@ -308,11 +308,11 @@ Gfx obj_w_frag_fragC_model[] = {
     gsSPEndDisplayList(),
 };
 
-cKF_Joint_R_c cKF_je_r_obj_w_frag_tbl[] = { { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 65036, 63536, 0 } },
+cKF_Joint_R_c cKF_je_r_obj_w_frag_tbl[] = { { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { -500, -2000, 0 } },
                                             { obj_w_frag_pole_model, 1, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
                                             { obj_w_frag_base_model, 1, cKF_JOINT_FLAG_DISP_XLU, { 1000, 0, 0 } },
                                             { obj_w_frag_wire_model, 1, cKF_JOINT_FLAG_DISP_XLU, { 1000, 0, 0 } },
-                                            { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 13250, 64536, 0 } },
+                                            { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 13250, -1000, 0 } },
                                             { obj_w_frag_fragA_model, 1, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
                                             { obj_w_frag_fragB_model, 1, cKF_JOINT_FLAG_DISP_OPA, { 1250, 0, 0 } },
                                             { obj_w_frag_fragC_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 1250, 0, 0 } } };

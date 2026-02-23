@@ -163,7 +163,7 @@ cKF_Animation_R_c cKF_ba_r_int_sum_blue_cab01 = { cKF_ckcb_r_int_sum_blue_cab01_
                                                   12 };
 
 cKF_Joint_R_c cKF_je_r_int_sum_blue_cab01_tbl[] = {
-    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 64211, 3625, 65361 } },
+    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { -1325, 3625, -175 } },
     { int_sum_blue_cab01_base_model, 2, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
     { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 1500, 2650, 0 } },
     { int_sum_blue01_cab01_doorR_model, 1, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },

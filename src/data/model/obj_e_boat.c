@@ -207,7 +207,7 @@ Gfx obj_e_boat_oar1_model[] = {
 };
 
 static cKF_Joint_R_c cKF_je_r_obj_e_boat_tbl[] = { { obj_e_boat_boat1_model, 2, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
-                                            { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 300, 2200, 61036 } },
+                                            { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 300, 2200, -4500 } },
                                             { obj_e_boat_oar1_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
                                             { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 4000 } },
                                             { obj_e_boat_water1_model, 1, cKF_JOINT_FLAG_DISP_XLU, { 0, 0, 0 } },

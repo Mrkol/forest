@@ -79,17 +79,17 @@ Gfx logo_us_zgA_model[] = {
 };
 
 cKF_Joint_R_c cKF_je_r_logo_us_sing_tbl[] = { { NULL, 4, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
-                                              { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 9000, 62411, 61036 } },
+                                              { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 9000, -3125, -4500 } },
                                               { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
                                               { logo_us_zgA_model, 1, cKF_JOINT_FLAG_DISP_OPA, { 4500, 0, 0 } },
                                               { logo_us_zgB_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
-                                              { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 3188, 62411, 61036 } },
+                                              { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 3188, -3125, -4500 } },
                                               { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
                                               { logo_us_zii_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 4500, 0, 0 } },
-                                              { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 5875, 62411, 61036 } },
+                                              { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 5875, -3125, -4500 } },
                                               { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
                                               { logo_us_znn_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 4500, 0, 0 } },
-                                              { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 1563, 62411, 61036 } },
+                                              { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 1563, -3125, -4500 } },
                                               { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
                                               { logo_us_zss_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 4500, 0, 0 } } };
 

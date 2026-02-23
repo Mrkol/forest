@@ -139,7 +139,7 @@ cKF_Animation_R_c cKF_ba_r_int_nog_maimai = { cKF_ckcb_r_int_nog_maimai_tbl,
                                               257 };
 
 cKF_Joint_R_c cKF_je_r_int_nog_maimai_tbl[] = {
-    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 0, 64536, 0 } },
+    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 0, -1000, 0 } },
     { int_nog_maimai_base_model, 4, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
     { int_nog_maimai_glass_model, 0, cKF_JOINT_FLAG_DISP_XLU, { 0, 0, 0 } },
     { int_nog_maimai_komado_model, 0, cKF_JOINT_FLAG_DISP_XLU, { 0, 0, 0 } },

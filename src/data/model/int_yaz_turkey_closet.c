@@ -137,7 +137,7 @@ cKF_Animation_R_c cKF_ba_r_int_yaz_turkey_closet = { cKF_ckcb_r_int_yaz_turkey_c
                                                      12 };
 
 cKF_Joint_R_c cKF_je_r_int_yaz_turkey_closet_tbl[] = {
-    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 64086, 3625, 65476 } },
+    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { -1450, 3625, -60 } },
     { int_yaz_turkey_closet_body_model, 2, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
     { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 1500, 2900, 0 } },
     { int_yaz_turkey_closet_doorR_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },

@@ -123,7 +123,7 @@ cKF_Animation_R_c cKF_ba_r_int_nog_nabe = {
 };
 
 cKF_Joint_R_c cKF_je_r_int_nog_nabe_tbl[] = {
-    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 64786, 0, 1125 } },
+    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { -750, 0, 1125 } },
     { int_nog_nabe_body_model, 2, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
     { int_nog_nabe_fire_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
     { int_nog_nabe_switch_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 313, 0, 0 } }

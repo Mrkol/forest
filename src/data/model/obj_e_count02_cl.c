@@ -83,7 +83,7 @@ Gfx obj_e_c2_ani_ci01_mae_model[] = {
 
 cKF_Joint_R_c cKF_je_r_obj_e_count02_cl_tbl[] = {
     { obj_e_c2_ani_cl01_sita_model, 1, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
-    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 800, 3361, 64571 } },
+    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 800, 3361, -965 } },
     { obj_e_c2_ani_ci01_mae_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } }
 };
 

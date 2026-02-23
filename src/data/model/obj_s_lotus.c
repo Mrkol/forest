@@ -137,23 +137,23 @@ Gfx obj_s_lotus_leafA_model[] = {
 };
 
 cKF_Joint_R_c cKF_je_r_obj_s_lotus_tbl[] = { { NULL, 9, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
-                                             { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 4000, 49536, 3000 } },
+                                             { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 4000, -16000, 3000 } },
                                              { obj_s_lotus_leafA_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
-                                             { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 64536, 49536, 5000 } },
+                                             { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { -1000, -16000, 5000 } },
                                              { obj_s_lotus_leafB_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
-                                             { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 60536, 49536, 2500 } },
+                                             { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { -5000, -16000, 2500 } },
                                              { obj_s_lotus_leafC_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
-                                             { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 64036, 49536, 1500 } },
+                                             { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { -1500, -16000, 1500 } },
                                              { obj_s_lotus_leafD_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
-                                             { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 61536, 49536, 63536 } },
+                                             { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { -4000, -16000, -2000 } },
                                              { obj_s_lotus_leafE_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
-                                             { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 64536, 49536, 60536 } },
+                                             { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { -1000, -16000, -5000 } },
                                              { obj_s_lotus_leafF_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
-                                             { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 3500, 49536, 60536 } },
+                                             { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 3500, -16000, -5000 } },
                                              { obj_s_lotus_leafG_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
-                                             { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 4500, 49536, 64036 } },
+                                             { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 4500, -16000, -1500 } },
                                              { obj_s_lotus_leafH_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
-                                             { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 1000, 49536, 64536 } },
+                                             { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 1000, -16000, -1000 } },
                                              { obj_s_lotus_flower1_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } } };
 
 cKF_Skeleton_R_c cKF_bs_r_obj_s_lotus = { ARRAY_COUNT(cKF_je_r_obj_s_lotus_tbl), 9, cKF_je_r_obj_s_lotus_tbl };

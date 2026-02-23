@@ -137,7 +137,7 @@ cKF_Animation_R_c cKF_ba_r_int_nog_dango = {
 };
 
 cKF_Joint_R_c cKF_je_r_int_nog_dango_tbl[] = {
-    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 0, 55536, 0 } },
+    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 0, -10000, 0 } },
     { int_nog_dango_base_model, 4, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
     { int_nog_dango_glass_model, 0, cKF_JOINT_FLAG_DISP_XLU, { 0, 0, 0 } },
     { int_nog_dango_komado_model, 0, cKF_JOINT_FLAG_DISP_XLU, { 0, 0, 0 } },

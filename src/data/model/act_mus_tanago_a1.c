@@ -48,7 +48,7 @@ Gfx act_mus_tanago_sakana_head_model[] = {
 };
 
 cKF_Joint_R_c cKF_je_r_act_mus_tanago_a1_tbl[] = {
-    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 8, 65524, 697 } },
+    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 8, -12, 697 } },
     { act_mus_tanago_sakana_head_model, 1, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
     { act_mus_tanago_sakana_body_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 800, 0, 0 } }
 };

@@ -94,7 +94,7 @@ cKF_Animation_R_c cKF_ba_r_int_tak_ufo = {
     cKF_ckcb_r_int_tak_ufo_tbl, cKF_ds_int_tak_ufo_tbl, cKF_kn_int_tak_ufo_tbl, cKF_c_int_tak_ufo_tbl, -1, 200
 };
 
-cKF_Joint_R_c cKF_je_r_int_tak_ufo_tbl[] = { { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 0, 63736, 0 } },
+cKF_Joint_R_c cKF_je_r_int_tak_ufo_tbl[] = { { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 0, -1800, 0 } },
                                              { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
                                              { int_tak_ufo_off_model, 1, cKF_JOINT_FLAG_DISP_OPA, { 1000, 0, 0 } },
                                              { int_tak_ufo_on_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } } };

@@ -109,12 +109,12 @@ Gfx obj_s_yamishop_door2_model[] = {
 };
 
 cKF_Joint_R_c cKF_je_r_obj_s_yamishop_tbl[] = {
-    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 0, 4000, 60036 } },
+    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 0, 4000, -5500 } },
     { obj_s_yamishop_light_model, 3, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
     { obj_s_yamishop_door1_model, 1, cKF_JOINT_FLAG_DISP_OPA, { 1000, 0, 0 } },
     { obj_s_yamishop_door2_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 9849, 0, 0 } },
     { obj_s_yamishop_t1_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
-    { obj_s_yamishop_window_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 9750, 62536, 0 } }
+    { obj_s_yamishop_window_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 9750, -3000, 0 } }
 };
 
 cKF_Skeleton_R_c cKF_bs_r_obj_s_yamishop = { ARRAY_COUNT(cKF_je_r_obj_s_yamishop_tbl), 5, cKF_je_r_obj_s_yamishop_tbl };
@@ -235,12 +235,12 @@ Gfx obj_w_yamishop_door2_model[] = {
 };
 
 cKF_Joint_R_c cKF_je_r_obj_w_yamishop_tbl[] = {
-    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 0, 4000, 60036 } },
+    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 0, 4000, -5500 } },
     { obj_w_yamishop_light_model, 3, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
     { obj_w_yamishop_door1_model, 1, cKF_JOINT_FLAG_DISP_OPA, { 1000, 0, 0 } },
     { obj_w_yamishop_door2_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 9849, 0, 0 } },
     { obj_w_yamishop_t1_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
-    { obj_w_yamishop_window_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 9750, 62536, 0 } }
+    { obj_w_yamishop_window_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 9750, -3000, 0 } }
 };
 
 cKF_Skeleton_R_c cKF_bs_r_obj_w_yamishop = { ARRAY_COUNT(cKF_je_r_obj_w_yamishop_tbl), 5, cKF_je_r_obj_w_yamishop_tbl };

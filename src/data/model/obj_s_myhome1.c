@@ -1064,7 +1064,7 @@ cKF_Joint_R_c cKF_je_r_obj_w_myhome2_tbl[] = {
     { obj_w_myhome2_door_model, 1, cKF_JOINT_FLAG_DISP_OPA, { 2000, 0, 0 } },
     { obj_w_myhome2_mark_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
     { obj_w_myhome2_light_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
-    { obj_w_myhome2_t1_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 64708, 0, 2000 } },
+    { obj_w_myhome2_t1_model, 0, cKF_JOINT_FLAG_DISP_OPA, { -828, 0, 2000 } },
     { obj_w_myhome2_t2_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
     { obj_w_myhome2_t3_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
     { obj_w_myhome2_window_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } }

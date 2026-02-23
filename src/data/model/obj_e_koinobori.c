@@ -209,7 +209,7 @@ Gfx obj_e_koinobori_yaguruma_model[] = {
 };
 
 cKF_Joint_R_c cKF_je_r_obj_e_koinobori_tbl[] = {
-    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 64536, 63536, 1000 } },
+    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { -1000, -2000, 1000 } },
     { obj_e_koinobori_pole_1_model, 2, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
     { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 18000, 1000, 0 } },
     { obj_e_koinobori_yaguruma_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
@@ -218,11 +218,11 @@ cKF_Joint_R_c cKF_je_r_obj_e_koinobori_tbl[] = {
     { obj_e_koinobori_fukiA_model, 1, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
     { obj_e_koinobori_fukiB_model, 1, cKF_JOINT_FLAG_DISP_OPA, { 6000, 0, 0 } },
     { obj_e_koinobori_fukiC_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 3000, 0, 0 } },
-    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 7500, 64536, 0 } },
+    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 7500, -1000, 0 } },
     { obj_e_koinobori_higoiA_model, 1, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
     { obj_e_koinobori_higoiB_model, 1, cKF_JOINT_FLAG_DISP_OPA, { 4500, 0, 0 } },
     { obj_e_koinobori_higoiC_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 2500, 0, 0 } },
-    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 11000, 65036, 0 } },
+    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 11000, -500, 0 } },
     { obj_e_koinobori_magoiA_model, 1, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
     { obj_e_koinobori_magoiB_model, 1, cKF_JOINT_FLAG_DISP_OPA, { 5250, 0, 0 } },
     { obj_e_koinobori_magoiC_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 2750, 0, 0 } }

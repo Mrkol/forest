@@ -170,7 +170,7 @@ cKF_Joint_R_c cKF_je_r_int_sum_minmin_tbl[] = {
     { int_sum_minmin_base_model, 5, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
     { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 200, 0, 200 } },
     { int_sum_minmin_body_L_model, 0, cKF_JOINT_FLAG_DISP_XLU, { 0, 0, 0 } },
-    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 200, 0, 65336 } },
+    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 200, 0, -200 } },
     { int_sum_minmin_body_R_model, 0, cKF_JOINT_FLAG_DISP_XLU, { 0, 0, 0 } },
     { int_sum_minmin_glass_model, 0, cKF_JOINT_FLAG_DISP_XLU, { 0, 0, 0 } },
     { int_sum_minmin_komado_model, 0, cKF_JOINT_FLAG_DISP_XLU, { 0, 0, 0 } },

@@ -180,9 +180,9 @@ cKF_Animation_R_c cKF_ba_r_int_tak_ice = {
     cKF_ckcb_r_int_tak_ice_tbl, cKF_ds_int_tak_ice_tbl, cKF_kn_int_tak_ice_tbl, cKF_c_int_tak_ice_tbl, -1, 25
 };
 
-cKF_Joint_R_c cKF_je_r_int_tak_ice_tbl[] = { { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 64536, 0, 0 } },
+cKF_Joint_R_c cKF_je_r_int_tak_ice_tbl[] = { { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { -1000, 0, 0 } },
                                              { int_tak_ice_base_model, 3, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
-                                             { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 0, 64256, 0 } },
+                                             { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 0, -1280, 0 } },
                                              { int_tak_ice_block_model, 0, cKF_JOINT_FLAG_DISP_XLU, { 0, 0, 0 } },
                                              { int_tak_ice_yuki_model, 0, cKF_JOINT_FLAG_DISP_XLU, { 0, 0, 0 } },
                                              { int_tak_ice_rot_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 3259, 0, 0 } } };

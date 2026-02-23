@@ -152,7 +152,7 @@ cKF_Animation_R_c cKF_ba_r_int_nog_kumo = {
     cKF_ckcb_r_int_nog_kumo_tbl, cKF_ds_int_nog_kumo_tbl, cKF_kn_int_nog_kumo_tbl, cKF_c_int_nog_kumo_tbl, -1, 97
 };
 
-cKF_Joint_R_c cKF_je_r_int_nog_kumo_tbl[] = { { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 250, 65411, 65411 } },
+cKF_Joint_R_c cKF_je_r_int_nog_kumo_tbl[] = { { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 250, -125, -125 } },
                                               { int_nog_kumo_base_model, 5, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
                                               { int_nog_kumo_glass_model, 0, cKF_JOINT_FLAG_DISP_XLU, { 0, 0, 0 } },
                                               { int_nog_kumo_komado_model, 0, cKF_JOINT_FLAG_DISP_XLU, { 0, 0, 0 } },

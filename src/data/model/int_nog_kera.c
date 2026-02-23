@@ -142,7 +142,7 @@ cKF_Animation_R_c cKF_ba_r_int_nog_kera = {
     cKF_ckcb_r_int_nog_kera_tbl, cKF_ds_int_nog_kera_tbl, cKF_kn_int_nog_kera_tbl, cKF_c_int_nog_kera_tbl, -1, 97
 };
 
-cKF_Joint_R_c cKF_je_r_int_nog_kera_tbl[] = { { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 0, 58536, 0 } },
+cKF_Joint_R_c cKF_je_r_int_nog_kera_tbl[] = { { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 0, -7000, 0 } },
                                               { int_nog_kera_base_model, 4, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
                                               { int_nog_kera_glass_model, 0, cKF_JOINT_FLAG_DISP_XLU, { 0, 0, 0 } },
                                               { int_nog_kera_komado_model, 0, cKF_JOINT_FLAG_DISP_XLU, { 0, 0, 0 } },

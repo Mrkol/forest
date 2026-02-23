@@ -147,7 +147,7 @@ cKF_Animation_R_c cKF_ba_r_int_nog_kurage = { cKF_ckcb_r_int_nog_kurage_tbl,
                                               257 };
 
 cKF_Joint_R_c cKF_je_r_int_nog_kurage_tbl[] = {
-    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 59036, 1375, 0 } },
+    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { -6500, 1375, 0 } },
     { int_sum_kurage_base_model, 4, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
     { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 500, 0, 0 } },
     { int_nog_kurage_foot_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },

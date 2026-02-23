@@ -51,7 +51,7 @@ Gfx act_mus_bassl_sakana_head_model[] = {
 };
 
 cKF_Joint_R_c cKF_je_r_act_mus_bassl_a1_tbl[] = {
-    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 74, 65487, 1203 } },
+    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 74, -49, 1203 } },
     { act_mus_bassl_sakana_head_model, 1, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
     { act_mus_bassl_sakana_body_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 1300, 0, 0 } }
 };

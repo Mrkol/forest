@@ -148,7 +148,7 @@ cKF_Animation_R_c cKF_ba_r_int_sum_hal_box01 = { cKF_ckcb_r_int_sum_hal_box01_tb
                                                  65 };
 
 cKF_Joint_R_c cKF_je_r_int_sum_hal_box01_tbl[] = {
-    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 0, 875, 56861 } },
+    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 0, 875, -8675 } },
     { int_sum_hal_box01_base_model, 2, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
     { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 7425, 0, 1625 } },
     { int_sum_hal_box01_top_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },

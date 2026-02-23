@@ -65,10 +65,10 @@ Gfx obj_museum5_hasu2_model[] = {
 cKF_Joint_R_c cKF_je_r_obj_museum5_hasu_tbl[] = {
     { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 3390, 0, 2800 } },
     { NULL, 3, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
-    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 64306, 62436, 0 } },
+    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { -1230, -3100, 0 } },
     { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
     { obj_museum5_hasu2_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 50, 0, 0 } },
-    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 690, 63086, 0 } },
+    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 690, -2450, 0 } },
     { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
     { obj_museum5_hasu3_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 50, 0, 0 } },
     { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 200, 0, 0 } },

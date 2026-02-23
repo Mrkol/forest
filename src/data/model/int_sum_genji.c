@@ -153,7 +153,7 @@ cKF_Animation_R_c cKF_ba_r_int_sum_genji = {
 };
 
 cKF_Joint_R_c cKF_je_r_int_sum_genji_tbl[] = { { int_sum_genji_base_model, 4, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
-                                               { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 0, 62236, 0 } },
+                                               { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 0, -3300, 0 } },
                                                { int_sum_genji_body_model, 1, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
                                                { int_sum_genji_off_model, 0, cKF_JOINT_FLAG_DISP_XLU, { 0, 0, 0 } },
                                                { int_sum_genji_glass_model, 0, cKF_JOINT_FLAG_DISP_XLU, { 0, 0, 0 } },

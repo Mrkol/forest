@@ -130,7 +130,7 @@ cKF_Animation_R_c cKF_ba_r_int_sum_ayu = {
     cKF_ckcb_r_int_sum_ayu_tbl, cKF_ds_int_sum_ayu_tbl, cKF_kn_int_sum_ayu_tbl, cKF_c_int_sum_ayu_tbl, -1, 257
 };
 
-cKF_Joint_R_c cKF_je_r_int_sum_ayu_tbl[] = { { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 0, 60536, 0 } },
+cKF_Joint_R_c cKF_je_r_int_sum_ayu_tbl[] = { { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 0, -5000, 0 } },
                                              { int_sum_ayu_base_model, 3, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
                                              { int_sum_ayu_evw_model, 0, cKF_JOINT_FLAG_DISP_XLU, { 0, 0, 0 } },
                                              { int_sum_ayu_top_model, 0, cKF_JOINT_FLAG_DISP_XLU, { 0, 0, 0 } },

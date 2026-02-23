@@ -189,7 +189,7 @@ Gfx body_hnw_model[] = {
 cKF_Joint_R_c cKF_je_r_hnw_tbl[] = { { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 0, 419, 0 } },
                                      { body_hnw_model, 1, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
                                      { head_hnw_model, 2, cKF_JOINT_FLAG_DISP_OPA, { 629, 0, 0 } },
-                                     { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 563, 65065, 0 } },
+                                     { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 563, -471, 0 } },
                                      { handL_hnw_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
                                      { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 562, 460, 0 } },
                                      { handR_hnw_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } } };

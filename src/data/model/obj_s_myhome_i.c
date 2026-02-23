@@ -126,7 +126,7 @@ Gfx obj_s_myhome_i_door_model[] = {
 };
 
 cKF_Joint_R_c cKF_je_r_obj_s_myhome_i_tbl[] = {
-    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 3414, 60, 64122 } },
+    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 3414, 60, -1414 } },
     { obj_s_myhome_i_1_model, 5, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
     { obj_s_myhome_i_door_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 2000, 0, 0 } },
     { obj_s_myhome_i_2_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },

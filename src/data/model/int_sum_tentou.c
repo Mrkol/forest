@@ -143,7 +143,7 @@ cKF_Animation_R_c cKF_ba_r_int_sum_tentou = { cKF_ckcb_r_int_sum_tentou_tbl,
 
 cKF_Joint_R_c cKF_je_r_int_sum_tentou_tbl[] = {
     { int_sum_tentou_base_model, 4, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
-    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 0, 60036, 0 } },
+    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 0, -5500, 0 } },
     { int_sum_tentou_body_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
     { int_sum_tentou_glass_model, 0, cKF_JOINT_FLAG_DISP_XLU, { 0, 0, 0 } },
     { int_sum_tentou_komado_model, 0, cKF_JOINT_FLAG_DISP_XLU, { 0, 0, 0 } },

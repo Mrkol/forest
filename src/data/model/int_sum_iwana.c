@@ -122,7 +122,7 @@ cKF_Animation_R_c cKF_ba_r_int_sum_iwana = {
 };
 
 cKF_Joint_R_c cKF_je_r_int_sum_iwana_tbl[] = {
-    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 0, 60536, 0 } },
+    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 0, -5000, 0 } },
     { int_sum_iwana_base_model, 3, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
     { int_sum_iwana_evw_model, 0, cKF_JOINT_FLAG_DISP_XLU, { 0, 0, 0 } },
     { int_sum_iwana_top_model, 0, cKF_JOINT_FLAG_DISP_XLU, { 0, 0, 0 } },

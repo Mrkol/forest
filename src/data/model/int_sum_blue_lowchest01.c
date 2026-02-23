@@ -97,7 +97,7 @@ cKF_Animation_R_c cKF_ba_r_int_sum_blue_lowchest01 = { cKF_ckcb_r_int_sum_blue_l
                                                        10 };
 
 cKF_Joint_R_c cKF_je_r_int_sum_blue_lowchest01_tbl[] = {
-    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 2000, 41536, 1650 } },
+    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 2000, -24000, 1650 } },
     { sum_blue_lowchest01_base_model, 1, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
     { int_sum_blue_lowchest01_door_1_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 1, 0, 0 } }
 };

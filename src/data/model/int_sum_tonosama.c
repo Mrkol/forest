@@ -174,11 +174,11 @@ cKF_Animation_R_c cKF_ba_r_int_sum_tonosama = { cKF_ckcb_r_int_sum_tonosama_tbl,
 
 cKF_Joint_R_c cKF_je_r_int_sum_tonosama_tbl[] = {
     { int_sum_tonosama_base_model, 4, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
-    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 65236, 0, 0 } },
+    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { -300, 0, 0 } },
     { int_sum_tonosama_body_model, 2, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
     { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 300, 400, 0 } },
     { int_sum_tonosama_body_L_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
-    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 300, 65136, 0 } },
+    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 300, -400, 0 } },
     { int_sum_tonosama_body_R_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
     { int_sum_tonosama_glass_model, 0, cKF_JOINT_FLAG_DISP_XLU, { 0, 0, 0 } },
     { int_sum_tonosama_komado_model, 0, cKF_JOINT_FLAG_DISP_XLU, { 0, 0, 0 } },

@@ -119,7 +119,7 @@ cKF_Animation_R_c cKF_ba_r_int_sum_gre_chest02 = { cKF_ckcb_r_int_sum_gre_chest0
                                                    12 };
 
 cKF_Joint_R_c cKF_je_r_int_sum_gre_chest02_tbl[] = {
-    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 64236, 3625, 65311 } },
+    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { -1300, 3625, -225 } },
     { int_sum_gre_chest02_base_model, 2, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
     { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 1500, 2600, 0 } },
     { int_sum_gre_chest02_doorR_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },

@@ -69,7 +69,7 @@ Gfx act_mus_kaseki_sakana_head_model[] = {
 };
 
 cKF_Joint_R_c cKF_je_r_act_mus_kaseki_a1_tbl[] = {
-    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 65399, 62, 1627 } },
+    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { -137, 62, 1627 } },
     { act_mus_kaseki_sakana_head_model, 1, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
     { act_mus_kaseki_sakana_body_model, 1, cKF_JOINT_FLAG_DISP_OPA, { 1554, 0, 0 } },
     { act_mus_kaseki_sakana_leg_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 1050, 0, 0 } }

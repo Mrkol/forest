@@ -99,7 +99,7 @@ Gfx act_mus_unagi_sakana_head_model[] = {
 };
 
 cKF_Joint_R_c cKF_je_r_act_mus_unagi_a1_tbl[] = {
-    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 32, 65527, 2095 } },
+    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 32, -9, 2095 } },
     { act_mus_unagi_sakana_head_model, 1, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
     { act_mus_unagi_sakana_body_model, 1, cKF_JOINT_FLAG_DISP_OPA, { 1145, 0, 0 } },
     { act_mus_unagi_sakana_leg_model, 1, cKF_JOINT_FLAG_DISP_OPA, { 951, 0, 0 } },

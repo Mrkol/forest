@@ -149,9 +149,9 @@ Gfx obj_train1_2_model[] = {
     gsSPEndDisplayList(),
 };
 
-cKF_Joint_R_c cKF_je_r_obj_train1_1_tbl[] = { { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 60036, 1500, 0 } },
+cKF_Joint_R_c cKF_je_r_obj_train1_1_tbl[] = { { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { -5500, 1500, 0 } },
                                               { obj_train1_1_t1_model, 4, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
-                                              { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 0, 62036, 0 } },
+                                              { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 0, -3500, 0 } },
                                               { obj_train1_1_wheel1_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
                                               { obj_train1_1_wheel2_model, 1, cKF_JOINT_FLAG_DISP_OPA, { 3000, 0, 0 } },
                                               { obj_train1_1_rod1_model, 1, cKF_JOINT_FLAG_DISP_OPA, { 633, 0, 0 } },

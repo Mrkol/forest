@@ -100,9 +100,9 @@ cKF_Animation_R_c cKF_ba_r_obj_clock_tailor = { cKF_ckcb_r_obj_clock_tailor_tbl,
 cKF_Joint_R_c cKF_je_r_obj_clock_tailor_tbl[] = {
     { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 20000, 10000, 5000 } },
     { obj_clock_tailor_base_model, 3, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
-    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 1100, 0, 65136 } },
+    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 1100, 0, -400 } },
     { obj_clock_tailor_furi_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
-    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 2000, 0, 65436 } },
+    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 2000, 0, -100 } },
     { obj_clock_tailor_short_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
     { obj_clock_tailor_long_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 2000, 0, 0 } }
 };

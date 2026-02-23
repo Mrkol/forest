@@ -200,9 +200,9 @@ cKF_Animation_R_c cKF_ba_r_int_sum_log_hatoclk = { cKF_ckcb_r_int_sum_log_hatocl
 cKF_Joint_R_c cKF_je_r_int_sum_log_hatoclk_tbl[] = {
     { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
     { int_sum_log_hatoclk_base_model, 4, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
-    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 6900, 65036, 1700 } },
+    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 6900, -500, 1700 } },
     { int_sum_log_hatoclk_door_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
-    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 54936, 0, 1300 } },
+    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { -10600, 0, 1300 } },
     { int_sum_log_hatoclk_hato1_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
     { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 5150, 0, 0 } },
     { int_sum_log_hatoclk_short_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },

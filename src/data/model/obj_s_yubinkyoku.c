@@ -127,7 +127,7 @@ Gfx obj_s_yubinkyoku_door_model[] = {
 };
 
 cKF_Joint_R_c cKF_je_r_obj_s_yubinkyoku_tbl[] = {
-    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 64436, 0, 4000 } },
+    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { -1100, 0, 4000 } },
     { obj_s_yubinkyoku_light_model, 6, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
     { obj_s_yubinkyoku_door_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 2000, 0, 0 } },
     { obj_s_yubinkyoku_neon_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
@@ -298,7 +298,7 @@ Gfx obj_w_yubinkyoku_door_model[] = {
 };
 
 cKF_Joint_R_c cKF_je_r_obj_w_yubinkyoku_tbl[] = {
-    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 64436, 0, 4000 } },
+    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { -1100, 0, 4000 } },
     { obj_w_yubinkyoku_light_model, 6, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
     { obj_w_yubinkyoku_door_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 2000, 0, 0 } },
     { obj_w_yubinkyoku_neon_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },

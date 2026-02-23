@@ -107,7 +107,7 @@ Gfx obj_s_uranai_doorB_model[] = {
     gsSPEndDisplayList(),
 };
 
-cKF_Joint_R_c cKF_je_r_obj_s_uranai_tbl[] = { { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 64536 } },
+cKF_Joint_R_c cKF_je_r_obj_s_uranai_tbl[] = { { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, -1000 } },
                                               { obj_s_uranai_light_model, 5, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
                                               { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 1000, 0, 0 } },
                                               { obj_s_uranai_doorB_model, 0, cKF_JOINT_FLAG_DISP_XLU, { 0, 0, 0 } },
@@ -235,7 +235,7 @@ Gfx obj_w_uranai_doorB_model[] = {
     gsSPEndDisplayList(),
 };
 
-cKF_Joint_R_c cKF_je_r_obj_w_uranai_tbl[] = { { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 64536 } },
+cKF_Joint_R_c cKF_je_r_obj_w_uranai_tbl[] = { { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, -1000 } },
                                               { obj_w_uranai_light_model, 5, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
                                               { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 1000, 0, 0 } },
                                               { obj_w_uranai_doorB_model, 0, cKF_JOINT_FLAG_DISP_XLU, { 0, 0, 0 } },

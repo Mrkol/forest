@@ -128,7 +128,7 @@ cKF_Animation_R_c cKF_ba_r_int_yaz_turkey_chest = { cKF_ckcb_r_int_yaz_turkey_ch
                                                     10 };
 
 cKF_Joint_R_c cKF_je_r_int_yaz_turkey_chest_tbl[] = {
-    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 2000, 41536, 1500 } },
+    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 2000, -24000, 1500 } },
     { int_yaz_turkey_chest_body_model, 1, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
     { int_yaz_turkey_chest_door_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 1, 0, 0 } }
 };

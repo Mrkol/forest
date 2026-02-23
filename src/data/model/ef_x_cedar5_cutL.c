@@ -53,7 +53,7 @@ Gfx ef_x_cedar5_cutL_trunk_model[] = {
 };
 
 cKF_Joint_R_c cKF_je_r_ef_x_cedar5_cutL_tbl[] = {
-    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 64536, 0, 0 } },
+    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { -1000, 0, 0 } },
     { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
     { ef_x_cedar5_cutL_trunk_model, 1, cKF_JOINT_FLAG_DISP_OPA, { 2250, 0, 0 } },
     { ef_x_cedar5_cutL_leaf_model, 1, cKF_JOINT_FLAG_DISP_OPA, { 6750, 0, 0 } },

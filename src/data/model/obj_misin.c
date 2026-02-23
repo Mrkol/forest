@@ -214,7 +214,7 @@ cKF_Joint_R_c cKF_je_r_obj_misin_tbl[] = { { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, {
                                            { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 900, 2550, 1000 } },
                                            { obj_misin_ito4_model, 1, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
                                            { obj_misin_ito3_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 475, 0, 0 } },
-                                           { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 1000, 64486, 800 } },
+                                           { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 1000, -1050, 800 } },
                                            { obj_misin_jiku_model, 1, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
                                            { obj_misin_maru_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
                                            { obj_misin_ito1_model, 1, cKF_JOINT_FLAG_DISP_OPA, { 1000, 0, 0 } },

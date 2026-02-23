@@ -42,7 +42,7 @@ Gfx act_mus_angel_sakana_head_model[] = {
 };
 
 cKF_Joint_R_c cKF_je_r_act_mus_angel_a1_tbl[] = {
-    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 8, 65524, 699 } },
+    { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 8, -12, 699 } },
     { act_mus_angel_sakana_head_model, 1, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
     { act_mus_angel_sakana_body_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 700, 0, 0 } }
 };

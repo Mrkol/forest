@@ -157,7 +157,7 @@ cKF_Animation_R_c cKF_ba_r_int_hnw048 = {
 cKF_Joint_R_c cKF_je_r_int_hnw048_tbl[] = { { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
                                             { int_hnw048_base_model, 1, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
                                             { int_hnw048_chest_model, 2, cKF_JOINT_FLAG_DISP_OPA, { 1000, 0, 0 } },
-                                            { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 700, 64836, 0 } },
+                                            { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 700, -700, 0 } },
                                             { int_hnw048_armL_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
                                             { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 700, 700, 0 } },
                                             { int_hnw048_armR_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } } };

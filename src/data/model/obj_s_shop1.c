@@ -349,7 +349,7 @@ Gfx obj_s_shop2_door2_model[] = {
     gsSPEndDisplayList(),
 };
 
-cKF_Joint_R_c cKF_je_r_obj_s_shop2_tbl[] = { { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 17213, 0, 56808 } },
+cKF_Joint_R_c cKF_je_r_obj_s_shop2_tbl[] = { { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 17213, 0, -8728 } },
                                              { obj_s_shop2_light_model, 4, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
                                              { obj_s_shop2_door1_model, 1, cKF_JOINT_FLAG_DISP_OPA, { 1, 0, 0 } },
                                              { obj_s_shop2_door2_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 24000, 0, 0 } },
@@ -486,7 +486,7 @@ Gfx obj_w_shop2_door2_model[] = {
     gsSPEndDisplayList(),
 };
 
-cKF_Joint_R_c cKF_je_r_obj_w_shop2_tbl[] = { { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 17213, 0, 56808 } },
+cKF_Joint_R_c cKF_je_r_obj_w_shop2_tbl[] = { { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 17213, 0, -8728 } },
                                              { obj_w_shop2_light_model, 4, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
                                              { obj_w_shop2_door1_model, 1, cKF_JOINT_FLAG_DISP_OPA, { 1, 0, 0 } },
                                              { obj_w_shop2_door2_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 24000, 0, 0 } },
@@ -613,7 +613,7 @@ Gfx obj_s_shop3_door2_model[] = {
     gsSPEndDisplayList(),
 };
 
-cKF_Joint_R_c cKF_je_r_obj_s_shop3_tbl[] = { { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 15213, 0, 58808 } },
+cKF_Joint_R_c cKF_je_r_obj_s_shop3_tbl[] = { { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 15213, 0, -6728 } },
                                              { obj_s_shop3_light_model, 4, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
                                              { NULL, 2, cKF_JOINT_FLAG_DISP_OPA, { 1, 0, 0 } },
                                              { obj_s_shop3_door2_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 24000, 0, 0 } },
@@ -741,7 +741,7 @@ Gfx obj_w_shop3_door2_model[] = {
     gsSPEndDisplayList(),
 };
 
-cKF_Joint_R_c cKF_je_r_obj_w_shop3_tbl[] = { { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 15213, 0, 58808 } },
+cKF_Joint_R_c cKF_je_r_obj_w_shop3_tbl[] = { { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 15213, 0, -6728 } },
                                              { obj_w_shop3_light_model, 4, cKF_JOINT_FLAG_DISP_OPA, { 0, 0, 0 } },
                                              { NULL, 2, cKF_JOINT_FLAG_DISP_OPA, { 1, 0, 0 } },
                                              { obj_w_shop3_door2_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 24000, 0, 0 } },
@@ -906,7 +906,7 @@ Gfx obj_s_shop4_door_model[] = {
     gsSPEndDisplayList(),
 };
 
-cKF_Joint_R_c cKF_je_r_obj_s_shop4_tbl[] = { { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 15213, 0, 58808 } },
+cKF_Joint_R_c cKF_je_r_obj_s_shop4_tbl[] = { { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 15213, 0, -6728 } },
                                              { obj_s_shop4_grass_model, 5, cKF_JOINT_FLAG_DISP_XLU, { 0, 0, 0 } },
                                              { NULL, 2, cKF_JOINT_FLAG_DISP_OPA, { 1, 0, 0 } },
                                              { obj_s_shop4_door_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 24000, 0, 0 } },
@@ -1069,7 +1069,7 @@ Gfx obj_w_shop4_door_model[] = {
     gsSPEndDisplayList(),
 };
 
-cKF_Joint_R_c cKF_je_r_obj_w_shop4_tbl[] = { { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 15213, 0, 58808 } },
+cKF_Joint_R_c cKF_je_r_obj_w_shop4_tbl[] = { { NULL, 1, cKF_JOINT_FLAG_DISP_OPA, { 15213, 0, -6728 } },
                                              { obj_w_shop4_grass_model, 5, cKF_JOINT_FLAG_DISP_XLU, { 0, 0, 0 } },
                                              { NULL, 2, cKF_JOINT_FLAG_DISP_OPA, { 1, 0, 0 } },
                                              { obj_w_shop4_door_model, 0, cKF_JOINT_FLAG_DISP_OPA, { 24000, 0, 0 } },
