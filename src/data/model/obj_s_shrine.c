@@ -206,6 +206,8 @@ Gfx obj_s_shrine_figure_model[] = {
     gsSPEndDisplayList(),
 };
 
+extern u8 obj_w_shrine_bubble_tex_pic_i4[];
+
 Gfx obj_s_shrine_bubble_model[] = {
     gsSPTexture(0, 0, 0, G_TX_RENDERTILE, G_ON),
     gsDPSetCombineLERP(PRIMITIVE, 0, SHADE, ENVIRONMENT, TEXEL0, 0, PRIMITIVE, 0, 0, 0, 0, COMBINED, 0, 0, 0, COMBINED),
