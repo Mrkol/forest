@@ -5,6 +5,8 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
+static u8 elf_layA0_txt[];
+
 Vtx point_light_v[] = {
 #include "assets/point_light_v.inc"
 };
@@ -23,13 +25,13 @@ Gfx point_light_init_model[] = {
 };
 
 Gfx point_light_model[] = {
-    gsSPMatrix(117440512, G_MTX_NOPUSH | G_MTX_MUL | G_MTX_MODELVIEW),
+    gsSPMatrix(softsprite_mtx, G_MTX_NOPUSH | G_MTX_MUL | G_MTX_MODELVIEW),
     gsSPVertex(point_light_v, 4, 0),
     gsSP2Triangles(2, 1, 0, 0, 3, 2, 0, 0),
     gsSPEndDisplayList(),
 };
 
-u8 elf_layA0_txt[] = {
+static u8 elf_layA0_txt[] = {
 #include "assets/elf_layA0_txt.inc"
 };
 
