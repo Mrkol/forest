@@ -185,7 +185,7 @@ float fastcast_float(register short* s) {
 #define number(n) ARRAY_COUNT(n)
 
 void guMtxNormalize(GC_Mtx mtx);
-void N64Mtx_to_DOLMtx(const Mtx* n64, MtxP gc);
+void N64Mtx_to_DOLMtx(const Mtx* n64, MtxPtr gc);
 
 typedef union {
     GXColor color;
@@ -609,7 +609,7 @@ class emu64 : public emu64_print {
     void cullmode();
     void texture_gen(int tile);
     void texture_matrix();
-    void disp_matrix(MtxP mtx);
+    void disp_matrix(MtxPtr mtx);
     const char* segchk(u32 seg);
     const char* combine_name(u32 param, u32 type);
     const char* combine_alpha(int param, int type);
@@ -620,7 +620,7 @@ class emu64 : public emu64_print {
     void show_vtx(Vtx* vtx, int count, int begin);
     void print_combine(u64 combine);
     void print_combine_tev(u64 combine_tev);
-    void print_guMtxXFM1F_dol2(MtxP mtx, GXProjectionType type, float x, float y, float z);
+    void print_guMtxXFM1F_dol2(MtxPtr mtx, GXProjectionType type, float x, float y, float z);
     u32 seg2k0(u32 seg);
     void setup_texture_tile(int tile);
     void setup_1tri_2tri_1quad(unsigned int vtx_idx);

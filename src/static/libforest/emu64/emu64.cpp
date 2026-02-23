@@ -18,15 +18,15 @@
 // this one is absolutely necessary for a ton of function calls to be inlined
 #pragma inline_max_size(10000)
 
-static void guMtxXFM1F_dol(MtxP mtx, float x, float y, float z, float* ox, float* oy, float* oz);
-static void guMtxXFM1F_dol7(MtxP mtx, float x, float y, float z, float* ox, float* oy, float* oz);
-static void guMtxXFM1F_dol2(MtxP mtx, GXProjectionType type, float x, float y, float z, float* ox, float* oy, float* oz);
-static void guMtxXFM1F_dol2w(MtxP mtx, GXProjectionType type, float x, float y, float z, float* ox, float* oy, float* oz,
+static void guMtxXFM1F_dol(MtxPtr mtx, float x, float y, float z, float* ox, float* oy, float* oz);
+static void guMtxXFM1F_dol7(MtxPtr mtx, float x, float y, float z, float* ox, float* oy, float* oz);
+static void guMtxXFM1F_dol2(MtxPtr mtx, GXProjectionType type, float x, float y, float z, float* ox, float* oy, float* oz);
+static void guMtxXFM1F_dol2w(MtxPtr mtx, GXProjectionType type, float x, float y, float z, float* ox, float* oy, float* oz,
                       float* ow);
-static float guMtxXFM1F_dol3(MtxP mtx, GXProjectionType type, float z);
-static void guMtxXFM1F_dol6w(MtxP mtx, GXProjectionType type, float x, float y, float z, float w, float* ox, float* oy,
+static float guMtxXFM1F_dol3(MtxPtr mtx, GXProjectionType type, float z);
+static void guMtxXFM1F_dol6w(MtxPtr mtx, GXProjectionType type, float x, float y, float z, float w, float* ox, float* oy,
                       float* oz, float* ow);
-void guMtxXFM1F_dol6w1(MtxP mtx, GXProjectionType type, float x, float y, float z, float w, float* ox, float* oy,
+void guMtxXFM1F_dol6w1(MtxPtr mtx, GXProjectionType type, float x, float y, float z, float w, float* ox, float* oy,
                        float* oz);
 
 static aflags_c aflags;
@@ -4318,7 +4318,7 @@ void emu64::dl_G_MTX() {
 
         if ((this->print_commands & EMU64_PRINTF3_FLAG) != 0) {
             EMU64_LOGF("%08x %08x %08x\n", gfx_copy.w1, this->seg2k0(gfx_copy.w1), this->seg2k0(gfx_copy.w1));
-            this->disp_matrix((MtxP)this->seg2k0(gfx_copy.w1));
+            this->disp_matrix((MtxPtr)this->seg2k0(gfx_copy.w1));
         }
     }
 

@@ -29,17 +29,17 @@ u32 emu64::seg2k0(u32 segadr) {
     return k0;
 }
 
-/* @unused void guMtxXFMWF(MtxP, float, float, float, float, float, float*, float*, float*, float*) */
+/* @unused void guMtxXFMWF(MtxPtr, float, float, float, float, float, float*, float*, float*, float*) */
 
-/* @unused void guMtxXFM1F(MtxP, float, float, float, float, float*, float*, float*) */
+/* @unused void guMtxXFM1F(MtxPtr, float, float, float, float, float*, float*, float*) */
 
-void guMtxXFM1F_dol(MtxP mtx, float x, float y, float z, float* ox, float* oy, float* oz) {
+void guMtxXFM1F_dol(MtxPtr mtx, float x, float y, float z, float* ox, float* oy, float* oz) {
     *ox = mtx[0][0] * x + mtx[0][1] * y + mtx[0][2] * z + mtx[0][3];
     *oy = mtx[1][0] * x + mtx[1][1] * y + mtx[1][2] * z + mtx[1][3];
     *oz = mtx[2][0] * x + mtx[2][1] * y + mtx[2][2] * z + mtx[2][3];
 }
 
-void guMtxXFM1F_dol7(MtxP mtx, float x, float y, float z, float* ox, float* oy, float* oz) {
+void guMtxXFM1F_dol7(MtxPtr mtx, float x, float y, float z, float* ox, float* oy, float* oz) {
     GC_Mtx inv;
 
     PSMTXInverse(mtx, inv);
@@ -48,7 +48,7 @@ void guMtxXFM1F_dol7(MtxP mtx, float x, float y, float z, float* ox, float* oy, 
     *oz = inv[2][0] * x + inv[2][1] * y + inv[2][2] * z + inv[2][3];
 }
 
-void guMtxXFM1F_dol2(MtxP mtx, GXProjectionType type, float x, float y, float z, float* ox, float* oy, float* oz) {
+void guMtxXFM1F_dol2(MtxPtr mtx, GXProjectionType type, float x, float y, float z, float* ox, float* oy, float* oz) {
     if (type == GX_PERSPECTIVE) {
         f32 s = -1.0f / z;
 
@@ -62,7 +62,7 @@ void guMtxXFM1F_dol2(MtxP mtx, GXProjectionType type, float x, float y, float z,
     }
 }
 
-void guMtxXFM1F_dol2w(MtxP mtx, GXProjectionType type, float x, float y, float z, float* ox, float* oy, float* oz,
+void guMtxXFM1F_dol2w(MtxPtr mtx, GXProjectionType type, float x, float y, float z, float* ox, float* oy, float* oz,
                       float* ow) {
     if (type == GX_PERSPECTIVE) {
         *ox = mtx[0][0] * x + mtx[0][2] * z;
@@ -77,7 +77,7 @@ void guMtxXFM1F_dol2w(MtxP mtx, GXProjectionType type, float x, float y, float z
     }
 }
 
-float guMtxXFM1F_dol3(MtxP mtx, GXProjectionType type, float z) {
+float guMtxXFM1F_dol3(MtxPtr mtx, GXProjectionType type, float z) {
     if (type == GX_PERSPECTIVE) {
         return -mtx[2][3] / (z + mtx[2][2]);
     } else {
@@ -85,7 +85,7 @@ float guMtxXFM1F_dol3(MtxP mtx, GXProjectionType type, float z) {
     }
 }
 
-void guMtxXFM1F_dol6w(MtxP mtx, GXProjectionType type, float x, float y, float z, float w, float* ox, float* oy,
+void guMtxXFM1F_dol6w(MtxPtr mtx, GXProjectionType type, float x, float y, float z, float w, float* ox, float* oy,
                       float* oz, float* ow) {
     if (type == GX_PERSPECTIVE) {
         float xScale = mtx[0][0];
@@ -119,7 +119,7 @@ void guMtxXFM1F_dol6w(MtxP mtx, GXProjectionType type, float x, float y, float z
     }
 }
 
-void guMtxXFM1F_dol6w1(MtxP mtx, GXProjectionType type, float x, float y, float z, float w, float* ox, float* oy,
+void guMtxXFM1F_dol6w1(MtxPtr mtx, GXProjectionType type, float x, float y, float z, float w, float* ox, float* oy,
                        float* oz) {
     if (type == GX_PERSPECTIVE) {
         float xScale = mtx[0][0];
@@ -163,7 +163,7 @@ void guMtxNormalize(GC_Mtx mtx) {
 }
 
 /* TODO: Mtx -> Mtx, GC_Mtx -> Mtx */
-void N64Mtx_to_DOLMtx(const Mtx* n64, MtxP gc) {
+void N64Mtx_to_DOLMtx(const Mtx* n64, MtxPtr gc) {
     s16* fixed = ((s16*)n64) + 0;
     u16* frac = ((u16*)n64) + 16;
     int i;
@@ -178,4 +178,4 @@ void N64Mtx_to_DOLMtx(const Mtx* n64, MtxP gc) {
     }
 }
 
-/* @unused my_guMtxL2F(MtxP, const Mtx*) */
+/* @unused my_guMtxL2F(MtxPtr, const Mtx*) */

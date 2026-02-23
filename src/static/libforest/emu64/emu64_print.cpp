@@ -30,7 +30,7 @@ static const char* __unused__reorder_char0A(void) {
     return "\n";
 }
 
-void emu64::disp_matrix(MtxP mtx) {
+void emu64::disp_matrix(MtxPtr mtx) {
     static const u8 kakko[] = {'/', '\\', '/', '\\', '|', '|', '|', '|', '|', '|', '|', '|', '\\', '/', '\\', '/'};
     int i, j;
     for (i = 0; i < 4; i++) {
@@ -467,7 +467,7 @@ void emu64::print_combine_tev(u64 combine_tev) {
                   this->combine_tev_alpha_name(c_tev->Ac1), this->combine_tev_alpha_name(c_tev->Ad1));
 }
 
-void emu64::print_guMtxXFM1F_dol2(MtxP mtx, GXProjectionType type, float x, float y, float z) {
+void emu64::print_guMtxXFM1F_dol2(MtxPtr mtx, GXProjectionType type, float x, float y, float z) {
     if (type == GX_PERSPECTIVE) {
         float s = -1.0f / z;
 
