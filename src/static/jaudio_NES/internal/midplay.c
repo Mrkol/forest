@@ -1,3 +1,4 @@
+#include "jaudio_NES/jammain_2.h"
 #include "types.h"
 
 s16 CUTOFF_TO_IIR_TABLE[128][4] = {

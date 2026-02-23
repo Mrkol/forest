@@ -14,7 +14,11 @@ extern "C" {
 #define RETAIL_MODE 1
 
 // use msvc/clang/gcc debug trap intrinsics
+#if defined(_MSC_VER)
 #define OSThrow() __debugbreak()
+#else
+#define OSThrow() __builtin_trap()
+#endif
 
 extern void my_fopen(); /* @unused */
 extern void my_fgets(); /* @unused */
