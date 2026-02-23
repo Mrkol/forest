@@ -863,8 +863,11 @@ set_target_properties(forest_dol PROPERTIES
 # without needing __declspec(dllexport) annotations.
 if(MSVC OR CMAKE_C_COMPILER_ID STREQUAL "Clang" AND CMAKE_C_SIMULATE_ID STREQUAL "MSVC")
     # clang-cl / MSVC: CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS + ENABLE_EXPORTS handles this
-elseif(CMAKE_C_COMPILER_ID STREQUAL "GNU" OR CMAKE_C_COMPILER_ID STREQUAL "Clang")
+elseif(CMAKE_C_COMPILER_ID STREQUAL "GNU")
     target_link_options(forest_dol PRIVATE -Wl,--export-all-symbols)
+elseif(CMAKE_C_COMPILER_ID STREQUAL "Clang")
+    # Clang often uses lld on Linux, which does not support --export-all-symbols.
+    # Rely on -rdynamic / --export-dynamic (already set) for symbol export.
 endif()
 
 # ==============================================================================
