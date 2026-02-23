@@ -4,6 +4,7 @@
 #include <string.h>
 #include <dolphin/gx.h>
 #include <dolphin/os.h>
+#include <dolphin/vi.h>
 #include <dolphin/mtx.h>
 #include <dolphin/card.h>
 #include "libultra/libultra.h"

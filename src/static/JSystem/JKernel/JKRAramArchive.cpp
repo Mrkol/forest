@@ -115,7 +115,7 @@ void JKRAramArchive::unmountFixed() {
     mIsMounted = false;
 }
 
-bool JKRAramArchive::open(long entryNum) {
+bool JKRAramArchive::open(s32 entryNum) {
     mArcInfoBlock = nullptr;
     mDirectories = nullptr;
     mFileEntries = nullptr;

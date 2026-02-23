@@ -3749,7 +3749,7 @@ void emu64::dl_G_LOADTLUT() {
                     }
 
                     GXInitTlutObj(&this->tlut_objs[tlut_name], aligned_addr, GX_TL_RGB5A3, count);
-                    GXLoadTlut(&this->tlut_objs[tlut_name], tlut_name);
+                    GXLoadTlut(&this->tlut_objs[tlut_name], (GXTlut)tlut_name);
 
                     EMU64_INFOF("GXInitTlutObj %08x %d pal_no=%d\n", tlut_addr, count, tlut_name);
                 }
@@ -3783,7 +3783,7 @@ void emu64::dl_G_LOADTLUT() {
                     while (count != 0) {
                         tlut_addresses[tlut_name] = (void*)addr;
                         GXInitTlutObj(&this->tlut_objs[tlut_name], tlut, GX_TL_RGB5A3, count);
-                        GXLoadTlut(&this->tlut_objs[tlut_name], tlut_name);
+                        GXLoadTlut(&this->tlut_objs[tlut_name], (GXTlut)tlut_name);
 
                         EMU64_INFOF("GXInitTlutObj %08x %d pal_no=%d\n", addr, (u16)count, tlut_name);
 
