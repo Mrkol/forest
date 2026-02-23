@@ -7,7 +7,7 @@
 #include "padmgr.h"
 #include "game.h"
 #include "m_house.h"
-#include "dolphin/os/OSCache.h"
+#include <dolphin/os/OSCache.h>
 #include "jsyswrap.h"
 #include "m_player_lib.h"
 

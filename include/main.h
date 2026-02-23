@@ -2,7 +2,7 @@
 #define MAIN_H
 
 #include "types.h"
-#include "dolphin/os/OSThread.h"
+#include <dolphin/os/OSThread.h>
 
 #ifdef __cplusplus
 extern "C" {

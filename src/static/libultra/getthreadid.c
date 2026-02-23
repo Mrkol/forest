@@ -1,4 +1,4 @@
-#include "dolphin/os/OSThread.h"
+#include <dolphin/os/OSThread.h>
 #include "libultra/libultra.h"
 
 

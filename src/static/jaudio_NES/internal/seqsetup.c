@@ -9,7 +9,7 @@
 #include "jaudio_NES/oneshot.h"
 #include "jaudio_NES/fat.h"
 
-#include "dolphin/os/OSInterrupt.h"
+#include <dolphin/os/OSInterrupt.h>
 
 #define SEQ_SIZE             (256)
 #define ROOT_OUTER_SIZE      (16)

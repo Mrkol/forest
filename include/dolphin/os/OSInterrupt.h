@@ -1,9 +1,9 @@
 #ifndef DOLPHIN_OSINTERRUPT_H
 #define DOLPHIN_OSINTERRUPT_H
 
-#include "dolphin/os/OSContext.h"
-#include "dolphin/os/OSException.h"
-#include "dolphin/types.h"
+#include <dolphin/os/OSContext.h>
+#include <dolphin/os/OSException.h>
+#include <dolphin/types.h>
 
 #ifdef __cplusplus
 extern "C" {

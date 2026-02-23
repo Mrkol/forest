@@ -1,11 +1,11 @@
 
 #include "Famicom/ks_nes_core.h"
 #include "Famicom/ks_nes_draw.h"
-#include "dolphin/os/OSCache.h"
-#include "dolphin/os/OSTime.h"
-#include "dolphin/base/PPCArch.h"
+#include <dolphin/os/OSCache.h>
+#include <dolphin/os/OSTime.h>
+#include <dolphin/base/PPCArch.h>
 #include "jaudio_NES/emusound.h"
-#include "dolphin/os.h"
+#include <dolphin/os.h>
 
 #pragma optimizewithasm off
 

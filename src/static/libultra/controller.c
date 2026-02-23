@@ -2,7 +2,7 @@
 #include "libultra/osContPad.h"
 #include "libultra/osMesg.h"
 #include "libultra/controller.h"
-#include "dolphin/pad.h"
+#include <dolphin/pad.h>
 #include "libjsys/jsyswrapper.h"
 
 u8 __osMaxControllers;

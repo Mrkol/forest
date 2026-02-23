@@ -2,8 +2,8 @@
 #define JKRARAM_H
 
 #include "types.h"
-#include "dolphin/ar.h"
-#include "dolphin/os/OSMessage.h"
+#include <dolphin/ar.h>
+#include <dolphin/os/OSMessage.h>
 #include "JSystem/JKernel/JKRDisposer.h"
 #include "JSystem/JKernel/JKREnum.h"
 #include "JSystem/JKernel/JKRHeap.h"

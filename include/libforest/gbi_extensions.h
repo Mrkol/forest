@@ -9,7 +9,7 @@ extern "C" {
 
 #include "types.h"
 #include <PR/mbi.h>
-#include "dolphin/gx.h"
+#include <dolphin/gx.h>
 
 #define SOFTSPRITE_MTX_SEG 0x07
 #define ANIME_1_TXT_SEG 0x08

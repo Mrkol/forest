@@ -8,7 +8,7 @@
 #include "sys_matrix.h"
 #include "m_rcp.h"
 #include "jsyswrap.h"
-#include "dolphin/os.h"
+#include <dolphin/os.h>
 #include "ac_ev_ghost.h"
 #include "ac_gyoei.h"
 #include "m_melody.h"

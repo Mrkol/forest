@@ -1,6 +1,6 @@
 #include "jaudio_NES/dspinterface.h"
 
-#include "dolphin/os.h"
+#include <dolphin/os.h>
 #include "jaudio_NES/sample.h"
 #include "jaudio_NES/dspproc.h"
 #include "jaudio_NES/dspdriver.h"

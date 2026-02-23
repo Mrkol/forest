@@ -1,4 +1,4 @@
-#include "dolphin/pad.h"
+#include <dolphin/pad.h>
 #include "libultra/libultra.h"
 #include "libultra/controller.h"
 

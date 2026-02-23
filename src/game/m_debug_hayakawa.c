@@ -18,7 +18,7 @@
 
 #include "m_debug.h"
 #include "libu64/u64types.h"
-#include "dolphin/os.h"
+#include <dolphin/os.h>
 #include "jsyswrap.h"
 #include "libc64/__osMalloc.h"
 #include "m_rcp.h"
@@ -27,7 +27,7 @@
 #include "libforest/osreport.h"
 #include "libforest/emu64.h"
 #include "gfxalloc.h"
-#include "dolphin/vi.h"
+#include <dolphin/vi.h>
 #include "libu64/gfxprint.h"
 
 /**

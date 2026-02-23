@@ -9,7 +9,7 @@
 #include "m_malloc.h"
 #include "m_cockroach.h"
 #include "m_msg.h"
-#include "dolphin/card.h"
+#include <dolphin/card.h>
 #include "m_string.h"
 #include "m_house.h"
 #include "m_player_lib.h"

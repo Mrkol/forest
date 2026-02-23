@@ -1,12 +1,12 @@
 #include "boot.h"
 
-#include "dolphin/dvd.h"
-#include "dolphin/os.h"
-#include "dolphin/os/OSArena.h"
-#include "dolphin/os/OSContext.h"
-#include "dolphin/os/OSModule.h"
-#include "dolphin/os/OSReset.h"
-#include "dolphin/pad.h"
+#include <dolphin/dvd.h>
+#include <dolphin/os.h>
+#include <dolphin/os/OSArena.h>
+#include <dolphin/os/OSContext.h>
+#include <dolphin/os/OSModule.h>
+#include <dolphin/os/OSReset.h>
+#include <dolphin/pad.h>
 #include "libforest/fault.h"
 #include "jaudio_NES/game64.h"
 #include "libc64/malloc.h"
@@ -22,10 +22,10 @@
 #include "nintendo_hi_0.h"
 #include "sys_math.h"
 #include "terminal.h"
-#include "dolphin/vi.h"
+#include <dolphin/vi.h>
 #include "initial_menu.h"
 #include "libforest/batconfig.h"
-#include "dolphin/os/OSAlarm.h"
+#include <dolphin/os/OSAlarm.h>
 #include "dvderr.h"
 #include "libforest/osreport.h"
 

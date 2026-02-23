@@ -7,7 +7,7 @@
 #include "jaudio_NES/os.h"
 #include "jaudio_NES/audiomacro.h"
 #include "jaudio_NES/driver.h"
-#include "dolphin/os.h"
+#include <dolphin/os.h>
 
 static void __Nas_GroupFadeOut(s32 group, s32 fadeout_timer);
 static void __Nas_GroupFadeIn(s32 group, s32 fadein_timer);

@@ -5,8 +5,8 @@
 
 #include <stdlib.h>
 #include "jaudio_NES/ipldec.h"
-#include "dolphin/os.h"
-#include "dolphin/card.h"
+#include <dolphin/os.h>
+#include <dolphin/card.h>
 #include "../../dolphin/card/__card.h"
 
 #define DATA_SCRAMBLE_R(data) (~(data ^ (data >> 7) ^ (data >> 15) ^ (data >> 23)))

@@ -2,10 +2,10 @@
 #define DOLPHIN_SIPRIV
 
 #include <dolphin/types.h>
-#include "dolphin/os.h"
-#include "dolphin/os/OSTime.h"
-#include "dolphin/os/OSInterrupt.h"
-#include "dolphin/os/OSSerial.h"
+#include <dolphin/os.h>
+#include <dolphin/os/OSTime.h>
+#include <dolphin/os/OSInterrupt.h>
+#include <dolphin/os/OSSerial.h>
 
 #ifdef __cplusplus
 extern "C" {

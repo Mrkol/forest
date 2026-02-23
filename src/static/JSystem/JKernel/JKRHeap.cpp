@@ -1,11 +1,11 @@
 #include "JSystem/JUtility/JUTAssertion.h"
 #include "JSystem/JKernel/JKRHeap.h"
-#include "dolphin/os.h"
-#include "dolphin/os/OSArena.h"
-#include "dolphin/os/OSAlloc.h"
-#include "dolphin/os/OSMemory.h"
-#include "dolphin/os/OSUtil.h"
-#include "dolphin/os.h"
+#include <dolphin/os.h>
+#include <dolphin/os/OSArena.h>
+#include <dolphin/os/OSAlloc.h>
+#include <dolphin/os/OSMemory.h>
+#include <dolphin/os/OSUtil.h>
+#include <dolphin/os.h>
 
 JKRHeap* JKRHeap::sSystemHeap;
 JKRHeap* JKRHeap::sCurrentHeap;

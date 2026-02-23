@@ -2,7 +2,7 @@
 #define DSP_H
 
 #include <dolphin/types.h>
-#include "dolphin/os/OSTime.h"
+#include <dolphin/os/OSTime.h>
 
 #ifdef __cplusplus
 extern "C" {

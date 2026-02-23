@@ -3,9 +3,9 @@
 
 #include "types.h"
 #include "libjsys/jsyswrapper.h"
-#include "dolphin/gx.h"
-#include "dolphin/dvd.h"
-#include "dolphin/pad.h"
+#include <dolphin/gx.h>
+#include <dolphin/dvd.h>
+#include <dolphin/pad.h>
 
 #ifdef __cplusplus
 extern "C" {

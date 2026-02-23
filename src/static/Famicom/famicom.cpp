@@ -2,10 +2,10 @@
 #include "Famicom/famicomInternal.hpp"
 
 #include <string.h>
-#include "dolphin/gx.h"
-#include "dolphin/os.h"
-#include "dolphin/mtx.h"
-#include "dolphin/card.h"
+#include <dolphin/gx.h>
+#include <dolphin/os.h>
+#include <dolphin/mtx.h>
+#include <dolphin/card.h>
 #include "libultra/libultra.h"
 #include "m_personal_id.h"
 #include "JSystem/JUtility/JUTDbPrint.h"

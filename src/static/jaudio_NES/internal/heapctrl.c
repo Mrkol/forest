@@ -2,9 +2,9 @@
 
 #include "jaudio_NES/dummyrom.h"
 
-#include "dolphin/os/OSMessage.h"
-#include "dolphin/ar.h"
-#include "dolphin/os/OSCache.h"
+#include <dolphin/os/OSMessage.h>
+#include <dolphin/ar.h>
+#include <dolphin/os/OSCache.h>
 
 #define DMABUFFER_SIZE (0x10000)
 static u8 dmabuffer[DMABUFFER_SIZE] ATTRIBUTE_ALIGN(32);

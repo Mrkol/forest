@@ -2,7 +2,7 @@
 #define KS_NES_COMMON_H
 
 #include "types.h"
-#include "dolphin/os/OSTime.h"
+#include <dolphin/os/OSTime.h>
 #define Mtx N64Mtx // ULTRA HACK
 #include "libultra/libultra.h"
 #undef Mtx

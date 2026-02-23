@@ -2,7 +2,7 @@
 #define J2DGXCOLORS10_H
 
 #include "types.h"
-#include "dolphin/gx.h"
+#include <dolphin/gx.h>
 #include "JSystem/JUtility/TColor.h"
 
 #ifdef __cplusplus

@@ -3,9 +3,9 @@
 #include "libultra/libultra.h"
 #include "libultra/os_timer.h"
 #include "libultra/osMesg.h"
-#include "dolphin/os.h"
-#include "dolphin/os/OSMessage.h"
-#include "dolphin/os/OSTime.h"
+#include <dolphin/os.h>
+#include <dolphin/os/OSMessage.h>
+#include <dolphin/os/OSTime.h>
 
 #define MSEC(x) OSMicrosecondsToTicks(((u64)(x)) * (u64)1000)
 

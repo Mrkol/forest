@@ -1,6 +1,6 @@
 #include "jaudio_NES/sample.h"
 
-#include "dolphin/os/OSCache.h"
+#include <dolphin/os/OSCache.h>
 
 extern void Jac_imixcopy(s16* ta, s16* tb, s16* td, s32 s) {
     for (s; s > 0; s--) {

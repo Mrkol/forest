@@ -1,6 +1,6 @@
 #include "jaudio_NES/dummyrom.h"
 
-#include "dolphin/ar.h"
+#include <dolphin/ar.h>
 #include "jaudio_NES/dvdthread.h"
 #include "jaudio_NES/os.h"
 #include "jaudio_NES/memory.h"

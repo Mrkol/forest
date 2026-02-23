@@ -2,10 +2,10 @@
 #define JUTVIDEO_H
 
 #include "types.h"
-#include "dolphin/os/OSTime.h"
-#include "dolphin/os.h"
-#include "dolphin/gx.h"
-#include "dolphin/vi.h"
+#include <dolphin/os/OSTime.h>
+#include <dolphin/os.h>
+#include <dolphin/gx.h>
+#include <dolphin/vi.h>
 
 #ifdef __cplusplus
 

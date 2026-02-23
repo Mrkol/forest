@@ -2,8 +2,8 @@
 
 #include "jaudio_NES/audiowork.h"
 #include "jaudio_NES/rate.h"
-#include "dolphin/ai.h"
-#include "dolphin/dvd.h"
+#include <dolphin/ai.h>
+#include <dolphin/dvd.h>
 
 char J_STREAMNAME[8][16] = {
     "/stream00.adp", "/stream01.adp", "/stream02.adp", "/stream03.adp",

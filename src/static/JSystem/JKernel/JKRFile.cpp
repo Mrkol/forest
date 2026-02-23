@@ -1,5 +1,5 @@
 #include "JSystem/JKernel/JKRFile.h"
-#include "dolphin/vi.h"
+#include <dolphin/vi.h>
 
 #ifdef JSYSTEM_DEBUG
 #include "JSystem/JUtility/JUTAssertion.h"

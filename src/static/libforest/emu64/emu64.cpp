@@ -5,12 +5,12 @@
 #include "terminal.h"
 #include "boot.h"
 #include "libc64/sprintf.h"
-#include "dolphin/mtx.h"
-#include "dolphin/os/OSFastCast.h"
-#include "dolphin/os.h"
+#include <dolphin/mtx.h>
+#include <dolphin/os/OSFastCast.h>
+#include <dolphin/os.h>
 // #include "va_args.h"
 #include "jsyswrap.h"
-#include "dolphin/PPCArch.h"
+#include <dolphin/PPCArch.h>
 
 // this pragma may be unnecessary
 #pragma inline_depth(1024)

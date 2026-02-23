@@ -2,8 +2,8 @@
 #define BATCONFIG_H
 
 #include "types.h"
-#include "dolphin/os/OSMemory.h"
-#include "dolphin/os/OSInterrupt.h"
+#include <dolphin/os/OSMemory.h>
+#include <dolphin/os/OSInterrupt.h>
 
 
 #ifdef __cplusplus

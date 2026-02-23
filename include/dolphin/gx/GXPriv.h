@@ -1,7 +1,7 @@
 #ifndef _DOLPHIN_GXPRIV
 #define _DOLPHIN_GXPRIV
 
-#include "dolphin/gx/GXVert.h"
+#include <dolphin/gx/GXVert.h>
 
 typedef struct GXLightObj_ {
   u32 padding[3];

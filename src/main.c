@@ -13,7 +13,7 @@
 #include "m_msg.h"
 #include "Famicom/famicom.h"
 #include "m_debug.h"
-#include "dolphin/os.h"
+#include <dolphin/os.h>
 #include "libforest/osreport.h"
 #include "m_land.h"
 #include <string.h>

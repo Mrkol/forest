@@ -2,19 +2,19 @@
 #include "PR/mbi.h"
 #include "libforest/gbi_extensions.h"
 #include "m_nmibuf.h"
-#include "dolphin/dvd.h"
+#include <dolphin/dvd.h>
 #include "jsyswrap.h"
 #include "boot.h"
-#include "dolphin/os/OSFont.h"
+#include <dolphin/os/OSFont.h>
 #include "bootdata.h"
 #include "libultra/libultra.h"
 #include "libforest/emu64/emu64_wrapper.h"
-#include "dolphin/vi.h"
-// #include "dolphin/os/OSRtc.h"
-#include "dolphin/os/OSMessage.h"
-#include "dolphin/os/OSResetSW.h"
-#include "dolphin/os/OSReset.h"
-#include "dolphin/os.h"
+#include <dolphin/vi.h>
+// #include <dolphin/os/OSRtc.h>
+#include <dolphin/os/OSMessage.h>
+#include <dolphin/os/OSResetSW.h>
+#include <dolphin/os/OSReset.h>
+#include <dolphin/os.h>
 #include "m_controller.h"
 #include "dvderr.h"
 

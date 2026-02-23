@@ -1,5 +1,5 @@
 #include "types.h"
-#include "dolphin/vi.h"
+#include <dolphin/vi.h>
 #include "JSystem/JSystem.h"
 #include "JSystem/JKernel/JKRMacro.h"
 #include "JSystem/JKernel/JKRDvdFile.h"

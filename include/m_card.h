@@ -1,14 +1,14 @@
 #ifndef M_CARD_H
 #define M_CARD_H
 
-#include "dolphin/types.h"
+#include <dolphin/types.h>
 #include "types.h"
 #include "libu64/gfxprint.h"
 #include "m_personal_id.h"
 #include "m_land_h.h"
 #include "m_private.h"
 #include "m_diary.h"
-#include "dolphin/card.h"
+#include <dolphin/card.h>
 
 #ifdef __cplusplus
 extern "C" {

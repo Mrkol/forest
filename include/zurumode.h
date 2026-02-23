@@ -3,7 +3,7 @@
 
 #include "types.h"
 #include "m_controller.h"
-#include "dolphin/os.h"
+#include <dolphin/os.h>
 
 #ifdef __cplusplus
 extern "C" {

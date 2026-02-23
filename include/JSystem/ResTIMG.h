@@ -1,7 +1,7 @@
 #ifndef _JSYSTEM_RESTIMG_H
 #define _JSYSTEM_RESTIMG_H
 
-#include "dolphin/gx.h"
+#include <dolphin/gx.h>
 #include "types.h"
 
 #ifdef __cplusplus
