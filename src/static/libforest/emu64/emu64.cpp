@@ -298,10 +298,22 @@ static const OthermodeParameterInfo l_tbl[] = {
     },
 };
 
+#ifndef TARGET_PC
+#define WEAK __declspec(weak)
+#else
+#define WEAK
+#endif
+
 #include "../src/static/libforest/emu64/emu64_print.cpp"
 
 /* Helper function to convert N64 texture format to Dolphin format */
-__declspec(section ".rodata") const u16 emu64::fmtxtbl[8][4] = {
+#ifndef TARGET_PC
+#define RODATA_SECTION __declspec(section ".rodata")
+#else
+#define RODATA_SECTION
+#endif
+
+RODATA_SECTION const u16 emu64::fmtxtbl[8][4] = {
     { GX_TF_CMPR, -1, GX_TF_RGB5A3, GX_TF_RGBA8 }, /* G_IM_FMT_RGBA */
     { -1, -1, -1, -1 },                            /* G_IM_FMT_YUV */
     { GX_TF_C4, GX_TF_C8, 0xA, -1 },               /* G_IM_FMT_CI */
@@ -771,7 +783,7 @@ void emu64::emu64_cleanup() {
     GXSetAlphaUpdate(GX_TRUE);
 }
 
-__declspec(weak) inline void get_blk_wd_ht(unsigned int siz, unsigned int* blk_wd, unsigned int* blk_ht) {
+WEAK inline void get_blk_wd_ht(unsigned int siz, unsigned int* blk_wd, unsigned int* blk_ht) {
     static const u8 blk_tbl[4][2] = {
         { 8, 8 }, // G_IM_SIZ_4b
         { 8, 4 }, // G_IM_SIZ_8b
@@ -1070,7 +1082,7 @@ int emu64::replace_combine_to_tev(Gfx* g) {
          setcombine->d1 == G_CCMUX_TEXEL1 || setcombine->c1 == G_CCMUX_TEXEL1_ALPHA) ||
         (setcombine->Aa1 == G_ACMUX_TEXEL1 || setcombine->Ab1 == G_ACMUX_TEXEL1 || setcombine->Ac1 == G_ACMUX_TEXEL1 ||
          setcombine->Ad1 == G_ACMUX_TEXEL1)) {
-        g->setcombine.cmd = G_SETCOMBINE_NOTEV;
+        g->setcombine.cmd = (u8)G_SETCOMBINE_NOTEV;
         return -1;
     }
 
@@ -1107,7 +1119,7 @@ int emu64::replace_combine_to_tev(Gfx* g) {
         sc_tev.d0 = GX_CC_ZERO;
 
     } else {
-        g->setcombine.cmd = G_SETCOMBINE_NOTEV;
+        g->setcombine.cmd = (u8)G_SETCOMBINE_NOTEV;
         return -1;
     }
 
@@ -1123,7 +1135,7 @@ int emu64::replace_combine_to_tev(Gfx* g) {
         sc_tev.Ac0 = c_alpha;
         sc_tev.Ad0 = TEV_ALPHA_ZERO;
     } else {
-        g->setcombine.cmd = G_SETCOMBINE_NOTEV;
+        g->setcombine.cmd = (u8)G_SETCOMBINE_NOTEV;
         return -1;
     }
 
@@ -1160,7 +1172,7 @@ int emu64::replace_combine_to_tev(Gfx* g) {
         sc_tev.c1 = c_color;
         sc_tev.d1 = GX_CC_ZERO;
     } else {
-        g->setcombine.cmd = G_SETCOMBINE_NOTEV;
+        g->setcombine.cmd = (u8)G_SETCOMBINE_NOTEV;
         return -1;
     }
 
@@ -1176,11 +1188,11 @@ int emu64::replace_combine_to_tev(Gfx* g) {
         sc_tev.Ac1 = c_alpha;
         sc_tev.Ad1 = TEV_ALPHA_ZERO;
     } else {
-        g->setcombine.cmd = G_SETCOMBINE_NOTEV;
+        g->setcombine.cmd = (u8)G_SETCOMBINE_NOTEV;
         return -1;
     }
 
-    sc_tev.cmd = G_SETCOMBINE_TEV;
+    sc_tev.cmd = (u8)G_SETCOMBINE_TEV;
     g->words.w0 = ((Gwords*)&sc_tev)->w0;
     g->words.w1 = ((Gwords*)&sc_tev)->w1;
     return 0;
@@ -1280,7 +1292,7 @@ int emu64::combine_auto() {
     }
 
     tevstages = alpha_stages;
-    for (stage; stage < alpha_stages; stage++) {
+    for (; stage < alpha_stages; stage++) {
         GXSetTevOrder((GXTevStageID)stage, GX_TEXCOORD0, GX_TEXMAP0, GX_COLOR0A0);
     }
 
@@ -1340,7 +1352,7 @@ int emu64::combine_auto() {
             }
 
             tevstages = alpha_stages;
-            for (stage; stage < alpha_stages; stage++) {
+            for (; stage < alpha_stages; stage++) {
                 GXSetTevOrder((GXTevStageID)stage, GX_TEXCOORD1, GX_TEXMAP1, GX_COLOR0A0);
             }
         }

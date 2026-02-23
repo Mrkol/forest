@@ -6,7 +6,7 @@
 //     vprintf(fmt, va_list);
 // }
 
-__declspec(weak) void emu64_print::Printf0(const char* fmt, ...) {
+WEAK void emu64_print::Printf0(const char* fmt, ...) {
     va_list list;
 
     va_start(list, fmt);
@@ -15,7 +15,7 @@ __declspec(weak) void emu64_print::Printf0(const char* fmt, ...) {
     va_end(list);
 }
 
-__declspec(weak) void emu64_print::Printf(const char* fmt, ...) {
+WEAK void emu64_print::Printf(const char* fmt, ...) {
     va_list list;
 
     if ((this->print_flags & EMU64_PRINTF_ENABLED_FLAG)) {
