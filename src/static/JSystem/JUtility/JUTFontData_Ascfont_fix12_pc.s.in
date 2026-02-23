@@ -1,0 +1,9 @@
+# PC (x86) assembly: embed Ascfont_fix12.bfn and export JUTResFONT_Ascfont_fix12.
+# Path is injected by CMake; use .rdata for Windows COFF.
+.section .rdata, "dr"
+.globl _JUTResFONT_Ascfont_fix12
+.globl JUTResFONT_Ascfont_fix12
+.balign 32
+_JUTResFONT_Ascfont_fix12:
+JUTResFONT_Ascfont_fix12:
+.incbin "@FONT_BFN_PATH@"

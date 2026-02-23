@@ -5,7 +5,9 @@
 extern "C" {
 #endif
 
+#ifndef TARGET_PC
 int sprintf(char* dst, const char* fmt, ...);
+#endif
 
 #ifdef __cplusplus
 }

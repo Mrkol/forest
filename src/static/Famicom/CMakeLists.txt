@@ -7,6 +7,7 @@ forest_add_library(Famicom
     INTERFACE_TARGET forest_static
     SOURCES
         ks_nes_core.cpp
+        ks_nes_core_pc_stubs.cpp
         ks_nes_draw.cpp
         famicom.cpp
         famicom_nesinfo.cpp

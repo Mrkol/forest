@@ -2,7 +2,7 @@
 
 #include "libultra/xprintf.h"
 
-
+#ifndef TARGET_PC
 static void* proutPrintf(void* dst, const char* fmt, int size) {
     return (void*)((u8*)memcpy(dst, fmt, size) + size);
 }
@@ -21,3 +21,4 @@ int sprintf(char* dst, const char* fmt, ...) {
 
     return ret;
 }
+#endif

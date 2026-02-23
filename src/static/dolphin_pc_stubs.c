@@ -8,6 +8,7 @@
 #include <stddef.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdio.h>
 
 #include <dolphin/types.h>
 #include <dolphin/os/OSAlloc.h>
@@ -31,13 +32,20 @@
 #include <dolphin/vi.h>
 #include <dolphin/ar.h>
 #include <dolphin/pad.h>
+#include <dolphin/exi.h>
+#include <dolphin/card.h>
 #include <dolphin/base/PPCArch.h>
+#include <GBA/gba.h>
+#include <GBA/GBAPriv.h>
 #include <jaudio_NES/dummyprobe.h>
 
 #ifdef TARGET_PC
 
 /* Dummy for boot.c search_partial_address / LoadLink (REL module); NULL = no modules */
 OSModuleHeader* BaseModule = NULL;
+GBAControl __GBA[4];
+BOOL __GBAReset = FALSE;
+CARDControl __CARDBlock[2];
 
 /* Arena for OSGetArenaHi/Lo (dummy range) */
 static char arena_lo[1];
@@ -105,13 +113,16 @@ OSTick OSGetTick(void) { return 0; }
 
 void* OSInitAlloc(void* start, void* end, int maxHeaps) { (void)start;(void)end;(void)maxHeaps; return NULL; }
 
+#ifndef OSPhysicalToCached
 void* OSPhysicalToCached(u32 paddr) { (void)paddr; return NULL; }
+#endif
 
 __OSInterruptHandler __OSSetInterruptHandler(__OSInterrupt intr, __OSInterruptHandler h) { (void)intr;(void)h; return NULL; }
 u32 __OSUnmaskInterrupts(u32 mask) { (void)mask; return 0; }
 
 void DCFlushRange(void* addr, u32 size) { (void)addr;(void)size; }
 void DCFlushRangeNoSync(void* addr, u32 size) { (void)addr;(void)size; }
+void DCStoreRangeNoSync(void* addr, u32 size) { (void)addr;(void)size; }
 void DCTouchRange(void* addr, u32 len) { (void)addr;(void)len; }
 void DCZeroRange(void* addr, u32 size) { (void)addr;(void)size; }
 
@@ -159,6 +170,14 @@ BOOL OSCreateThread(OSThread* thread, void* (*func)(void*), void* param,
     return FALSE;
 }
 s32 OSResumeThread(OSThread* thread) { (void)thread; return 0; }
+BOOL OSJoinThread(OSThread* thread, void** val)
+{
+    (void)thread;
+    if (val) {
+        *val = NULL;
+    }
+    return TRUE;
+}
 BOOL OSIsThreadTerminated(OSThread* thread) { (void)thread; return TRUE; }
 void OSDetachThread(OSThread* thread) { (void)thread; }
 void OSCancelThread(OSThread* thread) { (void)thread; }
@@ -301,7 +320,341 @@ void PADSetSpec(u32 spec) { (void)spec; }
 void PADSetAnalogMode(u32 mode) { (void)mode; }
 BOOL PADReset(u32 mask) { (void)mask; return TRUE; }
 void PADControlMotor(s32 chan, u32 command) { (void)chan; (void)command; }
+void PADControlAllMotors(const u32* commandArray) { (void)commandArray; }
 BOOL PADRecalibrate(u32 mask) { (void)mask; return TRUE; }
+
+/* -------------------------------------------------------------------------- */
+/* EXI / CARD                                                                 */
+/* -------------------------------------------------------------------------- */
+BOOL EXIUnlock(s32 channel) { (void)channel; return TRUE; }
+BOOL EXISelect(s32 channel, u32 device, u32 frequency)
+{
+    (void)channel;
+    (void)device;
+    (void)frequency;
+    return FALSE;
+}
+BOOL EXIDeselect(s32 channel) { (void)channel; return TRUE; }
+BOOL EXIImmEx(s32 channel, void* buffer, s32 length, u32 type)
+{
+    (void)channel;
+    (void)buffer;
+    (void)length;
+    (void)type;
+    return FALSE;
+}
+BOOL EXIProbe(s32 channel) { (void)channel; return FALSE; }
+s32 CARDGetStatus(s32 chan, s32 fileNo, CARDStat* stat)
+{
+    (void)chan;
+    (void)fileNo;
+    if (stat) {
+        memset(stat, 0, sizeof(*stat));
+    }
+    return CARD_RESULT_NOCARD;
+}
+s32 CARDUnmount(s32 chan)
+{
+    (void)chan;
+    return CARD_RESULT_READY;
+}
+s32 CARDFastOpen(s32 chan, s32 fileNo, CARDFileInfo* fileInfo)
+{
+    (void)chan;
+    (void)fileNo;
+    if (fileInfo) {
+        memset(fileInfo, 0, sizeof(*fileInfo));
+    }
+    return CARD_RESULT_NOFILE;
+}
+s32 CARDRead(CARDFileInfo* fileInfo, void* addr, s32 length, s32 offset)
+{
+    (void)fileInfo;
+    (void)offset;
+    if (addr && length > 0) {
+        memset(addr, 0, (size_t)length);
+    }
+    return CARD_RESULT_NOCARD;
+}
+s32 CARDClose(CARDFileInfo* fileInfo)
+{
+    (void)fileInfo;
+    return CARD_RESULT_READY;
+}
+s32 CARDFreeBlocks(s32 chan, s32* byteNotUsed, s32* filesNotUsed)
+{
+    (void)chan;
+    if (byteNotUsed) {
+        *byteNotUsed = 0;
+    }
+    if (filesNotUsed) {
+        *filesNotUsed = 0;
+    }
+    return CARD_RESULT_NOCARD;
+}
+s32 CARDOpen(s32 chan, const char* fileName, CARDFileInfo* fileInfo)
+{
+    (void)chan;
+    (void)fileName;
+    if (fileInfo) {
+        memset(fileInfo, 0, sizeof(*fileInfo));
+    }
+    return CARD_RESULT_NOFILE;
+}
+s32 CARDDelete(s32 chan, const char* fileName)
+{
+    (void)chan;
+    (void)fileName;
+    return CARD_RESULT_NOFILE;
+}
+s32 CARDRename(s32 chan, const char* oldName, const char* newName)
+{
+    (void)chan;
+    (void)oldName;
+    (void)newName;
+    return CARD_RESULT_NOFILE;
+}
+s32 CARDCreate(s32 chan, const char* fileName, u32 size, CARDFileInfo* fileInfo)
+{
+    (void)chan;
+    (void)fileName;
+    (void)size;
+    if (fileInfo) {
+        memset(fileInfo, 0, sizeof(*fileInfo));
+    }
+    return CARD_RESULT_NOCARD;
+}
+s32 CARDGetAttributes(s32 chan, s32 fileNo, u8* attr)
+{
+    (void)chan;
+    (void)fileNo;
+    if (attr) {
+        *attr = 0;
+    }
+    return CARD_RESULT_NOCARD;
+}
+s32 CARDSetAttributes(s32 chan, s32 fileNo, u8 attr)
+{
+    (void)chan;
+    (void)fileNo;
+    (void)attr;
+    return CARD_RESULT_NOCARD;
+}
+s32 CARDWrite(CARDFileInfo* fileInfo, const void* addr, s32 length, s32 offset)
+{
+    (void)fileInfo;
+    (void)addr;
+    (void)length;
+    (void)offset;
+    return CARD_RESULT_NOCARD;
+}
+s32 CARDSetStatus(s32 chan, s32 fileNo, CARDStat* stat)
+{
+    (void)chan;
+    (void)fileNo;
+    (void)stat;
+    return CARD_RESULT_NOCARD;
+}
+s32 CARDProbeEx(s32 chan, s32* memSize, s32* sectorSize)
+{
+    (void)chan;
+    if (memSize) {
+        *memSize = 0;
+    }
+    if (sectorSize) {
+        *sectorSize = 0;
+    }
+    return CARD_RESULT_NOCARD;
+}
+s32 CARDMount(s32 chan, void* workArea, CARDCallback detachCallback)
+{
+    (void)chan;
+    (void)workArea;
+    (void)detachCallback;
+    return CARD_RESULT_NOCARD;
+}
+s32 CARDCheck(s32 chan)
+{
+    (void)chan;
+    return CARD_RESULT_NOCARD;
+}
+void CARDInit(void) {}
+s32 CARDDeleteAsync(s32 chan, const char* fileName, CARDCallback callback)
+{
+    (void)chan;
+    (void)fileName;
+    if (callback) {
+        callback(chan, CARD_RESULT_NOFILE);
+    }
+    return CARD_RESULT_NOFILE;
+}
+s32 CARDGetResultCode(s32 chan)
+{
+    (void)chan;
+    return CARD_RESULT_NOCARD;
+}
+s32 CARDMountAsync(s32 chan, void* workArea, CARDCallback detachCallback, CARDCallback attachCallback)
+{
+    (void)workArea;
+    (void)detachCallback;
+    if (attachCallback) {
+        attachCallback(chan, CARD_RESULT_NOCARD);
+    }
+    return CARD_RESULT_NOCARD;
+}
+s32 CARDFormatAsync(s32 chan, CARDCallback callback)
+{
+    if (callback) {
+        callback(chan, CARD_RESULT_NOCARD);
+    }
+    return CARD_RESULT_NOCARD;
+}
+s32 CARDCheckAsync(s32 chan, CARDCallback callback)
+{
+    if (callback) {
+        callback(chan, CARD_RESULT_NOCARD);
+    }
+    return CARD_RESULT_NOCARD;
+}
+s32 CARDReadAsync(CARDFileInfo* fileInfo, void* addr, s32 length, s32 offset, CARDCallback callback)
+{
+    (void)fileInfo;
+    (void)offset;
+    if (addr && length > 0) {
+        memset(addr, 0, (size_t)length);
+    }
+    if (callback) {
+        callback(0, CARD_RESULT_NOCARD);
+    }
+    return CARD_RESULT_NOCARD;
+}
+s32 CARDWriteAsync(CARDFileInfo* fileInfo, const void* addr, s32 length, s32 offset, CARDCallback callback)
+{
+    (void)fileInfo;
+    (void)addr;
+    (void)length;
+    (void)offset;
+    if (callback) {
+        callback(0, CARD_RESULT_NOCARD);
+    }
+    return CARD_RESULT_NOCARD;
+}
+s32 CARDCreateAsync(s32 chan, const char* fileName, u32 size, CARDFileInfo* fileInfo, CARDCallback callback)
+{
+    (void)fileName;
+    (void)size;
+    if (fileInfo) {
+        memset(fileInfo, 0, sizeof(*fileInfo));
+    }
+    if (callback) {
+        callback(chan, CARD_RESULT_NOCARD);
+    }
+    return CARD_RESULT_NOCARD;
+}
+s32 __CARDGetStatusEx(s32 chan, s32 fileNo, CARDDir* dirent)
+{
+    (void)chan;
+    (void)fileNo;
+    if (dirent) {
+        memset(dirent, 0, sizeof(*dirent));
+    }
+    return CARD_RESULT_NOCARD;
+}
+s32 __CARDSetStatusEx(s32 chan, s32 fileNo, CARDDir* dirent)
+{
+    (void)chan;
+    (void)fileNo;
+    (void)dirent;
+    return CARD_RESULT_NOCARD;
+}
+s32 CARDSetStatusAsync(s32 chan, s32 fileNo, CARDStat* stat, CARDCallback callback)
+{
+    (void)fileNo;
+    (void)stat;
+    if (callback) {
+        callback(chan, CARD_RESULT_NOCARD);
+    }
+    return CARD_RESULT_NOCARD;
+}
+void __CARDReadStatus(s32 chan, CARDCallback callback)
+{
+    if (callback) {
+        callback(chan, CARD_RESULT_NOCARD);
+    }
+}
+void __CARDMountCallback(s32 chan, s32 result)
+{
+    (void)chan;
+    (void)result;
+}
+
+/* -------------------------------------------------------------------------- */
+/* GBA                                                                        */
+/* -------------------------------------------------------------------------- */
+void __GBAX01(s32 chan, s32 ret)
+{
+    (void)chan;
+    (void)ret;
+}
+s32 GBAGetStatus(s32 chan, u8* status)
+{
+    (void)chan;
+    if (status) {
+        *status = 0;
+    }
+    return GBA_NOT_READY;
+}
+s32 GBAGetProcessStatus(s32 chan, u8* percentp)
+{
+    (void)chan;
+    if (percentp) {
+        *percentp = 0;
+    }
+    return GBA_NOT_READY;
+}
+s32 GBAJoyBootAsync(s32 chan, s32 palette_color, s32 palette_speed, u8* programp, s32 length, u8* status, GBACallback callback)
+{
+    (void)chan;
+    (void)palette_color;
+    (void)palette_speed;
+    (void)programp;
+    (void)length;
+    if (status) {
+        *status = 0;
+    }
+    if (callback) {
+        callback(chan, GBA_NOT_READY);
+    }
+    return GBA_NOT_READY;
+}
+s32 GBAWrite(s32 chan, u8* src, u8* status)
+{
+    (void)chan;
+    (void)src;
+    if (status) {
+        *status = 0;
+    }
+    return GBA_NOT_READY;
+}
+s32 GBAReset(s32 chan, u8* status)
+{
+    (void)chan;
+    if (status) {
+        *status = 0;
+    }
+    return GBA_NOT_READY;
+}
+s32 GBARead(s32 chan, u8* dst, u8* status)
+{
+    (void)chan;
+    if (dst) {
+        memset(dst, 0, 4);
+    }
+    if (status) {
+        *status = 0;
+    }
+    return GBA_NOT_READY;
+}
 
 /* -------------------------------------------------------------------------- */
 /* AI (audio interface)                                                        */
@@ -397,17 +750,36 @@ s32 DVDCancelStream(DVDCommandBlock* block)
 }
 
 /* -------------------------------------------------------------------------- */
+/* Misc game/system hooks                                                      */
+/* -------------------------------------------------------------------------- */
+u32 OSGetSoundMode(void) { return 0; }
+OSTime OSCalendarTimeToTicks(OSCalendarTime* td)
+{
+    (void)td;
+    return 0;
+}
+void OSTicksToCalendarTime(OSTime ticks, OSCalendarTime* td)
+{
+    (void)ticks;
+    if (td) {
+        memset(td, 0, sizeof(*td));
+    }
+}
+void GBAInit(void) {}
+int __strip(void) { return 0; }
+
+/* -------------------------------------------------------------------------- */
 /* Probe (profiling) — no-op                                                  */
 /* -------------------------------------------------------------------------- */
-void Probe_Start(s32 id, const char* label)
-{
-    (void)id;
-    (void)label;
-}
+// void Probe_Start(s32 id, const char* label)
+// {
+//     (void)id;
+//     (void)label;
+// }
 
-void Probe_Finish(s32 id)
-{
-    (void)id;
-}
+// void Probe_Finish(s32 id)
+// {
+//     (void)id;
+// }
 
 #endif /* TARGET_PC */

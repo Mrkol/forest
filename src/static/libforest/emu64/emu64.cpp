@@ -4,7 +4,7 @@
 #include "libultra/libultra.h"
 #include "terminal.h"
 #include "boot.h"
-#include "libc64/sprintf.h"
+// #include "libc64/sprintf.h"
 #include <dolphin/mtx.h>
 #include <dolphin/os/OSFastCast.h>
 #include <dolphin/os.h>

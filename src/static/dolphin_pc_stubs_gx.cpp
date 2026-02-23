@@ -7,7 +7,7 @@
 #include <dolphin/gx/GXStruct.h>
 #include <dolphin/gx/GXFrameBuffer.h>
 #include <dolphin/gx/GXEnum.h>
-#include <dolphin/mtx.h>
+// #include <dolphin/mtx.h>
 #include <dolphin/gx/GXTransform.h>
 #include <dolphin/gx/GXPixel.h>
 #include <dolphin/gx/GXGeometry.h>
@@ -18,6 +18,21 @@
 #include <dolphin/gx/GXFifo.h>
 #include <dolphin/gx/GXBump.h>
 #include <dolphin/os/OSThread.h>
+
+typedef struct {
+    f32 x, y, z;
+} Vec, *VecPtr, Point3d, *Point3dPtr;
+
+typedef f32 Mtx[3][4];
+typedef f32 Mtx23[2][3];
+typedef f32 Mtx33[3][3];
+typedef f32 Mtx44[4][4];
+typedef f32 (*MtxPtr)[4];
+typedef f32 PSQuaternion[4];
+
+typedef struct Quaternion {
+    f32 x, y, z, w;
+} Quaternion;
 
 extern "C" {
 
@@ -33,8 +48,7 @@ void GXSetDither(GXBool d) { (void)d; }
 void GXInvalidateTexAll(void) {}
 void GXInvalidateVtxCache(void) {}
 
-void C_MTXOrtho(Mtx44 mtx, f32 t, f32 b, f32 l, f32 r, f32 n, f32 f) { (void)mtx;(void)t;(void)b;(void)l;(void)r;(void)n;(void)f; }
-void PSMTXIdentity(Mtx mtx) { (void)mtx; }
+// void C_MTXOrtho(Mtx44 mtx, f32 t, f32 b, f32 l, f32 r, f32 n, f32 f) { (void)mtx;(void)t;(void)b;(void)l;(void)r;(void)n;(void)f; }
 
 void GXSetProjection(const void* mtx, GXProjectionType type) { (void)mtx;(void)type; }
 void GXLoadPosMtxImm(const void* mtx, u32 id) { (void)mtx;(void)id; }
@@ -92,15 +106,7 @@ void GXSetClipMode(GXClipMode m) { (void)m; }
 void GXSetScissor(u32 left, u32 top, u32 wd, u32 ht) { (void)left;(void)top;(void)wd;(void)ht; }
 void GXSetScissorBoxOffset(s32 x, s32 y) { (void)x;(void)y; }
 
-/* MTX (additional) */
-void PSMTXCopy(const Mtx src, Mtx dest) { (void)src;(void)dest; }
-void PSMTXScale(Mtx mtx, f32 x, f32 y, f32 z) { (void)mtx;(void)x;(void)y;(void)z; }
-void PSMTXTrans(Mtx mtx, f32 x, f32 y, f32 z) { (void)mtx;(void)x;(void)y;(void)z; }
-void PSMTXConcat(const Mtx a, const Mtx b, Mtx out) { (void)a;(void)b;(void)out; }
-void PSMTXMultVec(const Mtx m, const Vec* in, Vec* out) { (void)m;(void)in;(void)out; }
-u32 PSMTXInverse(const Mtx src, Mtx inv) { (void)src;(void)inv; return 0; }
-void PSVECNormalize(const Vec* src, Vec* dst) { (void)src;(void)dst; }
-void C_MTXLightOrtho(Mtx mtx, f32 t, f32 b, f32 l, f32 r, f32 scaleS, f32 scaleT, f32 transS, f32 transT) { (void)mtx;(void)t;(void)b;(void)l;(void)r;(void)scaleS;(void)scaleT;(void)transS;(void)transT; }
+/* MTX functions are provided by aurora::mtx on PC. */
 
 /* GX Texture (additional) */
 void GXInitTexObjCI(GXTexObj* o, const void* img, u16 w, u16 h, GXCITexFmt fmt, GXTexWrapMode ws, GXTexWrapMode wt, GXBool mip, u32 tlut) { (void)o;(void)img;(void)w;(void)h;(void)fmt;(void)ws;(void)wt;(void)mip;(void)tlut; }
@@ -114,7 +120,9 @@ void GXSetTevColor(GXTevRegID id, GXColor c) { (void)id;(void)c; }
 /* GX Vert (TARGET_PC non-inline) */
 void GXPosition3f32(f32 x, f32 y, f32 z) { (void)x;(void)y;(void)z; }
 void GXPosition2f32(f32 x, f32 y) { (void)x;(void)y; }
+void GXPosition2s16(s16 x, s16 y) { (void)x;(void)y; }
 void GXPosition2u16(u16 x, u16 y) { (void)x;(void)y; }
+void GXTexCoord2u16(u16 s, u16 t) { (void)s;(void)t; }
 void GXNormal3f32(f32 x, f32 y, f32 z) { (void)x;(void)y;(void)z; }
 void GXColor1u32(u32 c) { (void)c; }
 void GXTexCoord2s16(s16 s, s16 t) { (void)s;(void)t; }
@@ -160,6 +168,49 @@ void GXSetDispCopyDst(u16 wd, u16 ht) { (void)wd;(void)ht; }
 void GXSetDispCopyGamma(GXGamma g) { (void)g; }
 u32 GXSetDispCopyYScale(f32 s) { (void)s; return 0; }
 void GXCopyDisp(void* dest, GXBool clear) { (void)dest;(void)clear; }
+void GXSetTexCopySrc(u16 left, u16 top, u16 wd, u16 ht) { (void)left;(void)top;(void)wd;(void)ht; }
+void GXSetTexCopyDst(u16 wd, u16 ht, GXTexFmt fmt, GXBool mipmap) { (void)wd;(void)ht;(void)fmt;(void)mipmap; }
+void GXCopyTex(void* dest, GXBool clear) { (void)dest;(void)clear; }
+void GXSetTexCoordScaleManually(GXTexCoordID coord, GXBool enable, u16 ss, u16 ts)
+{
+    (void)coord;
+    (void)enable;
+    (void)ss;
+    (void)ts;
+}
+void GXSetTexCoordBias(GXTexCoordID coord, GXBool s_enable, GXBool t_enable)
+{
+    (void)coord;
+    (void)s_enable;
+    (void)t_enable;
+}
+void GXSetIndTexOrder(GXIndTexStageID ind_stage, GXTexCoordID tex_coord, GXTexMapID tex_map)
+{
+    (void)ind_stage;
+    (void)tex_coord;
+    (void)tex_map;
+}
+void GXSetIndTexMtx(GXIndTexMtxID mtx_sel, const void* offset, s8 scale_exp)
+{
+    (void)mtx_sel;
+    (void)offset;
+    (void)scale_exp;
+}
+void GXSetTevIndirect(GXTevStageID tev_stage, GXIndTexStageID ind_stage, GXIndTexFormat format,
+                      GXIndTexBiasSel bias_sel, GXIndTexMtxID mtx_sel, GXIndTexWrap wrap_s,
+                      GXIndTexWrap wrap_t, GXBool add_prev, GXBool utc_lod, GXIndTexAlphaSel alpha_sel)
+{
+    (void)tev_stage;
+    (void)ind_stage;
+    (void)format;
+    (void)bias_sel;
+    (void)mtx_sel;
+    (void)wrap_s;
+    (void)wrap_t;
+    (void)add_prev;
+    (void)utc_lod;
+    (void)alpha_sel;
+}
 
 } /* extern "C" */
 

@@ -396,7 +396,7 @@ struct JUTCacheFont : public JUTResFont {
     int _B4;                  // _B4
 };
 
-extern const ResFONT JUTResFONT_Ascfont_fix12;
+extern "C" const ResFONT JUTResFONT_Ascfont_fix12;
 #endif
 
 #endif

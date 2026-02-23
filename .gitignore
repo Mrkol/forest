@@ -18,6 +18,10 @@ orig/*/*
 *.map
 *.MAP
 
+# Assets
+assets/*
+!assets/.gitkeep
+
 # Build files
 build/
 build_pc/
