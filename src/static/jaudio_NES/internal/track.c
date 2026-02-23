@@ -261,7 +261,7 @@ static void Nas_InitSubTrack(sub* subtrack) {
         subtrack->surround_effect_idx = 0xFF;
         subtrack->velocity_random_variance = 0;
         subtrack->gate_time_random_variance = 0;
-        subtrack->channel = nullptr;
+        subtrack->channel = NULL;
         subtrack->reverb_idx = 0;
         subtrack->target_reverb_vol = 0;
         subtrack->gain = 0;
@@ -281,7 +281,7 @@ static void Nas_InitSubTrack(sub* subtrack) {
         subtrack->vibrato_params.depth_change_delay = 0;
         subtrack->vibrato_params.delay = 0;
 
-        subtrack->filter = nullptr;
+        subtrack->filter = NULL;
         subtrack->comb_filter_gain = 0;
         subtrack->comb_filter_size = 0;
 
@@ -293,18 +293,18 @@ static void Nas_InitSubTrack(sub* subtrack) {
         Nas_InitChNode(&subtrack->channel_node);
         subtrack->sample_start_pos = 0;
         subtrack->_E0 = 0;
-        subtrack->sfx_state = nullptr;
+        subtrack->sfx_state = NULL;
     }
 }
 
 static s32 Nas_EntryNoteTrack(sub* subtrack, int note_idx) {
     note* entry_note;
 
-    if (subtrack->note_layers[note_idx] == nullptr) {
+    if (subtrack->note_layers[note_idx] == NULL) {
         entry_note = (note*)Nas_GetList(&AG.note_link);
         subtrack->note_layers[note_idx] = entry_note;
-        if (entry_note == nullptr) {
-            subtrack->note_layers[note_idx] = nullptr;
+        if (entry_note == NULL) {
+            subtrack->note_layers[note_idx] = NULL;
             return -1;
         }
     } else {
@@ -339,8 +339,8 @@ static s32 Nas_EntryNoteTrack(sub* subtrack, int note_idx) {
     entry_note->delay = 0;
     entry_note->gate_delay = 0;
     entry_note->delay2 = 0;
-    entry_note->channel = nullptr;
-    entry_note->instrument = nullptr;
+    entry_note->channel = NULL;
+    entry_note->instrument = NULL;
     entry_note->inst_or_wave = -1;
     entry_note->_0A.asU16 = 0xFFFF;
 
@@ -356,7 +356,7 @@ static s32 Nas_EntryNoteTrack(sub* subtrack, int note_idx) {
 }
 
 extern void Nas_ReleaseNoteTrack(note* note) {
-    if (note != nullptr) {
+    if (note != NULL) {
         if (note->sub_track != &AG.null_sub_track && note->sub_track->group->flags.finished == TRUE) {
             Nas_Release_Channel_Force(note);
         } else {
@@ -371,10 +371,10 @@ extern void Nas_ReleaseNoteTrack(note* note) {
 static void Nas_CloseNoteTrack(sub* subtrack, s32 note_idx) {
     note* note = subtrack->note_layers[note_idx];
 
-    if (note != nullptr) {
+    if (note != NULL) {
         Nas_AddList(&AG.note_link, &note->link);
         Nas_ReleaseNoteTrack(note);
-        subtrack->note_layers[note_idx] = nullptr;
+        subtrack->note_layers[note_idx] = NULL;
     }
 }
 
@@ -429,7 +429,7 @@ static void Nas_OpenSub(group* grp, u8 subtrack_idx, u8* script) {
     subtrack->delay = 0;
 
     for (i = 0; i < ARRAY_COUNT(subtrack->note_layers); i++) {
-        if (subtrack->note_layers[i] != nullptr) {
+        if (subtrack->note_layers[i] != NULL) {
             Nas_CloseNoteTrack(subtrack, i);
         }
     }
@@ -464,7 +464,7 @@ extern void Nas_ReleaseGroup(group* grp) {
 }
 
 extern void Nas_AddList(link* root, link* list) {
-    if (list->prev != nullptr) {
+    if (list->prev != NULL) {
         static BOOL first = TRUE;
 
         if (first) {
@@ -491,12 +491,12 @@ extern void* Nas_GetList(link* root) {
     link* list = root->prev;
 
     if (list == root) {
-        return nullptr;
+        return NULL;
     }
 
     list->prev->next = root;
     root->prev = list->prev;
-    list->prev = nullptr;
+    list->prev = NULL;
     root->numAfter--;
     return list->pData;
 }
@@ -507,11 +507,11 @@ static void Nas_InitNoteList(void) {
     AG.note_link.prev = &AG.note_link;
     AG.note_link.next = &AG.note_link;
     AG.note_link.numAfter = 0;
-    AG.note_link.pNode = nullptr;
+    AG.note_link.pNode = NULL;
 
     for (i = 0; i < AUDIO_NOTE_MAX; i++) {
         AG.notes[i].link.pData = &AG.notes[i];
-        AG.notes[i].link.prev = nullptr;
+        AG.notes[i].link.prev = NULL;
         Nas_AddList(&AG.note_link, &AG.notes[i].link);
     }
 }
@@ -572,7 +572,7 @@ static void Nas_NoteSeq(note* n) {
             }
 
             if (n->muted == TRUE) {
-                if (n->channel != nullptr || n->continuous) {
+                if (n->channel != NULL || n->continuous) {
                     Nas_Release_Channel(n);
                 }
             }
@@ -585,7 +585,7 @@ static void __Stop_Note(note* n) {
 
     if (n->continuous == FALSE) {
         Nas_Release_Channel(n);
-    } else if (n->channel != nullptr && n->channel->playback_ch.wanted_parent_note == n) {
+    } else if (n->channel != NULL && n->channel->playback_ch.wanted_parent_note == n) {
         Nas_Release_Channel(n);
     }
 
@@ -605,21 +605,21 @@ static s32 __SetChannel(note* n, s32 same_sample) {
         return 0;
     }
 
-    if (n->continuous != TRUE || n->channel == nullptr || n->channel_attached == FALSE || same_sample != TRUE ||
+    if (n->continuous != TRUE || n->channel == NULL || n->channel_attached == FALSE || same_sample != TRUE ||
         n->channel->playback_ch.current_parent_note != n) {
         if (same_sample == FALSE) {
             Nas_Release_Channel(n);
         }
 
         n->channel = Nas_AllocationOnRequest(n);
-        if (n->channel != nullptr) {
+        if (n->channel != NULL) {
             if (n->channel->playback_ch.current_parent_note == n) {
                 Nas_ChannelModInit(n->channel);
             }
         }
     }
 
-    if (n->channel != nullptr && n->channel->playback_ch.current_parent_note == n) {
+    if (n->channel != NULL && n->channel->playback_ch.current_parent_note == n) {
         Nas_SweepInit(n->channel);
     }
 
@@ -696,7 +696,7 @@ static s32 __Command_Seq(note* n) {
                     } else {
                         // synth wave
                         n->inst_or_wave = cmdArgU8;
-                        n->instrument = nullptr;
+                        n->instrument = NULL;
                     }
 
                     if (cmdArgU8 == 0xFF) {
@@ -828,7 +828,7 @@ static s32 __SetVoice(note* n, s32 arg) {
             percussion = PercToPp(subtrack->bank_id, semitone);
 
             /* Mute note and exit if percussion doesn't exist or the subtrack is muted */
-            if (percussion == nullptr || subtrack->muted) {
+            if (percussion == NULL || subtrack->muted) {
                 n->muted = TRUE;
                 n->delay2 = n->delay;
                 return COMMON_SCRIPT_END;
@@ -848,7 +848,7 @@ static s32 __SetVoice(note* n, s32 arg) {
             effect = VpercToVep(subtrack->bank_id, effect_id);
 
             /* Mute note and exit if sfx doesn't exist or the subtrack is muted */
-            if (effect == nullptr || subtrack->muted) {
+            if (effect == NULL || subtrack->muted) {
                 n->muted = TRUE;
                 n->delay2 = n->delay + 1;
                 return COMMON_SCRIPT_END;
@@ -893,13 +893,13 @@ static s32 __SetVoice(note* n, s32 arg) {
                 }
 
                 // velocity =
-                if (instrument != nullptr) {
+                if (instrument != NULL) {
                     tuned_sample = NoteToVoice(instrument, velocity);
                     same_sample = n->tuned_sample == tuned_sample;
                     n->tuned_sample = tuned_sample;
                     tuning = n->tuned_sample->tuning;
                 } else {
-                    n->tuned_sample = nullptr;
+                    n->tuned_sample = NULL;
                     tuning = 1.0f;
                     if (inst_or_wave >= 0xC0) {
                         n->tuned_sample = &AG.synth_delay[inst_or_wave - 0xC0].tuned_sample;
@@ -968,13 +968,13 @@ static s32 __SetVoice(note* n, s32 arg) {
                     n->portamento_target_note = semitone;
                 }
             } else {
-                if (instrument != nullptr) {
+                if (instrument != NULL) {
                     tuned_sample = NoteToVoice(instrument, semitone);
                     same_sample = n->tuned_sample == tuned_sample;
                     n->tuned_sample = tuned_sample;
                     n->frequency_scale = PITCHTABLE[semitone] * n->tuned_sample->tuning;
                 } else {
-                    n->tuned_sample = nullptr;
+                    n->tuned_sample = NULL;
                     n->frequency_scale = PITCHTABLE[semitone];
                     if (inst_or_wave >= 0xC0) {
                         n->tuned_sample = &AG.synth_delay[inst_or_wave - 0xC0].tuned_sample;
@@ -989,7 +989,7 @@ static s32 __SetVoice(note* n, s32 arg) {
     n->frequency_scale *= n->bend;
 
     if (n->delay == 0) {
-        if (n->tuned_sample != nullptr) {
+        if (n->tuned_sample != NULL) {
             time = n->tuned_sample->wavetable->loop->loop_end;
         } else {
             time = 0.0f;
@@ -1158,8 +1158,8 @@ static void Nas_PriorityChanger(sub* subtrack, u8 prio) {
 static u8 Nas_ProgramChanger(sub* subtrack, u8 prog_id, voicetable** inst_pp, env* adsr_env) {
     voicetable* inst_p = ProgToVp(subtrack->bank_id, prog_id);
 
-    if (inst_p == nullptr) {
-        *inst_pp = nullptr;
+    if (inst_p == NULL) {
+        *inst_pp = NULL;
         return 0;
     } else {
         adsr_env->envelope = inst_p->envelope;
@@ -1175,7 +1175,7 @@ static void Nas_SubVoiceSet(sub* subtrack, u8 inst_id) {
     if (inst_id >= 128) {
         /* synth waves */
         subtrack->inst_or_wave = inst_id;
-        subtrack->voicetable = nullptr;
+        subtrack->voicetable = NULL;
     } else if (inst_id == 0x7F) {
         /* percussion */
         subtrack->inst_or_wave = VOICE_TYPE_PERCUSSION;
@@ -1514,7 +1514,7 @@ static void Nas_SubSeq(sub* subtrack) {
                                 subtrack->vibrato_params.rate_target = 0;
                                 subtrack->vibrato_params.rate_start = 0;
                                 subtrack->vibrato_params.rate_change_delay = 0;
-                                subtrack->filter = nullptr;
+                                subtrack->filter = NULL;
                                 subtrack->gain = 0;
                                 subtrack->adsr_env.sustain = 0;
                                 subtrack->velocity_random_variance = 0;
@@ -1539,11 +1539,11 @@ static void Nas_SubSeq(sub* subtrack) {
                                 subtrack->filter = (s16*)data;
                                 break;
                             case SUBTRACK_CMD_CLEAR_FILTER: // clear filter
-                                subtrack->filter = nullptr;
+                                subtrack->filter = NULL;
                                 break;
                             case SUBTRACK_CMD_LOAD_FILTER: // load filter
                                 cmdArgU8 = (u8)cmdArgs[0];
-                                if (subtrack->filter != nullptr) {
+                                if (subtrack->filter != NULL) {
                                     lo_bits = (cmdArgU8 >> 4) & 0xF;
                                     cmdArgU8 &= 0xF;
                                     Nas_SetBPFilter(subtrack->filter, lo_bits, cmdArgU8);
@@ -1603,7 +1603,7 @@ static void Nas_SubSeq(sub* subtrack) {
                                 break;
                             case SUBTRACK_CMD_MACRO_SET_FROM_CALLBACK: // call custom sequence callback and update macro register value
                                 if (cmdArgs[0] <= 4) {
-                                    if (AG.seq_callbacks[cmdArgs[0]] != nullptr) {
+                                    if (AG.seq_callbacks[cmdArgs[0]] != NULL) {
                                         NA_CALLBACK = AG.seq_callbacks[cmdArgs[0]];
                                         m->value = (*NA_CALLBACK)(m->value, subtrack);
                                     }
@@ -1619,7 +1619,7 @@ static void Nas_SubSeq(sub* subtrack) {
                                     cmdArgU16 = subtrack->dynamic_value;
                                 }
 
-                                if (subtrack->sfx_state != nullptr) {
+                                if (subtrack->sfx_state != NULL) {
                                     if (cmd == SUBTRACK_CMD_MACRO_LOAD_FROM_SFX_STATE || cmd == SUBTRACK_CMD_MACRO_LOAD_FROM_SFX_STATE_DYNVAL) {
                                         m->value = subtrack->sfx_state[cmdArgU16];
                                     } else {
@@ -1674,7 +1674,7 @@ static void Nas_SubSeq(sub* subtrack) {
                     switch (hi_bits) {
                         // [0x80 - 0x83]
                         case SUBTRACK_CMD_READ_NOTE_FINISHED_MASK: // macro register value = subtrack->note_layers[idx]->finished
-                            if (subtrack->note_layers[lo_bits] != nullptr) {
+                            if (subtrack->note_layers[lo_bits] != NULL) {
                                 m->value = subtrack->note_layers[lo_bits]->finished;
                             } else {
                                 m->value = -1;
@@ -1773,7 +1773,7 @@ static void Nas_SubSeq(sub* subtrack) {
 
 note_seq:
     for (i = 0; i < ARRAY_COUNT(subtrack->note_layers); i++) {
-        if (subtrack->note_layers[i] != nullptr) {
+        if (subtrack->note_layers[i] != NULL) {
             Nas_NoteSeq(subtrack->note_layers[i]);
         }
     }
@@ -2034,7 +2034,7 @@ static void Nas_GroupSeq(group* grp) {
                     } else if (cmd == GRP_CMD_CALLBACK) {
                         cmd = Nas_ReadByteData(m);
                         if (cmd <= 4) {
-                            if (AG.seq_callbacks[cmd] != nullptr) {
+                            if (AG.seq_callbacks[cmd] != NULL) {
                                 NA_GRP_CALLBACK = (GRP_CALLBACK)AG.seq_callbacks[cmd];
                                 m->value = (*(GRP_CALLBACK)AG.seq_callbacks[cmd])(m->value, grp);
                             }
@@ -2171,7 +2171,7 @@ extern void Nas_AssignSubTrack(s32 group_idx) {
 
     for (i = 0; i < AUDIO_SUBTRACK_NUM; i++) {
         grp->subtracks[i] = (sub*)Nas_HeapAlloc_CL(&AG.misc_heap, sizeof(sub));
-        if (grp->subtracks[i] == nullptr) {
+        if (grp->subtracks[i] == NULL) {
             grp->subtracks[i] = &AG.null_sub_track;
         } else {
             subtrack = grp->subtracks[i];
@@ -2180,7 +2180,7 @@ extern void Nas_AssignSubTrack(s32 group_idx) {
             subtrack->enabled = FALSE;
 
             for (j = 0; j < ARRAY_COUNT(subtrack->note_layers); j++) {
-                subtrack->note_layers[j] = nullptr;
+                subtrack->note_layers[j] = NULL;
             }
         }
 
@@ -2221,7 +2221,7 @@ extern void Nas_InitPlayer(void) {
 
     Nas_InitNoteList();
     for (i = 0; i < AUDIO_NOTE_MAX; i++) {
-        AG.notes[i].sub_track = nullptr;
+        AG.notes[i].sub_track = NULL;
         AG.notes[i].enabled = FALSE;
     }
 
@@ -2237,7 +2237,7 @@ extern void Nas_InitPlayer(void) {
     subtrack->group = grp;
     subtrack->enabled = FALSE;
     for (i = 0; i < ARRAY_COUNT(subtrack->note_layers); i++) {
-        subtrack->note_layers[i] = nullptr;
+        subtrack->note_layers[i] = NULL;
     }
     Nas_InitSubTrack(&AG.main_sub);
 

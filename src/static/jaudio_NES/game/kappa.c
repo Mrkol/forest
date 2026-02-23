@@ -6,7 +6,7 @@ int kappa_seq_handle = 0;
 
 int Na_GetKappaCounter(kappa* kappa) {
     int counter;
-    group* group = nullptr;
+    group* group = NULL;
     int temp = 0;
 
     if (AG.groups[kappa_seq_handle].flags.enabled != 0) {

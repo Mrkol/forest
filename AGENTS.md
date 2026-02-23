@@ -1,10 +1,9 @@
-# AGENTS.md — Animal Crossing GameCube Decompilation
+# AGENTS.md — Animal Crossing GameCube PC port
 
 ## Project Overview
 
-This repository is a **complete decompilation** of *Animal Crossing* (Doubutsu no Mori+) for the Nintendo GameCube, targeting a byte-matching recreation of the original game binary. The project is based on [dtk-template](https://github.com/encounter/dtk-template) and uses the Metrowerks CodeWarrior PowerPC compilers to produce matching DOL and REL binaries.
-
-The long-term goal is to port the game to PC by replacing low-level GameCube/N64 APIs with cross-platform equivalents.
+This repository is a work-in-progress PC port of Animal Crossing (GameCube).
+It is based on a complete matching decompilation of the game and is currently in progress of being ported from the PowerPC/MWCC/GC platform to x86 (not amd64 yet) clang/msvc/gcc and windows/linux.
 
 ### Supported Game Versions
 
@@ -271,24 +270,6 @@ The game includes a built-in NES emulator (`src/static/Famicom/`, `include/Famic
 
 ---
 
-## Build Tooling (`tools/`)
-
-| File                    | Description |
-|-------------------------|-------------|
-| `tools/project.py`     | Core build system logic (object definitions, progress tracking, ninja generation) |
-| `tools/ninja_syntax.py`| Ninja build file generation utilities |
-| `tools/download_tool.py`| Downloads required build tools (dtk, compilers, binutils, etc.) |
-| `tools/decompctx.py`   | Generates decomp context files for comparison |
-| `tools/arc_tool.py`    | Archive (ARC) file manipulation |
-| `tools/msg_tool.py`    | Message/string data tool |
-| `tools/texture_tool.py`| Texture conversion tool |
-| `tools/converters/`    | Data format converters |
-| `tools/audio/`         | Audio data tools |
-| `tools/pyjkernel/`     | Python JKernel archive library |
-| `tools/transform_dep.py`| Dependency file transformation |
-
----
-
 ## Conventions
 
 - **C source** (`.c`) is used for nearly all game code. A small amount of **C++** (`.cpp`) is used for JSystem wrappers, the emu64 print module, and the NES emulator.
@@ -296,56 +277,16 @@ The game includes a built-in NES emulator (`src/static/Famicom/`, `include/Famic
 - **Prefix naming**: `ac_` = actor, `m_` = module/game system, `ef_` = effect, `bg_` = background item, `sys_` = system, `Na_`/`sAdo_` = audio.
 - **N64 types** are used throughout: `Gfx` (display list command), `Mtx` (matrix), `Vtx` (vertex), `xyz_t` (3D vector), etc.
 - The macro `VERSION` selects region-specific code paths (`VER_GAFE01_00` = 0, `VER_GAFU01_00` = 1).
-- Matching status is tracked per-object in `configure.py` (`Matching`, `NonMatching`, `Equivalent`).
-
----
-
-## Key Files for PC Porting
-
-When porting to PC, these are the critical abstraction boundaries to replace:
-
-| Layer | Current Implementation | What It Does |
-|-------|----------------------|--------------|
-| **Graphics** | Dolphin GX SDK (`include/dolphin/gx/`, `src/static/dolphin/gx/`) | All GPU commands (draw, texture, state) |
-| **emu64** | `include/libforest/emu64/`, `src/static/libforest/emu64/` | Translates N64 GBI display lists → GX calls |
-| **Video** | Dolphin VI SDK (`include/dolphin/vi.h`) | Framebuffer / display output |
-| **OS / Threading** | Dolphin OS (`include/dolphin/os/`, `src/static/dolphin/os/`) | Threads, interrupts, cache, memory, timers |
-| **Input** | Dolphin PAD + SI (`include/dolphin/pad.h`, `include/dolphin/si.h`) | Controller reading |
-| **Audio** | Dolphin DSP/AI + jaudio_NES | Sound mixing, music, SFX |
-| **DVD / Filesystem** | Dolphin DVD (`include/dolphin/dvd.h`) | Disc/file access |
-| **Memory Card** | Dolphin Card (`include/dolphin/card/`) | Save data |
-| **ARAM** | Dolphin AR (`include/dolphin/ar.h`) | Auxiliary RAM (audio/texture streaming) |
-| **EXI** | Dolphin EXI (`include/dolphin/exi.h`) | Expansion interface (memory card, broadband) |
-| **GBA Link** | `include/GBA/`, `src/static/dolphin/gba/` | GBA connectivity |
-| **JSystem** | `include/JSystem/`, `src/static/JSystem/` | Rendering framework, heap management, utilities |
-| **libultra** | `include/libultra/`, `src/static/libultra/` | N64 SDK reimplementation (threads, math, controllers) |
 
 ---
 
 ## PC Build (CMake + clang-cl)
 
-The project includes a `CMakeLists.txt` for building a PC port using **CMake** and **Visual Studio's bundled clang-cl** (LLVM/Clang with MSVC-compatible driver).
-
-> **Note:** The PC build is a work-in-progress. Most translation units compile successfully but some files still have errors (see below).
-
-### Prerequisites
-
-| Tool | Required Version | Notes |
-|------|-----------------|-------|
-| **CMake** | ≥ 3.25 | Must be on PATH |
-| **Ninja** | any recent | Build system generator (must be on PATH) |
-| **Visual Studio 2022** | Community or higher | Needed for Windows SDK and MSVC C++ runtime headers |
-| **Clang/LLVM (VS component)** | Bundled with VS 2022 | Install via VS Installer → "C++ Clang tools for Windows" |
-| **ccache** (optional) | any | Speeds up rebuilds; set via `CMAKE_C_COMPILER_LAUNCHER` / `CMAKE_CXX_COMPILER_LAUNCHER` |
-
-The clang-cl compiler is typically located at:
-```
-C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/Llvm/bin/clang-cl.exe
-```
+The project uses CMake for building. Theoretically should support any compiler, in practice, clang-cl is preferred on windows.
 
 ### Configure
 
-```powershell
+```
 cmake -G Ninja -B build_pc `
     -DCMAKE_C_COMPILER="C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/Llvm/bin/clang-cl.exe" `
     -DCMAKE_CXX_COMPILER="C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/Llvm/bin/clang-cl.exe" `
@@ -357,14 +298,8 @@ This generates Ninja build files in `build_pc/`. A `compile_commands.json` is al
 
 ### Build
 
-```powershell
-cmake --build build_pc
 ```
-
-To continue past errors and compile as much as possible:
-
-```powershell
-cmake --build build_pc -- -k0
+cmake --build build_pc
 ```
 
 ### Build Structure

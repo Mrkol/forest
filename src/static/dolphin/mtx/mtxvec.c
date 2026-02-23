@@ -31,7 +31,7 @@ asm void PSMTXMultVec(const register Mtx44 m, const register Vec* src, register 
 #endif // clang-format on
 }
 
-asm void PSMTXMultVecArray(const register GC_Mtx m, const register Vec* srcBase,
+asm void PSMTXMultVecArray(const register Mtx m, const register Vec* srcBase,
                            register Vec* dstBase, register u32 count)
 {
 #ifdef __MWERKS__ // clang-format off

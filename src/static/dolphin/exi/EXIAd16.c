@@ -4,14 +4,14 @@
 static int Initialized;
 
 int AD16Init(void);
-int AD16WriteReg(unsigned long word);
-int AD16ReadReg(unsigned long *word);
+int AD16WriteReg(u32 word);
+int AD16ReadReg(u32 *word);
 int AD16Probe(void);
 
 int AD16Init(void) {
     int err;
-    unsigned long cmd;
-    unsigned long id;
+    u32 cmd;
+    u32 id;
 
     if (Initialized != 0) {
         return 1;
@@ -38,9 +38,9 @@ int AD16Init(void) {
     return 1;
 }
 
-int AD16WriteReg(unsigned long word) {
+int AD16WriteReg(u32 word) {
     int err;
-    unsigned long cmd;
+    u32 cmd;
 
     if (Initialized == 0 || EXILock(2, 0, 0) == 0) {
         return 0;
@@ -63,9 +63,9 @@ int AD16WriteReg(unsigned long word) {
     return 1;
 }
 
-int AD16ReadReg(unsigned long * word) {
+int AD16ReadReg(u32 * word) {
     int err;
-    unsigned long cmd;
+    u32 cmd;
 
     if (Initialized == 0 || EXILock(2, 0, 0) == 0) {
         return 0;

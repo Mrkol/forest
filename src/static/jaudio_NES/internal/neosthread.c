@@ -19,7 +19,7 @@
 
 static OSMessageQueue neosproc_mq;
 static u32 neosproc_mq_init = FALSE;
-static s16* tmp_buf = nullptr;
+static s16* tmp_buf = NULL;
 static BOOL neos_ready = FALSE;
 
 extern u32 Neos_Update(s16* dst) {
@@ -53,7 +53,7 @@ extern void* neosproc(void* param) {
     u32 neos_rom_preloaded = GetNeosRom_PreLoaded();
     u32 neos_file_top = GetNeos_FileTop();
 
-    DVDT_LoadtoARAM(0, "/audiorom.img", neos_rom_top + neos_rom_preloaded, neos_file_top, 0, nullptr, &ImageLoaded);
+    DVDT_LoadtoARAM(0, "/audiorom.img", neos_rom_top + neos_rom_preloaded, neos_file_top, 0, NULL, &ImageLoaded);
 
     OSMessage msg;
     do {

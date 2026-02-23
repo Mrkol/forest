@@ -55,7 +55,7 @@ static u32 PendingBits;
 static u32 XPatchBits = PAD_CHAN0_BIT | PAD_CHAN1_BIT | PAD_CHAN2_BIT | PAD_CHAN3_BIT;
 static u32 AnalogMode = 0x00000300; // size: 0x4, address: 0x4
 static u32 Spec = 0x00000005; // size: 0x4, address: 0x8
-static void (* MakeStatus)(long, struct PADStatus *, u32 *) = SPEC2_MakeStatus; // size: 0x4, address: 0xC
+static void (* MakeStatus)(s32, struct PADStatus *, u32 *) = SPEC2_MakeStatus; // size: 0x4, address: 0xC
 
 static u32 Type[PAD_MAX_CONTROLLERS]; // size: 0x10, address: 0x0
 static PADStatus Origin[PAD_MAX_CONTROLLERS]; // size: 0x30, address: 0x10

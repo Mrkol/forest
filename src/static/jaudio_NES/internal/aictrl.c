@@ -16,16 +16,16 @@ u32 UNIVERSAL_DACCOUNTER = 0;
 static s16* dac[3];
 static ALHeap audio_hp;
 static BOOL audio_hp_exist = FALSE;
-static s16* last_rsp_madep = nullptr;
-static s16* use_rsp_madep = nullptr;
+static s16* last_rsp_madep = NULL;
+static s16* use_rsp_madep = NULL;
 static BOOL vframe_work_running = FALSE;
-static DACCallback DAC_CALLBACK_FUNC = nullptr;
+static DACCallback DAC_CALLBACK_FUNC = NULL;
 u32 JAC_VFRAME_COUNTER = 0;
-static MixCallback ext_mixcallback = nullptr;
+static MixCallback ext_mixcallback = NULL;
 static u8 ext_mixmode = MixMode_Mono;
 
 extern void Jac_HeapSetup(void* pHeap, s32 size) {
-    if (pHeap != nullptr) {
+    if (pHeap != NULL) {
         Nas_HeapInit(&audio_hp, (u8*)pHeap, size);
         audio_hp_exist = TRUE;
     } else {
@@ -57,7 +57,7 @@ extern void Jac_Init(void) {
         DCStoreRange(dac[i], DAC_SIZE * 2);
     }
 
-    AIInit(nullptr);
+    AIInit(NULL);
     AIInitDMA((u32)dac[2], DAC_SIZE * 2);
 }
 
@@ -67,7 +67,7 @@ static void MixMonoTrack(s16* track, s32 nSamples, MixCallback callback) {
     s16* monoTrack = (*callback)(nSamples);
     int mix;
 
-    if (monoTrack != nullptr) {
+    if (monoTrack != NULL) {
         Probe_Finish(5);
 
         s16* dst_p = track;
@@ -108,7 +108,7 @@ static void MixMonoTrackWide(s16* track, s32 nSamples, MixCallback callback) {
     s16* monoTrack = (*callback)(nSamples);
     int mix;
 
-    if (monoTrack != nullptr) {
+    if (monoTrack != NULL) {
         Probe_Finish(5);
 
         s16* dst_p = track;
@@ -149,7 +149,7 @@ static void MixExtraTrack(s16* track, s32 nSamples, MixCallback callback) {
     s16* extraTrack = (*callback)(nSamples);
     int mix;
 
-    if (extraTrack != nullptr) {
+    if (extraTrack != NULL) {
         Probe_Finish(5);
         Probe_Start(6, "MIXING");
 
@@ -193,7 +193,7 @@ static void MixInterleaveTrack(s16* track, s32 nSamples, MixCallback callback) {
     s16* interleaveTrack = (*callback)(nSamples);
     int mix;
 
-    if (interleaveTrack != nullptr) {
+    if (interleaveTrack != NULL) {
         s16* track_p = track;
         s32 max = nSamples * 2;
 
@@ -233,7 +233,7 @@ extern void Jac_VframeWork(void) {
     s16* mixedTrack = MixDsp(DAC_SIZE / 2);
     Jac_imixcopy(&mixedTrack[JAC_FRAMESAMPLES], &mixedTrack[0], dac[dacp], DAC_SIZE / 2);
 
-    if (ext_mixcallback != nullptr) {
+    if (ext_mixcallback != NULL) {
         switch (ext_mixmode) {
             case MixMode_Mono:
                 MixMonoTrack(dac[dacp], DAC_SIZE / 2, ext_mixcallback);
@@ -263,25 +263,25 @@ extern void Jac_VframeWork(void) {
 }
 
 extern void Jac_UpdateDAC(void) {
-    if (use_rsp_madep == nullptr) {
+    if (use_rsp_madep == NULL) {
         use_rsp_madep = last_rsp_madep;
-        last_rsp_madep = nullptr;
+        last_rsp_madep = NULL;
     }
 
-    if (use_rsp_madep != nullptr) {
+    if (use_rsp_madep != NULL) {
         AIInitDMA((u32)use_rsp_madep, DAC_SIZE * 2);
-        use_rsp_madep = nullptr;
+        use_rsp_madep = NULL;
     } else {
         UNIVERSAL_DACCOUNTER++;
     }
 
-    if (last_rsp_madep == nullptr && vframe_work_running == FALSE) {
+    if (last_rsp_madep == NULL && vframe_work_running == FALSE) {
         Jac_VframeWork();
     }
 
     StreamMain();
 
-    if (DAC_CALLBACK_FUNC != nullptr) {
+    if (DAC_CALLBACK_FUNC != NULL) {
         (*DAC_CALLBACK_FUNC)(last_rsp_madep, DAC_SIZE / 2);
     }
 }

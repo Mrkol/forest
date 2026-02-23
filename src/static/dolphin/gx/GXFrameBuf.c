@@ -73,9 +73,9 @@ GXRenderModeObj GXRmHW = {1, 320, 240, 240, 40, 0, 640, 480, 0, 0, 0, { 6, 6, 6,
 
 void GXAdjustForOverscan(GXRenderModeObj *rmin, GXRenderModeObj *rmout, u16 hor, u16 ver)
 {
-    unsigned short hor2 = hor * 2;
-    unsigned short ver2 = ver * 2;
-    unsigned long verf;
+    u16 hor2 = hor * 2;
+    u16 ver2 = ver * 2;
+    u32 verf;
 
     if (rmin != rmout) {
         *rmout = *rmin;

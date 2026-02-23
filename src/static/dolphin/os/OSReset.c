@@ -64,7 +64,7 @@
 static struct OSResetFunctionQueue ResetFunctionQueue;
 
 static int CallResetFunctions(int final);
-static asm void Reset(unsigned long resetCode);
+static asm void Reset(u32 resetCode);
 
 void OSRegisterResetFunction(struct OSResetFunctionInfo* info)
 {
@@ -91,7 +91,7 @@ static int CallResetFunctions(int final)
 	return 1;
 }
 
-static asm void Reset(unsigned long resetCode)
+static asm void Reset(u32 resetCode)
 {
 #ifdef __MWERKS__ // clang-format off
 	nofralloc
@@ -181,7 +181,7 @@ inline static void KillThreads(void)
 
 extern u8 OS_REBOOT_BOOL AT_ADDRESS(0x800030E2);
 
-void OSResetSystem(int reset, unsigned long resetCode, int forceMenu)
+void OSResetSystem(int reset, u32 resetCode, int forceMenu)
 {
 	char trash[0x10]; // Either more inlines or more local vars, idk
 	s32 padThing;

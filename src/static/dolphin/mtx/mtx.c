@@ -13,7 +13,7 @@ extern f32 tanf(f32);
 static float Unit01[2] = { 0.0f, 1.0f };
 
 // MEME: if this function is not here, 0.0f and 1.0f have wrong order in .sdata2
-void C_MTXIdentity(GC_Mtx mtx)
+void C_MTXIdentity(Mtx mtx)
 {
 	mtx[0][0] = 1.0f;
 	mtx[0][1] = 0.0f;
@@ -26,7 +26,7 @@ void C_MTXIdentity(GC_Mtx mtx)
 	mtx[2][2] = 1.0f;
 }
 
-void PSMTXIdentity(register GC_Mtx m)
+void PSMTXIdentity(register Mtx m)
 {
 	register f32 c_zero = 0.0f;
 	register f32 c_one  = 1.0f;
@@ -47,7 +47,7 @@ void PSMTXIdentity(register GC_Mtx m)
 #endif // clang-format on
 }
 
-asm void PSMTXCopy(const register GC_Mtx src, register GC_Mtx dst)
+asm void PSMTXCopy(const register Mtx src, register Mtx dst)
 {
 #ifdef __MWERKS__ // clang-format off
 	psq_l f0, 0(src), 0, qr0
@@ -65,7 +65,7 @@ asm void PSMTXCopy(const register GC_Mtx src, register GC_Mtx dst)
 #endif // clang-format on
 }
 
-asm void PSMTXConcat(const register GC_Mtx mA, const register GC_Mtx mB, register GC_Mtx mAB)
+asm void PSMTXConcat(const register Mtx mA, const register Mtx mB, register Mtx mAB)
 {
 #ifdef __MWERKS__ // clang-format off
 	nofralloc
@@ -123,7 +123,7 @@ asm void PSMTXConcat(const register GC_Mtx mA, const register GC_Mtx mB, registe
 #endif // clang-format on
 }
 
-asm u32 PSMTXInverse(const register GC_Mtx src, register GC_Mtx inv)
+asm u32 PSMTXInverse(const register Mtx src, register Mtx inv)
 {
 #ifdef __MWERKS__ // clang-format off
 	psq_l f0, 0(src), 1, qr0
@@ -191,7 +191,7 @@ skip_return:
 #endif // clang-format on
 }
 
-void PSMTXRotRad(GC_Mtx m, char axis, f32 rad)
+void PSMTXRotRad(Mtx m, char axis, f32 rad)
 {
 	f32 s = sinf(rad);
 	f32 c = cosf(rad);
@@ -199,7 +199,7 @@ void PSMTXRotRad(GC_Mtx m, char axis, f32 rad)
 	PSMTXRotTrig(m, axis, s, c);
 }
 
-void PSMTXRotTrig(register GC_Mtx m, register char axis, register f32 sinA,
+void PSMTXRotTrig(register Mtx m, register char axis, register f32 sinA,
                   register f32 cosA)
 {
 	register f32 fc0;
@@ -263,13 +263,13 @@ _end:
 #endif // clang-format on
 }
 
-static inline void __PSMTXRotAxisRadInternal(register GC_Mtx m,
+static inline void __PSMTXRotAxisRadInternal(register Mtx m,
                                              const register Vec* axis,
                                              register f32 sT, register f32 cT)
 {
 }
 
-void PSMTXRotAxisRad(register GC_Mtx m, const Vec* axis, register f32 rad)
+void PSMTXRotAxisRad(register Mtx m, const Vec* axis, register f32 rad)
 {
 	register f32 tmp0, tmp1, tmp2, tmp3, tmp4;
 	register f32 tmp5, tmp6, tmp7, tmp8, tmp9;
@@ -323,7 +323,7 @@ void PSMTXRotAxisRad(register GC_Mtx m, const Vec* axis, register f32 rad)
 #endif // clang-format on
 }
 
-void PSMTXTrans(register GC_Mtx m, register f32 xT, register f32 yT,
+void PSMTXTrans(register Mtx m, register f32 xT, register f32 yT,
                 register f32 zT)
 {
 	register f32 c0 = 0.0F;
@@ -344,7 +344,7 @@ void PSMTXTrans(register GC_Mtx m, register f32 xT, register f32 yT,
 #endif // clang-format on
 }
 
-asm void PSMTXTransApply(const register GC_Mtx src, register GC_Mtx dst, register f32 xT,
+asm void PSMTXTransApply(const register Mtx src, register Mtx dst, register f32 xT,
                          register f32 yT, register f32 zT)
 {
 #ifdef __MWERKS__ // clang-format off
@@ -369,7 +369,7 @@ asm void PSMTXTransApply(const register GC_Mtx src, register GC_Mtx dst, registe
 #endif // clang-format on
 }
 
-void PSMTXScale(register GC_Mtx m, register f32 xS, register f32 yS,
+void PSMTXScale(register Mtx m, register f32 xS, register f32 yS,
                 register f32 zS)
 {
 	register f32 c0 = 0.0F;
@@ -387,7 +387,7 @@ void PSMTXScale(register GC_Mtx m, register f32 xS, register f32 yS,
 #endif // clang-format on
 }
 
-asm void PSMTXScaleApply(const register GC_Mtx src, register GC_Mtx dst, register f32 xS,
+asm void PSMTXScaleApply(const register Mtx src, register Mtx dst, register f32 xS,
                          register f32 yS, register f32 zS)
 {
 #ifdef __MWERKS__ // clang-format off
@@ -414,7 +414,7 @@ asm void PSMTXScaleApply(const register GC_Mtx src, register GC_Mtx dst, registe
 #endif // clang-format on
 }
 
-void PSMTXQuat(register GC_Mtx m, const register PSQuaternion* q)
+void PSMTXQuat(register Mtx m, const register PSQuaternion* q)
 {
 	register f32 c_zero, c_one, c_two, scale;
 	register f32 tmp0, tmp1, tmp2, tmp3, tmp4;
@@ -466,7 +466,7 @@ void PSMTXQuat(register GC_Mtx m, const register PSQuaternion* q)
 #endif // clang-format on
 }
 
-void C_MTXLookAt(GC_Mtx m, const Vec* camPos, const Vec* camUp, const Vec* target) {
+void C_MTXLookAt(Mtx m, const Vec* camPos, const Vec* camUp, const Vec* target) {
     Vec vLook;
     Vec vRight;
     Vec vUp;
@@ -497,7 +497,7 @@ void C_MTXLookAt(GC_Mtx m, const Vec* camPos, const Vec* camUp, const Vec* targe
     m[2][3] = -((camPos->z * vLook.z) + ((camPos->x * vLook.x) + (camPos->y * vLook.y)));
 }
 
-void C_MTXLightFrustum(GC_Mtx m, f32 t, f32 b, f32 l, f32 r, f32 n, f32 scaleS,
+void C_MTXLightFrustum(Mtx m, f32 t, f32 b, f32 l, f32 r, f32 n, f32 scaleS,
                        f32 scaleT, f32 transS, f32 transT)
 {
 	f32 _tmp;
@@ -518,7 +518,7 @@ void C_MTXLightFrustum(GC_Mtx m, f32 t, f32 b, f32 l, f32 r, f32 n, f32 scaleS,
 	m[2][3] = 0;
 }
 
-void C_MTXLightPerspective(GC_Mtx m, f32 fovY, f32 aspect, f32 scaleS, f32 scaleT,
+void C_MTXLightPerspective(Mtx m, f32 fovY, f32 aspect, f32 scaleS, f32 scaleT,
                            f32 transS, f32 transT)
 {
 	f32 angle;
@@ -541,7 +541,7 @@ void C_MTXLightPerspective(GC_Mtx m, f32 fovY, f32 aspect, f32 scaleS, f32 scale
 	m[2][3] = 0;
 }
 
-void C_MTXLightOrtho(GC_Mtx m, f32 t, f32 b, f32 l, f32 r, f32 scaleS, f32 scaleT,
+void C_MTXLightOrtho(Mtx m, f32 t, f32 b, f32 l, f32 r, f32 scaleS, f32 scaleT,
                      f32 transS, f32 transT)
 {
 	f32 _tmp;

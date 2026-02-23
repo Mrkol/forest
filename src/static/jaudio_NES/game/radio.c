@@ -6,7 +6,7 @@ int Na_GetRadioCounter(Radio_c* radio) {
     int counter;
     u16 tempo = 0;
 
-    group* group = nullptr;
+    group* group = NULL;
     int unused = 0;
 
     if (AG.groups[sou_now_bgm_handle].flags.enabled != 0 && AG.groups[sou_now_bgm_handle].seq_id == 0xDA) {

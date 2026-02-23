@@ -357,15 +357,15 @@ asm void __GXVerifyTEV(void)
 #else
 void __GXVerifyTEV(void)
 {
-    unsigned long i; // r31
-    unsigned long nTev; // r29
-    unsigned long nCol; // r28
-    unsigned long enabled; // r30
-    unsigned long color; // r27
-    unsigned long Clh[4]; // r1+0x38
-    unsigned long Alh[4]; // r1+0x28
-    unsigned long Cwritten[4]; // r1+0x18
-    unsigned long Awritten[4]; // r1+0x8
+    u32 i; // r31
+    u32 nTev; // r29
+    u32 nCol; // r28
+    u32 enabled; // r30
+    u32 color; // r27
+    u32 Clh[4]; // r1+0x38
+    u32 Alh[4]; // r1+0x28
+    u32 Cwritten[4]; // r1+0x18
+    u32 Awritten[4]; // r1+0x8
 
     nTev = GET_REG_FIELD(__gxVerif->rasRegs[0], 4, 10) + 1;
     nCol = GET_REG_FIELD(__gxVerif->rasRegs[0], 3, 4);

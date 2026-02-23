@@ -21,24 +21,6 @@
 
 extern "C" {
 
-/* libultra gu (out-of-line for PC so scale.c/translate.c link) */
-void guMtxIdentF(float mf[4][4]);
-
-void guTranslateF(float m[4][4], float x, float y, float z) {
-    guMtxIdentF(m);
-    m[3][0] = x;
-    m[3][1] = y;
-    m[3][2] = z;
-}
-
-void guScaleF(float mf[4][4], float x, float y, float z) {
-    guMtxIdentF(mf);
-    mf[0][0] = x;
-    mf[1][1] = y;
-    mf[2][2] = z;
-    mf[3][3] = 1.0f;
-}
-
 /* Zero-initialized by C++ rules */
 GXRenderModeObj GXNtsc480IntDf;
 GXRenderModeObj GXNtsc480Int;
@@ -52,7 +34,7 @@ void GXInvalidateTexAll(void) {}
 void GXInvalidateVtxCache(void) {}
 
 void C_MTXOrtho(Mtx44 mtx, f32 t, f32 b, f32 l, f32 r, f32 n, f32 f) { (void)mtx;(void)t;(void)b;(void)l;(void)r;(void)n;(void)f; }
-void PSMTXIdentity(Mtx34 mtx) { (void)mtx; }
+void PSMTXIdentity(Mtx mtx) { (void)mtx; }
 
 void GXSetProjection(const void* mtx, GXProjectionType type) { (void)mtx;(void)type; }
 void GXLoadPosMtxImm(const void* mtx, u32 id) { (void)mtx;(void)id; }
@@ -111,14 +93,14 @@ void GXSetScissor(u32 left, u32 top, u32 wd, u32 ht) { (void)left;(void)top;(voi
 void GXSetScissorBoxOffset(s32 x, s32 y) { (void)x;(void)y; }
 
 /* MTX (additional) */
-void PSMTXCopy(const GC_Mtx src, GC_Mtx dest) { (void)src;(void)dest; }
-void PSMTXScale(GC_Mtx mtx, f32 x, f32 y, f32 z) { (void)mtx;(void)x;(void)y;(void)z; }
-void PSMTXTrans(GC_Mtx mtx, f32 x, f32 y, f32 z) { (void)mtx;(void)x;(void)y;(void)z; }
-void PSMTXConcat(const GC_Mtx a, const GC_Mtx b, GC_Mtx out) { (void)a;(void)b;(void)out; }
-void PSMTXMultVec(const GC_Mtx m, const Vec* in, Vec* out) { (void)m;(void)in;(void)out; }
-u32 PSMTXInverse(const GC_Mtx src, GC_Mtx inv) { (void)src;(void)inv; return 0; }
+void PSMTXCopy(const Mtx src, Mtx dest) { (void)src;(void)dest; }
+void PSMTXScale(Mtx mtx, f32 x, f32 y, f32 z) { (void)mtx;(void)x;(void)y;(void)z; }
+void PSMTXTrans(Mtx mtx, f32 x, f32 y, f32 z) { (void)mtx;(void)x;(void)y;(void)z; }
+void PSMTXConcat(const Mtx a, const Mtx b, Mtx out) { (void)a;(void)b;(void)out; }
+void PSMTXMultVec(const Mtx m, const Vec* in, Vec* out) { (void)m;(void)in;(void)out; }
+u32 PSMTXInverse(const Mtx src, Mtx inv) { (void)src;(void)inv; return 0; }
 void PSVECNormalize(const Vec* src, Vec* dst) { (void)src;(void)dst; }
-void C_MTXLightOrtho(GC_Mtx mtx, f32 t, f32 b, f32 l, f32 r, f32 scaleS, f32 scaleT, f32 transS, f32 transT) { (void)mtx;(void)t;(void)b;(void)l;(void)r;(void)scaleS;(void)scaleT;(void)transS;(void)transT; }
+void C_MTXLightOrtho(Mtx mtx, f32 t, f32 b, f32 l, f32 r, f32 scaleS, f32 scaleT, f32 transS, f32 transT) { (void)mtx;(void)t;(void)b;(void)l;(void)r;(void)scaleS;(void)scaleT;(void)transS;(void)transT; }
 
 /* GX Texture (additional) */
 void GXInitTexObjCI(GXTexObj* o, void* img, u16 w, u16 h, GXCITexFmt fmt, GXTexWrapMode ws, GXTexWrapMode wt, u8 mip, u32 tlut) { (void)o;(void)img;(void)w;(void)h;(void)fmt;(void)ws;(void)wt;(void)mip;(void)tlut; }

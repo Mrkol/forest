@@ -167,7 +167,7 @@ void OSWaitCond(struct OSCond* cond, struct OSMutex* mutex)
 	    currentThread, mutex);
 
 	if (mutex->thread == currentThread) {
-		long count   = mutex->count;
+		s32 count   = mutex->count;
 		mutex->count = 0;
 		DEQUEUE_MUTEX(mutex, &currentThread->queueMutex, link);
 		mutex->thread = 0;
@@ -189,7 +189,7 @@ void OSSignalCond(struct OSCond* cond) { OSWakeupThread(&cond->queue); }
 int __OSCheckMutex(struct OSMutex * mutex) {
     struct OSThread * thread;
     struct OSThreadQueue * queue;
-    long priority;
+    s32 priority;
 
     priority = 0;
     queue = &mutex->queue;

@@ -781,7 +781,7 @@ static int CommonCallbackLogicalChannel(dspch_* ch, u32 a)
 		}
 		ch->_08 = 0;
 		ch->_03 = 0;
-		ch->_0C = nullptr;
+		ch->_0C = NULL;
 		return FALSE;
 	}
 

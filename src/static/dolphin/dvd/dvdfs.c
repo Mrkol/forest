@@ -13,10 +13,10 @@ struct FSTEntry {
 static struct OSBootInfo_s * BootInfo; // size: 0x4, address: 0x0
 static struct FSTEntry * FstStart; // size: 0x4, address: 0x4
 static char * FstStringStart; // size: 0x4, address: 0x8
-static unsigned long MaxEntryNum; // size: 0x4, address: 0xC
-static unsigned long currentDirectory; // size: 0x4, address: 0x10
+static u32 MaxEntryNum; // size: 0x4, address: 0xC
+static u32 currentDirectory; // size: 0x4, address: 0x10
 struct OSThreadQueue __DVDThreadQueue; // size: 0x8, address: 0x18
-unsigned long __DVDLongFileNameFlag; // size: 0x4, address: 0x14
+u32 __DVDLongFileNameFlag; // size: 0x4, address: 0x14
 
 // functions
 static BOOL isSame(const char* path, const char* string);
@@ -25,7 +25,7 @@ static u32 entryToPath(u32 entry, char* path, u32 maxlen);
 static BOOL DVDConvertEntrynumToPath(s32 entrynum, char* path, u32 maxlen);
 static void cbForReadAsync(s32 result, DVDCommandBlock* block);
 static void cbForReadSync();
-static void cbForSeekAsync(long result, struct DVDCommandBlock * block);
+static void cbForSeekAsync(s32 result, struct DVDCommandBlock * block);
 static void cbForSeekSync();
 static void cbForPrepareStreamAsync(s32 result, DVDCommandBlock* block);
 static void cbForPrepareStreamSync();
@@ -333,12 +333,12 @@ static void cbForReadAsync(s32 result, DVDCommandBlock* block) {
   }
 }
 
-long DVDReadPrio(struct DVDFileInfo * fileInfo, void * addr, long length, long offset, long prio) {
+s32 DVDReadPrio(struct DVDFileInfo * fileInfo, void * addr, s32 length, s32 offset, s32 prio) {
     int result;
     struct DVDCommandBlock * block;
-    long state;
+    s32 state;
     int enabled;
-    long retVal;
+    s32 retVal;
 
     ASSERTMSGLINE(0x31B, fileInfo, "DVDRead(): null pointer is specified to file info address  ");
     ASSERTMSGLINE(0x31C, addr, "DVDRead(): null pointer is specified to addr  ");
@@ -383,7 +383,7 @@ static void cbForReadSync() {
     OSWakeupThread(&__DVDThreadQueue);
 }
 
-int DVDSeekAsyncPrio(struct DVDFileInfo * fileInfo, long offset, void (* callback)(long, struct DVDFileInfo *), long prio) {
+int DVDSeekAsyncPrio(struct DVDFileInfo * fileInfo, s32 offset, void (* callback)(s32, struct DVDFileInfo *), s32 prio) {
     ASSERTMSGLINE(0x377, fileInfo, "DVDSeek(): null pointer is specified to file info address  ");
     ASSERTMSGLINE(0x37B, !(offset & 3), "DVDSeek(): offset must be multiple of 4 byte  ");
 
@@ -396,7 +396,7 @@ int DVDSeekAsyncPrio(struct DVDFileInfo * fileInfo, long offset, void (* callbac
     return 1;
 }
 
-static void cbForSeekAsync(long result, struct DVDCommandBlock * block) {
+static void cbForSeekAsync(s32 result, struct DVDCommandBlock * block) {
     struct DVDFileInfo * fileInfo;
 
     fileInfo = (struct DVDFileInfo *)&block->next;
@@ -406,12 +406,12 @@ static void cbForSeekAsync(long result, struct DVDCommandBlock * block) {
     }
 }
 
-long DVDSeekPrio(struct DVDFileInfo * fileInfo, long offset, long prio) {
+s32 DVDSeekPrio(struct DVDFileInfo * fileInfo, s32 offset, s32 prio) {
     int result;
     struct DVDCommandBlock * block;
-    long state;
+    s32 state;
     int enabled;
-    long retVal;
+    s32 retVal;
 
     ASSERTMSGLINE(0x3B0, fileInfo, "DVDSeek(): null pointer is specified to file info address  ");
     ASSERTMSGLINE(0x3B4, !(offset & 3), "DVDSeek(): offset must be multiple of 4 byte  ");
@@ -446,7 +446,7 @@ static void cbForSeekSync() {
     OSWakeupThread(&__DVDThreadQueue);
 }
 
-// long DVDGetFileInfoStatus(struct DVDFileInfo * fileInfo) {
+// s32 DVDGetFileInfoStatus(struct DVDFileInfo * fileInfo) {
 //     return DVDGetCommandBlockStatus(&fileInfo->cb);
 // }
 
@@ -466,7 +466,7 @@ BOOL DVDFastOpenDir(s32 entrynum, DVDDir * dir) {
 }
 
 BOOL DVDOpenDir(char* dirName, DVDDir* dir) {
-    long entry;
+    s32 entry;
     char currentDir[128];
 
     ASSERTMSGLINE(0x430, dirName, "DVDOpendir(): null pointer is specified to directory name  ");
@@ -490,7 +490,7 @@ BOOL DVDOpenDir(char* dirName, DVDDir* dir) {
 }
 
 int DVDReadDir(DVDDir * dir, DVDDirEntry* dirent) {
-    unsigned long loc;
+    u32 loc;
 
     loc = dir->location;
     if ((loc <= (u32) dir->entryNum) || ((u32) dir->next <= loc)) {

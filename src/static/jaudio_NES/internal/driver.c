@@ -727,10 +727,10 @@ extern Acmd* Nas_SynthMain(s32 chan_id, commonch* common, driverch* driver, s16*
         flags = A_CONTINUE;
 
         // Initialize the synthesis state
-        if (common->needs_init == true) {
+        if (common->needs_init == TRUE) {
             flags = A_INIT;
-            driver->at_loop_point = false;
-            driver->stop_loop = false;
+            driver->at_loop_point = FALSE;
+            driver->stop_loop = FALSE;
             driver->sample_pos_integer_part = chan->playback_ch.start_sample_pos;
             driver->sample_pos_fractional_part = 0;
 
@@ -748,10 +748,10 @@ extern Acmd* Nas_SynthMain(s32 chan_id, commonch* common, driverch* driver, s16*
             driver->prev_haas_effect_right_delay_size = 0;
             driver->cur_reverb_vol = common->target_reverb_volume;
             driver->num_parts = 0;
-            driver->comb_filter_needs_init = true;
-            chan->common_ch.finished = false;
+            driver->comb_filter_needs_init = TRUE;
+            chan->common_ch.finished = FALSE;
             driver->vel_conv_table_idx = chan->playback_ch.vel_conv_table_idx;
-            finished = false;
+            finished = FALSE;
         }
 
         // Process the sample in either one or two parts
@@ -763,7 +763,7 @@ extern Acmd* Nas_SynthMain(s32 chan_id, commonch* common, driverch* driver, s16*
         numSamplesToLoad = (u16)(numSamplesToLoadFixedPoint >> 16);
 
         if (numSamplesToLoad == 0) {
-            skipBytes = false;
+            skipBytes = FALSE;
         }
 
         driver->sample_pos_fractional_part = numSamplesToLoadFixedPoint & 0xFFFF;
@@ -784,7 +784,7 @@ extern Acmd* Nas_SynthMain(s32 chan_id, commonch* common, driverch* driver, s16*
         loopInfo = sample->loop;
 
         if (chan->playback_ch.status != 0) {
-            driver->stop_loop = true;
+            driver->stop_loop = TRUE;
         }
 
         if ((loopInfo->count == 2) && driver->stop_loop) {
@@ -842,8 +842,8 @@ extern Acmd* Nas_SynthMain(s32 chan_id, commonch* common, driverch* driver, s16*
 
             // Continue processing samples until the number of samples needed to load is reached
             while (numSamplesProcessed != numSamplesToLoadAdj) {
-                sampleFinished = false;
-                loopToPoint = false;
+                sampleFinished = FALSE;
+                loopToPoint = FALSE;
                 dmemUncompressedAddrOffset2 = 0;
 
                 numFirstFrameSamplesToIgnore = driver->sample_pos_integer_part & 0xF;
@@ -875,13 +875,13 @@ extern Acmd* Nas_SynthMain(s32 chan_id, commonch* common, driverch* driver, s16*
                     numFramesToDecode = (numSamplesToDecode + SAMPLES_PER_FRAME - 1) / SAMPLES_PER_FRAME;
                     if (loopInfo->count != 0) {
                         if ((loopInfo->count == 2) && driver->stop_loop) {
-                            sampleFinished = true;
+                            sampleFinished = TRUE;
                         } else {
                             // Loop around and restart
-                            loopToPoint = true;
+                            loopToPoint = TRUE;
                         }
                     } else {
-                        sampleFinished = true;
+                        sampleFinished = TRUE;
                     }
                 }
 
@@ -923,7 +923,7 @@ extern Acmd* Nas_SynthMain(s32 chan_id, commonch* common, driverch* driver, s16*
                         }
 
                         if ((s32)reverbAddrSrc == 0xFFFFFFFF) {
-                            sampleFinished = true;
+                            sampleFinished = TRUE;
                         } else if ((s32)reverbAddrSrc == 0) {
                             return cmd;
                         } else {
@@ -983,7 +983,7 @@ codec_continue_and_skip:
                         } else {
                             samplesToLoadAddr = tmpSamplesToLoadAddr;
                         }
-                    } else if (AG._2A14) { // always false
+                    } else if (AG._2A14) { // always FALSE
                         return cmd;
                     } else if (sample->medium == MEDIUM_DISK) {
                         // This medium is unsupported so terminate processing this chan
@@ -1013,7 +1013,7 @@ codec_continue_and_skip:
                 if (driver->at_loop_point) {
                     aSetLoop(cmd++, sample->loop->predictor_state);
                     flags = A_LOOP;
-                    driver->at_loop_point = false;
+                    driver->at_loop_point = FALSE;
                 }
 
                 numSamplesInThisIteration = numSamplesToDecode + numSamplesInFirstFrame - numTrailingSamplesToIgnore;
@@ -1099,12 +1099,12 @@ codec_continue_and_skip:
                         Nas_ClearBuffer(cmd++, DMEM_UNCOMPRESSED_NOTE + dmemUncompressedAddrOffset1,
                             dmemClearCount * SAMPLE_SIZE);
                     }
-                    finished = true;
-                    chan->common_ch.finished = true;
+                    finished = TRUE;
+                    chan->common_ch.finished = TRUE;
                     __Nas_WaveTerminateProcess(stack_update_idx, stack_chan_id);
                     break; // break out of the for-loop
                 } else if (loopToPoint) {
-                    driver->at_loop_point = true;
+                    driver->at_loop_point = TRUE;
                     driver->sample_pos_integer_part = loopInfo->loop_start;
                 } else {
                     driver->sample_pos_integer_part += numSamplesToProcess;
@@ -1151,9 +1151,9 @@ codec_continue_and_skip:
 
         // Update the flags for the signal processing below
         flags = A_CONTINUE;
-        if (common->needs_init == true) {
+        if (common->needs_init == TRUE) {
             flags = A_INIT;
-            common->needs_init = false;
+            common->needs_init = FALSE;
         }
 
         // Resample the decompressed mono-signal to the correct pitch
@@ -1200,7 +1200,7 @@ codec_continue_and_skip:
             // combFilterDmem = DMEM_COMB_TEMP - combFilterSize;
             if (driver->comb_filter_needs_init) {
                 Nas_ClearBuffer(cmd++, DMEM_COMB_TEMP - combFilterSize, combFilterSize);
-                driver->comb_filter_needs_init = false;
+                driver->comb_filter_needs_init = FALSE;
             } else {
                 Nas_LoadBuffer2(cmd++, DMEM_COMB_TEMP - combFilterSize, combFilterSize, (s32)combFilterState);
             }
@@ -1208,7 +1208,7 @@ codec_continue_and_skip:
             Nas_Mix(cmd++, size >> 4, combFilterGain, DMEM_COMB_TEMP, DMEM_COMB_TEMP - combFilterSize);
             Nas_DMEMMove(cmd++, DMEM_COMB_TEMP - combFilterSize, DMEM_TEMP, size);
         } else {
-            driver->comb_filter_needs_init = true;
+            driver->comb_filter_needs_init = TRUE;
         }
 
         // Determine the behavior of the audio processing that leads to the haas effect

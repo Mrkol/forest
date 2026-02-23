@@ -59,12 +59,12 @@ static void* GetCallStack() {
 }
 
 static s32 DVDReadMutex(DVDFileInfo* fileInfo, void* addr, s32 len, s32 offs, char* arg4) {
-    if (DVDT_PAUSE_FLAG == true) {
+    if (DVDT_PAUSE_FLAG == TRUE) {
         OSSleepThread(&dvdt_sleep);
     }
 
-    while (true) {
-        if (DVDReadPrio(fileInfo, addr, len, offs, 2) != -1 || error_callback == nullptr) {
+    while (TRUE) {
+        if (DVDReadPrio(fileInfo, addr, len, offs, 2) != -1 || error_callback == NULL) {
             break;
         }
         error_callback(arg4, (u8*)addr);
@@ -85,7 +85,7 @@ extern void DVDT_ExtendPath(char* dst, char* ext) {
 }
 
 extern s32 DVDT_AddTaskHigh(TaskCallback callback, void* stackp, size_t len) {
-    if (mq_init == false) {
+    if (mq_init == FALSE) {
         return 0;
     }
 
@@ -100,7 +100,7 @@ extern s32 DVDT_AddTaskHigh(TaskCallback callback, void* stackp, size_t len) {
 }
 
 extern s32 DVDT_AddTask(TaskCallback callback, void* stackp, size_t len) {
-    if (mq_init == false) {
+    if (mq_init == FALSE) {
         return 0;
     }
 
@@ -127,8 +127,8 @@ extern void* jac_dvdproc(void* arg) {
 
     OSInitThreadQueue(&dvdt_sleep);
     OSMessage msg;
-    while (true) {
-        while (true) {
+    while (TRUE) {
+        while (TRUE) {
             OSReceiveMessage(&mq, &msg, OS_MESSAGE_BLOCK);
             callback = (TaskCallback*)msg;
             __UpdateBuffer();
@@ -136,7 +136,7 @@ extern void* jac_dvdproc(void* arg) {
             if (buffersize == 0) {
                 __WriteBufferSize(buf, 2, 0x8000);
             }
-            if (callback != nullptr) {
+            if (callback != NULL) {
                 break;
             };
         }
@@ -145,21 +145,21 @@ extern void* jac_dvdproc(void* arg) {
 }
 
 static void __DoError(DVDCall* call, u32 type) {
-    if (call->callbackStatus != nullptr) {
+    if (call->callbackStatus != NULL) {
         *call->callbackStatus = -1;
     }
 
-    if (call->callback != nullptr) {
+    if (call->callback != NULL) {
         call->callback(-1);
     }
 }
 
 static void __DoFinish(DVDCall* call, u32 arg) {
-    if (call->callbackStatus != nullptr) {
+    if (call->callbackStatus != NULL) {
         *call->callbackStatus = arg;
     }
 
-    if (call->callback != nullptr) {
+    if (call->callback != NULL) {
         call->callback(call->owner);
     }
 }
@@ -196,11 +196,11 @@ static void __UpdateBuffer() {
     if (next_buffers != 0) {
         __WriteBufferSize(next_buffertop, next_buffers, next_buffersize);
         next_buffers = 0;
-        next_buffertop = nullptr;
+        next_buffertop = NULL;
     }
 }
 
-static vu32 buffer_full;
+static volatile u32 buffer_full;
 
 static void ARAM_DMAfinish(u32 arg0) {
     buffer_full -= 1;
@@ -295,7 +295,7 @@ extern s32 DVDT_LoadtoARAM(u32 owner, char* name, u32 dst, u32 src, u32 length, 
     return 0;
 }
 
-static vu32 buffer_full2;
+static volatile u32 buffer_full2;
 
 static void ARAM_DMAfinish2(u32) {
     buffer_full2 -= 1;

@@ -6,18 +6,18 @@
 #include "dvd/__dvd.h"
 
 // .bss
-static unsigned char bb2Buf[63]; // size: 0x3F, address: 0x0
+static u8 bb2Buf[63]; // size: 0x3F, address: 0x0
 
 // .sbss
-static unsigned long status; // size: 0x4, address: 0x0
+static u32 status; // size: 0x4, address: 0x0
 static struct DVDBB2 * bb2; // size: 0x4, address: 0x4
 static struct DVDDiskID * idTmp; // size: 0x4, address: 0x8
 
 // functions
-static void cb(long result, struct DVDCommandBlock * block);
+static void cb(s32 result, struct DVDCommandBlock * block);
 void __fstLoad();
 
-static void cb(long result, struct DVDCommandBlock * block) {
+static void cb(s32 result, struct DVDCommandBlock * block) {
     if (result > 0) {
         switch(status) {
             case 0:
@@ -43,8 +43,8 @@ static void cb(long result, struct DVDCommandBlock * block) {
 void __fstLoad() {
     struct OSBootInfo_s * bootInfo;
     struct DVDDiskID * id;
-    unsigned char idTmpBuf[63];
-    long state;
+    u8 idTmpBuf[63];
+    s32 state;
     void * arenaHi;
     static struct DVDCommandBlock block;
 

@@ -43,9 +43,9 @@ u8 boot_sound_initializing;
 /**
  * @brief Stubbed function. Was responsible for allocated space for sound.
  * 
- * @return void* nullptr
+ * @return void* NULL
  */
-void* soundArenaAlloc(size_t size) { return nullptr; }
+void* soundArenaAlloc(size_t size) { return NULL; }
 
 /**
  * @brief Tries to find an absolute address within any loaded modules.
@@ -69,7 +69,7 @@ s32 search_partial_address(u32 addr, u32* module_id, u32* section_idx, u32* sect
   }
 
   module_p = BaseModule;
-  while (module_p != nullptr) {
+  while (module_p != NULL) {
     section_info = OSGetSectionInfo(module_p);
     for (section = 0; section < module_p->info.numSections;
          section_info++, section++) {
@@ -77,16 +77,16 @@ s32 search_partial_address(u32 addr, u32* module_id, u32* section_idx, u32* sect
       if (section_size != 0) {
         section_ofs = OS_SECTIONINFO_OFFSET(section_info->offset);
         if ((section_ofs <= addr) && (addr < section_ofs + section_size)) {
-          if (module_id != nullptr) {
+          if (module_id != NULL) {
             *module_id = module_p->info.id;
           }
-          if (section_idx != nullptr) {
+          if (section_idx != NULL) {
             *section_idx = section;
           }
-          if (section_addr != nullptr) {
+          if (section_addr != NULL) {
             *section_addr = addr - section_ofs;
           }
-          if (module_name_ofs != nullptr) {
+          if (module_name_ofs != NULL) {
             *module_name_ofs = module_p->info.nameOffset;
           }
 
@@ -110,7 +110,7 @@ s32 search_partial_address(u32 addr, u32* module_id, u32* section_idx, u32* sect
 extern u32 convert_partial_address(u32 addr) {
   u32 module_id, section_idx, section_ofs;
 
-  if (search_partial_address(addr, &module_id, &section_idx, &section_ofs, nullptr) == 0) {
+  if (search_partial_address(addr, &module_id, &section_idx, &section_ofs, NULL) == 0) {
     return MAKE_PARTIAL_ADDRESS(section_idx, section_ofs);
   }
 
@@ -127,9 +127,9 @@ int LoadStringTable(const char* table) {  // https://decomp.me/scratch/7syDa
 
   OSReport("ストリングテーブル読み込み開始\n"); /* Starting string table load */
   osGetTime(); /* This was probably a variable to a 'begin time' printf */
-  StringTable = JC__JKRDvdToMainRam_byName(table, nullptr, EXPAND_SWITCH_DECOMPRESS);
+  StringTable = JC__JKRDvdToMainRam_byName(table, NULL, EXPAND_SWITCH_DECOMPRESS);
 
-  if (StringTable == nullptr) {
+  if (StringTable == NULL) {
     OSDVDFatalError();
   }
 
@@ -145,7 +145,7 @@ int LoadStringTable(const char* table) {  // https://decomp.me/scratch/7syDa
  * @param module Handle to the module header to unload.
  */
 extern void UnLink(OSModuleHeader* module) {
-  if (module != nullptr) {
+  if (module != NULL) {
     if (module->epilog != 0) {
       OSReport("エピローグ開始\n"); /* epilog start */
       ((void (*)())module->epilog)();
@@ -162,7 +162,7 @@ extern void UnLink(OSModuleHeader* module) {
 
 /**
  * @brief Relocatable module (reL) loading utility function. Loads a module by its file name.
- * May return nullptr if unable to load the module for whatever reason.
+ * May return NULL if unable to load the module for whatever reason.
  * 
  * @param module_name The file name of the module.
  * @return OSModuleHeader* loadedModule
@@ -174,10 +174,10 @@ OSModuleHeader* LoadLink(const char* module_name) {
   int alignLength;
   OSModuleHeader* module;
 
-  bss = nullptr;
+  bss = NULL;
   OSReport("モジュール(%s)の読み込み中\n", module_name); /* Loading module (%s) */
-  module = (OSModuleHeader*)JC__JKRDvdToMainRam_byName(module_name, nullptr, EXPAND_SWITCH_DECOMPRESS);
-  if (module == nullptr) {
+  module = (OSModuleHeader*)JC__JKRDvdToMainRam_byName(module_name, NULL, EXPAND_SWITCH_DECOMPRESS);
+  if (module == NULL) {
     OSReport("モジュール(%s)の読み込みに失敗しました\n", module_name); /* Failed to load module (%s) */
     OSDVDFatalError();
     return module;
@@ -193,8 +193,8 @@ OSModuleHeader* LoadLink(const char* module_name) {
   if (result) {
     bss = soundArenaAlloc(module->bssSize);
 
-    /* This case will never happen because soundArenaAlloc() was stubbed to always return nullptr. */
-    if (bss != nullptr) {
+    /* This case will never happen because soundArenaAlloc() was stubbed to always return NULL. */
+    if (bss != NULL) {
       OSReport("サウンドアリーナ %08x 使用 bss=%08x\n", module->bssSize, bss);  /* Sound Arena %08x used bss=%08x */
       emu64_texture_cache_data_entry_set((u8*)module, (u8*)module + length);
     }
@@ -206,7 +206,7 @@ OSModuleHeader* LoadLink(const char* module_name) {
       }
       else {
         bss = JW_Alloc(module->bssSize, 32);
-        if (bss != nullptr) {
+        if (bss != NULL) {
           emu64_texture_cache_data_entry_set((u8*)module, (u8*)module + length);
         }
         else {
@@ -223,7 +223,7 @@ OSModuleHeader* LoadLink(const char* module_name) {
 failed:
   JW_Free(bss);
   JW_Free(module);
-  return nullptr;
+  return NULL;
 }
 
 /**
@@ -240,7 +240,7 @@ void audioFatalCallback() {
  * 
  */
 void sound_initial() {
-  Na_InitAudio(audioFatalCallback, nullptr, 0, nintendo_hi_0, 0x66a0, FALSE);
+  Na_InitAudio(audioFatalCallback, NULL, 0, nintendo_hi_0, 0x66a0, FALSE);
   OSReport("sizeof(nintendo_hi_0)=%08x\n", 0x9900);
   OSReport("実際のnintendo_hi_0.awのサイズ=%08x \n", 0x66a0); /* Real nintendo_hi_0.aw size=%08x */
   OSReport("ニンテンドー発生タイムラグまで寝てます(%dms)" VT_RST "\n", 2500); /* Sleeping until Nintendo latency time (%dms) occurs */
@@ -608,12 +608,12 @@ int main(int argc, const char** argv) {
 
   /* Initialize fault 'class' & clients */
   fault_Init();
-  fault_AddClientEx(&my_fault_client5, (FaultCallback)fault_callback_vimode, nullptr, 0, 10, 14);
+  fault_AddClientEx(&my_fault_client5, (FaultCallback)fault_callback_vimode, NULL, 0, 10, 14);
   fault_AddClientEx(&my_fault_client1, (FaultCallback)fault_callback_keyCheck, tbl.msg, (tbl.param_upper << 16) | tbl.param_lower, 10, 14);
-  fault_AddClientEx(&my_fault_client2, (FaultCallback)fault_callback_OK, nullptr, 0, 10, 14);
-  fault_AddClientEx(&my_fault_client3, (FaultCallback)fault_callback_Setumei, nullptr, 0, 10, 9);
-  fault_AddClientEx(&my_fault_client6, (FaultCallback)fault_callback_scroll, nullptr, 0, 1, 9);
-  fault_AddClient(&my_fault_client4, (FaultCallback)DisplayArena, nullptr, 0);
+  fault_AddClientEx(&my_fault_client2, (FaultCallback)fault_callback_OK, NULL, 0, 10, 14);
+  fault_AddClientEx(&my_fault_client3, (FaultCallback)fault_callback_Setumei, NULL, 0, 10, 9);
+  fault_AddClientEx(&my_fault_client6, (FaultCallback)fault_callback_scroll, NULL, 0, 1, 9);
+  fault_AddClient(&my_fault_client4, (FaultCallback)DisplayArena, NULL, 0);
 
   /* Toggle JUtility debug console visibility */
   if (APPNMI_TESTMODE_GET()) {
@@ -637,8 +637,8 @@ int main(int argc, const char** argv) {
   }
 
   OSReport("Loging COPYDATE\n");
-  boot_copyDate = JC__JKRDvdToMainRam_byName("/COPYDATE", nullptr, EXPAND_SWITCH_DECOMPRESS);
-  if (boot_copyDate == nullptr) {
+  boot_copyDate = JC__JKRDvdToMainRam_byName("/COPYDATE", NULL, EXPAND_SWITCH_DECOMPRESS);
+  if (boot_copyDate == NULL) {
     OSDVDFatalError();
   }
 
@@ -647,22 +647,22 @@ int main(int argc, const char** argv) {
   moduleA = LoadLink("/foresta.rel.szs");
   JW_Init2();
   initial_menu_cleanup();
-  if (moduleA == nullptr) {
+  if (moduleA == NULL) {
     moduleA = LoadLink("/foresta.rel.szs");
   }
 
   JC_JKRExpHeap_changeGroupID(JC_JFWSystem_getSystemHeap(), 5);
 
-  while (HotStartEntry != nullptr) {
+  while (HotStartEntry != NULL) {
     OSReport("ホットスタート(%08x)\n", HotStartEntry);
     HotStartEntry = (*(void* (*)())HotStartEntry)();
   }
 
   UnLink(moduleA);
-  moduleA = nullptr;
-  if (StringTable != nullptr) {
+  moduleA = NULL;
+  if (StringTable != NULL) {
     JW_Free(StringTable);
-    StringTable = nullptr;
+    StringTable = NULL;
   }
 
   OSReport("どうぶつの森ブートローダ終了\n"); /* Animal Crossing bootloader end */

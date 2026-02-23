@@ -2664,7 +2664,7 @@ int ksNesReset(ksNesCommonWorkObj* wp, ksNesStateObj* sp, u32 flags, u8* chrramp
         for (u32 i = 0; i < 0x106; i++) {
             if (!(i & 7) && 0x40 <= i && i < 0x90) {
 
-                uVar1 = i - 0x40 >> 3 & 0x3fffffff;
+                uVar1 = (i - 0x40) >> 3 & 0x3fffffff;
 
                 Sound_Write((u16)sound_init_data[uVar1], (u8)sound_init_data[uVar1 + 1], i * 0x72);
             }
