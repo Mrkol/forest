@@ -6,8 +6,8 @@
 #include "jaudio_NES/dspbuf.h"
 #include "jaudio_NES/streamctrl.h"
 #include "jaudio_NES/rate.h"
-#include "dolphin/os.h"
-#include "dolphin/ai.h"
+#include <dolphin/os.h>
+#include <dolphin/ai.h>
 
 typedef void (*DACCallback)(s16*, s32);
 

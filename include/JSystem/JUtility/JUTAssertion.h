@@ -2,7 +2,7 @@
 #define _JSYSTEM_JUT_JUTASSERTION_H
 
 #include "types.h"
-#include "dolphin/os.h"
+#include <dolphin/os.h>
 
 #ifdef __cplusplus
 extern "C" {

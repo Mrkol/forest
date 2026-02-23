@@ -2,7 +2,7 @@
 #define _JAUDIO_IPLDEC_H
 
 #include "types.h"
-#include "dolphin/dsp.h"
+#include <dolphin/dsp.h>
 
 /////////// JAUDIO IPL DEC DEFINITIONS ///////////
 // Global functions (all C++, so no extern C wrap).

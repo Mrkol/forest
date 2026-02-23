@@ -2,8 +2,8 @@
 #define DOLPHIN_OS_ALARM_H
 
 #include <dolphin/types.h>
-#include "dolphin/os/OSTime.h"
-#include "dolphin/os/OSContext.h"
+#include <dolphin/os/OSTime.h>
+#include <dolphin/os/OSContext.h>
 
 #ifdef __cplusplus
 extern "C" {

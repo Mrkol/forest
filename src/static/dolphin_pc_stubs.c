@@ -63,7 +63,7 @@ void OSSetArenaLo(void* p) { (void)p; }
 /* -------------------------------------------------------------------------- */
 volatile int __OSCurrHeap = 0;
 
-void* OSAllocFromHeap(int heap, unsigned long size)
+void* OSAllocFromHeap(int heap, u32 size)
 {
     (void)heap;
     return malloc((size_t)size);
@@ -122,7 +122,6 @@ s32 DVDConvertPathToEntrynum(char* path) { (void)path; return -1; }
 BOOL DVDOpenDir(char* dirName, DVDDir* dir) { (void)dirName;(void)dir; return FALSE; }
 BOOL DVDReadDir(DVDDir* dir, DVDDirEntry* entry) { (void)dir;(void)entry; return FALSE; }
 
-void VIInit(void) {}
 typedef void (*VIRetraceCallback)(u32);
 VIRetraceCallback VISetPreRetraceCallback(VIRetraceCallback cb) { (void)cb; return NULL; }
 VIRetraceCallback VISetPostRetraceCallback(VIRetraceCallback cb) { (void)cb; return NULL; }
@@ -246,10 +245,9 @@ void PPCMtmsr(u32 value) { (void)value; }
 /* -------------------------------------------------------------------------- */
 void VIWaitForRetrace(void) {}
 void VIConfigurePan(u16 x, u16 y, u16 w, u16 h) { (void)x;(void)y;(void)w;(void)h; }
-void VIConfigure(const struct _GXRenderModeObj* rm) { (void)rm; }
+void VIConfigure(GXRenderModeObj* rm) { (void)rm; }
 void VISetBlack(BOOL black) { (void)black; }
 void VISetNextFrameBuffer(void* fb) { (void)fb; }
-void VIFlush(void) {}
 u32 VIGetRetraceCount(void) { return 0; }
 u32 VIGetDTVStatus(void) { return 0; }
 

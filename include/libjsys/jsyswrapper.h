@@ -1,13 +1,13 @@
 #ifndef JSYSWRAPPER_H
 #define JSYSWRAPPER_H
 
-#include "dolphin/pad.h"
+#include <dolphin/pad.h>
 #include "stdarg.h"
 #include "types.h"
 #include "JSystem/JKernel/JKREnum.h"
 #include "JSystem/JUtility/JUTEnum.h"
 // #include "va_args.h"
-#include "dolphin/gx.h"
+#include <dolphin/gx.h>
 
 #ifdef __cplusplus
 extern "C" {

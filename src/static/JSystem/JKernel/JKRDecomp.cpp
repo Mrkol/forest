@@ -3,7 +3,7 @@
 #include "JSystem/JKernel/JKRAram.h"
 #include "JSystem/JKernel/JKRHeap.h"
 #include "JSystem/JSystem.h"
-#include "dolphin/os/OSMessage.h"
+#include <dolphin/os/OSMessage.h>
 #include "types.h"
 
 OSMessage JKRDecomp::sMessageBuffer[JKRDECOMP_MSG_BUF_COUNT] = { 0 };

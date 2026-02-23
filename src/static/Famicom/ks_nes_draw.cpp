@@ -1,11 +1,11 @@
-#include "dolphin/gx/GXEnum.h"
-#include "dolphin/gx/GXTexture.h"
-#include "dolphin/gx/GXVert.h"
+#include <dolphin/gx/GXEnum.h>
+#include <dolphin/gx/GXTexture.h>
+#include <dolphin/gx/GXVert.h>
 #define FIX_SQRT_LINKAGE
 #include "Famicom/ks_nes_draw.h"
-#include "dolphin/gx.h"
-#include "dolphin/PPCArch.h"
-#include "dolphin/os.h"
+#include <dolphin/gx.h>
+#include <dolphin/PPCArch.h>
+#include <dolphin/os.h>
 
 u8 ksNesPaletteNormal[] = {
     0xc2, 0x10, 0x80, 0x17, 0x98, 0x17, 0xc0, 0x14, 0xdc, 0x0d, 0xd8, 0x03, 0xd8, 0x00, 0xc8, 0x80, 0xbc, 0xa0, 0x80,

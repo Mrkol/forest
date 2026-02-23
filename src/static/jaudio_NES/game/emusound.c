@@ -1,5 +1,5 @@
 #include "jaudio_NES/emusound.hpp"
-#include "dolphin/os.h"
+#include <dolphin/os.h>
 #include "jaudio_NES/aictrl.h"
 #include "jaudio_NES/sample.h"
 

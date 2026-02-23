@@ -1,3 +1,5 @@
+// Needs to go first for N64Mtx trick!
+#include "Famicom/famicomPriv.h"
 
 #include "famicom_emu.h"
 

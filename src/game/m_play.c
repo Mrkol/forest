@@ -42,6 +42,9 @@
 #define Game_play_HYRAL_SIZE 0x3E800 // 256,000 bytes
 #define Game_play_IS_PAUSED(play) (ZURUMODE2_ENABLED() ? (!Pause_proc(&(play)->pause, &(play)->game.pads[PAD1])) : FALSE)
 
+// Don't include priv famicom header!!!
+extern Famicom_MallocInfo* my_malloc_current;
+
 static fbdemo_c fbdemo;
 static u16 S_back_title_timer = 0;
 static u16 S_se_endcheck_timeout = 0;

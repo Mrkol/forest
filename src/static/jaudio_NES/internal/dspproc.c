@@ -1,5 +1,5 @@
 #include "jaudio_NES/dspproc.h"
-#include "dolphin/dsp.h"
+#include <dolphin/dsp.h>
 
 static u16 DSP_MIXERLEVEL = 0x4000;
 

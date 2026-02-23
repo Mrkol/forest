@@ -1,4 +1,4 @@
-#include "dolphin/os/OSMessage.h"
+#include <dolphin/os/OSMessage.h>
 #include "libultra/libultra.h"
 
 void osCreateMesgQueue(OSMessageQueue* mq, OSMessage msg, int msgCount){

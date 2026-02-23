@@ -7,13 +7,13 @@
 #include <stdarg.h>
 #include <stdio.h>
 
-#include "dolphin/mtx.h"
+#include <dolphin/mtx.h>
 #define Mtx N64Mtx // ULTRA HACK
 #include "libforest/gbi_extensions.h"
 #undef Mtx
 
 #include "libforest/emu64/texture_cache.h"
-#include "dolphin/gx.h"
+#include <dolphin/gx.h>
 #include "sys_ucode.h"
 #include "libforest/emu64/emu64_wrapper.h"
 #include "sys_ucode.h"

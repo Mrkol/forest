@@ -4,7 +4,7 @@
 #include "types.h"
 #include "irqmgr.h"
 #include "libu64/pad.h"
-#include "dolphin/os/OSMessage.h"
+#include <dolphin/os/OSMessage.h>
 #include "libultra/osThread.h"
 #include "libu64/pad.h"
 

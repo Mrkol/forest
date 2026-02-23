@@ -2,7 +2,7 @@
 #define DVDTHREAD_H
 
 #include "types.h"
-#include "dolphin/dvd.h"
+#include <dolphin/dvd.h>
 
 typedef void (*Jac_DVDCallback)(u32);
 typedef s32 (*TaskCallback)(void*);

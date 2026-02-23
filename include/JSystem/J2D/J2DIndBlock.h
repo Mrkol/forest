@@ -3,7 +3,7 @@
 
 #include "types.h"
 #include "JSystem/J3D/J3DTypes.h"
-#include "dolphin/gx.h"
+#include <dolphin/gx.h>
 
 #ifdef __cplusplus
 typedef float Mtx23[2][3];

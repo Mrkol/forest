@@ -2,7 +2,7 @@
 #define LB_RTC_H
 
 #include "types.h"
-#include "dolphin/os/OSTime.h"
+#include <dolphin/os/OSTime.h>
 
 #ifdef __cplusplus
 extern "C" {

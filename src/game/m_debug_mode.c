@@ -23,7 +23,7 @@
 #include "m_all_grow.h"
 #include "m_card.h"
 #include "m_flashrom.h"
-#include "dolphin/dvd.h"
+#include <dolphin/dvd.h>
 #include "jsyswrap.h"
 #include "boot.h"
 #include "m_common_data.h"

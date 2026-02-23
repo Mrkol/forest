@@ -2,9 +2,9 @@
 #define IRQMGR_H
 
 #include "types.h"
-#include "dolphin/os/OSTime.h"
-#include "dolphin/os/OSTimer.h"
-#include "dolphin/os/OSMessage.h"
+#include <dolphin/os/OSTime.h>
+#include <dolphin/os/OSTimer.h>
+#include <dolphin/os/OSMessage.h>
 
 #ifdef __cplusplus
 extern "C" {

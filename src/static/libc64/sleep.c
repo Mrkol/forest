@@ -1,8 +1,8 @@
 #include "libc64/sleep.h"
 #include "libultra/os_timer.h"
-#include "dolphin/os/OSAlarm.h"
-#include "dolphin/os/OSTimer.h"
-#include "dolphin/os/OSThread.h"
+#include <dolphin/os/OSAlarm.h>
+#include <dolphin/os/OSTimer.h>
+#include <dolphin/os/OSThread.h>
 
 void csleep(OSTime c) {
     OSMessage msg;

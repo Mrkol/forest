@@ -33,7 +33,7 @@ void J2DGrafContext::setup2D() {
 
     GXLoadPosMtxImm(mPosMtx, 0);
     Mtx m;
-    PSMTXIdentity(m);
+    MTXIdentity(m);
     GXLoadTexMtxImm(m, 60, GX_MTX3x4);
 
     GXSetChanCtrl(GX_COLOR0A0, 0, GX_SRC_REG, GX_SRC_VTX, GX_LIGHT_NULL, GX_DF_NONE, GX_AF_NONE);

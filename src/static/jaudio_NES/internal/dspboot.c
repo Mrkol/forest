@@ -1,8 +1,8 @@
 #include "jaudio_NES/dspboot.h"
 #include "jaudio_NES/dspproc.h"
-#include "dolphin/dsp.h"
-#include "dolphin/os.h"
-#include "dolphin/hw_regs.h"
+#include <dolphin/dsp.h>
+#include <dolphin/os.h>
+#include <dolphin/hw_regs.h>
 
 u16 jdsp[] ATTRIBUTE_ALIGN(32) = {
     0x029F, 0x0010, 0x0000, 0x0000, 0x02FF, 0x0000, 0x02FF, 0x0000, 0x02FF, 0x0000, 0x02FF, 0x0000, 0x02FF, 0x0000,

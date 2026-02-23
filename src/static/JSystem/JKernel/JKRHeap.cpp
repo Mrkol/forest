@@ -1,11 +1,11 @@
 #include "JSystem/JUtility/JUTAssertion.h"
 #include "JSystem/JKernel/JKRHeap.h"
-#include "dolphin/os.h"
-#include "dolphin/os/OSArena.h"
-#include "dolphin/os/OSAlloc.h"
-#include "dolphin/os/OSMemory.h"
-#include "dolphin/os/OSUtil.h"
-#include "dolphin/os.h"
+#include <dolphin/os.h>
+#include <dolphin/os/OSArena.h>
+#include <dolphin/os/OSAlloc.h>
+#include <dolphin/os/OSMemory.h>
+#include <dolphin/os/OSUtil.h>
+#include <dolphin/os.h>
 
 JKRHeap* JKRHeap::sSystemHeap;
 JKRHeap* JKRHeap::sCurrentHeap;
@@ -86,10 +86,10 @@ JKRHeap* JKRHeap::becomeCurrentHeap() {
     return old;
 }
 
-void JKRHeap::destroy(JKRHeap* heap) {
-    JUT_ASSERT(heap != 0);
-    heap->destroy();
-}
+// void JKRHeap::destroy(JKRHeap* heap) {
+//     JUT_ASSERT(heap != 0);
+//     heap->destroy();
+// }
 
 void* JKRHeap::alloc(u32 byteCount, int padding, JKRHeap* heap) {
     void* memory = nullptr;

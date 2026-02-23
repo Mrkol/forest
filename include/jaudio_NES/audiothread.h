@@ -3,7 +3,7 @@
 
 #include "types.h"
 #include "jaudio_NES/audiostruct.h"
-#include "dolphin/os.h"
+#include <dolphin/os.h>
 
 #define AUDIO_THREAD_FLAG_DVD (1 << 0)
 #define AUDIO_THREAD_FLAG_AUDIO (1 << 1)

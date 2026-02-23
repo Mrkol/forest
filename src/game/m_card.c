@@ -1,9 +1,9 @@
 #include "m_card.h"
 
-#include "dolphin/card.h"
-#include "dolphin/card/CARDBios.h"
-#include "dolphin/card/CARDCheck.h"
-#include "dolphin/card/CARDMount.h"
+#include <dolphin/card.h>
+#include <dolphin/card/CARDBios.h>
+#include <dolphin/card/CARDCheck.h>
+#include <dolphin/card/CARDMount.h>
 #include "../static/dolphin/card/__card.h"
 #include "graph.h"
 #include "lb_rtc.h"

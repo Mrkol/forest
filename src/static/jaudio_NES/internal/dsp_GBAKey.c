@@ -5,7 +5,7 @@
 
 #include "jaudio_NES/ipldec.h"
 #include "GBA/GBAPriv.h"
-#include "dolphin/dsp.h"
+#include <dolphin/dsp.h>
 
 static s32 F152(DSPTaskInfo* task) {
     s32 chan; // r31

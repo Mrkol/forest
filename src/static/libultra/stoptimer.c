@@ -1,5 +1,5 @@
 #include "libultra/libultra.h"
-#include "dolphin/os.h"
+#include <dolphin/os.h>
 
 void osStopTimerAll(void){
     BOOL enable;

@@ -2,9 +2,9 @@
 #define JKRTHREAD_H
 
 #include "types.h"
-#include "dolphin/os/OSMessage.h"
-#include "dolphin/os/OSThread.h"
-#include "dolphin/os/OSTime.h"
+#include <dolphin/os/OSMessage.h>
+#include <dolphin/os/OSThread.h>
+#include <dolphin/os/OSTime.h>
 #include "JSystem/JSupport/JSUList.h"
 #include "JSystem/JKernel/JKRHeap.h"
 #include "JSystem/JKernel/JKRDisposer.h"

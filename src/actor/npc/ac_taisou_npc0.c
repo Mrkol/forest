@@ -1,5 +1,6 @@
 #include "ac_taisou_npc0.h"
 
+#include <limits.h>
 #include "m_common_data.h"
 #include "m_player_lib.h"
 #include "m_font.h"

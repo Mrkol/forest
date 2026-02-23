@@ -3,10 +3,10 @@
 #include "JSystem/JKernel/JKRHeap.h"
 #include "JSystem/JKernel/JKRMacro.h"
 #include "JSystem/JSystem.h"
-#include "dolphin/ar.h"
-#include "dolphin/os.h" /* TODO: OSReport lives in libforest in AC */
-#include "dolphin/os/OSCache.h"
-#include "dolphin/os/OSMessage.h"
+#include <dolphin/ar.h>
+#include <dolphin/os.h> /* TODO: OSReport lives in libforest in AC */
+#include <dolphin/os/OSCache.h>
+#include <dolphin/os/OSMessage.h>
 #include "types.h"
 
 JSUList<JKRAMCommand> JKRAramPiece::sAramPieceCommandList;

@@ -4,7 +4,7 @@
 #include "types.h"
 #include "PR/mbi.h"
 #include "THA_GA.h"
-#include "dolphin/os/OSMessage.h"
+#include <dolphin/os/OSMessage.h>
 #include "boot.h"
 
 #ifdef __cplusplus
