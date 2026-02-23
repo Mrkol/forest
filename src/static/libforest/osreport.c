@@ -3,6 +3,9 @@
 #include "dolphin/os/OSRtc.h"
 
 #include <stdio.h>
+#ifdef TARGET_PC
+#include <stdarg.h> // va_*
+#endif
 
 static BOOL __OSReport_disable;
 static OSThread* __OSReport_MonopolyThread;
