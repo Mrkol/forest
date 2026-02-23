@@ -25,7 +25,7 @@ void J2DOrthoGraph::setOrtho(const JGeometry::TBox2f& bounds, f32 far, f32 near)
 }
 
 void J2DOrthoGraph::setLookat() {
-    PSMTXIdentity(mPosMtx);
+    MTXIdentity(mPosMtx);
     GXLoadPosMtxImm(mPosMtx, 0);
 }
 
