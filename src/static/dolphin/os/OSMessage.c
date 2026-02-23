@@ -15,7 +15,7 @@ void OSInitMessageQueue(struct OSMessageQueue* mq, OSMessage* msgArray,
 int OSSendMessage(struct OSMessageQueue* mq, OSMessage msg, int flags)
 {
 	int enabled;
-	long lastIndex;
+	s32 lastIndex;
 
 	enabled = OSDisableInterrupts();
 	while (mq->msgCount <= mq->usedCount) {

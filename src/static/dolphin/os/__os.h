@@ -7,7 +7,7 @@
 extern char* __OSExceptionNames[15]; // D ONLY
 extern OSTime __OSStartTime;
 
-unsigned long __OSIsDebuggerPresent(void);
+u32 __OSIsDebuggerPresent(void);
 void __OSPSInit(void);
 
 extern void* BOOT_REGION_START AT_ADDRESS(0x812FDFF0);
@@ -30,14 +30,14 @@ void __OSContextInit(void);
 void __OSInitMemoryProtection(void);
 
 // OSError.c
-void __OSUnhandledException(unsigned char exception, struct OSContext* context,
-                            unsigned long dsisr, unsigned long dar);
+void __OSUnhandledException(u8 exception, struct OSContext* context,
+                            u32 dsisr, u32 dar);
 
 // OSInterrupt.c
 extern void __RAS_OSDisableInterrupts_begin(void);
 extern void __RAS_OSDisableInterrupts_end(void);
 
-extern unsigned long long __OSSpuriousInterrupts; // D ONLY
+extern u64 __OSSpuriousInterrupts; // D ONLY
 extern char* __OSInterruptNames[33];              // D ONLY
 extern char* __OSPIErrors[8];                     // D ONLY
 extern OSErrorHandlerEx __OSErrorTable[16];
@@ -67,8 +67,8 @@ void __OSDoHotReset(s32);
 void __OSReboot(u32, u32);
 
 // OSRtc.c
-int __OSGetRTC(unsigned long* rtc);
-int __OSSetRTC(unsigned long rtc);
+int __OSGetRTC(u32* rtc);
+int __OSSetRTC(u32 rtc);
 void __OSInitSram();
 struct OSSram* __OSLockSram(void);
 struct OSSramEx* __OSLockSramEx(void);
@@ -76,11 +76,11 @@ int __OSUnlockSram(int commit);
 int __OSUnlockSramEx(int commit);
 int __OSSyncSram(void);
 int __OSCheckSram(void);
-int __OSReadROM(void* buffer, long length, long offset);
-int __OSReadROMAsync(void* buffer, long length, long offset,
+int __OSReadROM(void* buffer, s32 length, s32 offset);
+int __OSReadROMAsync(void* buffer, s32 length, s32 offset,
                      void (*callback)());
-unsigned char __OSGetBootMode(void);
-void __OSSetBootMode(unsigned char ntd);
+u8 __OSGetBootMode(void);
+void __OSSetBootMode(u8 ntd);
 
 // OSSync.c
 extern void __OSSystemCallVectorStart();
@@ -90,14 +90,14 @@ void __OSInitSystemCall(void);
 
 // OSThread.c
 void __OSThreadInit(void);
-long __OSGetEffectivePriority(struct OSThread* thread);
-void __OSPromoteThread(struct OSThread* thread, long priority);
+s32 __OSGetEffectivePriority(struct OSThread* thread);
+void __OSPromoteThread(struct OSThread* thread, s32 priority);
 void __OSReschedule(void);
 
 // OSTime.c
-void __OSSetTime(long long time);
-long long __OSGetSystemTime();
-void __OSSetTick(register unsigned long newTicks);
+void __OSSetTime(s32 s32 time);
+s32 s32 __OSGetSystemTime();
+void __OSSetTick(register u32 newTicks);
 
 extern u32 __OSGetDIConfig(void);
 
@@ -116,8 +116,8 @@ void __start(void);
 __declspec(section ".init") extern void __start(void);
 
 // time.dolphin.c
-long long __get_clock(void);
-unsigned long __get_time(void);
+s32 s32 __get_clock(void);
+u32 __get_time(void);
 int __to_gm_time(void);
 
 #endif // _DOLPHIN_OS_INTERNAL_H_

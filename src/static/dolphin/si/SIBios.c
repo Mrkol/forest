@@ -25,9 +25,9 @@ static volatile u32 InputBufferVcount[4];
 u32 __PADFixBits;
 
 static u32 CompleteTransfer();
-static void SITransferNext(long chan);
+static void SITransferNext(s32 chan);
 static void SIInterruptHandler(s16 interrupt, OSContext* context);
-static int __SITransfer(long chan, void* output, u32 outputBytes, void* input, u32 inputBytes, void (* callback)(long, u32, struct OSContext *));
+static int __SITransfer(s32 chan, void* output, u32 outputBytes, void* input, u32 inputBytes, void (* callback)(s32, u32, struct OSContext *));
 static void AlarmHandler(struct OSAlarm* alarm, struct OSContext* context);
 static void GetTypeCallback(s32 chan, u32 error, OSContext* context);
 static int SIGetResponseRaw(s32 chan);
@@ -96,7 +96,7 @@ static u32 CompleteTransfer() {
     return sr;
 }
 
-static void SITransferNext(long chan) {
+static void SITransferNext(s32 chan) {
     int i;
     struct SIPacket* packet;
 
@@ -275,7 +275,7 @@ void SIInit() {
     SIGetType(3);
 }
 
-static int __SITransfer(long chan, void* output, u32 outputBytes, void* input, u32 inputBytes, void (* callback)(long, u32, struct OSContext *)) {
+static int __SITransfer(s32 chan, void* output, u32 outputBytes, void* input, u32 inputBytes, void (* callback)(s32, u32, struct OSContext *)) {
     int enabled;
     u32 rLen;
     u32 i;
@@ -368,12 +368,12 @@ u32 SIGetStatus(s32 chan) {
     return sr;
 }
 
-void SISetCommand(long chan, u32 command) {
+void SISetCommand(s32 chan, u32 command) {
     ASSERTMSGLINE(740, (chan >= 0) && (chan < 4), "SISetCommand(): invalid channel.");
     __SIRegs[chan* 3] = command;
 }
 
-u32 SIGetCommand(long chan) {
+u32 SIGetCommand(s32 chan) {
     ASSERTMSGLINE(758, (chan >= 0) && (chan < 4), "SIGetCommand(): invalid channel.");
     return __SIRegs[chan* 3];
 }

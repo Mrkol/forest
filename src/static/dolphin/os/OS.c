@@ -22,11 +22,11 @@ void EnableMetroTRKInterrupts(void);
 #define DB_EXCEPTIONRET_OFFSET  0xC
 #define DB_EXCEPTIONDEST_OFFSET 0x8
 
-extern unsigned long __DVDLongFileNameFlag;
-extern unsigned long __PADSpec;
-extern unsigned char __ArenaLo[];
+extern u32 __DVDLongFileNameFlag;
+extern u32 __PADSpec;
+extern u8 __ArenaLo[];
 extern char _stack_addr[];
-extern unsigned char __ArenaHi[];
+extern u8 __ArenaHi[];
 
 // dummy entry points to the OS Exception vector
 void __OSEVStart(void);
@@ -155,7 +155,7 @@ skip_ps_init:
 #endif // clang-format on
 }
 
-unsigned long OSGetConsoleType()
+u32 OSGetConsoleType()
 {
 	if ((!BootInfo) || (BootInfo->consoleType == 0)) {
 		return OS_CONSOLE_ARTHUR;

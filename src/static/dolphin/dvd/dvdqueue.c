@@ -8,10 +8,10 @@ static struct {
     /* 0x04 */ struct DVDCommandBlock * prev;
 } WaitingQueue[4];
 
-static struct DVDCommandBlock * PopWaitingQueuePrio(long prio);
+static struct DVDCommandBlock * PopWaitingQueuePrio(s32 prio);
 
 void __DVDClearWaitingQueue(void) {
-    unsigned long i;
+    u32 i;
     struct DVDCommandBlock * q;
 
     for(i = 0; i < 4; i++) {
@@ -21,7 +21,7 @@ void __DVDClearWaitingQueue(void) {
     }
 }
 
-int __DVDPushWaitingQueue(long prio, struct DVDCommandBlock * block) {
+int __DVDPushWaitingQueue(s32 prio, struct DVDCommandBlock * block) {
     int enabled = OSDisableInterrupts();
     struct DVDCommandBlock * q = (struct DVDCommandBlock *)&WaitingQueue[prio];
 
@@ -33,7 +33,7 @@ int __DVDPushWaitingQueue(long prio, struct DVDCommandBlock * block) {
     return 1;
 }
 
-static struct DVDCommandBlock * PopWaitingQueuePrio(long prio) {
+static struct DVDCommandBlock * PopWaitingQueuePrio(s32 prio) {
     struct DVDCommandBlock * tmp;
     int enabled;
     struct DVDCommandBlock * q;
@@ -51,7 +51,7 @@ static struct DVDCommandBlock * PopWaitingQueuePrio(long prio) {
 }
 
 struct DVDCommandBlock * __DVDPopWaitingQueue(void) {
-    unsigned long i;
+    u32 i;
     int enabled;
     struct DVDCommandBlock * q;
 
@@ -68,7 +68,7 @@ struct DVDCommandBlock * __DVDPopWaitingQueue(void) {
 }
 
 int __DVDCheckWaitingQueue(void) {
-    unsigned long i;
+    u32 i;
     int enabled;
     struct DVDCommandBlock * q;
 
@@ -103,7 +103,7 @@ int __DVDDequeueWaitingQueue(struct DVDCommandBlock * block) {
 }
 
 int __DVDIsBlockInWaitingQueue(struct DVDCommandBlock * block) {
-    unsigned long i;
+    u32 i;
     struct DVDCommandBlock * start;
     struct DVDCommandBlock * q;
 
@@ -141,7 +141,7 @@ static char * CommandNames[16] = {
 };
 
 void DVDDumpWaitingQueue(void) {
-    unsigned long i;
+    u32 i;
     struct DVDCommandBlock * start;
     struct DVDCommandBlock * q;
 

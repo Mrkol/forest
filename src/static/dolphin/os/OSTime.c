@@ -11,7 +11,7 @@ static int YearDays[MONTH_MAX]
 static int LeapYearDays[MONTH_MAX]
     = { 0, 31, 60, 91, 121, 152, 182, 213, 244, 274, 305, 335 };
 
-asm long long OSGetTime(void)
+asm s64 OSGetTime(void)
 {
 #ifdef __MWERKS__ // clang-format off
 jump:
@@ -29,7 +29,7 @@ jump:
 #endif // clang-format on
 }
 
-asm unsigned long OSGetTick(void)
+asm u32 OSGetTick(void)
 {
 #ifdef __MWERKS__ // clang-format off
 	nofralloc
@@ -39,13 +39,13 @@ asm unsigned long OSGetTick(void)
 #endif // clang-format on
 }
 
-long long __OSGetSystemTime()
+s64 __OSGetSystemTime()
 {
 	int enabled;
-	long long* timeAdjustAddr;
-	long long result;
+	s64* timeAdjustAddr;
+	s64 result;
 
-	timeAdjustAddr = (long long*)0x800030D8;
+	timeAdjustAddr = (s64*)0x800030D8;
 	enabled        = OSDisableInterrupts();
 
 	result = OSGetTime() + *timeAdjustAddr;
@@ -102,11 +102,11 @@ static void GetDates(int days, OSCalendarTime* td)
 	td->mday = days - md[month] + 1;
 }
 
-void OSTicksToCalendarTime(long long ticks, OSCalendarTime* td)
+void OSTicksToCalendarTime(s64 ticks, OSCalendarTime* td)
 {
 	int days;
 	int secs;
-	long long d;
+	s64 d;
 
 	d = ticks % OSSecondsToTicks(1);
 	if (d < 0) {

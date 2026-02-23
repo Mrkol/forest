@@ -14,11 +14,11 @@
 struct Cell {
 	struct Cell* prev;
 	struct Cell* next;
-	long size;
+	s32 size;
 };
 
 struct HeapDesc {
-	long size;
+	s32 size;
 	struct Cell* free;
 	struct Cell* allocated;
 };
@@ -106,18 +106,18 @@ static struct Cell* DLInsert(struct Cell* list, struct Cell* cell)
 	return cell;
 }
 
-void* OSAllocFromHeap(int heap, unsigned long size)
+void* OSAllocFromHeap(int heap, u32 size)
 {
 	struct HeapDesc* hd;
 	struct Cell* cell;
 	struct Cell* newCell;
-	long leftoverSize;
-	long requested;
+	s32 leftoverSize;
+	s32 requested;
 
 	requested = size;
 	ASSERTMSGLINE(0x14D, HeapArray,
 	              "OSAllocFromHeap(): heap is not initialized.");
-	ASSERTMSGLINE(0x14E, (signed long)size > 0,
+	ASSERTMSGLINE(0x14E, (signed s32)size > 0,
 	              "OSAllocFromHeap(): invalid size.");
 	ASSERTMSGLINE(0x14F, heap >= 0 && heap < NumHeaps,
 	              "OSAllocFromHeap(): invalid heap handle.");
@@ -192,7 +192,7 @@ void OSFreeToHeap(int heap, void* ptr)
 
 void* OSInitAlloc(void* arenaStart, void* arenaEnd, int maxHeaps)
 {
-	unsigned long arraySize;
+	u32 arraySize;
 	int i;
 	struct HeapDesc* hd;
 
@@ -261,7 +261,7 @@ int OSCreateHeap(void* start, void* end)
 void OSDestroyHeap(int heap)
 {
 	struct HeapDesc* hd;
-	long size;
+	s32 size;
 
 	ASSERTMSGLINE(0x30A, HeapArray,
 	              "OSDestroyHeap(): heap is not initialized.");
@@ -282,12 +282,12 @@ void OSDestroyHeap(int heap)
 		return -1;                                                             \
 	}
 
-long OSCheckHeap(int heap)
+s32 OSCheckHeap(int heap)
 {
 	struct HeapDesc* hd;
 	struct Cell* cell;
-	long total = 0;
-	long free  = 0;
+	s32 total = 0;
+	s32 free  = 0;
 
 	ASSERTREPORT(0x37D, HeapArray);
 	ASSERTREPORT(0x37E, 0 <= heap && heap < NumHeaps);
@@ -328,7 +328,7 @@ long OSCheckHeap(int heap)
 	return free;
 }
 
-unsigned long OSReferentSize(void* ptr)
+u32 OSReferentSize(void* ptr)
 {
 	struct Cell* cell;
 
@@ -351,7 +351,7 @@ unsigned long OSReferentSize(void* ptr)
 	              "OSReferentSize(): invalid pointer.");
 	ASSERTMSGLINE(0x3C9, DLLookup(cell->hd->allocated, cell),
 	              "OSReferentSize(): invalid pointer.");
-	return (long)((u32)cell->size - HEADERSIZE);
+	return (s32)((u32)cell->size - HEADERSIZE);
 }
 
 void OSDumpHeap(int heap)

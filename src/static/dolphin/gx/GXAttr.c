@@ -125,10 +125,10 @@ void __GXCalculateVLim(void) {
     static u8 tbl1[] = { 0, 4, 1, 2 };
     static u8 tbl2[] = { 0, 8, 1, 2 };
     static u8 tbl3[] = { 0, 12, 1, 2 };
-    unsigned long vlm;
+    u32 vlm;
     s32 b;
-    unsigned long vl;
-    unsigned long vh;
+    u32 vl;
+    u32 vh;
 
     if (gx->vNum != 0) {
         vl = gx->vcdLo;
@@ -447,7 +447,7 @@ void GXGetVtxAttrFmtv(GXVtxFmt fmt, GXVtxAttrFmtList *vat)
 void GXSetArray(GXAttr attr, const void *base_ptr, u8 stride)
 {
     GXAttr cpAttr;
-    unsigned long phyAddr;
+    u32 phyAddr;
 
     attr;  // needed to match
 

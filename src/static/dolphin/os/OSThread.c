@@ -72,7 +72,7 @@
 	} while (0);
 
 // which header should these go in?
-extern unsigned char _stack_end[];
+extern u8 _stack_end[];
 extern char _stack_addr[];
 
 // .bss
@@ -80,9 +80,9 @@ static OSThreadQueue RunQueue[32];
 static OSThread IdleThread;
 static OSThread DefaultThread;
 static struct OSContext IdleContext;
-static volatile unsigned long RunQueueBits;
+static volatile u32 RunQueueBits;
 static volatile int RunQueueHint;
-static long Reschedule;
+static s32 Reschedule;
 
 #define ALIGN4(val) (((val) + 0x3) & ~0x3)
 #define ALIGN8(val) (((val) + 0x7) & ~0x7)
@@ -93,7 +93,7 @@ static void __OSSwitchThread(OSThread* nextThread);
 static int __OSIsThreadActive(OSThread* thread);
 static void SetRun(OSThread* thread);
 static void UnsetRun(OSThread* thread);
-static OSThread* SetEffectivePriority(OSThread* thread, long priority);
+static OSThread* SetEffectivePriority(OSThread* thread, s32 priority);
 static void UpdatePriority(OSThread* thread);
 static OSThread* SelectThread(int yield);
 
@@ -119,8 +119,8 @@ void __OSThreadInit()
 	__gUnkThread1 = thread;
 	OSClearContext(&thread->context);
 	OSSetCurrentContext(&thread->context);
-	thread->stackBase       = (unsigned char*)&_stack_addr;
-	thread->stackEnd        = (unsigned long*)&_stack_end;
+	thread->stackBase       = (u8*)&_stack_addr;
+	thread->stackEnd        = (u32*)&_stack_end;
 	*(u32*)thread->stackEnd = 0xDEADBABE;
 	__gCurrentThread        = thread;
 	RunQueueBits            = 0;
@@ -173,7 +173,7 @@ static int __OSIsThreadActive(OSThread* thread)
 s32 OSDisableScheduler(void)
 {
 	register int enabled;
-	long count;
+	s32 count;
 
 	enabled    = OSDisableInterrupts();
 	count      = Reschedule;
@@ -185,7 +185,7 @@ s32 OSDisableScheduler(void)
 s32 OSEnableScheduler(void)
 {
 	register int enabled;
-	long count;
+	s32 count;
 
 	enabled    = OSDisableInterrupts();
 	count      = Reschedule;
@@ -230,9 +230,9 @@ static void UnsetRun(OSThread* thread)
 	thread->queue = NULL;
 }
 
-long __OSGetEffectivePriority(OSThread* thread)
+s32 __OSGetEffectivePriority(OSThread* thread)
 {
-	long priority = thread->base;
+	s32 priority = thread->base;
 	struct OSMutex* mutex;
 
 	for (mutex = thread->queueMutex.head; mutex; mutex = mutex->link.next) {
@@ -244,7 +244,7 @@ long __OSGetEffectivePriority(OSThread* thread)
 	return priority;
 }
 
-static OSThread* SetEffectivePriority(OSThread* thread, long priority)
+static OSThread* SetEffectivePriority(OSThread* thread, s32 priority)
 {
 	ASSERTLINE(547, !IsSuspended(thread->suspend));
 
@@ -275,7 +275,7 @@ static OSThread* SetEffectivePriority(OSThread* thread, long priority)
 
 static void UpdatePriority(OSThread* thread)
 {
-	long priority;
+	s32 priority;
 
 	while (1) {
 		if (thread->suspend > 0) {
@@ -292,7 +292,7 @@ static void UpdatePriority(OSThread* thread)
 	}
 }
 
-void __OSPromoteThread(OSThread* thread, long priority)
+void __OSPromoteThread(OSThread* thread, s32 priority)
 {
 	while (1) {
 		if (thread->suspend > 0 || thread->priority <= priority) {
@@ -310,7 +310,7 @@ static OSThread* SelectThread(int yield)
 	struct OSContext* currentContext;
 	OSThread* currentThread;
 	OSThread* nextThread;
-	long priority;
+	s32 priority;
 	OSThreadQueue* queue;
 
 	if (Reschedule > 0) {
@@ -391,11 +391,11 @@ void OSYieldThread(void)
 }
 
 int OSCreateThread(OSThread* thread, void* (*func)(void*), void* param,
-                   void* stack, unsigned long stackSize, long priority,
-                   unsigned short attr)
+                   void* stack, u32 stackSize, s32 priority,
+                   u16 attr)
 {
 	int enabled;
-	unsigned long sp;
+	u32 sp;
 
 	ASSERTMSGLINE(
 	    0x31C, ((priority >= 0) && (priority <= 0x1F)),
@@ -423,8 +423,8 @@ int OSCreateThread(OSThread* thread, void* (*func)(void*), void* param,
 	((u32*)sp)[0] = 0;
 	((u32*)sp)[1] = 0;
 	OSInitContext(&thread->context, (u32)func, sp);
-	thread->context.lr     = (unsigned long)&OSExitThread;
-	thread->context.gpr[3] = (unsigned long)param;
+	thread->context.lr     = (u32)&OSExitThread;
+	thread->context.gpr[3] = (u32)param;
 	thread->stackBase      = stack;
 	thread->stackEnd       = (void*)((unsigned int)stack - stackSize);
 	*thread->stackEnd      = 0xDEADBABE;
@@ -555,10 +555,10 @@ void OSDetachThread(OSThread* thread)
 	OSRestoreInterrupts(enabled);
 }
 
-long OSResumeThread(OSThread* thread)
+s32 OSResumeThread(OSThread* thread)
 {
 	int enabled = OSDisableInterrupts();
-	long suspendCount;
+	s32 suspendCount;
 
 	ASSERTMSG1LINE(0x419, __OSIsThreadActive(thread) != 0,
 	               "OSResumeThread(): thread %p is not active.", thread);
@@ -589,10 +589,10 @@ long OSResumeThread(OSThread* thread)
 	return suspendCount;
 }
 
-long OSSuspendThread(OSThread* thread)
+s32 OSSuspendThread(OSThread* thread)
 {
 	int enabled = OSDisableInterrupts();
-	long suspendCount;
+	s32 suspendCount;
 
 	ASSERTMSG1LINE(0x44C, __OSIsThreadActive(thread) != 0,
 	               "OSSuspendThread(): thread %p is not active.", thread);
@@ -671,7 +671,7 @@ void OSWakeupThread(OSThreadQueue* queue)
 	OSRestoreInterrupts(enabled);
 }
 
-int OSSetThreadPriority(struct OSThread * thread, long priority) {
+int OSSetThreadPriority(struct OSThread * thread, s32 priority) {
     int enabled;
 
     ASSERTMSGLINE(0x4C3, (priority >= 0) && (priority <= 0x1F), "OSSetThreadPriority(): priority out of range (0 <= priority <= 31).");
@@ -693,7 +693,7 @@ int OSSetThreadPriority(struct OSThread * thread, long priority) {
     return 1;
 }
 
-long OSGetThreadPriority(OSThread* thread) { return thread->base; }
+s32 OSGetThreadPriority(OSThread* thread) { return thread->base; }
 
 
 static int CheckThreadQueue(struct OSThreadQueue * queue) {
@@ -736,10 +736,10 @@ static int IsMember(struct OSThreadQueue * queue, struct OSThread * thread) {
         OSPanic(__FILE__, line, ""); \
     }
 
-long OSCheckActiveThreads() {
+s32 OSCheckActiveThreads() {
     struct OSThread * thread;
-    long prio;
-    long cThread;
+    s32 prio;
+    s32 cThread;
     int enabled;
 
     cThread = 0;

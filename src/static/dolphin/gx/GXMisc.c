@@ -452,8 +452,8 @@ u32 GXDecompressZ16(u32 z16, GXZFmt16 zfmt)
 {
     u32 z24;
     u32 cb1;
-    long exp;
-    long shift;
+    s32 exp;
+    s32 shift;
 
     cb1; cb1; cb1; z16; z16; z16;  // needed to match
 
