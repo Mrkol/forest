@@ -40,10 +40,6 @@ typedef struct FamicomCommon {
     /* 0xB4 */ size_t unused_save_data_start_ofs;
 } FamicomCommon;
 
-extern Famicom_MallocInfo* my_malloc_current;
-extern u8 save_game_image;
-extern u8** nesrom_filename_ptrs;
-
 extern u32 nesinfo_tags_size;
 extern u8* nesinfo_tags_start;
 extern u8* nesinfo_tags_end;

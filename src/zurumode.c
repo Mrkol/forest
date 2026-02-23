@@ -1,5 +1,6 @@
 #include "zurumode.h"
 
+#include "libultra/libultra.h"
 #include "m_nmibuf.h"
 #include "padmgr.h"
 #include "jsyswrap.h"

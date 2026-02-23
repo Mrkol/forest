@@ -2,11 +2,12 @@
 #define M_NMIBUF_H
 
 #include "types.h"
-#include "libultra/libultra.h"
 
 #ifdef __cplusplus
 extern "C" {
 #endif
+
+extern s32 osAppNMIBuffer[16];
 
 #define APPNMI_FLAGS_IDX 15
 

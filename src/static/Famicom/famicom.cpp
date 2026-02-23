@@ -1,12 +1,15 @@
 #include "Famicom/famicomPriv.h"
 #include "Famicom/famicomInternal.hpp"
+#include "Famicom/famicom.h"
 
 #include <string.h>
 #include "dolphin/gx.h"
 #include "dolphin/os.h"
 #include "dolphin/mtx.h"
 #include "dolphin/card.h"
+#ifndef TARGET_PC
 #include "libultra/libultra.h"
+#endif
 #include "m_personal_id.h"
 #include "JSystem/JUtility/JUTDbPrint.h"
 #include "JSystem/JKernel/JKRFileFinder.h"
@@ -25,6 +28,12 @@
 #include "nintendo_hi_0.h"
 #include "m_nmibuf.h"
 // #include "JSystem/J2D/J2DGrafContext.h" // needed for ~J2DOrthoGraph
+
+#ifdef TARGET_PC
+#define bcmp(v1, v2, size) memcmp(v1, v2, size)
+#define bcopy(src, dst, n) memmove(dst, src, n)
+#define bzero(ptr, size) memset(ptr, 0, size)
+#endif
 
 /* For some reason, there are a bunch of unused implicit one-byte 4-byte-aligned bss variables */
 #ifdef MUST_MATCH

@@ -1,10 +1,19 @@
+#include "Famicom/famicom.h"
 #include "Famicom/famicomPriv.h"
 
 #include "dolphin/os.h"
+#ifndef TARGET_PC
 #include "libultra/libultra.h"
+#endif
 #include "JSystem/JSystem.h"
 #include "JSystem/JKernel/JKRFileLoader.h"
 #include "terminal.h"
+
+#ifdef TARGET_PC
+#define bcmp(v1, v2, size) memcmp(v1, v2, size)
+#define bcopy(src, dst, n) memmove(dst, src, n)
+#define bzero(ptr, size) memset(ptr, 0, size)
+#endif
 
 /* This is necessary because there are some unused implicitly created
    variables which I don't know how to generate */
