@@ -25,7 +25,7 @@ s32 JFWSystem::CSetUpParam::streamPriority = 8;
 s32 JFWSystem::CSetUpParam::decompPriority = 7;
 s32 JFWSystem::CSetUpParam::aPiecePriority = 6;
 const ResFONT* JFWSystem::CSetUpParam::systemFontRes = &JUTResFONT_Ascfont_fix12;
-const _GXRenderModeObj* JFWSystem::CSetUpParam::renderMode = &GXNtsc480IntDf;
+const GXRenderModeObj* JFWSystem::CSetUpParam::renderMode = &GXNtsc480IntDf;
 u32 JFWSystem::CSetUpParam::exConsoleBufferSize = 0x24F8;
 
 JKRHeap* JFWSystem::rootHeap;

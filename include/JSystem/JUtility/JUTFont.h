@@ -340,7 +340,7 @@ struct JUTCacheFont : public JUTResFont {
     JUTCacheFont(const ResFONT*, u32, JKRHeap*);
 
     virtual ~JUTCacheFont();                  // _08
-    virtual void loadImage(int, _GXTexMapID); // _44
+    virtual void loadImage(int, GXTexMapID); // _44
     virtual void setBlock();                  // _48
 
     bool allocArea(void*, u32, JKRHeap*);
