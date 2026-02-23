@@ -70,7 +70,7 @@ dspch_* AllocDSPchannel(u32 param_1, u32 param_2)
 			if (!ch->_01) {
                 // what the hell is this LOL, whatever it matches
                 ch = (dspch_*)&((volatile dspch_*)DSPCH)[i];
-				ch->_01 = true;
+				ch->_01 = TRUE;
 				ch->_08 = jc;
 				ch->_03 = 1;
 				DSP_AllocInit(i);
@@ -125,7 +125,7 @@ int DeAllocDSPchannel(dspch_* chan, u32 id)
 		break;
 	}
 	chan->_03 = 0;
-	chan->_0C = nullptr;
+	chan->_0C = NULL;
 	chan->_08 = 0;
 	return 0;
 }

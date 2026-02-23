@@ -24,10 +24,10 @@ extern void Na_StaffRollStart(s16 seq_no) {
 }
 
 extern void Na_GetStaffRollInfo(StaffRollInfo_c* info) {
-    group* group = nullptr;
-    sub* subtrack = nullptr;
-    note* note = nullptr;
-    channel* channel = nullptr;
+    group* group = NULL;
+    sub* subtrack = NULL;
+    note* note = NULL;
+    channel* channel = NULL;
     s32 temp;
     s32 mouth_type = 0;
     s32 blink;
@@ -58,11 +58,11 @@ extern void Na_GetStaffRollInfo(StaffRollInfo_c* info) {
 
     for (i = 2; i < AUDIO_SUBTRACK_NUM; i++) {
         subtrack = group->subtracks[i];
-        if (subtrack != nullptr) {
+        if (subtrack != NULL) {
             note = subtrack->note_layers[0];
-            if (note != nullptr && note->channel_attached) {
+            if (note != NULL && note->channel_attached) {
                 channel = note->channel;
-                if (channel != nullptr && channel->common_ch.enabled) {
+                if (channel != NULL && channel->common_ch.enabled) {
                     /* Found our enabled note channel, get mouth type */
                     switch (i) {
                         case 2:

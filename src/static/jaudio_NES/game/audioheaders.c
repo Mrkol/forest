@@ -7,7 +7,7 @@ extern "C" {
 ArcHeader AudioseqHeaderStart ATTRIBUTE_ALIGN(1) = {
     249,                     /* entries */
     0,                       /* unk param */
-    nullptr,                 /* data start pointer */
+    NULL,                 /* data start pointer */
     0,                       /* copy */
     { 0, 0, 0, 0, 0, 0, 0 }, /* pad */
     /* entries */
@@ -2508,7 +2508,7 @@ ArcHeader AudioseqHeaderStart ATTRIBUTE_ALIGN(1) = {
 ArcHeader AudiobankHeaderStart = {
     159,                     /* entries */
     0,                       /* unk param */
-    nullptr,                 /* data start pointer */
+    NULL,                 /* data start pointer */
     0,                       /* copy */
     { 0, 0, 0, 0, 0, 0, 0 }, /* pad */
     /* entries */
@@ -4109,7 +4109,7 @@ ArcHeader AudiobankHeaderStart = {
 ArcHeader AudiowaveHeaderStart ATTRIBUTE_ALIGN(1) = {
     6,                       /* entries */
     0,                       /* unk param */
-    nullptr,                 /* data start pointer */
+    NULL,                 /* data start pointer */
     0,                       /* copy */
     { 0, 0, 0, 0, 0, 0, 0 }, /* pad */
     /* entries */
@@ -4180,7 +4180,7 @@ ArcHeader AudiowaveHeaderStart ATTRIBUTE_ALIGN(1) = {
 ArcHeader AudiodataHeaderStart ATTRIBUTE_ALIGN(1) = {
     3,                       /* entries */
     0,                       /* unk param */
-    nullptr,                 /* data start pointer */
+    NULL,                 /* data start pointer */
     0,                       /* copy */
     { 0, 0, 0, 0, 0, 0, 0 }, /* pad */
     /* entries */

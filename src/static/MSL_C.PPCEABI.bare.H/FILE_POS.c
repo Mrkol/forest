@@ -53,7 +53,7 @@ int _fseek(FILE* file, u32 offset, int whence) {
     }
 
     if (file->file_state.io_state == 1) {
-        if (__flush_buffer(file, nullptr) != 0) {
+        if (__flush_buffer(file, NULL) != 0) {
             file->file_state.error = 1;
             file->buffer_length = 0;
             errno = 0x28;
@@ -95,7 +95,7 @@ int _fseek(FILE* file, u32 offset, int whence) {
     }
 
     if (file->file_state.io_state == 0) {
-        if (file->position_fn != nullptr && (int)file->position_fn(file->handle, &offset, whence, file->idle_fn)) {
+        if (file->position_fn != NULL && (int)file->position_fn(file->handle, &offset, whence, file->idle_fn)) {
             file->file_state.error = 1;
             file->buffer_length = 0;
             errno = 0x28;

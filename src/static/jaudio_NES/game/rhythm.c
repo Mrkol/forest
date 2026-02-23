@@ -52,7 +52,7 @@ static NA_RHYTHM_BUFFER* rhythm_buffer_alloc() {
         }
     }
 
-    return nullptr;
+    return NULL;
 }
 
 static NA_RHYTHM_BUFFER* get_rhythm_buffer(u32 idx) {
@@ -67,21 +67,21 @@ static NA_RHYTHM_BUFFER* get_rhythm_buffer(u32 idx) {
         }
     }
 
-    return nullptr;
+    return NULL;
 }
 
 extern s8 Na_GetRhythmSubTrack(u32 idx) {
     NA_RHYTHM_BUFFER* buf;
 
     buf = get_rhythm_buffer(idx);
-    if (buf == nullptr) {
+    if (buf == NULL) {
         return -1;
     }
     return buf->current_subtrack;
 }
 
 static void rhythm_start(NA_RHYTHM_BUFFER* buffer) {
-    if (buffer != nullptr) {
+    if (buffer != NULL) {
         Nap_SetS8(NA_MAKE_COMMAND(6, 2, buffer->current_subtrack, 0), 0);
         Nap_SetS8(NA_MAKE_COMMAND(6, 2, buffer->current_subtrack, 3), buffer->unk8);
         Nap_SetS8(NA_MAKE_COMMAND(6, 2, buffer->current_subtrack, 7), buffer->unk9);
@@ -90,7 +90,7 @@ static void rhythm_start(NA_RHYTHM_BUFFER* buffer) {
 }
 
 static void rhythm_stop(NA_RHYTHM_BUFFER* buffer) {
-    if (buffer != nullptr) {
+    if (buffer != NULL) {
         if (buffer->state == NA_RHYTHM_BUFFER_STARTED) {
             Nap_SetS8(NA_MAKE_COMMAND(6, 2, buffer->current_subtrack, 0), 1);
         }
@@ -103,10 +103,10 @@ extern void Na_RhythmStart(u32 idx, s8 arg1, s8 arg2) {
     NA_RHYTHM_BUFFER* buf;
 
     buf = get_rhythm_buffer(idx);
-    if (buf == nullptr) {
+    if (buf == NULL) {
         buf = rhythm_buffer_alloc();
     }
-    if (buf != nullptr) {
+    if (buf != NULL) {
         buf->current_buffer_id = idx;
         buf->unk8 = arg1;
         buf->unk9 = arg2;
@@ -118,7 +118,7 @@ extern void Na_RhythmStop(u32 idx) {
     NA_RHYTHM_BUFFER* buf;
 
     buf = get_rhythm_buffer(idx);
-    if (buf != nullptr) {
+    if (buf != NULL) {
         rhythm_stop(buf);
     }
 }
@@ -151,7 +151,7 @@ extern f32 Na_GetRhythmAnimCounter(u32 idx) {
     int r28;
     s16 r27;
 
-    if (buf == nullptr) {
+    if (buf == NULL) {
         return -2.0f;
     }
 
@@ -191,7 +191,7 @@ extern s8 Na_GetRhythmDelay(u32 idx) {
     s8 delay = 0;
 
     buf = get_rhythm_buffer(idx);
-    if (buf == nullptr) {
+    if (buf == NULL) {
         return -1;
     }
     delay = Nap_ReadSubPort(2, buf->current_subtrack, 7);
@@ -330,15 +330,15 @@ static s8 Na_GetRhythmSeNum(s8 num, sub* sub) {
 }
 
 extern void Na_GetRhythmInfo(TempoBeat_c* tempo) {
-    if (tempo != nullptr) {
+    if (tempo != NULL) {
         tempo->tempo = (AG.groups[2].tempo / AUDIO_TATUMS_PER_BEAT);
         tempo->beat = Na_GetRhythmBeatType();
     }
 }
 
 extern void Na_SetRhythmInfo(TempoBeat_c* tempo) {
-    (tempo != nullptr);
-    if ((tempo == nullptr) || (tempo->tempo == 0)) {
+    (tempo != NULL);
+    if ((tempo == NULL) || (tempo->tempo == 0)) {
         Nap_SetS32(NA_MAKE_COMMAND(71, 2, 0, 0), 120);
         rhythm_beat_type = -1;
     } else {

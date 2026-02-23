@@ -20,9 +20,9 @@ extern "C" {
 typedef void (*DSPCallback)(void* task);
 
 typedef struct STRUCT_DSP_TASK {
-  vu32 state;
-  vu32 priority;
-  vu32 flags;
+  volatile u32 state;
+  volatile u32 priority;
+  volatile u32 flags;
   u16* iram_mmem_addr;
   u32 iram_length;
   u32 iram_addr;

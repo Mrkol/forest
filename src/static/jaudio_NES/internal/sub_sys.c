@@ -568,7 +568,7 @@ static void __SetSubParam(sub* subtrack, AudioPort* port) {
                 subtrack->filter = (s16*)port->param.asVoidPtr;
             }
 
-            if (subtrack->filter != nullptr) {
+            if (subtrack->filter != NULL) {
                 Nas_SetBPFilter(subtrack->filter, filter_cutoff >> 4, filter_cutoff & 0xF);
             }
             break;
@@ -605,7 +605,7 @@ static s32 Nap_SilenceCheck_Inner(s32 flags) {
             if (playback_chan->adsr_envp.state.flags.status != ADSR_STATUS_DISABLED) {
                 if (flags >= AUDIO_NOTE_SAMPLE_NOTES) {
                     tuned_sample = common_chan->tuned_sample;
-                    if ((tuned_sample == nullptr) || common_chan->is_synth_wave) {
+                    if ((tuned_sample == NULL) || common_chan->is_synth_wave) {
                         continue;
                     }
 
@@ -650,18 +650,18 @@ extern s32 CreateAudioTask(Acmd* cmds, s16* pSamples, u32 nSamples, s32 param_4)
 
     Z_osSendMesg(AG.task_start_mq_p, (OSMesg)AG.frame_audio_task_count, OS_MESG_NOBLOCK);
 
-    if (NA_VFRAME_CALLBACK != nullptr) {
+    if (NA_VFRAME_CALLBACK != NULL) {
         (*NA_VFRAME_CALLBACK)();
     }
 
     for (i = 0; i < AG.current_frame_dma_count; i++) {
-        Z_osRecvMesg(&AG.cur_audio_frame_dma_queue, nullptr, OS_MESG_NOBLOCK);
+        Z_osRecvMesg(&AG.cur_audio_frame_dma_queue, NULL, OS_MESG_NOBLOCK);
     }
 
     max = AG.cur_audio_frame_dma_queue.validCount;
     if (max != 0) {
         for (i = 0; i < max; i++) {
-            Z_osRecvMesg(&AG.cur_audio_frame_dma_queue, nullptr, OS_MESG_NOBLOCK);
+            Z_osRecvMesg(&AG.cur_audio_frame_dma_queue, NULL, OS_MESG_NOBLOCK);
         }
     }
 

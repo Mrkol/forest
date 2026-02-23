@@ -81,7 +81,7 @@ extern s16* CpubufProcess(DSPBUF_EVENTS event) {
             return dsp_buf[read_buffer];
     }
 
-    return nullptr;
+    return NULL;
 }
 
 extern s16* MixCpu(s32 n_samples) {

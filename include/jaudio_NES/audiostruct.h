@@ -867,7 +867,7 @@ typedef struct AudioGlobals {
     /* 0x29F0 */ s16 num_samples_per_frame[4];
     /* 0x29F8 */ u32 audio_random_seed;
     /* 0x29FC */ s32 audio_error_flags; // unsure about the name, from MM
-    /* 0x2A00 */ vu32 reset_timer;
+    /* 0x2A00 */ volatile u32 reset_timer;
     /* 0x2A04 */ SequenceCallback seq_callbacks[4];
     /* 0x2A14 */ s8 _2A14;
     /* 0x2A18 */ s32 num_abi_cmds_max;
