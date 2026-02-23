@@ -4,6 +4,10 @@
 #include "PR/mbi.h"
 #include "libultra/ultratypes.h"
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #ifndef MAX
 #define MAX(a,b) (((a)>(b))?(a):(b))
 #endif
@@ -62,5 +66,9 @@ void guLookAtHilite (Mtx *m, LookAt *l, Hilite *h,
 
 extern signed short sins (unsigned short angle);
 extern signed short coss (unsigned short angle);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif

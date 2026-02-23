@@ -2,7 +2,7 @@
 #define OS_ADDRESS_H
 
 // maybe put this in OSUtil instead
-#include "types.h"
+#include <dolphin/types.h>
 
 #ifdef __cplusplus
 extern "C"

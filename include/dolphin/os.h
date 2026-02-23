@@ -1,7 +1,7 @@
 #ifndef _DOLPHIN_OS
 #define _DOLPHIN_OS
 
-#include "types.h"
+#include <dolphin/types.h>
 #include "dolphin/os/OSAlloc.h"
 #include "dolphin/os/OSArena.h"
 #include "dolphin/os/OSCache.h"
@@ -15,6 +15,7 @@
 #include "libforest/osreport.h" /* OSReport funcs */
 #include "dolphin/os/OSReset.h"
 #include "dolphin/os/OSFont.h"
+#include "stdarg.h"
 #include <dolphin/os/OSTime.h>
 #include <dolphin/os/OSAlarm.h>
 #include <dolphin/os/OSRtc.h>
@@ -124,7 +125,7 @@ u32 __OSBusClock  : (OS_BASE_CACHED | 0x00F8);
 u32 __OSCoreClock : (OS_BASE_CACHED | 0x00FC);
 s32 __gUnknown800030C0[2] : (OS_BASE_CACHED | 0x30C0);
 u8 __gUnknown800030E3 : (OS_BASE_CACHED | 0x30E3);
-vu16 __OSDeviceCode AT_ADDRESS(OS_BASE_CACHED | 0x30E6);
+extern vu16 __OSDeviceCode AT_ADDRESS(OS_BASE_CACHED | 0x30E6);
 #else
 #define __OSBusClock  (*(u32 *)(OS_BASE_CACHED | 0x00F8))
 #define __OSCoreClock (*(u32 *)(OS_BASE_CACHED | 0x00FC))

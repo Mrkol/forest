@@ -12,7 +12,7 @@
 #include "JSystem/JKernel/JKRDvdRipper.h"
 #include "JSystem/JUtility/JUTFont.h"
 
-#include "MSL_C/printf.h"
+#include <stdio.h>
 
 // TODO: there are a ton of unused functions we may want to add to this, check DnM+'s static.map file
 

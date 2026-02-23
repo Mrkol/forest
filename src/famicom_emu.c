@@ -2,7 +2,6 @@
 #include "famicom_emu.h"
 
 #include "Famicom/famicomPriv.h"
-#include "_mem.h"
 #include "dolphin/gx.h"
 #include "jsyswrap.h"
 #include "libc64/sprintf.h"
@@ -11,6 +10,7 @@
 #include "m_debug.h"
 #include "m_malloc.h"
 #include "m_scene.h"
+#include <string.h>
 
 static int famicom_done = FALSE;
 static int famicom_done_countdown = 0;

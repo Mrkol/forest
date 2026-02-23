@@ -1,7 +1,7 @@
 #ifndef DSP_H
 #define DSP_H
 
-#include "types.h"
+#include <dolphin/types.h>
 #include "dolphin/os/OSTime.h"
 
 #ifdef __cplusplus

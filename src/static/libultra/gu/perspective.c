@@ -1,5 +1,5 @@
 #include "libultra/gu.h"
-#include "MSL_C/math.h"
+#include <math.h>
 
 void guPerspectiveF(float mf[4][4], u16 *perspNorm, float fovy, float aspect, float near, float far, float scale)
 {

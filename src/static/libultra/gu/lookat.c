@@ -1,5 +1,5 @@
 #include "libultra/gu.h"
-#include "MSL_C/w_math.h"
+#include <math.h>
 
 void guLookAtF(float mf[4][4], float xEye, float yEye, float zEye,
 	       float xAt,  float yAt,  float zAt,

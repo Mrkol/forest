@@ -1,5 +1,5 @@
 #include "JSystem/J2D/J2DGrafContext.h"
-#include "MSL_C/math.h"
+#include <math.h>
 
 J2DGrafContext::J2DGrafContext(f32 left, f32 top, f32 right, f32 bottom)
     : mBounds(left, top, left + right, top + bottom), mScissorBounds(left, top, left + right, top + bottom) {

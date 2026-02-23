@@ -1,7 +1,6 @@
 #include "libc64/sprintf.h"
 
 #include "libultra/xprintf.h"
-#include "_mem.h"
 
 
 static void* proutPrintf(void* dst, const char* fmt, int size) {

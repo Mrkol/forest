@@ -1,4 +1,4 @@
-#include <MSL_C/printf.h>
+#include <stdio.h>
 
 #include <dolphin/os.h>
 #include <dolphin/vi.h>

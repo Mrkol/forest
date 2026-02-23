@@ -1,7 +1,6 @@
 #include "libforest/emu64/emu64.hpp"
 #include "libforest/emu64.h"
 
-// #include "MSL_C/w_math.h"
 #include "libultra/libultra.h"
 #include "terminal.h"
 #include "boot.h"
@@ -83,7 +82,7 @@ static texture_cache_t texture_cache_bss = {
     0,
 };
 
-#include "../src/static/libforest/emu64/emu64_utility.c"
+#include "../src/static/libforest/emu64/emu64_utility.cpp"
 
 static GXColor black_color = { 0, 0, 0, 0 };
 static GXColor white_color = { 255, 255, 255, 255 };
@@ -341,6 +340,64 @@ static const u8 tblc[32][4] = {
 static texture_cache_data_entry_t texture_cache_data_entry_tbl[NUM_TEXTURE_CACHE_DATA];
 static int texture_cache_data_entry_num = 0;
 
+#if defined(__MWERKS__)
+/* GCN: linker-provided symbols marking the static data range (.rodata through .data).
+ * Used to determine if a texture address resides in ROM-resident (read-only/initialized) memory. */
+extern void* _f_rodata;  /* start of .rodata section */
+extern void* _e_data;    /* end of .data section */
+
+static inline bool addr_is_static_data(void* addr) {
+    return addr >= _f_rodata && addr <= _e_data;
+}
+#elif defined(WIN32)
+/* PC: Use OS APIs to check if a pointer refers to read-only or read-write static memory
+ * (i.e., .rodata/.data mapped from the executable), as opposed to heap-allocated memory.
+ * This replaces the GCN linker symbol check (_f_rodata / _e_data). */
+#define WIN32_LEAN_AND_MEAN
+#define NOMINMAX
+#include <windows.h>
+/* windows.h defines 'near' and 'far' as empty macros (16-bit legacy).
+ * These collide with struct member names and GX enums used throughout this file. */
+#undef near
+#undef far
+static inline bool addr_is_static_data(void* addr) {
+    MEMORY_BASIC_INFORMATION mbi;
+    if (VirtualQuery(addr, &mbi, sizeof(mbi)) == 0) {
+        return false;
+    }
+    /* MEM_IMAGE means the page is mapped from a PE image (exe/dll).
+     * Static .rodata/.data sections will have this type.
+     * Heap allocations use MEM_PRIVATE instead. */
+    return mbi.Type == MEM_IMAGE;
+}
+#elif defined(__linux__)
+#include <cstdio>
+static bool addr_is_static_data(void* addr) {
+    FILE* f = fopen("/proc/self/maps", "r");
+    if (!f) return false;
+    unsigned long a = (unsigned long)addr;
+    unsigned long start, end;
+    char perms[5], rest[256];
+    bool result = false;
+    while (fscanf(f, "%lx-%lx %4s%[^\n]", &start, &end, perms, rest) == 4) {
+        if (a >= start && a < end) {
+            /* Check for read-only or read-write non-executable mapped file region.
+             * Heap (anonymous) mappings won't have a pathname (rest will be empty/whitespace). */
+            result = (rest[0] != '\0' && rest[0] != '\n');
+            break;
+        }
+    }
+    fclose(f);
+    return result;
+}
+#else
+/* Fallback: assume all addresses are dynamic (conservative — produces correct but slower behavior) */
+static inline bool addr_is_static_data(void* addr) {
+    (void)addr;
+    return false;
+}
+#endif /* MUST_MATCH */
+
 extern void emu64_texture_cache_data_entry_set(void* begin, void* end) {
     texture_cache_data_entry_tbl[texture_cache_data_entry_num].start = begin;
     texture_cache_data_entry_tbl[texture_cache_data_entry_num].end = end;
@@ -350,7 +407,7 @@ extern void emu64_texture_cache_data_entry_set(void* begin, void* end) {
 static texture_cache_t* texture_cache_select(void* addr) {
     int i;
 
-    if (aflags[AFLAGS_SKIP_TEXTURE_CONV] >= 1 || (addr >= _f_rodata && addr <= _e_data)) {
+    if (aflags[AFLAGS_SKIP_TEXTURE_CONV] >= 1 || addr_is_static_data(addr)) {
         return &texture_cache_data;
     }
 
@@ -755,7 +812,7 @@ void emu64::printInfo() {
 
 // @HACK
 // #pragma dont_inline on
-void emu64::panic(char* msg, char* file, int line) {
+void emu64::panic(const char* msg, char* file, int line) {
     if (file) {
         this->Printf0(VT_COL(RED, WHITE) "emu64 PANIC!! in %s line %d" VT_RST "\n", file, line);
     } else {
@@ -3544,7 +3601,7 @@ void emu64::dl_G_LOADTILE() {
 
     /* Determine tmem base address */
     u32 dram = this->now_setimg.setimg2.imgaddr;
-    dram += ((loadtile.tl / 4) * EXPAND_WIDTH(this->now_setimg.setimg2.wd) + (loadtile.sl / 4)
+    dram += (((loadtile.tl / 4) * EXPAND_WIDTH(this->now_setimg.setimg2.wd) + (loadtile.sl / 4))
              << this->now_setimg.setimg2.siz) /
             2;
 
@@ -3813,8 +3870,8 @@ void emu64::dl_G_SETOTHERMODE_H() {
     }
 
 exit:
-    if (this->othermode_high != (data | (this->othermode_high & (1 - (1 << len) << sft) - 1u))) {
-        this->othermode_high = (data | (this->othermode_high & (1 - (1 << len) << sft) - 1u));
+    if (this->othermode_high != (data | (this->othermode_high & ((1 - (1 << len)) << sft) - 1u))) {
+        this->othermode_high = (data | (this->othermode_high & ((1 - (1 << len)) << sft) - 1u));
         this->dirty_flags[EMU64_DIRTY_FLAG_OTHERMODE_HIGH] = true;
     }
 }
@@ -3850,7 +3907,7 @@ void emu64::dl_G_SETOTHERMODE_L() {
     }
 
 exit:
-    u32 othermode = data | (this->othermode_low & (1 - (1 << len) << sft) - 1u);
+    u32 othermode = data | (this->othermode_low & ((1 - (1 << len)) << sft) - 1u);
     if (this->othermode_low != othermode) {
         this->dirty_flags[EMU64_DIRTY_FLAG_FOG] = true;
         this->othermode_low = othermode;
@@ -4330,7 +4387,7 @@ void emu64::dl_G_MTX() {
                 this->model_view_mtx[2][3] = 0.0f;
             }
 
-            if (aflags[AFLAGS_SKIP_MTX_NORMALIZATION] == 0 || this->geometry_mode & G_TEXTURE_GEN != 0) {
+            if (aflags[AFLAGS_SKIP_MTX_NORMALIZATION] == 0 || (this->geometry_mode & G_TEXTURE_GEN) != 0) {
                 /* Normalize matrix */
                 guMtxNormalize(this->model_view_mtx);
             }
@@ -5064,7 +5121,7 @@ void emu64::dl_G_GEOMETRYMODE() {
 
 /* TODO: where should these go? s1, s2, and s3 are after but these are after s */
 static emu64 emu64_class;
-char* emu64::warningString[EMU64_WARNING_COUNT];
+const char* emu64::warningString[EMU64_WARNING_COUNT];
 u32 emu64::warningTime[EMU64_WARNING_COUNT];
 
 void emu64::dl_G_MOVEWORD() {
@@ -5080,7 +5137,7 @@ void emu64::dl_G_MOVEWORD() {
             this->segments[segment] = (0x80000000 + (moveword->data & 0x0FFFFFFF));
             if (segment >= EMU64_NUM_SEGMENTS ||
                 (moveword->data != 0 && (moveword->data < 0x80000000 || moveword->data > 0x83000000))) {
-                sprintf(s1, "gsSPSegmentA no=%d", segment);
+                sprintf(s1, "gsSPSegmentA no=%lu", segment);
                 sprintf(s2, "base=%s", this->segchk(moveword->data));
                 sprintf(s3, "gfxp=%s", this->segchk((u32)this->gfx_p));
                 emu64::warningString[0] = "SPSegment found Illigal Address.";

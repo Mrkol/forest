@@ -1,7 +1,7 @@
 #ifndef OSREPORT_H
 #define OSREPORT_H
 
-#include "types.h"
+#include "dolphin/types.h"
 // #include "va_args.h"
 #include "dolphin/os/OSMutex.h"
 #include "dolphin/os/OSThread.h"
@@ -13,8 +13,8 @@ extern "C" {
 #define DEBUG_MODE 0
 #define RETAIL_MODE 1
 
-/* Causes DSI exception */
-#define OSThrow() (*(int*)0 = 0)
+// use msvc/clang/gcc debug trap intrinsics
+#define OSThrow() __debugbreak()
 
 extern void my_fopen(); /* @unused */
 extern void my_fgets(); /* @unused */

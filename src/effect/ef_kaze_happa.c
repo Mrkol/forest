@@ -108,7 +108,7 @@ static void eKZH_dw(eEC_Effect_c* effect, GAME* game) {
         } else if (counter2 <= 50) {
             scale = 0.0048f;
         } else {
-            scale = scale = eEC_CLIP->calc_adjust_proc(counter, 52, 60, 0.0048f, 0.0f);
+            scale = eEC_CLIP->calc_adjust_proc(counter, 52, 60, 0.0048f, 0.0f);
         }
 
         effect->scale.x = scale;

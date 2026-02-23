@@ -1,6 +1,6 @@
 #ifndef PPCARCH_H
 #define PPCARCH_H
-#include "types.h"
+#include <dolphin/types.h>
 
 #ifdef __cplusplus
 extern "C" {

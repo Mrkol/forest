@@ -6,7 +6,6 @@
 #include "m_private.h"
 #include "m_npc.h"
 #include "m_shop.h"
-#include "_mem.h"
 #include "m_common_data.h"
 #include "libultra/libultra.h"
 

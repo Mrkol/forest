@@ -14,21 +14,14 @@ typedef float  f32;
 typedef double f64;
 
 typedef char *Ptr;
-typedef unsigned int uintptr_t; // Manually added
 
 typedef int BOOL;
 
 #define FALSE 0
 #define TRUE 1
 
-#if defined(__MWERKS__)
-#define AT_ADDRESS(addr) : (addr)
-#elif defined(__GNUC__)
-//#define AT_ADDRESS(addr) __attribute__((address((addr))))
-#define AT_ADDRESS(addr)  // was removed in GCC. define in linker script instead.
-#else
-#error unknown compiler
-#endif
+// TODO: remove
+#define AT_ADDRESS(addr)
 
 #define ATTRIBUTE_ALIGN(num) __attribute__((aligned(num)))
 
@@ -42,12 +35,5 @@ typedef int BOOL;
 #define NULL 0
 #endif
 #endif
-
-#include "libc/stdio.h"
-#include "libc/stdarg.h"
-#include "libc/string.h"
-#include "libc/ctype.h"
-
-#include "cmath.h"
 
 #endif

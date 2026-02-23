@@ -1846,7 +1846,7 @@ void EmuSound_Exit() {
     exitflag = TRUE;
 }
 
-u8 Sound_Read(u16 reg_addr) {    
+u8 Sound_Read(u16 reg_addr) {
     if (reg_addr == 0x5015) {
         u8 x, y, z;
         if (!DUMMY_ACTIVE[6]) {

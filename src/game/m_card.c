@@ -1,10 +1,10 @@
 #include "m_card.h"
 
-#include "card.h"
-#include "card/CARDBios.h"
-#include "card/CARDCheck.h"
-#include "card/CARDMount.h"
-#include "card/__card.h"
+#include "dolphin/card.h"
+#include "dolphin/card/CARDBios.h"
+#include "dolphin/card/CARDCheck.h"
+#include "dolphin/card/CARDMount.h"
+#include "../static/dolphin/card/__card.h"
 #include "graph.h"
 #include "lb_rtc.h"
 #include "libultra/libultra.h"
@@ -12,12 +12,14 @@
 #include "m_all_grow_ovl.h"
 #include "m_event.h"
 #include "m_flashrom.h"
+#include "m_private_h.h"
 #include "m_home.h"
 #include "m_island.h"
 #include "m_land.h"
 #include "m_land_h.h"
 #include "m_mail.h"
 #include "m_malloc.h"
+#include "m_private_h.h"
 #include "libc64/sleep.h"
 #include "m_common_data.h"
 #include "m_font.h"
@@ -34,6 +36,8 @@
 #include "m_cockroach.h"
 #include "m_start_data_init.h"
 #include <string.h>
+
+#define membersize(type, member) (sizeof(((type*)0)->member))
 
 typedef struct card_bg_info {
     CARDFileInfo fileInfo;

@@ -1,7 +1,7 @@
 #ifndef DOLPHIN_SIPRIV
 #define DOLPHIN_SIPRIV
 
-#include "types.h"
+#include <dolphin/types.h>
 #include "dolphin/os.h"
 #include "dolphin/os/OSTime.h"
 #include "dolphin/os/OSInterrupt.h"
@@ -13,16 +13,6 @@ extern "C" {
 
 typedef void (*SICallback)(s32 chan, u32 sr, OSContext* context);
 typedef void (*SITypeAndStatusCallback)(s32 chan, u32 type);
-
-typedef struct SIPacket {
-  s32 chan;
-  void* output;
-  u32 outputBytes;
-  void* input;
-  u32 inputBytes;
-  SICallback callback;
-  OSTime fire;
-} SIPacket;
 
 void SIInit(void);
 u32 SIGetStatus(s32 chan);

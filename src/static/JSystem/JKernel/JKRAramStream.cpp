@@ -13,7 +13,7 @@ OSMessageQueue JKRAramStream::sMessageQueue = { 0 };
 
 JKRAramStream* JKRAramStream::sAramStreamObject = nullptr;
 u8* JKRAramStream::transBuffer = nullptr;
-u32 JKRAramStream::transSize = nullptr;
+u32 JKRAramStream::transSize = 0;
 JKRHeap* JKRAramStream::transHeap = nullptr;
 
 JKRAramStream* JKRAramStream::create(s32 param) {
@@ -61,12 +61,12 @@ s32 JKRAramStream::writeToAram(JKRAramStreamCommand* command) {
     u32 bufferSize = command->mTransferBufferSize;
     JKRHeap* heap = command->mHeap;
     if (buffer) {
-        bufferSize = (bufferSize == nullptr) ? 0x8000 : bufferSize;
+        bufferSize = (bufferSize == 0) ? 0x8000 : bufferSize;
 
         command->mTransferBufferSize = bufferSize;
         command->mAllocatedTransferBuffer = false;
     } else {
-        bufferSize = (bufferSize == nullptr) ? 0x8000 : bufferSize;
+        bufferSize = (bufferSize == 0) ? 0x8000 : bufferSize;
 
         if (heap) {
             buffer = (u8*)JKRAllocFromHeap(heap, bufferSize, -0x20);

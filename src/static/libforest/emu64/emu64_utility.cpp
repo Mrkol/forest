@@ -2,7 +2,7 @@
 
 #include "boot.h"
 #include "terminal.h"
-#include "MSL_C/w_math.h"
+#include <math.h>
 
 u32 emu64::seg2k0(u32 segadr) {
     u32 k0;
@@ -150,7 +150,7 @@ void guMtxXFM1F_dol6w1(MtxP mtx, GXProjectionType type, float x, float y, float 
     }
 }
 
-/* @unused void guMtxXFMWL(N64Mtx*, float, float, float, float, float*, float*, float*, float*) */
+/* @unused void guMtxXFMWL(Mtx*, float, float, float, float, float*, float*, float*, float*) */
 
 void guMtxNormalize(GC_Mtx mtx) {
     for (int i = 0; i < 3; i++) {
@@ -162,7 +162,7 @@ void guMtxNormalize(GC_Mtx mtx) {
     }
 }
 
-/* TODO: Mtx -> N64Mtx, GC_Mtx -> Mtx */
+/* TODO: Mtx -> Mtx, GC_Mtx -> Mtx */
 void N64Mtx_to_DOLMtx(const Mtx* n64, MtxP gc) {
     s16* fixed = ((s16*)n64) + 0;
     u16* frac = ((u16*)n64) + 16;
@@ -178,4 +178,4 @@ void N64Mtx_to_DOLMtx(const Mtx* n64, MtxP gc) {
     }
 }
 
-/* @unused my_guMtxL2F(MtxP, const N64Mtx*) */
+/* @unused my_guMtxL2F(MtxP, const Mtx*) */

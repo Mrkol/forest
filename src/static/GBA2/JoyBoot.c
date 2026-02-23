@@ -1,7 +1,6 @@
 #include "GBA2/gba2.h"
 
-#include "_mem.h"
-#include "MSL_C/printf.h"
+#include <stdio.h>
 
 static Joy_wrk_c g_Joy_wrk;
 int Port;

@@ -1,7 +1,7 @@
 #ifndef DOLPHIN_OS_ALARM_H
 #define DOLPHIN_OS_ALARM_H
 
-#include "types.h"
+#include <dolphin/types.h>
 #include "dolphin/os/OSTime.h"
 #include "dolphin/os/OSContext.h"
 

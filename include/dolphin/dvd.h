@@ -224,7 +224,7 @@ void DVDDumpWaitingQueue();
 
 #define DVD_WATYPE_MAX 2
 
-DVDDiskID DiskID AT_ADDRESS(0x80000000);
+extern DVDDiskID DiskID AT_ADDRESS(0x80000000);
 
 //////////////////////////////////
 

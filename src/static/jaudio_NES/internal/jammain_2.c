@@ -53,9 +53,6 @@ static seqp_* SEQ_P;
 static u8 SEQ_CMD;
 static u32 SEQ_ARG[8];
 
-// predeclare this so Jam_UpdateTrackAll can use this stupid function.
-extern "C" static void OSf32tos8(f32* in, s8* out);
-
 /*
  * --INFO--
  * Address:	8000F400
@@ -1384,16 +1381,6 @@ void Jam_UpdateTrackAll(seqp_* track)
 }
 
 #define OS_FASTCAST_S8 (4)
-
-/*
- * --INFO--
- * Address:	80010E00
- * Size:	00000C
- */
-static void OSf32tos8(register f32* in, volatile register s8* out)
-{
-    *out = __OSf32tos8(*in);
-}
 
 /*
  * --INFO--

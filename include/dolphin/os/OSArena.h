@@ -1,6 +1,6 @@
 #ifndef OS_ARENA_H
 #define OS_ARENA_H
-#include "types.h"
+#include <dolphin/types.h>
 
 #ifdef __cplusplus
 extern "C"{

@@ -13,7 +13,9 @@ extern "C" {
 
 #define SQRT_3_OVER_3_F (SQRT_OF_3_F / 3.0f)
 
+#ifndef M_PI
 #define M_PI 3.14159265358979323846f
+#endif
 
 s16 sins(u16);
 s16 coss(u16);

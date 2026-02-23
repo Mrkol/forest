@@ -2,6 +2,7 @@
 #define JGADGET_LINK_H
 
 #include "types.h"
+#include <iterator>
 
 #include "JSystem/JUtility/JUTAssertion.h"
 #include "JSystem/JGadget/define.h"
@@ -72,6 +73,12 @@ public:
 
   class iterator {
   public:
+    using iterator_category = std::input_iterator_tag;
+    using value_type = TLinkListNode;
+    using difference_type = s32;
+    using pointer = TLinkListNode*;
+    using reference = TLinkListNode&;
+
     friend class TNodeLinkList::const_iterator;
     friend class TNodeLinkList;
   
@@ -103,6 +110,12 @@ public:
 
   class const_iterator {
   public:
+    using iterator_category = std::input_iterator_tag;
+    using value_type = const TLinkListNode;
+    using difference_type = s32;
+    using pointer = const TLinkListNode*;
+    using reference = const TLinkListNode&;
+
     friend class TNodeLinkList;
 
     const_iterator(const TLinkListNode* node) { this->p_ = node; }

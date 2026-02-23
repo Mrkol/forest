@@ -1,4 +1,4 @@
-#include <MSL_C/ctype.h>
+#include <ctype.h>
 #include <string.h>
 
 #include "JSystem/JKernel/JKRArchive.h"

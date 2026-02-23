@@ -72,7 +72,7 @@ static s32 DVDReadMutex(DVDFileInfo* fileInfo, void* addr, s32 len, s32 offs, ch
 }
 
 extern void DVDT_ExtendPath(char* dst, char* ext) {
-    if (*audio_root_path != nullptr) {
+    if (*audio_root_path != 0) {
         strcpy(dst, audio_root_path);
         if (*ext == '/') {
             strcat(dst, ext + 1);

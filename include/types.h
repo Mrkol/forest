@@ -1,7 +1,12 @@
 #ifndef TYPES_H
 #define TYPES_H
 
-#include "MSL_C/w_math.h"
+#include <math.h>
+#include <float.h>
+#include <stddef.h>
+#include <stdint.h>
+#include <string.h>
+#include <stdarg.h>
 #include <dolphin/types.h>
 #include "macros.h"
 
@@ -27,10 +32,6 @@ typedef signed long long s64;
 typedef unsigned char u8;
 typedef unsigned short u16;
 typedef unsigned long u32;
-#ifndef _SIZE_T_DEF
-#define _SIZE_T_DEF
-typedef unsigned long size_t;
-#endif
 typedef unsigned long long u64;
 typedef unsigned int uint;
 
@@ -64,7 +65,9 @@ typedef u32 unknown;
 #define NULL 0
 #endif
 #endif
+#ifndef __cplusplus
 #define nullptr 0
+#endif
 
 // #ifdef __MWERKS__
 // #define AT_ADDRESS(x) : (x)
@@ -87,6 +90,19 @@ typedef u32 unknown;
 #define ATTRIBUTE_ALIGN(num)
 #else
 #error unknown compiler
+#endif
+#endif
+
+/* Symbol export attribute for shared library (DLL) boundaries */
+#ifndef DLLEXPORT
+#if defined(__MWERKS__)
+#define DLLEXPORT __declspec(export)
+#elif defined(_MSC_VER) || (defined(__clang__) && defined(_WIN32))
+#define DLLEXPORT __declspec(dllexport)
+#elif defined(__GNUC__) || defined(__clang__)
+#define DLLEXPORT __attribute__((visibility("default")))
+#else
+#define DLLEXPORT
 #endif
 #endif
 
@@ -140,34 +156,12 @@ typedef u32 unknown;
 #define GPACK_RGB5A3(r, g, b, a) \
     ARGB8_to_RGB5A3((((a) & 0xFF) << 24) | (((r) & 0xFF) << 16) | (((g) & 0xFF) << 8) | ((b) & 0xFF))
 
-#pragma section RX "forcestrip"
-#ifndef __INTELLISENSE__
-#define FORCESTRIP __declspec(section "forcestrip")
-#else
 #define FORCESTRIP
-#endif
 
 #if defined(MUST_MATCH) && defined(__MWERKS__)
 #define MATCH_FORCESTRIP FORCESTRIP
 #else
 #define MATCH_FORCESTRIP
-#endif
-
-#if !defined(__INTELLISENSE__) && defined(MUST_MATCH)
-#define ORDER_BSS_DATA static asm void order_bss()
-#define ORDER_BSS(s) lis r3, s @ha
-#define BSS_ORDER_GROUP_START FORCESTRIP ORDER_BSS_DATA {
-#define BSS_ORDER_GROUP_END }
-#define BSS_ORDER_ITEM(v) ORDER_BSS(v)
-#else
-#define BSS_ORDER_GROUP_START
-#define BSS_ORDER_GROUP_END
-#define BSS_ORDER_ITEM(v)
-#endif
-
-#ifndef __cplusplus
-// Some definitions rely on wchar_t being defined
-typedef unsigned short wchar_t;
 #endif
 
 // #if DEBUG
