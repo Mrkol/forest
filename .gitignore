@@ -20,6 +20,7 @@ orig/*/*
 
 # Build files
 build/
+build_pc/
 .ninja_*
 build.ninja
 
