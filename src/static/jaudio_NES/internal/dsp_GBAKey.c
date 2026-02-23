@@ -4,7 +4,7 @@
 #include "jaudio_NES/dsp_GBAKey.h"
 
 #include "jaudio_NES/ipldec.h"
-#include "gba/GBAPriv.h"
+#include "GBA/GBAPriv.h"
 #include "dolphin/dsp.h"
 
 static s32 F152(DSPTaskInfo* task) {
