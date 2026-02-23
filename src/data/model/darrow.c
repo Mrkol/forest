@@ -5,6 +5,9 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
+static Vtx darrow_v[];
+static Vtx camera_v[];
+
 u8 no_txt[] = {
 #include "assets/no_txt.inc"
 };
@@ -36,7 +39,7 @@ Gfx darrow_model[] = {
     gsSPEndDisplayList(),
 };
 
-Vtx darrow_v[] = {
+static Vtx darrow_v[] = {
 #include "assets/darrow_v.inc"
 };
 
@@ -58,7 +61,7 @@ Gfx camera_model[] = {
     gsSPEndDisplayList(),
 };
 
-Vtx camera_v[] = {
+static Vtx camera_v[] = {
 #include "assets/camera_v.inc"
 };
 
