@@ -298,7 +298,7 @@ extern s32 __DSPCheckMXICBoot2(DSPTaskInfo2* task) {
         DSPSendMailToDSP(0xC000FFCF);
         while (DSPCheckMailToDSP() != 0);
 
-        DSPSendMailToDSP((u16)task->iram_mmem_addr | 0xC0010000);
+        DSPSendMailToDSP((u16)(u32)task->iram_mmem_addr | 0xC0010000);
         while (DSPCheckMailToDSP() != 0);
 
         DSPSendMailToDSP(0xC000FFCD);
