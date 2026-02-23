@@ -3,6 +3,10 @@
 
 #include "famicom_emu.h"
 
+#define Mtx N64Mtx
+#include <PR/gbi.h>
+#undef Mtx
+
 // #include "Famicom/famicomPriv.h"
 #include "jsyswrap.h"
 #include "libc64/sprintf.h"

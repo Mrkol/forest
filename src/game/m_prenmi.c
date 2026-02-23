@@ -1,4 +1,5 @@
 #include "m_prenmi.h"
+#include "graph.h"
 #include "second_game.h"
 #include "irqmgr.h"
 #include "sys_vimgr.h"

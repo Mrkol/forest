@@ -1,5 +1,6 @@
 #include "ac_train_door.h"
 
+#include "graph.h"
 #include "audio.h"
 #include "m_rcp.h"
 #include "m_name_table.h"

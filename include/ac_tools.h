@@ -3,6 +3,7 @@
 
 #include "types.h"
 #include "m_actor.h"
+#include "graph.h"
 #include "libultra/ultratypes.h"
 
 #ifdef __cplusplus
