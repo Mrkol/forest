@@ -392,7 +392,7 @@ s32 Jaq_SetSeqData_Limit(seqp_* track, u8* param_2, u32 param_3, u32 param_4, u8
 		puVar2 = NULL;
 		break;
 	case 2:
-		track->fileHandle = (u8)param_2;
+		track->fileHandle = (u8)(u32)param_2;
 		puVar2            = NULL;
 		break;
 	}
