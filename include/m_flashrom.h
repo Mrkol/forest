@@ -2,7 +2,6 @@
 #define M_FLASHROM_H
 
 #include "types.h"
-#include "libu64/gfxprint.h"
 #include "m_time.h"
 
 #ifdef __cplusplus
@@ -44,6 +43,8 @@ typedef struct flashrom_error_info {
 } mFRm_err_info_c;
 
 typedef int(save_check_proc)(void);
+
+typedef struct gfxprint_obj gfxprint_t;
 
 extern MATCH_FORCESTRIP void mFRm_PrintErrInfo(gfxprint_t* gfxprint);
 extern void mFRm_set_msg_idx(int idx);

@@ -3,10 +3,11 @@
 #include "Famicom/famicom.h"
 
 #include <string.h>
-#include "dolphin/gx.h"
-#include "dolphin/os.h"
-#include "dolphin/mtx.h"
-#include "dolphin/card.h"
+#include <dolphin/gx.h>
+#include <dolphin/vi.h>
+#include <dolphin/os.h>
+#include <dolphin/mtx.h>
+#include <dolphin/card.h>
 #ifndef TARGET_PC
 #include "libultra/libultra.h"
 #endif

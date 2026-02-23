@@ -1,5 +1,6 @@
 #include "ac_rope.h"
 
+#include "graph.h"
 #include "m_rcp.h"
 #include "m_name_table.h"
 #include "m_field_info.h"

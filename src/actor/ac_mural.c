@@ -1,5 +1,6 @@
 #include "ac_mural.h"
 
+#include "graph.h"
 #include "m_debug.h"
 #include "m_name_table.h"
 #include "m_player_lib.h"

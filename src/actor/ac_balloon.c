@@ -1,5 +1,6 @@
 #include "ac_balloon.h"
 
+#include "graph.h"
 #include "m_name_table.h"
 #include "sys_matrix.h"
 #include "m_player_lib.h"

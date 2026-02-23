@@ -4,7 +4,6 @@
 #include "types.h"
 #include "game_h.h"
 #include "TwoHeadArena.h"
-#include "graph.h"
 #include "gamealloc.h"
 #include "libu64/pad.h"
 #include "m_controller.h"
@@ -12,6 +11,8 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
+
+typedef struct graph_s GRAPH;
 
 /* sizeof(struct game_s) == 0xE0 */
 struct game_s {
