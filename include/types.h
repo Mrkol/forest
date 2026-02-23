@@ -25,49 +25,8 @@
 #define FRAMERATE_SELECT(f60, f50) (f60)
 #endif
 
-typedef signed char s8;
-typedef signed short s16;
-typedef signed long s32;
-typedef signed long long s64;
-typedef unsigned char u8;
-typedef unsigned short u16;
-typedef unsigned long u32;
-typedef unsigned long long u64;
 typedef unsigned int uint;
-
-typedef volatile u8 vu8;
-typedef volatile u16 vu16;
-typedef volatile u32 vu32;
-typedef volatile u64 vu64;
-typedef volatile s8 vs8;
-typedef volatile s16 vs16;
-typedef volatile s32 vs32;
-typedef volatile s64 vs64;
-
-typedef float f32;
-typedef double f64;
-typedef volatile f32 vf32;
-typedef volatile f64 vf64;
-
-typedef int BOOL;
-
-// Pointer to unknown, to be determined at a later date.
-typedef void* unkptr;
-typedef u32 unknown;
-
-#define TRUE 1
-#define FALSE 0
-
-#ifndef NULL
-#ifndef __cplusplus
-#define NULL ((void*)0)
-#else
-#define NULL 0
-#endif
-#endif
-#ifndef __cplusplus
-#define nullptr 0
-#endif
+typedef void unknown;
 
 // #ifdef __MWERKS__
 // #define AT_ADDRESS(x) : (x)
