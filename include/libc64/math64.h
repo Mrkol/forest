@@ -20,7 +20,9 @@ extern "C" {
 s16 sins(u16);
 s16 coss(u16);
 f32 fatan2(f32, f32);
+#ifndef TARGET_PC
 f32 fsqrt(f32);
+#endif
 f32 facos(f32);
 
 #ifdef __cplusplus

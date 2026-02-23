@@ -22,9 +22,15 @@ extern "C" {
 
 typedef u64 Z_OSTime;
 
+#ifndef TARGET_PC
 int bcmp(void* v1, void* v2, size_t size);
 void bcopy(void* src, void* dst, size_t n);
 void bzero(void* ptr, size_t size);
+#else
+#define bcmp(v1, v2, size) memcmp(v1, v2, size)
+#define bcopy(src, dst, n) memmove(dst, src, n)
+#define bzero(ptr, size) memset(ptr, 0, size)
+#endif
 void osSyncPrintf(const char* fmt, ...);
 void osWritebackDCache(void* vaddr, u32 nbytes);
 u32 osGetCount(void);

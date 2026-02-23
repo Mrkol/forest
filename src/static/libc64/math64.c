@@ -5,9 +5,11 @@ f32 fatan2(f32 x, f32 y) {
     return atan2(x, y);
 }
 
+#ifndef TARGET_PC
 f32 fsqrt(f32 x) {
     return sqrtf(x);
 }
+#endif
 
 f32 facos(f32 x) {
     return acos(x);
