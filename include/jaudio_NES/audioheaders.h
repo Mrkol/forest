@@ -4,10 +4,18 @@
 #include "types.h"
 #include "jaudio_NES/audiostruct.h"
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 extern ArcHeader AudioseqHeaderStart;
 extern ArcHeader AudiobankHeaderStart;
 extern ArcHeader AudiowaveHeaderStart;
 extern ArcHeader AudiodataHeaderStart;
 extern u16 AudiomapHeaderStart[];
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif

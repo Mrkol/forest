@@ -640,6 +640,12 @@ asm u32 JUTException::getFpscr() { // TODO: figure out if this is possible with 
 }
 #endif // clang-format on
 
+#ifndef __MWERKS__
+u32 JUTException::getFpscr() {
+    return 0;
+}
+#endif
+
 JUTErrorHandler JUTException::setPreUserCallback(JUTErrorHandler callback) {
     JUTErrorHandler previous = sPreUserCallback;
     sPreUserCallback = callback;

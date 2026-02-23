@@ -18,6 +18,7 @@ forest_add_library(JFramework
     SOURCES
         JFramework/JFWDisplay.cpp
         JFramework/JFWSystem.cpp
+        jsystem_pc_stubs.cpp
 )
 
 # --- JGadget ---

@@ -38,3 +38,14 @@ add_subdirectory(libjsys)
 add_subdirectory(JSystem)
 add_subdirectory(jaudio_NES)
 add_subdirectory(Famicom)
+
+# PC-only: stubs for Dolphin OS/AI/DVD/Probe so jaudio_NES and others link.
+# Only built when TARGET_PC is defined (always in this CMake build).
+forest_add_library(dolphin_pc_stubs
+    BASE_DIR        ${CMAKE_CURRENT_SOURCE_DIR}
+    INTERFACE_TARGET forest_static
+    SOURCES
+        dolphin_pc_stubs.c
+    CXX_SOURCES
+        dolphin_pc_stubs_gx.cpp
+)

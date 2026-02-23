@@ -819,6 +819,7 @@ set(FOREST_STATIC_LIBS
     JUtility
     jaudio_NES_game
     jaudio_NES_internal
+    dolphin_pc_stubs
     Famicom
 )
 
@@ -851,7 +852,9 @@ set(FOREST_ALL_LIBS ${FOREST_STATIC_LIBS} ${FOREST_REL_LIBS})
 
 add_executable(forest_dol src/pc/dol_main.c)
 target_link_libraries(forest_dol PRIVATE
+    -Wl,--start-group
     ${FOREST_STATIC_LIBS}
+    -Wl,--end-group
 )
 set_target_properties(forest_dol PROPERTIES
     OUTPUT_NAME "animal_crossing"

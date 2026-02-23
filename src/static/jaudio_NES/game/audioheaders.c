@@ -1,5 +1,9 @@
 #include "jaudio_NES/audioheaders.h"
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 ArcHeader AudioseqHeaderStart ATTRIBUTE_ALIGN(1) = {
     249,                     /* entries */
     0,                       /* unk param */
@@ -4722,3 +4726,7 @@ u16 AudiomapHeaderStart[] ATTRIBUTE_ALIGN(1) = {
     0x0000,
 };
 // clang-format on
+
+#ifdef __cplusplus
+}
+#endif
