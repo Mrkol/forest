@@ -34,7 +34,7 @@ void C_MTXFrustum(Mtx44 m, f32 t, f32 b, f32 l, f32 r, f32 n, f32 f)
 	m[3][3] = 0.0f;
 }
 
-void C_MTXPerspective(GC_Mtx m, f32 fovY, f32 aspect, f32 n, f32 f)
+void C_MTXPerspective(Mtx m, f32 fovY, f32 aspect, f32 n, f32 f)
 {
 	f32 angle;
 	f32 cot;
@@ -62,7 +62,7 @@ void C_MTXPerspective(GC_Mtx m, f32 fovY, f32 aspect, f32 n, f32 f)
 	m[3][3] = 0;
 }
 
-void C_MTXOrtho(GC_Mtx m, f32 t, f32 b, f32 l, f32 r, f32 n, f32 f)
+void C_MTXOrtho(Mtx m, f32 t, f32 b, f32 l, f32 r, f32 n, f32 f)
 {
 	f32 tmp;
 

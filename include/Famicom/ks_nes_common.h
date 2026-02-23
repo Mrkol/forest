@@ -3,7 +3,9 @@
 
 #include "types.h"
 #include "dolphin/os/OSTime.h"
+#define Mtx N64Mtx // ULTRA HACK
 #include "libultra/libultra.h"
+#undef Mtx
 #include <dolphin/mtx.h>
 
 #ifdef __cplusplus

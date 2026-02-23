@@ -93,14 +93,14 @@ void GXSetScissor(u32 left, u32 top, u32 wd, u32 ht) { (void)left;(void)top;(voi
 void GXSetScissorBoxOffset(s32 x, s32 y) { (void)x;(void)y; }
 
 /* MTX (additional) */
-void PSMTXCopy(const GC_Mtx src, GC_Mtx dest) { (void)src;(void)dest; }
-void PSMTXScale(GC_Mtx mtx, f32 x, f32 y, f32 z) { (void)mtx;(void)x;(void)y;(void)z; }
-void PSMTXTrans(GC_Mtx mtx, f32 x, f32 y, f32 z) { (void)mtx;(void)x;(void)y;(void)z; }
-void PSMTXConcat(const GC_Mtx a, const GC_Mtx b, GC_Mtx out) { (void)a;(void)b;(void)out; }
-void PSMTXMultVec(const GC_Mtx m, const Vec* in, Vec* out) { (void)m;(void)in;(void)out; }
-u32 PSMTXInverse(const GC_Mtx src, GC_Mtx inv) { (void)src;(void)inv; return 0; }
+void PSMTXCopy(const Mtx src, Mtx dest) { (void)src;(void)dest; }
+void PSMTXScale(Mtx mtx, f32 x, f32 y, f32 z) { (void)mtx;(void)x;(void)y;(void)z; }
+void PSMTXTrans(Mtx mtx, f32 x, f32 y, f32 z) { (void)mtx;(void)x;(void)y;(void)z; }
+void PSMTXConcat(const Mtx a, const Mtx b, Mtx out) { (void)a;(void)b;(void)out; }
+void PSMTXMultVec(const Mtx m, const Vec* in, Vec* out) { (void)m;(void)in;(void)out; }
+u32 PSMTXInverse(const Mtx src, Mtx inv) { (void)src;(void)inv; return 0; }
 void PSVECNormalize(const Vec* src, Vec* dst) { (void)src;(void)dst; }
-void C_MTXLightOrtho(GC_Mtx mtx, f32 t, f32 b, f32 l, f32 r, f32 scaleS, f32 scaleT, f32 transS, f32 transT) { (void)mtx;(void)t;(void)b;(void)l;(void)r;(void)scaleS;(void)scaleT;(void)transS;(void)transT; }
+void C_MTXLightOrtho(Mtx mtx, f32 t, f32 b, f32 l, f32 r, f32 scaleS, f32 scaleT, f32 transS, f32 transT) { (void)mtx;(void)t;(void)b;(void)l;(void)r;(void)scaleS;(void)scaleT;(void)transS;(void)transT; }
 
 /* GX Texture (additional) */
 void GXInitTexObjCI(GXTexObj* o, void* img, u16 w, u16 h, GXCITexFmt fmt, GXTexWrapMode ws, GXTexWrapMode wt, u8 mip, u32 tlut) { (void)o;(void)img;(void)w;(void)h;(void)fmt;(void)ws;(void)wt;(void)mip;(void)tlut; }
