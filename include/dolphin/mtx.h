@@ -16,13 +16,12 @@ typedef struct {
     f32 x, y, z;
 } Vec, *VecPtr, Point3d, *Point3dPtr;
 
-typedef f32 Mtx34[3][4];
+typedef f32 Mtx[3][4];
 typedef f32 Mtx23[2][3];
 typedef f32 Mtx33[3][3];
 typedef f32 Mtx44[4][4];
 typedef f32 (*MtxPtr)[4];
 typedef f32 PSQuaternion[4];
-typedef Mtx34 Mtx;
 
 typedef struct Quaternion {
     f32 x, y, z, w;

@@ -34,7 +34,7 @@ void GXInvalidateTexAll(void) {}
 void GXInvalidateVtxCache(void) {}
 
 void C_MTXOrtho(Mtx44 mtx, f32 t, f32 b, f32 l, f32 r, f32 n, f32 f) { (void)mtx;(void)t;(void)b;(void)l;(void)r;(void)n;(void)f; }
-void PSMTXIdentity(Mtx34 mtx) { (void)mtx; }
+void PSMTXIdentity(Mtx mtx) { (void)mtx; }
 
 void GXSetProjection(const void* mtx, GXProjectionType type) { (void)mtx;(void)type; }
 void GXLoadPosMtxImm(const void* mtx, u32 id) { (void)mtx;(void)id; }

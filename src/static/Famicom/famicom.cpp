@@ -180,7 +180,7 @@ static void process_filer_mode() {
     static const Vec at = { 0.0f, 0.0f, -100.0f };
     static const Vec up = { 0.0f, 1.0f, 0.0f };
     Mtx44 m;
-    Mtx34 lookat_m;
+    Mtx lookat_m;
 
     GXInvalidateTexAll();
     GXInvalidateVtxCache();
