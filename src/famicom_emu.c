@@ -1,7 +1,8 @@
+// Needs to go first for N64Mtx trick!
+#include "Famicom/famicomPriv.h"
 
 #include "famicom_emu.h"
 
-#include "Famicom/famicomPriv.h"
 #include <dolphin/gx.h>
 #include "jsyswrap.h"
 #include "libc64/sprintf.h"
