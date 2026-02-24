@@ -2,7 +2,7 @@
 #define KS_NES_COMMON_H
 
 #include "types.h"
-#include "dolphin/os/OSTime.h"
+#include <dolphin/os/OSTime.h>
 #include <dolphin/mtx.h>
 
 #ifdef __cplusplus

@@ -1,4 +1,4 @@
-#include "dolphin/os/OSArena.h"
+#include <dolphin/os/OSArena.h>
 
 static void* __OSArenaLo = (void*) - 1;
 static void* __OSArenaHi = NULL;

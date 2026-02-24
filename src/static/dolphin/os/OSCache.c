@@ -1,7 +1,7 @@
-#include "dolphin/os/OSCache.h"
-#include "dolphin/os/OSError.h"
-#include "dolphin/os/OSContext.h"
-#include "dolphin/base/PPCArch.h"
+#include <dolphin/os/OSCache.h>
+#include <dolphin/os/OSError.h>
+#include <dolphin/os/OSContext.h>
+#include <dolphin/base/PPCArch.h>
 
 void DBPrintf(char* str, ...);
 void OSReport(char* msg, ...);
