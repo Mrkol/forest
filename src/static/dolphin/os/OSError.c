@@ -1,9 +1,9 @@
-#include "dolphin/os/OSError.h"
-#include "dolphin/os/OSException.h"
-#include "dolphin/os/OSInterrupt.h"
-#include "dolphin/os/OSTime.h"
-#include "dolphin/base/PPCArch.h"
-#include "dolphin/hw_regs.h"
+#include <dolphin/os/OSError.h>
+#include <dolphin/os/OSException.h>
+#include <dolphin/os/OSInterrupt.h>
+#include <dolphin/os/OSTime.h>
+#include <dolphin/base/PPCArch.h>
+#include <dolphin/hw_regs.h>
 // #include "va_args.h"
 
 OSErrorHandler __OSErrorTable[OS_ERROR_MAX];

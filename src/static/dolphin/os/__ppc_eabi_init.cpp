@@ -1,7 +1,7 @@
-#include "dolphin/os/__ppc_eabi_init.h"
+#include <dolphin/os/__ppc_eabi_init.h>
 
-#include "dolphin/base/PPCArch.h"
-#include "dolphin/os.h"
+#include <dolphin/base/PPCArch.h>
+#include <dolphin/os.h>
 #include "types.h"
 
 #ifdef __cplusplus

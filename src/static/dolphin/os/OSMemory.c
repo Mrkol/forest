@@ -1,9 +1,9 @@
 #include <dolphin/os.h>
-#include "dolphin/os/OSMemory.h"
-#include "dolphin/os/OSError.h"
-#include "dolphin/os/OSInterrupt.h"
-#include "dolphin/hw_regs.h"
-#include "dolphin/os/OSReset.h"
+#include <dolphin/os/OSMemory.h>
+#include <dolphin/os/OSError.h>
+#include <dolphin/os/OSInterrupt.h>
+#include <dolphin/hw_regs.h>
+#include <dolphin/os/OSReset.h>
 
 #define TRUNC(n, a) (((u32)(n)) & ~((a)-1))
 #define ROUND(n, a) (((u32)(n) + (a)-1) & ~((a)-1))

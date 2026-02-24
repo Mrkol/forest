@@ -1,7 +1,7 @@
 #include "Famicom/famicom.h"
 #include "Famicom/famicomPriv.h"
 
-#include "dolphin/os.h"
+#include <dolphin/os.h>
 #ifndef TARGET_PC
 #include "libultra/libultra.h"
 #endif

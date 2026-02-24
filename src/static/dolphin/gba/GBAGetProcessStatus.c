@@ -1,6 +1,6 @@
 #include "GBA/GBAPriv.h"
-#include "dolphin/os/OSInterrupt.h"
-#include "dolphin/os/OSTime.h"
+#include <dolphin/os/OSInterrupt.h>
+#include <dolphin/os/OSTime.h>
 
 s32 GBAGetProcessStatus(s32 chan, u8* percentp) {
     BOOL enabled; // r26

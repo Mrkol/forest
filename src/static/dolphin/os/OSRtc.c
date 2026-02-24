@@ -1,7 +1,7 @@
-#include "dolphin/os/OSRtc.h"
+#include <dolphin/os/OSRtc.h>
 
-#include "dolphin/os/OSCache.h"
-#include "dolphin/os.h"
+#include <dolphin/os/OSCache.h>
+#include <dolphin/os.h>
 #include "types.h"
 
 static SramControlBlock Scb ATTRIBUTE_ALIGN(32);

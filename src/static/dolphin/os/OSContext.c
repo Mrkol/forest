@@ -1,5 +1,5 @@
-#include "dolphin/os/OSContext.h"
-#include "dolphin/os/OSException.h"
+#include <dolphin/os/OSContext.h>
+#include <dolphin/os/OSException.h>
 
 extern void OSReport(char* msg, ...);
 
