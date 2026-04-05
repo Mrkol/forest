@@ -223,6 +223,8 @@ typedef struct private_item_keep_s {
     mPr_animal_memory_c animal_memory;
 } mCD_PrivateItem_c;
 
+#define CARD_NUM_CHANS 2
+
 typedef struct {
     int chan;
     int loaded_file_type;

@@ -1,12 +1,8 @@
 #include "JSystem/JUtility/JUTAssertion.h"
 #include "JSystem/JKernel/JKRHeap.h"
+#include "JSystem/JMacro.h"
 #include <cstdlib>
 #include <new>
-#include <dolphin/os.h>
-#include <dolphin/os/OSArena.h>
-#include <dolphin/os/OSAlloc.h>
-#include <dolphin/os/OSMemory.h>
-#include <dolphin/os/OSUtil.h>
 #include <dolphin/os.h>
 
 /* Exported from DOL so REL can import them (see FOREST_API in types.h) */
@@ -267,7 +263,7 @@ void JKRHeap::copyMemory(void* dst, void* src, u32 size) {
 void JKRDefaultMemoryErrorRoutine(void* heap, u32 size, int alignment) {
     // OSReport("Error: Cannot allocate memory %d(0x%x)byte in %d byte alignment from %08x\n", size, size, alignment,
     // heap);
-    OSErrorLine(710, "abort\n");
+    JPANIC(710, "abort\n");
 }
 
 JKRHeapErrorHandler* JKRHeap::setErrorHandler(JKRHeapErrorHandler* newHandler) {

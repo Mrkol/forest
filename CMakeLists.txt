@@ -105,7 +105,21 @@ CPMAddPackage(
   GIT_TAG bd20b65d59c2bd119e078ee87a8b896cc82994d2
   OPTIONS
     "AURORA_ENABLE_GX OFF"
+    "AURORA_ENABLE_DVD ON"
+    "AURORA_SDL3_PROVIDER vendor"
+    "AURORA_NOD_PROVIDER vendor"
 )
+
+# Temporary workaround: disable SDL3 precompiled headers due unstable behavior
+# with this toolchain setup.
+if(TARGET SDL3-shared)
+    set_target_properties(SDL3-shared PROPERTIES DISABLE_PRECOMPILE_HEADERS ON)
+    message(STATUS "forest: disabled PCH for SDL3-shared")
+endif()
+if(TARGET SDL3-static)
+    set_target_properties(SDL3-static PROPERTIES DISABLE_PRECOMPILE_HEADERS ON)
+    message(STATUS "forest: disabled PCH for SDL3-static")
+endif()
 
 # ==============================================================================
 # Global settings
@@ -169,12 +183,12 @@ target_compile_options(forest_common INTERFACE
     # Allow multi-character constants (used for FourCC tags like 'DATA')
     # (MSVC does not warn on multi-character constants by default)
     $<$<NOT:$<C_COMPILER_ID:MSVC>>:-Wno-multichar>
-    # Pointer-to-int casts are pervasive in 32-bit GCN code
+    # Pointer/integer casts in decompiled code
     $<$<NOT:$<C_COMPILER_ID:MSVC>>:-Wno-pointer-to-int-cast>
     $<$<NOT:$<C_COMPILER_ID:MSVC>>:-Wno-int-to-pointer-cast>
-    $<$<C_COMPILER_ID:MSVC>:/wd4302>    # 'conversion': truncation from pointer
-    $<$<C_COMPILER_ID:MSVC>:/wd4311>    # pointer truncation from 'type' to 'type'
-    $<$<C_COMPILER_ID:MSVC>:/wd4312>    # conversion from 'type' to 'type' of greater size
+    $<$<C_COMPILER_ID:MSVC>:/we4302>    # error: truncation from pointer
+    $<$<C_COMPILER_ID:MSVC>:/we4311>    # error: pointer truncation from 'type' to 'type'
+    $<$<C_COMPILER_ID:MSVC>:/we4312>    # error: conversion from 'type' to 'type' of greater size
     # Decompiled code has many sign/implicit conversion patterns
     $<$<NOT:$<C_COMPILER_ID:MSVC>>:-Wno-implicit-function-declaration>
     $<$<C_COMPILER_ID:MSVC>:/wd4013>    # function undefined; assuming extern returning int
@@ -905,6 +919,9 @@ file(GLOB_RECURSE DATAOBJECT_SOURCES
 if(DATAOBJECT_SOURCES)
     add_library(dataobject STATIC ${DATAOBJECT_SOURCES})
     target_link_libraries(dataobject PUBLIC forest_rel)
+    if(MSVC)
+        target_compile_options(dataobject PRIVATE "/FI${CMAKE_SOURCE_DIR}/src/pc/msvc_dataobject_compat.h")
+    endif()
 endif()
 
 # ==============================================================================
@@ -996,31 +1013,20 @@ target_link_libraries(forest_dol PRIVATE
     aurora::mtx
     aurora::vi
     aurora::os
+    aurora::card
+    aurora::dvd
 )
 set_target_properties(forest_dol PROPERTIES
     OUTPUT_NAME "animal_crossing"
 )
 
-if(MSVC OR (CMAKE_C_COMPILER_ID STREQUAL "Clang" AND CMAKE_C_SIMULATE_ID STREQUAL "MSVC"))
-    foreach(_lib IN LISTS FOREST_STATIC_LIBS)
-        target_link_options(forest_dol PRIVATE
-            "/WHOLEARCHIVE:$<TARGET_FILE:${_lib}>"
-        )
-    endforeach()
-    target_link_options(forest_dol PRIVATE
-        "/WHOLEARCHIVE:$<TARGET_FILE:foresta_rel>"
-    )
-elseif(CMAKE_C_COMPILER_ID STREQUAL "GNU")
-    target_link_options(forest_dol PRIVATE
-        -Wl,--whole-archive
-        $<TARGET_FILE:foresta_rel>
-        -Wl,--no-whole-archive
-    )
-elseif(CMAKE_C_COMPILER_ID STREQUAL "Clang")
-    target_link_options(forest_dol PRIVATE
-        -Wl,--whole-archive
-        $<TARGET_FILE:foresta_rel>
-        -Wl,--no-whole-archive
+if(WIN32)
+    # Ensure runtime DLL deps (e.g. SDL3, nod) are available next to launch location.
+    add_custom_command(TARGET forest_dol POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy_if_different
+            $<TARGET_RUNTIME_DLLS:forest_dol>
+            ${CMAKE_BINARY_DIR}
+        COMMAND_EXPAND_LISTS
     )
 endif()
 
@@ -1035,26 +1041,10 @@ endif()
 add_library(foresta_rel STATIC
     src/pc/rel_main.c
 )
-target_link_libraries(foresta_rel PRIVATE forest_common)
+target_link_libraries(foresta_rel PRIVATE forest_common ${FOREST_REL_LIBS})
 target_link_libraries(foresta_rel PRIVATE aurora::os aurora::core aurora::mtx)
 
 # Engine libs the game code needs (DOL already has full FOREST_STATIC_LIBS).
 set(FOREST_STATIC_LIBS_FOR_REL ${FOREST_STATIC_LIBS})
 list(REMOVE_ITEM FOREST_STATIC_LIBS_FOR_REL boot JKernel)
 target_link_libraries(foresta_rel PRIVATE ${FOREST_STATIC_LIBS_FOR_REL})
-
-# Game logic libs; use whole-archive so all objects are included.
-if(MSVC OR (CMAKE_C_COMPILER_ID STREQUAL "Clang" AND CMAKE_C_SIMULATE_ID STREQUAL "MSVC"))
-    target_link_libraries(foresta_rel PRIVATE ${FOREST_REL_LIBS})
-    foreach(_lib IN LISTS FOREST_REL_LIBS)
-        target_link_options(foresta_rel PRIVATE
-            "/WHOLEARCHIVE:$<TARGET_FILE:${_lib}>"
-        )
-    endforeach()
-else()
-    target_link_libraries(foresta_rel PRIVATE
-        -Wl,--whole-archive
-        ${FOREST_REL_LIBS}
-        -Wl,--no-whole-archive
-    )
-endif()

@@ -381,7 +381,7 @@ extern void debug_hayakawa_move(pad_t* pad) {
         if (GETREG(SREG, 21) & 1) {
             OSReportDisable();
         } else {
-            if (OS_CONSOLE_IS_DEV()) {
+            if ( ((OSGetConsoleType() & OS_CONSOLE_DEVELOPMENT) != 0)) {
                 OSReportEnable();
             }
         }

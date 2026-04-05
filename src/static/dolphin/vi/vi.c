@@ -3,7 +3,6 @@
 #include <dolphin/hw_regs.h>
 #include <dolphin/os.h>
 #include <dolphin/si.h>
-#include <macros.h>
 
 #include "gx/__gx.h"
 #include "os/__os.h"

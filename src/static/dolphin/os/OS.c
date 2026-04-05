@@ -3,7 +3,6 @@
 #include <dolphin/db.h>
 #include <dolphin/exi.h>
 #include <string.h>
-#include <macros.h>
 #include "../src/static/dolphin/os/__os.h"
 
 void EnableMetroTRKInterrupts(void);

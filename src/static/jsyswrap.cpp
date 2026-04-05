@@ -5,7 +5,7 @@
 #include "JSystem/JUtility/TColor.h"
 #include "libforest/emu64.h"
 #include "m_lib.h"
-#include <dolphin/os/OSArena.h>
+#include <dolphin/os.h>
 #include <dolphin/vi.h>
 #include "libc64/malloc.h"
 

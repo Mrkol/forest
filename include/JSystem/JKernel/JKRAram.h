@@ -176,8 +176,8 @@ class JKRAMCommand : public ARQRequest {
     JSULink<JKRAMCommand> mLink30;
     s32 mDirection;
     u32 mLength;
-    u32 mSource;
-    u32 mDestination;
+    uintptr_t mSource;
+    uintptr_t mDestination;
     JKRAramBlock* mAramBlock;
     u8 _54[4];
     AMCommandCallback mCallback;
@@ -212,7 +212,7 @@ class JKRAramPiece {
     static bool sync(JKRAMCommand* cmd, BOOL noBlock);
     static bool orderSync(int direction, u32 source, u32 destination, u32 length, JKRAramBlock* aramBlock);
     static void startDMA(JKRAMCommand* cmd);
-    static void doneDMA(u32 arg);
+    static void doneDMA(uintptr_t arg);
 
     static OSMutex mMutex;
     static JSUList<JKRAMCommand> sAramPieceCommandList;

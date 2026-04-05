@@ -75,9 +75,11 @@ void OSPanic(const char* file, int line, const char* fmt, ...) {
 }
 
 extern void OSChangeBootMode(u32 mode) {
+    #ifndef TARGET_PC
     __OSSetBootMode(mode ? OS_BOOT_MODE_RETAIL : OS_BOOT_MODE_DEBUG);
-    
+
     while(__OSSyncSram() == FALSE) { }
+    #endif
 }
 
 extern void OSDVDFatalError(void) {

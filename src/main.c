@@ -18,12 +18,6 @@
 #include "m_land.h"
 #include <string.h>
 
-#ifdef TARGET_PC
-#define EXPORT __declspec(dllexport)
-#else
-#define EXPORT
-#endif
-
 // TODO: actually add all the stacks and headers
 
 OSThread graphThread;
@@ -34,7 +28,7 @@ u8 SegmentBaseAddress[0x40];
 int ScreenWidth = SCREEN_WIDTH;
 int ScreenHeight = SCREEN_HEIGHT;
 
-extern void mainproc(void* val) {
+void mainproc(void* val) {
 
     irqmgr_client_t irqClient;
     OSMessageQueue irqMgrMsgQueue;
@@ -82,17 +76,17 @@ extern void mainproc(void* val) {
     } while (msg != NULL);
 }
 
-EXPORT u32 entry(void) {
+u32 entry(void) {
     padmgr_Init(NULL);
     new_Debug_mode();
 
     SETREG(SREG, 0, 0);
     mainproc(NULL);
 
-    return 0;
+    return 0; 
 }
 
-EXPORT int foresta_main(void) {
+int foresta_main(void) {
     OSReport("どうぶつの森 main2 開始\n");
 #ifndef TARGET_PC
     HotStartEntry = &entry;

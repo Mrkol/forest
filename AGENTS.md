@@ -233,7 +233,6 @@ Static data tables for the game: field layouts, font data, item definitions, NPC
 | `include/Runtime.PPCEABI.H/`  | Runtime headers |
 | `include/OdemuExi2/`          | Debug EXI headers |
 | `include/types.h`             | Core type definitions (`u8`, `u16`, `u32`, `s8`, `s16`, `s32`, `f32`, `f64`, etc.) |
-| `include/macros.h`            | Common macros |
 | `include/ac_*.h`              | Actor headers (one per actor type) |
 | `include/m_*.h`               | Game module headers |
 | `include/sys_*.h`             | System utility headers |

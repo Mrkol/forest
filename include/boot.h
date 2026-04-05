@@ -3,7 +3,9 @@
 
 #include "types.h"
 #include <dolphin/os/OSModule.h>
+#if !TARGET_PC
 #include <dolphin/os/OSLink.h>
+#endif
 #include <dolphin/os/OSTime.h>
 
 #ifdef __cplusplus

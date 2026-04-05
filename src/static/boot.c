@@ -3,10 +3,6 @@
 #include <stdio.h>
 #include <dolphin/dvd.h>
 #include <dolphin/os.h>
-#include <dolphin/os/OSArena.h>
-#include <dolphin/os/OSContext.h>
-#include <dolphin/os/OSModule.h>
-#include <dolphin/os/OSReset.h>
 #include <dolphin/pad.h>
 #include "aurora/aurora.h"
 #include "libforest/fault.h"
@@ -241,7 +237,7 @@ failed:
 HMODULE LoadLink(const char* module_name) {
     HMODULE module;
     OSReport("モジュール(%s)の読み込み中\n", module_name); /* Loading module (%s) */
-    
+
     module = LoadLibraryA(module_name);
     if (module == NULL) {
         OSReport("モジュール(%s)の読み込みに失敗しました\n", module_name); /* Failed to load module (%s) */
@@ -277,12 +273,14 @@ void audioFatalCallback() {
  *
  */
 void sound_initial() {
+#ifndef TARGET_PC
     Na_InitAudio(audioFatalCallback, NULL, 0, nintendo_hi_0, 0x66a0, FALSE);
     OSReport("sizeof(nintendo_hi_0)=%08x\n", 0x9900);
     OSReport("実際のnintendo_hi_0.awのサイズ=%08x \n", 0x66a0); /* Real nintendo_hi_0.aw size=%08x */
     OSReport("ニンテンドー発生タイムラグまで寝てます(%dms)" VT_RST "\n",
              2500); /* Sleeping until Nintendo latency time (%dms) occurs */
     msleep(2500);
+#endif
 }
 
 /**
@@ -290,12 +288,14 @@ void sound_initial() {
  *
  */
 void sound_initial2() {
+#ifndef TARGET_PC
     while (!Na_CheckNeosBoot()) {
         VIWaitForRetrace();
         Na_GameFrame();
     }
 
     bzero(&nintendo_hi_0, sizeof(nintendo_hi_0));
+#endif
 }
 
 /**
@@ -476,6 +476,10 @@ void fault_callback_scroll() {
  * osAppNMIBuffers's 'extended memory' bitflag must be enabled for extended memory settings.
  */
 void adjustOSArena() {
+#if TARGET_PC
+    return;
+#endif
+
     void* arenalo = OSGetArenaLo();
     void* arenahi = OSGetArenaHi();
 
@@ -541,7 +545,6 @@ static void log_callback(AuroraLogLevel level, const char* module, const char* m
  * @return int exitCode
  */
 int main(int argc, const char** argv) {
-
     const AuroraConfig config = {
         .appName = "Demo",
         .logCallback = &log_callback,

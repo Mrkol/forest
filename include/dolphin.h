@@ -19,6 +19,4 @@
 #include <dolphin/ai.h>
 // #include <dolphin/demo.h>
 
-#include "macros.h"
-
 #endif

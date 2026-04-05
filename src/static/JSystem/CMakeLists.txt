@@ -85,7 +85,7 @@ file(WRITE "${CMAKE_CURRENT_BINARY_DIR}/JUTFontData_Ascfont_fix12_pc.c"
 "#ifdef _MSC_VER\n"
 "#define FONT_ALIGN __declspec(align(32))\n"
 "#else\n"
-"#define FONT_ALIGN __attribute__((aligned(32)))\n"
+"#define FONT_ALIGN \n"
 "#endif\n"
 "FONT_ALIGN const u8 JUTResFONT_Ascfont_fix12[] = {\n${FONT_BFN_C}\n};\n")
 forest_add_library(JUtility

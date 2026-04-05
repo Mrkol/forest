@@ -1,6 +1,5 @@
 #include <dolphin/odemuexi/DebuggerDriver.h>
 #include <dolphin/os.h>
-#include <macros.h>
 
 static __OSInterruptHandler MTRCallback;
 // not __OSInterruptHandler because f u that's why
