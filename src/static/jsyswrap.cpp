@@ -487,6 +487,7 @@ extern void JW_Init() {
     JC_JUTConsole_setOutput(jc_sysConsole, 3);
     JC_JUTConsole_setPosition(jc_sysConsole, 32, 42);
     void* display_manager = JC_JFWDisplay_createManager_0(&GXNtsc480IntDf, JC_JFWSystem_getSystemHeap(), 2, 1);
+    JC_JFWDisplay_setTickRateMilliseconds(display_manager, 16);
     JC_JUTProcBar_setVisible(JC_JUTProcBar_getManager(), FALSE);
     JC_JUTProcBar_setVisibleHeapBar(JC_JUTProcBar_getManager(), FALSE);
     jc_gport = JC_J2DOrthoGraph_new();

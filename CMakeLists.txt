@@ -110,6 +110,19 @@ CPMAddPackage(
     "AURORA_NOD_PROVIDER vendor"
 )
 
+CPMAddPackage(
+  NAME libco
+  GITHUB_REPOSITORY higan-emu/libco
+  GIT_TAG e18e09d634d612a01781168ad4d76be10a7e3bad
+)
+
+# libco ships sources only (no CMake target); define one locally.
+if(NOT TARGET libco)
+        add_library(libco STATIC "${libco_SOURCE_DIR}/libco.c")
+        target_include_directories(libco PUBLIC "${libco_SOURCE_DIR}")
+        add_library(libco::libco ALIAS libco)
+endif()
+
 # Temporary workaround: disable SDL3 precompiled headers due unstable behavior
 # with this toolchain setup.
 if(TARGET SDL3-shared)
@@ -141,6 +154,22 @@ set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
 # Position-independent code (required for shared library targets on Linux/macOS)
 set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 
+add_library(dthread STATIC
+    src/pc/dthread/OSThread.cpp
+    src/pc/dthread/OSAlarm.cpp
+    src/pc/dthread/OSDeadlock.cpp
+    src/pc/dthread/OSMutex.cpp
+    src/pc/dthread/OSCond.cpp
+    src/pc/dthread/OSMessage.cpp
+)
+target_link_libraries(dthread PUBLIC
+    aurora::core
+    libco::libco
+)
+if(WIN32)
+    target_link_libraries(dthread PRIVATE dbghelp)
+endif()
+
 # ==============================================================================
 # Common interface targets for shared compile settings
 # ==============================================================================
@@ -162,7 +191,7 @@ target_include_directories(forest_includes INTERFACE
 
 # Common defines for game code (both DOL and REL)
 add_library(forest_common INTERFACE)
-target_link_libraries(forest_common INTERFACE forest_includes)
+target_link_libraries(forest_common INTERFACE forest_includes dthread)
 target_compile_definitions(forest_common INTERFACE
     _LANGUAGE_C
     F3DEX_GBI_2
@@ -195,6 +224,9 @@ target_compile_options(forest_common INTERFACE
     # Narrowing conversions (e.g. -1 to u16) are common in GCN-era initializers
     $<$<AND:$<COMPILE_LANGUAGE:CXX>,$<NOT:$<C_COMPILER_ID:MSVC>>>:-Wno-c++11-narrowing>
     $<$<AND:$<COMPILE_LANGUAGE:CXX>,$<C_COMPILER_ID:MSVC>>:/wd4838>
+    # Ensure UTF-8 literals are decoded/encoded as UTF-8 with MSVC-style frontends (cl/clang-cl).
+    $<$<AND:$<COMPILE_LANGUAGE:C>,$<C_COMPILER_FRONTEND_VARIANT:MSVC>>:/utf-8>
+    $<$<AND:$<COMPILE_LANGUAGE:CXX>,$<CXX_COMPILER_FRONTEND_VARIANT:MSVC>>:/utf-8>
 )
 
 # Settings specific to static DOL libraries

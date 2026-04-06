@@ -87,13 +87,13 @@ int JKRDvdFile::readData(void* data, s32 length, s32 ofs) {
         OSUnlockMutex(&this->mDvdMutex);
         return -1;
     } else {
-        // this->mDvdThread = OSGetCurrentThread();
-        // retAddr = -1;
-        // if (DVDReadAsync(&this->mDvdFileInfo, data, length, ofs, JKRDvdFile::doneProcess)) {
-        //     retAddr = this->sync();
-        // }
+        this->mDvdThread = OSGetCurrentThread();
+        retAddr = -1;
+        if (DVDReadAsync(&this->mDvdFileInfo, data, length, ofs, JKRDvdFile::doneProcess)) {
+            retAddr = this->sync();
+        }
 
-        // this->mDvdThread = nullptr;
+        this->mDvdThread = nullptr;
         DVDReadAsync(&this->mDvdFileInfo, data, length, ofs, JKRDvdFile::doneProcess);
         OSUnlockMutex(&this->mDvdMutex);
     }

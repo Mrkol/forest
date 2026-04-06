@@ -84,6 +84,8 @@ extern u8 JC_JUTGamePad_recalibrate(u32 port);
 extern void* JC_JFWDisplay_getManager();
 extern int JC_JFWDisplay_startFadeIn(void* manager, int len);
 extern void JC_JFWDisplay_setFrameRate(void* manager, u16 framerate);
+extern void JC_JFWDisplay_setTickRate(void* manager, u32 tickrate);
+extern void JC_JFWDisplay_setTickRateMilliseconds(void* manager, u32 milliseconds);
 extern void JC_JFWDisplay_endFrame(void* manager);
 extern void JC_JFWDisplay_beginRender(void* manager);
 extern void JC_JFWDisplay_endRender(void* manager);

@@ -5,6 +5,7 @@
 #include <dolphin/os.h>
 #include <dolphin/pad.h>
 #include "aurora/aurora.h"
+#include "aurora/dvd.h"
 #include "libforest/fault.h"
 #include "jaudio_NES/game64.h"
 #include "libc64/malloc.h"
@@ -25,17 +26,20 @@
 #include "libforest/batconfig.h"
 #include <dolphin/os/OSAlarm.h>
 #include <stdlib.h>
+#include <locale.h>
 #include "dvderr.h"
 #include "libforest/osreport.h"
 
-#ifdef TARGET_PC
+#if defined(_WIN32)
 #include <windows.h>
 #endif
 
-#ifndef TARGET_PC
+#if !defined(TARGET_PC)
 static OSModuleHeader* moduleA;
-#else
+#elif defined(_WIN32)
 static HMODULE moduleA;
+#else
+static void* moduleA;
 #endif
 
 static void* StringTable; // swapped with fakemain_check
@@ -169,7 +173,7 @@ extern void UnLink(OSModuleHeader* module) {
     JW_Free(module);
 }
 
-#ifndef TARGET_PC
+#if !defined(TARGET_PC)
 /**
  * @brief Relocatable module (reL) loading utility function. Loads a module by its file name.
  * May return NULL if unable to load the module for whatever reason.
@@ -233,7 +237,7 @@ failed:
     JW_Free(module);
     return NULL;
 }
-#else
+#elif defined(_WIN32)
 HMODULE LoadLink(const char* module_name) {
     HMODULE module;
     OSReport("モジュール(%s)の読み込み中\n", module_name); /* Loading module (%s) */
@@ -256,6 +260,11 @@ HMODULE LoadLink(const char* module_name) {
     }
 
     return module;
+}
+#else
+void* LoadLink(const char* module_name) {
+    (void)module_name;
+    return NULL;
 }
 #endif
 
@@ -530,7 +539,8 @@ static void log_callback(AuroraLogLevel level, const char* module, const char* m
             out = stderr;
             break;
     }
-    fprintf(out, "[%s: %s;%s]\n", levelStr, module, message);
+    fprintf(out, "[%s][%s] %.*s\n", levelStr, module ? module : "", (int)len, message ? message : "");
+
     if (level == LOG_FATAL) {
         fflush(out);
         abort();
@@ -545,12 +555,19 @@ static void log_callback(AuroraLogLevel level, const char* module, const char* m
  * @return int exitCode
  */
 int main(int argc, const char** argv) {
+#if WIN32
+    SetConsoleOutputCP(CP_UTF8);
+#endif
+
     const AuroraConfig config = {
         .appName = "Demo",
         .logCallback = &log_callback,
         .mem1Size = 256 * 1024 * 1024,
     };
     AuroraInfo initInfo = aurora_initialize(argc, argv, &config);
+    extern void __OSThreadInit();
+    __OSThreadInit();
+    aurora_dvd_open("D:\\Games\\GameCube\\Animal Crossing (USA).rvz");
 
     static fault_client my_fault_client1, my_fault_client2, my_fault_client3, my_fault_client4, my_fault_client5,
         my_fault_client6;
@@ -750,9 +767,9 @@ int main(int argc, const char** argv) {
         HotStartEntry = (*(void* (*)())HotStartEntry)();
     }
 
-#ifndef TARGET_PC
+#if !defined(TARGET_PC)
     UnLink(moduleA);
-#else
+#elif defined(_WIN32)
     if (moduleA != NULL)
         FreeLibrary(moduleA);
 #endif
@@ -765,6 +782,7 @@ int main(int argc, const char** argv) {
     OSReport("どうぶつの森ブートローダ終了\n"); /* Animal Crossing bootloader end */
     JW_Cleanup();
 
+    aurora_dvd_close();
     aurora_shutdown();
     return 0;
 }

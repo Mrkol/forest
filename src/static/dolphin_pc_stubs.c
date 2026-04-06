@@ -73,17 +73,9 @@ BOOL OSRestoreInterrupts(BOOL level) { return FALSE; }
 OSInterruptMask __OSMaskInterrupts(OSInterruptMask mask) { return mask; }
 OSInterruptMask __OSUnmaskInterrupts(OSInterruptMask mask) { return mask; }
 BOOL OSGetResetSwitchState(void) { return FALSE; }
-OSThread* OSGetCurrentThread(void) { return NULL; }
-void OSInitAlarm(void) { }
 u32 OSGetResetCode(void) { return 0; }
 u32 OSGetConsoleType(void) { return 0; }
-void OSInitMutex(OSMutex* mutex) { (void)mutex; }
-void OSLockMutex(OSMutex* mutex) { (void)mutex; }
-void OSUnlockMutex(OSMutex* mutex) { (void)mutex; }
 void OSGetSaveRegion(void** start, void** end) { if (start) *start = NULL; if (end) *end = NULL; }
-int OSSetThreadPriority(OSThread* thread, OSPriority priority) { (void)thread; (void)priority; return 0; }
-void OSExitThread(void* val) { (void)val; }
-void OSCancelThread(OSThread* thread) { (void)thread; }
 u32 OSGetProgressiveMode(void) { return 0; }
 void OSSetProgressiveMode(u32 on) { (void)on; }
 VIRetraceCallback VISetPreRetraceCallback(VIRetraceCallback cb) { (void)cb; return NULL; }
@@ -91,39 +83,20 @@ void LCDisable(void) { }
 
 u16 OSGetFontEncode(void) { return 0; }
 VIRetraceCallback VISetPostRetraceCallback(VIRetraceCallback cb) { (void)cb; return NULL; }
-void OSInitMessageQueue(OSMessageQueue* mq, void* msgArray, s32 msgCount) { (void)mq; (void)msgArray; (void)msgCount; }
-int OSSendMessage(OSMessageQueue* mq, void* msg, s32 flags) { (void)mq; (void)msg; (void)flags; return 0; }
-int OSJamMessage(OSMessageQueue* mq, void* msg, s32 flags) { return 0; }
 OSErrorHandler OSSetErrorHandler(u16 error, OSErrorHandler handler) { (void)error; (void)handler; return NULL; }
-BOOL OSResumeThread(OSThread *thread) { (void)thread; return TRUE; }
-int OSReceiveMessage(OSMessageQueue* mq, void* msg, s32 flags) { (void)mq; (void)msg; (void)flags; return 0; }
 void OSFillFPUContext(OSContext *context) { (void)context; }
 void OSClearContext(OSContext* context) { (void)context; }
 void OSSetCurrentContext(OSContext* context) { (void)context; }
 void OSProtectRange(u32 channel, void *addr, u32 size, u32 control) { (void)channel; (void)addr; (void)size; (void)control; }
-s32 OSEnableScheduler(void) { return 0; }
-void OSYieldThread(void) { }
-void OSCreateAlarm(OSAlarm* alarm) { (void)alarm; }
-void OSSetAlarm(OSAlarm* alarm, s64 tick, void (*handler)(OSAlarm *, OSContext *)) { (void)alarm; (void)tick; (void)handler; }
-void OSCancelAlarm(OSAlarm *alarm) { (void)alarm; }
-BOOL OSSuspendThread(OSThread *thread) { (void)thread; return FALSE; }
-void OSDetachThread(OSThread* thread) { }
 void DCFlushRange(void *addr, u32 size) { (void)addr; (void)size; }
 void DCFlushRangeNoSync(void *addr, u32 size) { (void)addr; (void)size; }
 void DCZeroRange(void *addr, u32 size) { (void)addr; (void)size; }
 void PPCSync(void) { }
 void DCTouchRange(void *addr, u32 size) { (void)addr; (void)size; }
-s32 OSGetThreadPriority(OSThread *thread) { (void)thread; return 0; }
 void AISetDSPSampleRate(u32 rate) { (void)rate; }
 void (*AIRegisterDMACallback(void (*callback)(void)))(void) { (void)callback; return NULL; }
 void AIStartDMA(void) { }
-void OSInitThreadQueue(OSThreadQueue *mq) { (void)mq; }
-BOOL OSIsThreadTerminated(OSThread *thread) { (void)thread; return TRUE; }
 u32 ARGetBaseAddress(void) { return 0; }
-int OSCreateThread(OSThread* thread, void* (*func)(void*), void* param, void* stack, u32 stackSize, OSPriority priority, u16 attr) { return 0; }
-void OSSleepThread(OSThreadQueue* queue) { (void)queue; }
-int OSJoinThread(OSThread* thread, void* val) { (void)thread; (void)val; return 1; }
-s32 OSCheckActiveThreads(void) { return 0; }
 __OSInterruptHandler __OSSetInterruptHandler(__OSInterrupt interrupt, __OSInterruptHandler handler) {
     (void)interrupt;
     (void)handler;
