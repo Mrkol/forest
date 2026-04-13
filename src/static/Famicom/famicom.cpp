@@ -345,6 +345,8 @@ static const s32 checkTableNG[] = {
     CARD_RESULT_WRONGDEVICE
 };
 
+#define CARD_NUM_CHANS 2
+
 static s32 famicom_getSaveChan(int nesrom_memcard, s32* result) {
     s32 chan_result[2];
     s32 card_err;

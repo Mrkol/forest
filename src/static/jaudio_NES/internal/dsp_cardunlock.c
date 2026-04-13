@@ -7,7 +7,6 @@
 #include "jaudio_NES/ipldec.h"
 #include <dolphin/os.h>
 #include <dolphin/card.h>
-#include "../../dolphin/card/__card.h"
 
 #define DATA_SCRAMBLE_R(data) (~(data ^ (data >> 7) ^ (data >> 15) ^ (data >> 23)))
 #define DATA_SCRAMBLE_L(data) (~(data ^ (data << 7) ^ (data << 15) ^ (data << 23)))
@@ -74,6 +73,7 @@ static u32 bitrev(u32 data)
  */
 static s32 ReadArrayUnlock(s32 chan, u32 data, void* rbuf, s32 length, BOOL mode)
 {
+	#ifndef TARGET_PC
 	ASSERTLINE(217, 0 <= chan && chan < 2);
 	CARDControl* card = &__CARDBlock[chan];
 
@@ -100,6 +100,10 @@ static s32 ReadArrayUnlock(s32 chan, u32 data, void* rbuf, s32 length, BOOL mode
 	err |= !EXIImmEx(chan, rbuf, length, EXI_READ);
 	err |= !EXIDeselect(chan);
 	return err ? CARD_RESULT_NOCARD : CARD_RESULT_READY;
+	#else
+	ASSERT(false);
+	return 0;
+	#endif
 }
 
 /*
@@ -160,6 +164,8 @@ struct CARDDecodeParameters {
  */
 int __CARDUnlock(int chan, u8 flashID[12])
 {
+	#ifndef TARGET_PC
+
 	u32 Ans1, Ans2;
 	u8 rbuf[64];
     u32 para1A;
@@ -256,6 +262,10 @@ int __CARDUnlock(int chan, u8 flashID[12])
 	*(u32*)(flashID + 8) = Ans1;
 
 	return CARD_RESULT_READY;
+
+	#else
+	ASSERT(false);
+	#endif
 }
 
 /*
@@ -274,6 +284,8 @@ static void InitCallback(void* dspTask)
  */
 static void DoneCallback(void* dspTask)
 {
+	#ifndef TARGET_PC
+
 	DSPTaskInfo* task = (DSPTaskInfo*)dspTask;
 
 	u8 rbuf[64];
@@ -339,4 +351,8 @@ static void DoneCallback(void* dspTask)
 		result = CARD_RESULT_IOERROR;
 	}
 	__CARDMountCallback(chan, result);
+
+	#else
+	ASSERT(false);
+	#endif
 }

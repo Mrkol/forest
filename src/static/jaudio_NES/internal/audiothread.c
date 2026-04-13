@@ -91,7 +91,7 @@ static void __DspSync(__OSInterrupt interrupt, OSContext* context) {
 
 static void __DspReg(void) {
     BOOL enable = OSDisableInterrupts();
-    __OSSetInterruptHandler(OS_INTR_DSP_DSP, &__DspSync);
+    __OSSetInterruptHandler(__OS_INTERRUPT_DSP_DSP, &__DspSync);
     OSRestoreInterrupts(enable);
 }
 

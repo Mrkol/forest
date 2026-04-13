@@ -261,6 +261,14 @@ extern void JC_JFWDisplay_setFrameRate(void* manager, u16 framerate) {
     reinterpret_cast<JFWDisplay*>(manager)->setFrameRate(framerate);
 }
 
+extern void JC_JFWDisplay_setTickRate(void* manager, u32 tickrate) {
+    reinterpret_cast<JFWDisplay*>(manager)->setTickRate(tickrate);
+}
+
+extern void JC_JFWDisplay_setTickRateMilliseconds(void* manager, u32 milliseconds) {
+    reinterpret_cast<JFWDisplay*>(manager)->setTickRate(OSMillisecondsToTicks(milliseconds));
+}
+
 extern void JC_JFWDisplay_setFader(void* manager, void* fader) {
     reinterpret_cast<JFWDisplay*>(manager)->setFader(reinterpret_cast<JUTFader*>(fader));
 }

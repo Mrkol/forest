@@ -405,7 +405,7 @@ extern void proc(void* arg) {
 }
 
 static void* my_alloc(size_t size) {
-  return JW_Alloc(size, 32);
+  return JW_Alloc(size, 4096);
 }
 
 static void my_free(void* ptr) {
@@ -425,7 +425,7 @@ extern void initial_menu_init() {
   else {
     osCreateMesgQueue(&commandQ, commandMsgBuf, 2);
     osCreateMesgQueue(&statusQ, statusMsgBuf, 1);
-    osCreateThread2(Thread_p, 1, &proc, NULL, (void*)((int)initialMenuStack + INITIAL_MENU_STACK_SIZE), INITIAL_MENU_STACK_SIZE, 1);
+    osCreateThread2(Thread_p, 1, &proc, NULL, (void*)((uintptr_t)initialMenuStack + INITIAL_MENU_STACK_SIZE), INITIAL_MENU_STACK_SIZE, 1);
     osStartThread(Thread_p);
     JC_JFWDisplay_startFadeIn(JC_JFWDisplay_getManager(), 32);
     osSendMesg(&commandQ, (OSMessage)INITIAL_MENU_OSMESG_INIT_DONE, OS_MESSAGE_NOBLOCK);

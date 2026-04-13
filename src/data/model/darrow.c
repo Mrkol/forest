@@ -5,8 +5,18 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-static Vtx darrow_v[];
-static Vtx camera_v[];
+
+static Vtx darrow_v[] = {
+#include "assets/darrow_v.inc"
+};
+
+static Vtx camera_v[] = {
+#include "assets/camera_v.inc"
+};
+
+u8 v_debug_texture[] = {
+#include "assets/v_debug_texture.inc"
+};
 
 u8 no_txt[] = {
 #include "assets/no_txt.inc"
@@ -39,10 +49,6 @@ Gfx darrow_model[] = {
     gsSPEndDisplayList(),
 };
 
-static Vtx darrow_v[] = {
-#include "assets/darrow_v.inc"
-};
-
 Gfx camera_model[] = {
     gsSPVertex(camera_v, 32, 0),
     gsSP2Triangles(0, 1, 2, 0, 1, 3, 2, 0),
@@ -59,14 +65,6 @@ Gfx camera_model[] = {
     gsSP2Triangles(0, 1, 2, 0, 0, 2, 3, 0),
     gsSP2Triangles(4, 5, 6, 0, 4, 6, 7, 0),
     gsSPEndDisplayList(),
-};
-
-static Vtx camera_v[] = {
-#include "assets/camera_v.inc"
-};
-
-u8 v_debug_texture[] = {
-#include "assets/v_debug_texture.inc"
 };
 
 Gfx RCP_debug_texture_16x16_8[] = {

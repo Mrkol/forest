@@ -23,7 +23,7 @@ typedef struct _ApploaderHeader {
 	/* 0x1C */ u32 reserved2;
 } ApploaderHeader; // Size: 0x20
 
-static ApploaderHeader Header __attribute__((aligned(32)));
+static ApploaderHeader Header ;
 
 static asm void Run(register void (*addr)())
 {

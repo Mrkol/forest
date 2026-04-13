@@ -96,7 +96,7 @@ void JKRAramPiece::startDMA(JKRAMCommand* cmd) {
     ARQPostRequest(cmd, 0, cmd->mDirection, 0, cmd->mSource, cmd->mDestination, cmd->mLength, JKRAramPiece::doneDMA);
 }
 
-void JKRAramPiece::doneDMA(u32 param) {
+void JKRAramPiece::doneDMA(uintptr_t param) {
     JKRAMCommand* cmd = (JKRAMCommand*)param;
     if (cmd->mDirection == ARAM_DIR_ARAM_TO_MRAM) {
         DCInvalidateRange((u8*)cmd->mDestination, cmd->mLength);

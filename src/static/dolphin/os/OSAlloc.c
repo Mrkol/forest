@@ -1,7 +1,6 @@
 #include <dolphin.h>
 #include <dolphin/base/PPCArch.h>
 #include <dolphin/os.h>
-#include <macros.h>
 
 #define ALIGNMENT 32
 

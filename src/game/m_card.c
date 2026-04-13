@@ -1,10 +1,6 @@
 #include "m_card.h"
 
 #include <dolphin/card.h>
-#include <dolphin/card/CARDBios.h>
-#include <dolphin/card/CARDCheck.h>
-#include <dolphin/card/CARDMount.h>
-#include "../static/dolphin/card/__card.h"
 #include "graph.h"
 #include "lb_rtc.h"
 #include "libultra/libultra.h"
@@ -252,7 +248,11 @@ static int mCD_get_file_num(void* workArea, int chan) {
 }
 
 extern void mCD_init_card(void) {
+    #if TARGET_PC
+    CARDInit("Animal Crossing", "Nintendo");
+    #else
     CARDInit();
+    #endif
 }
 
 static void mCD_ClearCardBgInfo(mCD_bg_info_c* bg_info) {

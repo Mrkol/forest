@@ -8,7 +8,7 @@
 extern "C" {
 #endif
 
-#define INITIAL_MENU_STACK_SIZE 0x2800
+#define INITIAL_MENU_STACK_SIZE 8 * 0x4000
 
 #define INITIAL_MENU_LIMIT_TIME (OSMicrosecondsToTicks(10000000ull))
 #define INITIAL_MENU_SELECT_WAIT_TIME (OSMicrosecondsToTicks(3000000ull))

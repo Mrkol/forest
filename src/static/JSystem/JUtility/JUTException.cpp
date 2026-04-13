@@ -5,7 +5,6 @@
 #include <dolphin/gx.h>
 #include <dolphin/os.h>
 #include <dolphin/vi.h>
-#include <dolphin/os/OSLink.h>
 
 #include <stdio.h>
 #include <string.h>
@@ -156,6 +155,7 @@ void JUTException::showFloat(OSContext* context) {
     }
 
     sConsole->print("-------------------------------- FPR\n");
+#ifndef TARGET_PC
     for (int i = 0; i < 10; i++) {
         showFloatSub(i, context->fpr[i]);
         sConsole->print(" ");
@@ -168,6 +168,7 @@ void JUTException::showFloat(OSContext* context) {
     sConsole->print(" ");
     showFloatSub(21, context->fpr[21]);
     sConsole->print("\n");
+#endif
 }
 
 bool JUTException::searchPartialModule(u32 address, u32* module_id, u32* section_id, u32* section_offset,
@@ -231,6 +232,7 @@ void JUTException::showStack(OSContext* context) {
     sConsole->print("-------------------------------- TRACE\n");
     sConsole->print_f("Address:   BackChain   LR save\n");
 
+#ifndef TARGET_PC
     for (i = 0, stackPointer = (u32*)context->gpr[1];
          (stackPointer != nullptr) && (stackPointer != (u32*)0xFFFFFFFF) && (i++ < 0x10);) {
         if (i > mTraceSuppress) {
@@ -245,6 +247,7 @@ void JUTException::showStack(OSContext* context) {
         waitTime(mPrintWaitTime1);
         stackPointer = (u32*)stackPointer[0];
     }
+#endif
 }
 
 void JUTException::showMainInfo(u16 error, OSContext* context, u32 dsisr, u32 dar) {
@@ -252,9 +255,11 @@ void JUTException::showMainInfo(u16 error, OSContext* context, u32 dsisr, u32 da
         return;
     }
 
+#ifndef TARGET_PC
     sConsole->print_f("CONTEXT:%08XH  (%s EXCEPTION)\n", context, sCpuExpName[error]);
     sConsole->print_f("SRR0:   %08XH   SRR1:%08XH\n", context->srr0, context->srr1);
     sConsole->print_f("DSISR:  %08XH   DAR: %08XH\n", dsisr, dar);
+#endif
 }
 
 void JUTException::showGPR(OSContext* context) {
@@ -263,11 +268,13 @@ void JUTException::showGPR(OSContext* context) {
     }
 
     sConsole->print("-------------------------------- GPR\n");
+#ifndef TARGET_PC
     for (int i = 0; i < 10; i++) {
         sConsole->print_f("R%02d:%08XH  R%02d:%08XH  R%02d:%08XH\n", i, context->gpr[i], i + 11, context->gpr[i + 11],
                           i + 22, context->gpr[i + 22]);
     }
     sConsole->print_f("R%02d:%08XH  R%02d:%08XH\n", 10, context->gpr[10], 21, context->gpr[21]);
+#endif
 }
 
 bool JUTException::showMapInfo_subroutine(u32 address, bool begin_with_newline) {
@@ -324,6 +331,7 @@ void JUTException::showGPRMap(OSContext* context) {
     bool found_address_register = false;
     sConsole->print("-------------------------------- GPRMAP\n");
 
+#ifndef TARGET_PC
     for (int i = 0; i < 31; i++) {
         u32 address = context->gpr[i];
 
@@ -338,6 +346,7 @@ void JUTException::showGPRMap(OSContext* context) {
             waitTime(mPrintWaitTime1);
         }
     }
+#endif
 
     if (!found_address_register) {
         sConsole->print("  no register which seem to address.\n");
@@ -625,7 +634,6 @@ void JUTException::createFB() {
 
     mFrameMemory = (JUTExternalFB*)object;
 }
-
 
 #ifdef __MWERKS__ // clang-format off
 asm u32 JUTException::getFpscr() { // TODO: figure out if this is possible with asm

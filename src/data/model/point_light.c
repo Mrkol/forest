@@ -5,7 +5,9 @@
 #include "ac_npc.h"
 #include "ef_effect_control.h"
 
-static u8 elf_layA0_txt[];
+static u8 elf_layA0_txt[] = {
+#include "assets/elf_layA0_txt.inc"
+};
 
 Vtx point_light_v[] = {
 #include "assets/point_light_v.inc"
@@ -30,8 +32,3 @@ Gfx point_light_model[] = {
     gsSP2Triangles(2, 1, 0, 0, 3, 2, 0, 0),
     gsSPEndDisplayList(),
 };
-
-static u8 elf_layA0_txt[] = {
-#include "assets/elf_layA0_txt.inc"
-};
-

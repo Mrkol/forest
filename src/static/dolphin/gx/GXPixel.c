@@ -1,7 +1,6 @@
 #include <libc/math.h>
 #include <dolphin/gx.h>
 #include <dolphin/types.h>
-#include <macros.h>
 
 #include "gx/__gx.h"
 

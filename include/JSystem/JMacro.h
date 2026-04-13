@@ -21,9 +21,9 @@
 #define JPANIC(line, msg) ()       /* TODO: JUTException */
 #define JPANICF(line, msg, ...) () /* TODO: JUTException */
 #else
-#define JPANICLINE(line) (OSErrorLine(line, "Abort."))
-#define JPANIC(line, msg) (OSErrorLine(line, msg))
-#define JPANICF(line, msg, ...) (OSErrorLine(line, msg, __VA_ARGS__))
+#define JPANICLINE(line) (OSPanic(__FILE__, line, "Abort."))
+#define JPANIC(line, msg) (OSPanic(__FILE__, line, msg))
+#define JPANICF(line, msg, ...) (OSPanic(__FILE__, line, msg, __VA_ARGS__))
 #endif
 
 #endif

@@ -1,6 +1,5 @@
 #include <dolphin.h>
 #include <dolphin/os.h>
-#include <macros.h>
 
 #include "os/__os.h"
 

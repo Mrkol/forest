@@ -9,7 +9,6 @@
 #include <stdarg.h>
 #include <intrin.h>
 #include <dolphin/types.h>
-#include "macros.h"
 
 #ifdef TARGET_PC
 #define BSWAP16(x) _byteswap_ushort(x)

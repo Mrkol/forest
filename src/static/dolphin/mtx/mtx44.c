@@ -1,6 +1,5 @@
 #include <dolphin.h>
 #include <dolphin/mtx.h>
-#include <macros.h>
 
 extern f32 tanf(f32);
 

@@ -3,7 +3,6 @@
 #include <dolphin.h>
 #include <dolphin/base/PPCArch.h>
 #include <string.h>
-#include <macros.h>
 
 #include "ar/__ar.h"
 

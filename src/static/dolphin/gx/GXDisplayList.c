@@ -2,7 +2,6 @@
 
 #include <dolphin/gx.h>
 #include <dolphin/os.h>
-#include <macros.h>
 
 #include "gx/__gx.h"
 

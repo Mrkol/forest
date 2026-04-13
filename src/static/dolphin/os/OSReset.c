@@ -1,7 +1,6 @@
 #include <dolphin.h>
 #include <dolphin/os.h>
 #include <dolphin/hw_regs.h>
-#include <macros.h>
 #include <string.h>
 
 #include "os/__os.h"
