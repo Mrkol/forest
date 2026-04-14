@@ -55,7 +55,8 @@ u32 JKRAramStream::readFromAram() {
 #ifndef TARGET_PC
 #define JKRARAMSTREAM_DEFAULT_BUF_SIZE 0x8000
 #else
-#define JKRARAMSTREAM_DEFAULT_BUF_SIZE 0x800000
+// #define JKRARAMSTREAM_DEFAULT_BUF_SIZE 0x800000
+#define JKRARAMSTREAM_DEFAULT_BUF_SIZE 0x8000
 #endif
 
 s32 JKRAramStream::writeToAram(JKRAramStreamCommand* command) {

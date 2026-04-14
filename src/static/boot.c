@@ -85,7 +85,7 @@ s32 search_partial_address(u32 addr, u32* module_id, u32* section_idx, u32* sect
         return -1; /* failed */
     }
 
-    // module_p = BaseModule;
+    module_p = BaseModule;
     while (module_p != NULL) {
         section_info = OSGetSectionInfo(module_p);
         for (section = 0; section < module_p->info.numSections; section_info++, section++) {

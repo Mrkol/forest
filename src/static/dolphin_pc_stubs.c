@@ -45,7 +45,7 @@
 #endif
 
 /* Dummy for boot.c search_partial_address / LoadLink (REL module); NULL = no modules */
-// OSModuleHeader* BaseModule = NULL;
+OSModuleHeader* BaseModule = NULL;
 GBAControl __GBA[4];
 BOOL __GBAReset = FALSE;
 CARDControl __CARDBlock[2];
@@ -58,57 +58,66 @@ static char arena_hi[1];
 /* VI retrace emulation                                                       */
 /* -------------------------------------------------------------------------- */
 static volatile u32 s_viRetraceCount;
+static OSThreadQueue s_viRetraceQueue;
 static VIRetraceCallback s_viPreRetraceCb;
 static VIRetraceCallback s_viPostRetraceCb;
 static OSMessageQueue* s_viEventQueue;
 static OSMessage s_viEventMessage;
 static u32 s_viEventPeriod = 1;
 static u32 s_viEventCountdown = 1;
-static BOOL s_viAlarmInitialized = FALSE;
-static OSAlarm s_viRetraceAlarm;
+static u32 s_viCallbacksBlockedUntilRetrace;
+static BOOL s_viStarted = FALSE;
+static OSAlarm s_viAlarm;
+
+static void pc_vi_delay_callback_activation(void)
+{
+    s_viCallbacksBlockedUntilRetrace = s_viRetraceCount + 1;
+}
+
+static BOOL pc_vi_callbacks_are_active(u32 retraceCount)
+{
+    return retraceCount > s_viCallbacksBlockedUntilRetrace;
+}
 
 static void pc_vi_retrace_alarm(OSAlarm* alarm, OSContext* context)
 {
-    VIRetraceCallback preCb;
-    VIRetraceCallback postCb;
-    OSMessageQueue* msgQueue;
-    OSMessage msg;
     u32 retraceCount;
 
     (void)alarm;
     (void)context;
 
     retraceCount = ++s_viRetraceCount;
-    preCb = s_viPreRetraceCb;
-    postCb = s_viPostRetraceCb;
-    msgQueue = s_viEventQueue;
-    msg = s_viEventMessage;
 
-    if (preCb != NULL) {
-        preCb(retraceCount);
+    if (pc_vi_callbacks_are_active(retraceCount) && s_viPreRetraceCb != NULL) {
+        s_viPreRetraceCb(retraceCount);
     }
 
-    if (msgQueue != NULL) {
+    if (s_viEventQueue != NULL) {
         if (s_viEventCountdown > 1) {
             s_viEventCountdown--;
         } else {
-            OSSendMessage(msgQueue, msg, OS_MESSAGE_NOBLOCK);
+            OSSendMessage(s_viEventQueue, s_viEventMessage, OS_MESSAGE_NOBLOCK);
             s_viEventCountdown = s_viEventPeriod;
         }
     }
 
-    if (postCb != NULL) {
-        postCb(retraceCount);
+    if (pc_vi_callbacks_are_active(retraceCount) && s_viPostRetraceCb != NULL) {
+        s_viPostRetraceCb(retraceCount);
     }
+
+    OSWakeupThread(&s_viRetraceQueue);
 }
 
 static void pc_vi_ensure_started(void)
 {
-    if (s_viAlarmInitialized == FALSE) {
-        OSCreateAlarm(&s_viRetraceAlarm);
-        OSSetPeriodicAlarm(&s_viRetraceAlarm, OSGetTime() + OSMicrosecondsToTicks(16667ull),
+    if (s_viStarted == FALSE) {
+        s_viRetraceCount = 0;
+        s_viCallbacksBlockedUntilRetrace = 0;
+        OSInitThreadQueue(&s_viRetraceQueue);
+        OSCreateAlarm(&s_viAlarm);
+        OSSetPeriodicAlarm(&s_viAlarm, OSGetTime() + OSMicrosecondsToTicks(16667ull),
                            OSMicrosecondsToTicks(16667ull), pc_vi_retrace_alarm);
-        s_viAlarmInitialized = TRUE;
+        s_viStarted = TRUE;
     }
 }
 
@@ -146,10 +155,11 @@ u32 OSGetProgressiveMode(void) { return 0; }
 void OSSetProgressiveMode(u32 on) { (void)on; }
 VIRetraceCallback VISetPreRetraceCallback(VIRetraceCallback cb)
 {
-    VIRetraceCallback old = s_viPreRetraceCb;
+    VIRetraceCallback oldCb = s_viPreRetraceCb;
     s_viPreRetraceCb = cb;
+    pc_vi_delay_callback_activation();
     pc_vi_ensure_started();
-    return old;
+    return oldCb;
 }
 void LCDisable(void) { }
 void OSFillFPUContext(OSContext* context) { (void)context; }
@@ -215,13 +225,16 @@ void PPCMtmsr(u32 value) { (void)value; }
 /* -------------------------------------------------------------------------- */
 void VIWaitForRetrace(void)
 {
-    u32 retraceCount;
+    BOOL enabled;
+    u32 count;
 
     pc_vi_ensure_started();
-    retraceCount = s_viRetraceCount;
-    while (s_viRetraceCount == retraceCount) {
-        OSYieldThread();
-    }
+    enabled = OSDisableInterrupts();
+    count = s_viRetraceCount;
+    do {
+        OSSleepThread(&s_viRetraceQueue);
+    } while (count == s_viRetraceCount);
+    OSRestoreInterrupts(enabled);
 }
 void VIConfigurePan(u16 x, u16 y, u16 w, u16 h) { (void)x;(void)y;(void)w;(void)h; }
 void VIConfigure(const GXRenderModeObj* rm) { (void)rm; }
@@ -263,10 +276,11 @@ u32 ARGetBaseAddress(void) { return 0x4000; }
 void PPCSync(void) { }
 VIRetraceCallback VISetPostRetraceCallback(VIRetraceCallback cb)
 {
-    VIRetraceCallback old = s_viPostRetraceCb;
+    VIRetraceCallback oldCb = s_viPostRetraceCb;
     s_viPostRetraceCb = cb;
+    pc_vi_delay_callback_activation();
     pc_vi_ensure_started();
-    return old;
+    return oldCb;
 }
 
 /* -------------------------------------------------------------------------- */
