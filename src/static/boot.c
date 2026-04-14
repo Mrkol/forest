@@ -550,6 +550,22 @@ static void log_callback(AuroraLogLevel level, const char* module, const char* m
     }
 }
 
+static BOOL chk_valid_file(const char* path) {
+    FILE* f;
+
+    if (path == NULL || path[0] == '\0') {
+        return FALSE;
+    }
+
+    f = fopen(path, "rb");
+    if (f == NULL) {
+        return FALSE;
+    }
+
+    fclose(f);
+    return TRUE;
+}
+
 /**
  * @brief Standard C main function/entry point
  *
@@ -571,7 +587,23 @@ int main(int argc, const char** argv) {
     AuroraInfo initInfo = aurora_initialize(argc, argv, &config);
     extern void __OSThreadInit();
     __OSThreadInit();
-    aurora_dvd_open("Animal Crossing (USA).iso");
+
+    bool defaultIso = false;
+    const char* isoPath;
+
+    if (argc > 1) {
+        isoPath = argv[1];
+
+        if (!chk_valid_file(isoPath)) {
+            OSReport("Invalid ISO path: %s\n", isoPath);
+            OSReport("Using default ISO: Animal Crossing (USA).iso\n");
+            defaultIso = true;
+        }
+    } else {
+        defaultIso = true;
+    }
+
+    aurora_dvd_open(defaultIso ? "Animal Crossing (USA).iso" : isoPath);
 
     static fault_client my_fault_client1, my_fault_client2, my_fault_client3, my_fault_client4, my_fault_client5,
         my_fault_client6;
