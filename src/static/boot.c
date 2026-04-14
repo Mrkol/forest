@@ -563,7 +563,7 @@ int main(int argc, const char** argv) {
 #endif
 
     const AuroraConfig config = {
-        .appName = "Demo",
+        .appName = "Forest",
         .logCallback = &log_callback,
         .mem1Size = 256 * 1024 * 1024,
         .mem2Size = 16 * 1024 * 1024,
