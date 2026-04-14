@@ -3,6 +3,9 @@
 #include <stdio.h>
 #include <dolphin/dvd.h>
 #include <dolphin/os.h>
+#include <dolphin/os/OSContext.h>
+#include <dolphin/os/OSModule.h>
+#include <dolphin/os/OSReset.h>
 #include <dolphin/pad.h>
 #include "aurora/aurora.h"
 #include "aurora/dvd.h"
@@ -82,7 +85,7 @@ s32 search_partial_address(u32 addr, u32* module_id, u32* section_idx, u32* sect
         return -1; /* failed */
     }
 
-    module_p = BaseModule;
+    // module_p = BaseModule;
     while (module_p != NULL) {
         section_info = OSGetSectionInfo(module_p);
         for (section = 0; section < module_p->info.numSections; section_info++, section++) {
@@ -563,11 +566,12 @@ int main(int argc, const char** argv) {
         .appName = "Demo",
         .logCallback = &log_callback,
         .mem1Size = 256 * 1024 * 1024,
+        .mem2Size = 16 * 1024 * 1024,
     };
     AuroraInfo initInfo = aurora_initialize(argc, argv, &config);
     extern void __OSThreadInit();
     __OSThreadInit();
-    aurora_dvd_open("D:\\Games\\GameCube\\Animal Crossing (USA).rvz");
+    aurora_dvd_open("Animal Crossing (USA).iso");
 
     static fault_client my_fault_client1, my_fault_client2, my_fault_client3, my_fault_client4, my_fault_client5,
         my_fault_client6;
@@ -723,6 +727,10 @@ int main(int argc, const char** argv) {
     OSReport("InitialStartTime=%u us\n", (u32)OSTicksToMicroseconds((u64)InitialStartTime));
     // sound_initial();
     initial_menu_init();
+#ifdef TARGET_PC
+    /* No async REL load on PC; signal so menu can progress once user is done (select_done). */
+    initial_menu_signal_load_done();
+#endif
     dvderr_init();
     // sound_initial2();
 
@@ -753,7 +761,6 @@ int main(int argc, const char** argv) {
 #endif
     JW_Init2();
     initial_menu_cleanup();
-
 #ifndef TARGET_PC
     if (moduleA == NULL) {
         moduleA = LoadLink("/foresta.rel.szs");

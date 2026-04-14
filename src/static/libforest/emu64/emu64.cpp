@@ -3399,6 +3399,7 @@ void emu64::dl_G_DL(void) {
     Gfx* gfx = this->gfx_p;
 
     this->work_ptr = (void*)this->seg2k0(gfx->dma.addr);
+    // OSReport("work_ptr: %08X\n", this->work_ptr);
 
     switch (gfx->dma.par) {
         case G_DL_PUSH:
@@ -5140,17 +5141,20 @@ void emu64::dl_G_MOVEWORD() {
     static char s1[20];
     static char s2[64];
     static char s3[64];
-    Gmoveword* moveword = (Gmoveword*)this->gfx_p;
+    // Gmoveword* moveword = (Gmoveword*)this->gfx_p;
+    int index = (this->gfx_p->words.w0 >> 16) & 0xFF;
+    u32 offset = (this->gfx_p->words.w0 >> 0) & 0xFFFF;
+    u32 data = this->gfx_p->words.w1;
 
-    switch (moveword->index) {
+    switch (index) {
         case G_MW_SEGMENT: {
-            u32 segment = moveword->offset / 4;
-            EMU64_WARNF("gsSPSegmentA(%d, 0x%08x),", segment, moveword->data);
-            this->segments[segment] = (0x80000000 + (moveword->data & 0x0FFFFFFF));
+            u32 segment = offset / 4;
+            EMU64_WARNF("gsSPSegmentA(%d, 0x%08x),", segment, data);
+            this->segments[segment] = (OSBaseAddress + (data & 0x0FFFFFFF));
             if (segment >= EMU64_NUM_SEGMENTS ||
-                (moveword->data != 0 && (moveword->data < 0x80000000 || moveword->data > 0x83000000))) {
+                (data != 0 && (data < OSBaseAddress || data > (OSBaseAddress + OSGetPhysicalMemSize())))) {
                 sprintf(s1, "gsSPSegmentA no=%lu", segment);
-                sprintf(s2, "base=%s", this->segchk(moveword->data));
+                sprintf(s2, "base=%s", this->segchk(data));
                 sprintf(s3, "gfxp=%s", this->segchk((u32)this->gfx_p));
                 emu64::warningString[0] = "SPSegment found Illigal Address.";
                 emu64::warningString[1] = s1;
@@ -5167,13 +5171,13 @@ void emu64::dl_G_MOVEWORD() {
         } break;
 
         case G_MW_CLIP: {
-            EMU64_LOGF("gsSPClipRatio(FRUSTRATIO_%d), ", moveword->data == 0 ? 0 : moveword->data);
+            EMU64_LOGF("gsSPClipRatio(FRUSTRATIO_%d), ", data == 0 ? 0 : data);
             this->gfx_p +=
                 3; /* gsSPClipRatio generates four moveword instructions, so skip three. Emulator will skip last one. */
         } break;
 
         case G_MW_NUMLIGHT: {
-            u32 num_lights = moveword->data / 24;
+            u32 num_lights = data / 24;
             EMU64_LOGF("gsSPNumLights(%d), ", num_lights);
             if (this->num_lights != num_lights) {
                 this->num_lights = num_lights;
@@ -5182,19 +5186,19 @@ void emu64::dl_G_MOVEWORD() {
         } break;
 
         case G_MW_LIGHTCOL: {
-            int light = (moveword->offset & 0xF0) / 32;
+            int light = (offset & 0xF0) / 32;
 
 /* Seems like the devs used the light table index as the enum number */
 /* TODO: This could be correct. Investigate if they changed the light definitions. */
 #ifdef EMU64_FIX_MOVEWORD_LIGHT_NUM_LOG
-            EMU64_LOGF("gsSPLightColor(LIGHT_%d, %08x), ", (moveword->offset / 0x18) + 1, moveword->data);
+            EMU64_LOGF("gsSPLightColor(LIGHT_%d, %08x), ", (offset / 0x18) + 1, data);
 #else
-            EMU64_LOGF("gsSPLightColor(LIGHT_%d, %08x), ", light + 1, moveword->data);
+            EMU64_LOGF("gsSPLightColor(LIGHT_%d, %08x), ", light + 1, data);
 #endif
 
             this->gfx_p++; /* gsSPLightColor generates two commands */
 
-            GXColor* color = (GXColor*)&((Gmoveword*)&this->gfx)->data;
+            GXColor* color = (GXColor*)&data;
             this->lights[light].color.rgba.r = color->r;
             this->lights[light].color.rgba.g = color->g;
             this->lights[light].color.rgba.b = color->b;
@@ -5203,8 +5207,8 @@ void emu64::dl_G_MOVEWORD() {
         } break;
 
         case G_MW_FOG: {
-            s16 fm = (s16)(moveword->data >> 16); /* z multiplier */
-            s16 fo = (s16)moveword->data;         /* z offset */
+            s16 fm = (s16)(data >> 16); /* z multiplier */
+            s16 fo = (s16)data;         /* z offset */
             int min = 500 - (fo * 500) / fm;
             EMU64_LOGF("gsSPFogFactor(%d, %d),", fm, fo);
             EMU64_LOGF("gsSPFogPosition(%d, %d),", min, 128000 / fm + min);
@@ -5215,29 +5219,32 @@ void emu64::dl_G_MOVEWORD() {
         } break;
 
         case G_MW_PERSPNORM: {
-            EMU64_LOGF("gsSPPerspNormalize(%d),", moveword->data);
+            EMU64_LOGF("gsSPPerspNormalize(%d),", data);
         } break;
 
         default: {
-            EMU64_LOGF("gsMoveWd(%d, %d, %d), /* ### what */", moveword->index, moveword->offset, moveword->data);
+            EMU64_LOGF("gsMoveWd(%d, %d, %d), /* ### what */", index, offset, data);
 
             this->num_unknown_cmds++;
-            this->Printf0("未知の命令に出くわした\n"); /* Translation: Came across an unknown command */
+            this->Printf0("未知の命令に出くわした (%08X-%08X) index: %d, offset: %d, data: %08X\n", this->gfx_p->words.w0, this->gfx_p->words.w1, index, offset, data); /* Translation: Came across an unknown command */
         } break;
     }
 }
 
 void emu64::dl_G_MOVEMEM() {
-    Gmovemem* movemem = (Gmovemem*)this->gfx_p;
-    u8 param = movemem->index;
-    switch (movemem->index) {
+    // Gmovemem* movemem = (Gmovemem*)this->gfx_p;
+    int index = (this->gfx_p->words.w0 >> 16) & 0xFF;
+    u32 length = (this->gfx_p->words.w0 >> 8) & 0xFF;
+    u32 offset = (this->gfx_p->words.w0 >> 0) & 0xFF;
+    u32 data = this->gfx_p->words.w1;
+    switch (index) {
         case G_MV_VIEWPORT: {
-            this->work_ptr = (void*)this->seg2k0(movemem->data);
+            this->work_ptr = (void*)this->seg2k0(data);
             Vp_t* vp = (Vp_t*)this->work_ptr;
 
 #ifdef EMU64_DEBUG
             if (this->print_commands != false) {
-                EMU64_LOGF("gsSPViewport(%s),", this->segchk(movemem->data));
+                EMU64_LOGF("gsSPViewport(%s),", this->segchk(data));
                 EMU64_INFOF("\t# vscale=[%d %d %d %d], ", vp->vscale[0], vp->vscale[1], vp->vscale[2], vp->vscale[3]);
                 EMU64_INFOF("vtrans=[%d %d %d %d] ", vp->vtrans[0], vp->vtrans[1], vp->vtrans[2], vp->vtrans[3]);
             }
@@ -5259,17 +5266,17 @@ void emu64::dl_G_MOVEMEM() {
         }
 
         case G_MV_MATRIX: {
-            EMU64_LOGF("gsSPForceMatrix(%s),", this->segchk(movemem->data));
+            EMU64_LOGF("gsSPForceMatrix(%s),", this->segchk(data));
             this->gfx_p++;                                          /* Generates two commands */
             this->Printf0("gsSPForceMatrixはサポートしてません\n"); /* Translation: gsSPForceMatrix isn't supported */
             break;
         }
 
         case G_MV_LIGHT: {
-            switch (movemem->offset * 8) {
+            switch (offset * 8) {
                 case G_MVO_LOOKATX: {
-                    EMU64_LOGF("gsSPLookAtX(%s),", this->segchk(movemem->data));
-                    LookAt* la = (LookAt*)this->seg2k0(movemem->data);
+                    EMU64_LOGF("gsSPLookAtX(%s),", this->segchk(data));
+                    LookAt* la = (LookAt*)this->seg2k0(data);
                     EMU64_INFOF(" /* {%3d,%3d,%3d} */", la->l->l.dir[0], la->l->l.dir[1], la->l->l.dir[2]);
                     this->lookAt.x.x = la->l->l.dir[0];
                     this->lookAt.x.y = la->l->l.dir[1];
@@ -5279,8 +5286,8 @@ void emu64::dl_G_MOVEMEM() {
                 }
 
                 case G_MVO_LOOKATY: {
-                    EMU64_LOGF("gsSPLookAtY(%s),", this->segchk(movemem->data));
-                    LookAt* la = (LookAt*)this->seg2k0(movemem->data);
+                    EMU64_LOGF("gsSPLookAtY(%s),", this->segchk(data));
+                    LookAt* la = (LookAt*)this->seg2k0(data);
                     EMU64_INFOF(" /* {%3d,%3d,%3d} */", la->l->l.dir[0], la->l->l.dir[1], la->l->l.dir[2]);
                     this->lookAt.y.x = la->l->l.dir[0];
                     this->lookAt.y.y = la->l->l.dir[1];
@@ -5290,11 +5297,11 @@ void emu64::dl_G_MOVEMEM() {
                 }
 
                 default: {
-                    Light_new* light = (Light_new*)this->seg2k0(movemem->data);
-                    int idx = movemem->offset * 8 - 24;
+                    Light_new* light = (Light_new*)this->seg2k0(data);
+                    int idx = offset * 8 - 24;
                     idx /= 24; /* Idx should be 1 - 8. There's more bithacks going on here, but I think it's compiler
                                   generated */
-                    EMU64_LOGF("gsSPLight(%s, %d),", this->segchk(movemem->data), idx);
+                    EMU64_LOGF("gsSPLight(%s, %d),", this->segchk(data), idx);
                     EMU64_INFOF("no = %d color=[%3d %3d %3d],", idx, light->l.col[0], light->l.col[1], light->l.col[2]);
 
                     /* Convert index to 0 based */
@@ -5348,11 +5355,11 @@ void emu64::dl_G_MOVEMEM() {
 
         default: {
             /* Invalid/Unknown MOVEMEM command */
-            EMU64_WARNF("gsMoveMem(%s, %d, %d, %d), /* ### what? */", this->segchk(movemem->data),
-                        ((movemem->length >> 3) + 1) * 8, movemem->index, movemem->offset);
+            EMU64_WARNF("gsMoveMem(%s, %d, %d, %d), /* ### what? */", this->segchk(data),
+                        ((length >> 3) + 1) * 8, index, offset);
 
             this->num_unknown_cmds++;
-            this->Printf0("未知の命令に出くわした\n"); /* Came across an unknown command */
+            this->Printf0("未知の命令に出くわした (%08X-%08X) index: %d, offset: %d, length: %d\n", this->gfx_p->words.w0, this->gfx_p->words.w1, index, offset, length); /* Came across an unknown command */
             break;
         }
     }
@@ -5452,8 +5459,10 @@ u32 emu64::emu64_taskstart_r(Gfx* dl_p) {
     while (!this->end_dl && !FrameCansel) {
         this->cmds_processed++;
         EMU64_INFOF("%08x:", this->gfx_p);
+
         this->gfx = *this->gfx_p;
-        this->gfx_cmd = this->gfx.dma.cmd;
+        this->gfx_cmd = (this->gfx.words.w0 >> 24) & 0xFF;
+        // OSReport("cmd: %02X, %08X %08X\n", this->gfx_cmd, this->gfx.words.w0, this->gfx.words.w1);
         this->dl_history[this->dl_history_start++] = this->gfx_p;
         if (this->dl_history_start >= DL_HISTORY_COUNT) {
             this->dl_history_start = 0;
@@ -5480,7 +5489,7 @@ u32 emu64::emu64_taskstart_r(Gfx* dl_p) {
             }
         } else {
             this->Printf0(
-                "予期しないコマンドがありました。中断します。\n"); /* There was an unexpected command. Aborting. */
+                "予期しないコマンドがありました。中断します。 cmd_index: %02X (%p: %08X %08X)\n", cmd_index, this->gfx_p, this->gfx_p->words.w0, this->gfx_p->words.w1); /* There was an unexpected command. Aborting. */
             break;
         }
 

@@ -281,7 +281,7 @@ static void mMsg_SetTimer(mMsg_Window_c* msg_p, f32 timer) {
 }
 
 extern void mMsg_Get_BodyParam(u32 table_addr, u32 data_addr, int index, u32* addr, u32* size) {
-    static u32 tmp_buff[16] ATTRIBUTE_ALIGN(32);
+    ALIGNAS(32) static u32 tmp_buff[16] ATTRIBUTE_ALIGN(32);
     int first_entry = index == 0;
     u32 aligned_ofs = first_entry ? 0 : ALIGN_PREV((index - 1) * sizeof(u32), 32);
     int ofs = first_entry ? 0 : (index - 1) & 7;
@@ -290,10 +290,11 @@ extern void mMsg_Get_BodyParam(u32 table_addr, u32 data_addr, int index, u32* ad
 
     if (first_entry) {
         *addr = data_addr;
-        *size = tmp_buff[ofs];
+        *size = BSWAP32(tmp_buff[ofs]);
     } else {
-        *addr = data_addr + tmp_buff[ofs];
-        *size = tmp_buff[ofs + 1] - tmp_buff[ofs];
+        OSReport("%08X, %08X\n", BSWAP32(tmp_buff[ofs]), BSWAP32(tmp_buff[ofs + 1]));
+        *addr = data_addr + BSWAP32(tmp_buff[ofs]);
+        *size = BSWAP32(tmp_buff[ofs + 1]) - BSWAP32(tmp_buff[ofs]);
     }
 }
 

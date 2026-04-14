@@ -7,13 +7,23 @@
 #include <stdint.h>
 #include <string.h>
 #include <stdarg.h>
-#include <intrin.h>
 #include <dolphin/types.h>
 
+/* Do not include <intrin.h> here: on Windows+Clang it drags in MMX/SIMD headers that can
+ * fail to compile (clang-cl + mmintrin.h). BSWAP only needs a few operations. */
 #ifdef TARGET_PC
+#if defined(__clang__) || defined(__GNUC__)
+#define BSWAP16(x) ((uint16_t)__builtin_bswap16((uint16_t)(x)))
+#define BSWAP32(x) ((uint32_t)__builtin_bswap32((uint32_t)(x)))
+#define BSWAP64(x) ((uint64_t)__builtin_bswap64((uint64_t)(x)))
+#elif defined(_MSC_VER)
+#include <intrin.h>
 #define BSWAP16(x) _byteswap_ushort(x)
 #define BSWAP32(x) _byteswap_ulong(x)
 #define BSWAP64(x) _byteswap_uint64(x)
+#else
+#error "TARGET_PC: add BSWAP intrinsics for this compiler"
+#endif
 #else
 #define BSWAP16(x) x
 #define BSWAP32(x) x
@@ -76,6 +86,16 @@ typedef void unknown;
 #define ATTRIBUTE_ALIGN(num) __attribute__((aligned(num)))
 #elif defined(_MSC_VER)
 #define ATTRIBUTE_ALIGN(num)
+#else
+#error unknown compiler
+#endif
+#endif
+
+#ifndef ALIGNAS
+#if defined(__MWERKS__) || defined(__GNUC__)
+#define ALIGNAS(num)
+#elif defined(_MSC_VER)
+#define ALIGNAS(num) __declspec(align(num))
 #else
 #error unknown compiler
 #endif

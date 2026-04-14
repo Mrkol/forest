@@ -78,6 +78,10 @@ bool JKRAramPiece::sync(JKRAMCommand* cmd, BOOL noBlock) {
 bool JKRAramPiece::orderSync(int direction, u32 source, u32 destination, u32 length, JKRAramBlock* aramBlock) {
     JKRAramPiece::lock();
 
+    if (direction == ARAM_DIR_ARAM_TO_MRAM) {
+        OSReport("gotcha!\n");
+    }
+
     JKRAMCommand* cmd = JKRAramPiece::orderAsync(direction, source, destination, length, aramBlock, nullptr);
     bool res = JKRAramPiece::sync(cmd, FALSE);
     delete cmd;

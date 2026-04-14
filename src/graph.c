@@ -306,25 +306,34 @@ extern void graph_proc(void* arg) {
     DLFTBL_GAME* dlftbl = &game_dlftbls[0];
     graph_ct(&graph_class);
 
+    OSReport("graph_proc: started\n");
+
     while (dlftbl != NULL) {
         size_t size = dlftbl->alloc_size;
         GAME* game = (GAME*)malloc(size);
+
+        OSReport("graph_proc: allocated game of size %X\n", size);
         game_class_p = game;
         bzero(game, size);
         GRAPH_SET_DOING_POINT(__graph, GAME_CT);
+        OSReport("graph_proc: calling game_ct\n");
         game_ct(game, dlftbl->init, __graph);
+        OSReport("graph_proc: calling emu64_refresh\n");
         emu64_refresh();
         GRAPH_SET_DOING_POINT(__graph, GAME_CT_FINISHED);
 
         while (game_is_doing(game)) {
+            OSReport("graph_proc: game is doing\n");
             if (!dvderr_draw()) {
                 graph_main(__graph, game);
             }
         }
 
+        OSReport("graph_proc: getting next game dlftbl\n");
         dlftbl = game_get_next_game_dlftbl(game);
         GRAPH_SET_DOING_POINT(__graph, GAME_18);
         GRAPH_SET_DOING_POINT(__graph, GAME_DT);
+        OSReport("graph_proc: calling game_dt\n");
         game_dt(game);
         GRAPH_SET_DOING_POINT(__graph, GAME_DT_FINISHED);
         free(game);

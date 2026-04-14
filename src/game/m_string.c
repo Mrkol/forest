@@ -6,7 +6,7 @@
 #include "m_font.h"
 #include "m_mail.h"
 
-static u8 buff[MAIL_BODY_LEN - 1] ATTRIBUTE_ALIGN(32); // TODO: proper bss ordering
+ALIGNAS(32) static u8 buff[MAIL_BODY_LEN - 1] ATTRIBUTE_ALIGN(32); // TODO: proper bss ordering
 static u32 String_rom_start;
 static u32 String_table_rom_start;
 
@@ -27,6 +27,8 @@ extern void mString_Load_StringFromRom(u8* dst, int dst_len, int str_no) {
 
     if (str_no >= 0 && str_no < mString_MAX_STR) {
         mString_Get_StringDataAddressAndSize(str_no, &string_data_addr, &string_size);
+        // string_data_addr = BSWAP32(string_data_addr);
+        // string_size = BSWAP32(string_size);
 
         if (string_size == 0) {
             mem_clear(dst, dst_len, CHAR_SPACE);

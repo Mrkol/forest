@@ -1,6 +1,22 @@
 #include "JSystem/JSupport/JSUStream.h"
 #include "JSystem/JSupport/JSUStreamEnum.h"
 
+/* JSUStreamEnum.h runs once (include guard). Later headers may pull in <stdio.h>
+ * and redefine EOF. Undef again so setState(EOF) / clrState(EOF) name the enumerator. */
+#ifdef EOF
+#undef EOF
+#endif
+
+#ifdef SEEK_SET
+#undef SEEK_SET
+#endif
+#ifdef SEEK_CUR
+#undef SEEK_CUR
+#endif
+#ifdef SEEK_END
+#undef SEEK_END
+#endif
+
 JSUInputStream::~JSUInputStream() {
 }
 

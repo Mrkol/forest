@@ -81,7 +81,7 @@ bool JKRDvdFile::close() {
 
 int JKRDvdFile::readData(void* data, s32 length, s32 ofs) {
     OSLockMutex(&this->mDvdMutex);
-    s32 retAddr;
+    s32 retAddr = -1;
 
     if (this->mDvdThread != nullptr) {
         OSUnlockMutex(&this->mDvdMutex);

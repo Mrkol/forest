@@ -18,7 +18,11 @@
 #include "jaudio_NES/playercall.h"
 #include "jaudio_NES/dspbuf.h"
 
+#if defined(TARGET_PC)
+#define AUDIO_STACK_SIZE 0x2000
+#else
 #define AUDIO_STACK_SIZE 0x1000
+#endif
 #define AUDIOPROC_MQ_BUF_COUNT 16
 
 #define AUDIOPROC_MESSAGE_UPDATE_DAC 0

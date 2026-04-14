@@ -452,6 +452,7 @@ BOOL OSCreateThread(OSThread* thread, void* (*func)(void*), void* param, void* s
     const size_t pageSize = get_host_page_size();
     assert((stack != nullptr) && "OSCreateThread(): stack must not be null.");
     assert((stackSize % pageSize) == 0 && "OSCreateThread(): stackSize must be page aligned.");
+    OSReport("OSCreateThread(): stackSize: %d, pageSize: %d\n", stackSize, pageSize);
     assert(stackSize >= pageSize * 2 && "OSCreateThread(): stackSize must be at least 2 pages.");
 
     u8* stackTop = static_cast<u8*>(stack);

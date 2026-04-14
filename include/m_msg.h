@@ -165,7 +165,7 @@ typedef union {
 } mMsg_Request_Data_c;
 
 typedef union {
-    u8 data[mMsg_MSG_BUF_SIZE] ATTRIBUTE_ALIGN(32);
+    ALIGNAS(32) u8 data[mMsg_MSG_BUF_SIZE] ATTRIBUTE_ALIGN(32);
     u64 align;
 } mMsg_MsgBuf_c;
 

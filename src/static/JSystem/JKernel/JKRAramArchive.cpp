@@ -109,15 +109,8 @@ void JKRAramArchive::unmountFixed() {
     if (mDvdFile)
         delete mDvdFile;
 
-#ifndef TARGET_PC
     if (mBlock)
         delete mBlock;
-#else
-    // TODO: fix this delete call
-    // if (mBlock)
-    //     JKRFreeToAram(mBlock);
-    mBlock = nullptr;
-#endif
 
     sVolumeList.remove(&mFileLoaderLink);
     mIsMounted = false;
@@ -132,11 +125,7 @@ bool JKRAramArchive::open(s32 entryNum) {
 
     OSReport("Warning: JKRAramArchive::open(): entryNum = %d.\n", entryNum);
 
-#ifndef TARGET_PC
     mDvdFile = new (JKRGetSystemHeap(), mMountDirection == MOUNT_DIRECTION_HEAD ? 4 : -4) JKRDvdFile(entryNum);
-#else
-    mDvdFile = new JKRDvdFile(entryNum);
-#endif
     if (mDvdFile == nullptr) {
         mMountMode = 0;
         return 0;
@@ -195,6 +184,7 @@ bool JKRAramArchive::open(s32 entryNum) {
             if (mBlock == nullptr) {
                 mMountMode = 0;
             } else {
+                OSReport("JKRAramArchive::open(): Mounted ARAM address = %08X.\n", mBlock->getAddress());
                 JKRDvdToAram(entryNum, mBlock->getAddress(), EXPAND_SWITCH_DECOMPRESS,
                              mem->header_length + mem->file_data_offset, 0);
                 for (int i = 0; i < mArcInfoBlock->num_file_entries; i++) {
@@ -286,6 +276,7 @@ u32 JKRAramArchive::getAramAddress_Entry(SDIFileEntry* fileEntry) {
 }
 
 u32 JKRAramArchive::getAramAddress(u32 type, const char* file) {
+    OSReport("JKRAramArchive::getAramAddress(): type = %d, file = %s.\n", type, file);
     SDIFileEntry* entry = findTypeResource(type, file);
     return getAramAddress_Entry(entry);
 }

@@ -11,7 +11,7 @@ u32 emu64::seg2k0(u32 segadr) {
         if (segadr < 0x03000000) {
             this->Printf0(VT_COL(RED, WHITE) "segadr=%08x" VT_RST "\n", segadr);
             this->panic("segadr is over 0x03000000.", __FILE__, 20);
-            k0 = segadr + 0x80000000;
+            k0 = segadr + OSBaseAddress;
         } else {
             k0 = (u32)this->segments[(segadr >> 24) & 0xF] + (segadr & 0xFFFFFF);
         }

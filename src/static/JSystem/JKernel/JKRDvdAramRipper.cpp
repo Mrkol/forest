@@ -38,11 +38,7 @@ JKRAramBlock* JKRDvdAramRipper::loadToAram(JKRDvdFile* dvdFile, u32 p1, JKRExpan
 
 JKRADCommand* JKRDvdAramRipper::loadToAram_Async(JKRDvdFile* dvdFile, u32 p1, JKRExpandSwitch expSwitch,
                                                  JKRADCommand::LoadCallback cb, u32 p4, u32 p5) {
-#ifndef TARGET_PC
     JKRADCommand* command = new (JKRGetSystemHeap(), -4) JKRADCommand();
-#else
-    JKRADCommand* command = new JKRADCommand();
-#endif
     command->mDvdFile = dvdFile;
     command->_1C = p1;
     command->mBlock = nullptr;
@@ -72,11 +68,7 @@ JKRADCommand* JKRDvdAramRipper::callCommand_Async(JKRADCommand* command) {
         isCmdTrdNull = false;
     } else {
         dvdFile->mAramThread = OSGetCurrentThread();
-#ifndef TARGET_PC
         JSUFileInputStream* stream = new (JKRGetSystemHeap(), -4) JSUFileInputStream(dvdFile);
-#else
-        JSUFileInputStream* stream = new JSUFileInputStream(dvdFile);
-#endif
         dvdFile->mInputStream = stream;
         u32 fileSize = dvdFile->getFileSize();
         if (command->_18 && fileSize > command->_18) {

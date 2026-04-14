@@ -41,6 +41,7 @@ void mainproc(void* val) {
     JW_BeginFrame();
     JW_EndFrame();
     mCD_init_card();
+    JC_JFWDisplay_setTickRateMilliseconds(JC_JFWDisplay_getManager(), 16);
 
     osCreateMesgQueue(&l_serialMsgQ, &serialMsgBuf, 1);
     osCreateMesgQueue(&irqMgrMsgQueue, irqMsgBuf, 10);

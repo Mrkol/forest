@@ -215,9 +215,9 @@ extern void game_ct(GAME* this, void (*init)(GAME*), GRAPH* graph) {
     SetGameFrame(GAME_FRAME);
     __gfxprint_default_flags |= GFXPRINT_FLAG_HIGHRES;
     init(this);
-    mBGM_init();
+    // mBGM_init();
 #if VERSION < VER_GAFU01_00
-    GBAInit();
+    // GBAInit();
 #endif
     mVibctl_init();
 }

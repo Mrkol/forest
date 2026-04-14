@@ -29,35 +29,77 @@ if(CMAKE_HOST_WIN32 AND FOREST_USE_MSVC_LINKER)
       message(STATUS "Using MSVC link: ${CMAKE_LINKER}")
       # Add Windows SDK lib path so link.exe finds kernel32.lib etc. when not using a
       # Developer Prompt. Required for CMake's try_compile in project() and for normal builds.
-      file(GLOB _sdk_vers "C:/Program Files (x86)/Windows Kits/10/Lib/*")
-      list(SORT _sdk_vers)
-      list(REVERSE _sdk_vers)
-      list(LENGTH _sdk_vers _n_sdk)
-      if(_n_sdk GREATER 0)
-        list(GET _sdk_vers 0 _sdk_ver)
-        set(_sdk_um_x86 "${_sdk_ver}/um/x86")
-        if(EXISTS "${_sdk_um_x86}")
-          set(_libpath "/LIBPATH:\"${_sdk_um_x86}\"")
-          set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} ${_libpath}" CACHE STRING "" FORCE)
-          set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} ${_libpath}" CACHE STRING "" FORCE)
-          set(ENV{LIB} "${_sdk_um_x86};$ENV{LIB}")
-          # Use full paths for standard libs so try_compile link line finds them without LIB.
-          set(_std_libs kernel32 user32 gdi32 winspool shell32 ole32 oleaut32 uuid comdlg32 advapi32)
-          set(_std_libs_full "")
-          foreach(_lib IN LISTS _std_libs)
-            list(APPEND _std_libs_full "${_sdk_um_x86}/${_lib}.lib")
-          endforeach()
-          string(REPLACE ";" " " _std_libs_str "${_std_libs_full}")
-          set(CMAKE_C_STANDARD_LIBRARIES "${_std_libs_str}" CACHE STRING "" FORCE)
-          set(CMAKE_CXX_STANDARD_LIBRARIES "${_std_libs_str}" CACHE STRING "" FORCE)
-          message(STATUS "Windows SDK lib path: ${_sdk_um_x86}")
-        endif()
+      # Pick a tree that actually contains um/x86 import libs (not just the newest name).
+      set(_sdk_um_x86 "")
+      if(WINDOWS_SDK_LIB_PATH AND EXISTS "${WINDOWS_SDK_LIB_PATH}/kernel32.lib")
+        set(_sdk_um_x86 "${WINDOWS_SDK_LIB_PATH}")
+        message(STATUS "Windows SDK lib path (cache -D): ${_sdk_um_x86}")
+      else()
+        file(GLOB _sdk_from_x86 "C:/Program Files (x86)/Windows Kits/10/Lib/*")
+        file(GLOB _sdk_from_pf "C:/Program Files/Windows Kits/10/Lib/*")
+        set(_sdk_vers ${_sdk_from_x86} ${_sdk_from_pf})
+        unset(_sdk_from_x86)
+        unset(_sdk_from_pf)
+        list(REMOVE_DUPLICATES _sdk_vers)
+        list(SORT _sdk_vers)
+        list(REVERSE _sdk_vers)
+        foreach(_sdk_ver IN LISTS _sdk_vers)
+          set(_try_um_x86 "${_sdk_ver}/um/x86")
+          if(EXISTS "${_try_um_x86}/kernel32.lib")
+            set(_sdk_um_x86 "${_try_um_x86}")
+            break()
+          endif()
+        endforeach()
+        unset(_try_um_x86)
+        unset(_sdk_ver)
+        unset(_sdk_vers)
       endif()
-      unset(_sdk_vers)
-      unset(_n_sdk)
-      unset(_sdk_ver)
+      if(_sdk_um_x86)
+        # Windows SDK um\x86: kernel32.lib, etc. MSVC lib\x86: msvcrt.lib / msvcrtd.lib (CRT for /MD /MDd).
+        set(_vc_lib_x86 "${_msvc_ver}/lib/x86")
+        if(NOT EXISTS "${_vc_lib_x86}/msvcrt.lib")
+          message(FATAL_ERROR
+            "FOREST_USE_MSVC_LINKER: MSVC C runtime import libs not found at ${_vc_lib_x86}.\n"
+            "Repair Visual Studio Build Tools or MSVC v14.x x86 libraries.")
+        endif()
+        # Universal CRT (/MD /MDd): ucrt.lib / ucrtd.lib live under Lib\<ver>\ucrt\x86 (not um\x86).
+        get_filename_component(_w10sdk_ver_dir "${_sdk_um_x86}/../.." ABSOLUTE)
+        set(_ucrt_lib_x86 "${_w10sdk_ver_dir}/ucrt/x86")
+        if(NOT EXISTS "${_ucrt_lib_x86}/ucrt.lib")
+          message(FATAL_ERROR
+            "FOREST_USE_MSVC_LINKER: UCRT import libs not found at ${_ucrt_lib_x86}.\n"
+            "Repair Windows 10/11 SDK installation.")
+        endif()
+        # Do not append /LIBPATH to CMAKE_*_LINKER_FLAGS: cmake -E vs_link_* can corrupt quoted
+        # paths when the build tree is on another drive. Do not set ENV{LIB} here — use the
+        # Developer / VS prompt LIB for builds; try_compile uses full paths below.
+        set(WINDOWS_UCRT_LIB_X86 "${_ucrt_lib_x86}" CACHE PATH "Windows SDK ucrt\\x86 for link.exe" FORCE)
+        set(WINDOWS_VC_LIB_X86 "${_vc_lib_x86}" CACHE PATH "MSVC lib\\x86 (CRT) for link.exe" FORCE)
+        # Use full paths for standard libs so try_compile link line finds them without LIB.
+        # Quote each path individually or link.exe will split e.g. "C:/Program Files/.../kernel32.lib"
+        # into separate tokens and fail with "cannot open file 'C:\\Program.obj'".
+        set(_std_libs kernel32 user32 gdi32 winspool shell32 ole32 oleaut32 uuid comdlg32 advapi32)
+        set(_std_libs_full "")
+        foreach(_lib IN LISTS _std_libs)
+          list(APPEND _std_libs_full "\"${_sdk_um_x86}/${_lib}.lib\"")
+        endforeach()
+        string(REPLACE ";" " " _std_libs_str "${_std_libs_full}")
+        set(CMAKE_C_STANDARD_LIBRARIES "${_std_libs_str}" CACHE STRING "" FORCE)
+        set(CMAKE_CXX_STANDARD_LIBRARIES "${_std_libs_str}" CACHE STRING "" FORCE)
+        set(WINDOWS_SDK_LIB_PATH "${_sdk_um_x86}" CACHE PATH "Windows SDK um/x86 for link.exe" FORCE)
+        message(STATUS "Windows SDK lib path (try_compile): ${_sdk_um_x86}")
+        message(STATUS "Windows UCRT lib path (try_compile): ${_ucrt_lib_x86}")
+        message(STATUS "MSVC CRT import lib path (try_compile): ${_vc_lib_x86}")
+      else()
+        message(FATAL_ERROR
+          "FOREST_USE_MSVC_LINKER: could not find Windows SDK import libs (e.g. kernel32.lib).\n"
+          "Expected a folder like: .../Windows Kits/10/Lib/<ver>/um/x86\n"
+          "Install the Windows 10/11 SDK (Desktop development) or set -DWINDOWS_SDK_LIB_PATH=.../um/x86")
+      endif()
       unset(_sdk_um_x86)
-      unset(_libpath)
+      unset(_w10sdk_ver_dir)
+      unset(_ucrt_lib_x86)
+      unset(_vc_lib_x86)
       unset(_std_libs)
       unset(_std_libs_full)
       unset(_std_libs_str)
@@ -84,7 +126,85 @@ if(PROJECT_SOURCE_DIR STREQUAL PROJECT_BINARY_DIR)
   message(
     FATAL_ERROR
       "In-source builds not allowed. Please make a new directory (called a build directory) and run CMake from there."
-    )
+  )
+endif()
+
+# MSVC link.exe: cache WINDOWS_* import-lib dirs for targets that need them. We do not set
+# ENV{LIB} — use a VS Developer PowerShell/cmd so link.exe and Ninja inherit LIB from the shell.
+if(CMAKE_HOST_WIN32 AND FOREST_USE_MSVC_LINKER)
+  # Old configures appended /LIBPATH to CMAKE_*_LINKER_FLAGS; cmake -E vs_link_* then corrupted
+  # them (F: + C:\Program Files\...) when the build tree was on another drive. Clear any cache
+  # line that still contains that signature so SDL3 and other targets don't inherit bad flags.
+  foreach(_lf IN ITEMS CMAKE_EXE_LINKER_FLAGS CMAKE_SHARED_LINKER_FLAGS CMAKE_MODULE_LINKER_FLAGS)
+    set(_v "${${_lf}}")
+    if(_v STREQUAL "")
+      continue()
+    endif()
+    string(FIND "${_v}" "/LIBPATH:\"F:\\\"C:" _bad)
+    if(NOT _bad EQUAL -1)
+      set(${_lf} "" CACHE STRING "" FORCE)
+      message(STATUS "forest: cleared stale ${_lf} (broken cross-drive /LIBPATH from old configure)")
+    endif()
+  endforeach()
+  unset(_v)
+  unset(_bad)
+  unset(_lf)
+
+  if(NOT WINDOWS_SDK_LIB_PATH OR NOT EXISTS "${WINDOWS_SDK_LIB_PATH}/kernel32.lib")
+    set(_sdk_um_post "")
+    file(GLOB _sdk_from_x86 "C:/Program Files (x86)/Windows Kits/10/Lib/*")
+    file(GLOB _sdk_from_pf "C:/Program Files/Windows Kits/10/Lib/*")
+    set(_sdk_vers ${_sdk_from_x86} ${_sdk_from_pf})
+    unset(_sdk_from_x86)
+    unset(_sdk_from_pf)
+    list(REMOVE_DUPLICATES _sdk_vers)
+    list(SORT _sdk_vers)
+    list(REVERSE _sdk_vers)
+    foreach(_sdk_ver IN LISTS _sdk_vers)
+      set(_try_um_x86 "${_sdk_ver}/um/x86")
+      if(EXISTS "${_try_um_x86}/kernel32.lib")
+        set(_sdk_um_post "${_try_um_x86}")
+        break()
+      endif()
+    endforeach()
+    unset(_try_um_x86)
+    unset(_sdk_ver)
+    unset(_sdk_vers)
+    if(_sdk_um_post)
+      set(WINDOWS_SDK_LIB_PATH "${_sdk_um_post}" CACHE PATH "Windows SDK um/x86 for link.exe" FORCE)
+    endif()
+    unset(_sdk_um_post)
+  endif()
+  if(WINDOWS_SDK_LIB_PATH)
+    message(STATUS "Windows SDK lib path (MSVC link, all targets): ${WINDOWS_SDK_LIB_PATH}")
+  endif()
+  if(NOT WINDOWS_UCRT_LIB_X86 OR NOT EXISTS "${WINDOWS_UCRT_LIB_X86}/ucrt.lib")
+    if(WINDOWS_SDK_LIB_PATH)
+      get_filename_component(_forest_ucrt_from_sdk "${WINDOWS_SDK_LIB_PATH}/../.." ABSOLUTE)
+      set(_forest_ucrt_try "${_forest_ucrt_from_sdk}/ucrt/x86")
+      if(EXISTS "${_forest_ucrt_try}/ucrt.lib")
+        set(WINDOWS_UCRT_LIB_X86 "${_forest_ucrt_try}" CACHE PATH "Windows SDK ucrt/x86 for link.exe" FORCE)
+      endif()
+      unset(_forest_ucrt_from_sdk)
+      unset(_forest_ucrt_try)
+    endif()
+  endif()
+  if(WINDOWS_UCRT_LIB_X86 AND EXISTS "${WINDOWS_UCRT_LIB_X86}/ucrt.lib")
+    message(STATUS "Windows UCRT lib path (all targets): ${WINDOWS_UCRT_LIB_X86}")
+  endif()
+  if(WINDOWS_VC_LIB_X86 AND EXISTS "${WINDOWS_VC_LIB_X86}/msvcrt.lib")
+    message(STATUS "MSVC CRT lib path (all targets): ${WINDOWS_VC_LIB_X86}")
+  endif()
+
+  # Third-party targets like SDL3 still link system import libs by basename
+  # (e.g. kernel32.lib), so link.exe needs explicit search directories.
+  # Keep these as structured link options instead of raw linker flag strings so
+  # cmake -E vs_link_* can quote paths with spaces correctly.
+  add_link_options(
+    "/LIBPATH:${WINDOWS_SDK_LIB_PATH}"
+    "/LIBPATH:${WINDOWS_UCRT_LIB_X86}"
+    "/LIBPATH:${WINDOWS_VC_LIB_X86}"
+  )
 endif()
 
 # Use static MSVC runtime (/MT or /MTd) for consistency with Dawn/abseil
@@ -98,9 +218,21 @@ include("cmake/get_cpm.cmake")
 
 set(CPM_aurora_SOURCE "${PROJECT_SOURCE_DIR}/../aurora")
 
+# SDL runs check_linker_flag(-Wl,--no-undefined); clang-cl can pass it but the real link uses
+# MSVC link.exe, which rejects that flag (LNK4044). Force off so SDL skips sdl_shared_link_options.
+if(CMAKE_HOST_WIN32 AND FOREST_USE_MSVC_LINKER)
+  set(LINKER_SUPPORTS_WL_NO_UNDEFINED FALSE CACHE BOOL "forest: SDL + MSVC link.exe" FORCE)
+endif()
+
+# forest disables Aurora GX, but the current aurora CMake still links `sqlite3`
+# from `aurora_core` unconditionally. Define a no-op target up front so CMake
+# resolves it as a target instead of emitting a bare `sqlite3.lib` dependency.
+if(NOT TARGET sqlite3)
+  add_library(sqlite3 INTERFACE)
+endif()
+
 CPMAddPackage(
   NAME aurora
-  unset(_link_lower)
   GITHUB_REPOSITORY encounter/aurora
   GIT_TAG bd20b65d59c2bd119e078ee87a8b896cc82994d2
   OPTIONS
@@ -123,11 +255,27 @@ if(NOT TARGET libco)
         add_library(libco::libco ALIAS libco)
 endif()
 
+# libco settings.h only defines alignas inside #if defined(__STDC__) (C). clang-cl's
+# MSVC-compatible mode often leaves __STDC__ undefined, so alignas is missing and
+# x86.c mis-parses alignas(4096). Force ISO C and __STDC__ for this target.
+if(TARGET libco)
+  set_target_properties(libco PROPERTIES C_STANDARD 17 C_STANDARD_REQUIRED ON)
+  if(WIN32 AND CMAKE_C_COMPILER_ID STREQUAL "Clang")
+    target_compile_options(libco PRIVATE /std:c17 /Zc:__STDC__)
+  endif()
+endif()
+
 # Temporary workaround: disable SDL3 precompiled headers due unstable behavior
 # with this toolchain setup.
 if(TARGET SDL3-shared)
     set_target_properties(SDL3-shared PROPERTIES DISABLE_PRECOMPILE_HEADERS ON)
     message(STATUS "forest: disabled PCH for SDL3-shared")
+    # If cache still enabled -Wl,--no-undefined, strip it (MSVC link.exe is not ld).
+    get_target_property(_sdl3_lo SDL3-shared LINK_OPTIONS)
+    if(_sdl3_lo AND NOT _sdl3_lo STREQUAL "LINK_OPTIONS-NOTFOUND")
+      list(FILTER _sdl3_lo EXCLUDE REGEX "no-undefined")
+      set_target_properties(SDL3-shared PROPERTIES LINK_OPTIONS "${_sdl3_lo}")
+    endif()
 endif()
 if(TARGET SDL3-static)
     set_target_properties(SDL3-static PROPERTIES DISABLE_PRECOMPILE_HEADERS ON)
@@ -999,30 +1147,7 @@ endif()
 # All libraries combined
 set(FOREST_ALL_LIBS ${FOREST_STATIC_LIBS} ${FOREST_REL_LIBS})
 
-# ==============================================================================
-# Windows SDK library path for MSVC link.exe
-# ==============================================================================
-# When using FOREST_USE_MSVC_LINKER, link.exe is invoked directly and may not have
-# LIB set (e.g. when not using a Developer Prompt). Add the Windows Kits lib path
-# so kernel32.lib, user32.lib, etc. are found.
-if(CMAKE_HOST_WIN32 AND FOREST_USE_MSVC_LINKER)
-  file(GLOB _sdk_vers "C:/Program Files (x86)/Windows Kits/10/Lib/*")
-  list(SORT _sdk_vers)
-  list(REVERSE _sdk_vers)
-  list(LENGTH _sdk_vers _n_sdk)
-  if(_n_sdk GREATER 0)
-    list(GET _sdk_vers 0 _sdk_ver)
-    set(_sdk_um_x86 "${_sdk_ver}/um/x86")
-    if(EXISTS "${_sdk_um_x86}")
-      set(WINDOWS_SDK_LIB_PATH "${_sdk_um_x86}" CACHE PATH "Windows SDK um/x86 for link.exe")
-      message(STATUS "Windows SDK lib path: ${WINDOWS_SDK_LIB_PATH}")
-    endif()
-  endif()
-  unset(_sdk_vers)
-  unset(_n_sdk)
-  unset(_sdk_ver)
-  unset(_sdk_um_x86)
-endif()
+# Windows SDK / UCRT / VC lib paths: see FOREST_USE_MSVC_LINKER block above CPMAddPackage.
 
 # ==============================================================================
 # DOL Executable — Main game binary
@@ -1032,9 +1157,6 @@ endif()
 # For the PC port, the DOL also links foresta (game logic) statically — one binary.
 
 add_executable(forest_dol src/pc/dol_main.c)
-if(WINDOWS_SDK_LIB_PATH)
-  target_link_directories(forest_dol PRIVATE "${WINDOWS_SDK_LIB_PATH}")
-endif()
 target_link_libraries(forest_dol PRIVATE
     ${FOREST_STATIC_LIBS}
     foresta_rel
@@ -1059,6 +1181,38 @@ if(WIN32)
             $<TARGET_RUNTIME_DLLS:forest_dol>
             ${CMAKE_BINARY_DIR}
         COMMAND_EXPAND_LISTS
+    )
+endif()
+
+# Load the executable at 0x80000000 so static data (e.g. display lists) lives in the high
+# range; emu64's seg2k0 then treats those pointers as direct without overlapping segment space.
+# Base must be 64KB-aligned. On 32-bit, /LARGEADDRESSAWARE allows use of the high 2GB.
+# /FIXED disables ASLR so the image actually loads at the base (needed for testing).
+if(MSVC OR (CMAKE_C_COMPILER_ID STREQUAL "Clang" AND CMAKE_C_SIMULATE_ID STREQUAL "MSVC"))
+    target_link_options(forest_dol PRIVATE
+        "/BASE:0x80000000"
+        "/LARGEADDRESSAWARE"
+        "/FIXED"
+    )
+    foreach(_lib IN LISTS FOREST_STATIC_LIBS)
+        target_link_options(forest_dol PRIVATE
+            "/WHOLEARCHIVE:$<TARGET_FILE:${_lib}>"
+        )
+    endforeach()
+    target_link_options(forest_dol PRIVATE
+        "/WHOLEARCHIVE:$<TARGET_FILE:foresta_rel>"
+    )
+elseif(CMAKE_C_COMPILER_ID STREQUAL "GNU")
+    target_link_options(forest_dol PRIVATE
+        -Wl,--whole-archive
+        $<TARGET_FILE:foresta_rel>
+        -Wl,--no-whole-archive
+    )
+elseif(CMAKE_C_COMPILER_ID STREQUAL "Clang")
+    target_link_options(forest_dol PRIVATE
+        -Wl,--whole-archive
+        $<TARGET_FILE:foresta_rel>
+        -Wl,--no-whole-archive
     )
 endif()
 

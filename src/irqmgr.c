@@ -196,6 +196,9 @@ static OSMessage vc_msg;
 static OSMessageQueue* vc_msgq;
 static u8 viThreadStack[VI_STACK_SIZE];
 static OSThread viThread;
+#if defined(TARGET_PC)
+extern void __OSPCSetViEvent(OSMessageQueue* mesgq, OSMessage msg, u32 retraceCount);
+#endif
 
 /* @fabricated @unused */
 
@@ -220,4 +223,7 @@ extern void osViSetEvent(OSMessageQueue* mesgq, OSMessage msg, u32 retcount) {
   vc_msgq = mesgq;
   vc_msg = msg;
   vc_retraceCount = retcount;
+#if defined(TARGET_PC)
+  __OSPCSetViEvent(mesgq, msg, retcount);
+#endif
 }

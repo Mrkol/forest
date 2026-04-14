@@ -20,6 +20,8 @@ extern "C" {
 extern void make_dl_nintendo_logo(Gfx** gpp, u32 alpha);
 extern void initial_menu_init();
 extern void initial_menu_cleanup();
+/** Call from main thread to signal that "load" is done so the menu can fade out and exit. On PC we call this right after init since there is no async REL load. */
+extern void initial_menu_signal_load_done(void);
 
 #ifdef __cplusplus
 }

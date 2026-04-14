@@ -3763,7 +3763,7 @@ static void mNpc_SetNpcNameID(Animal_c* animal, int num) {
 }
 
 extern void mNpc_LoadNpcNameString(u8* dst, u8 name_id) {
-    static u8 dma_area[64] ATTRIBUTE_ALIGN(32);
+    ALIGNAS(32) static u8 dma_area[64] ATTRIBUTE_ALIGN(32);
     u32 addr;
     u32 ofs;
     u32 base_addr;

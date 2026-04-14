@@ -338,7 +338,7 @@ void operator delete(void* memory) noexcept {
 
     JKRHeap* heap = JKRHeap::findFromRoot(memory);
     if (heap != nullptr) {
-        OSReport("operator delete: %p, heap: %p\n", memory, heap);
+        // OSReport("operator delete: %p, heap: %p\n", memory, heap);
         JKRHeap::free(memory, heap);
     } else {
         std::free(memory);
@@ -353,7 +353,7 @@ void operator delete[](void* memory) noexcept {
 
     JKRHeap* heap = JKRHeap::findFromRoot(memory);
     if (heap != nullptr) {
-        OSReport("operator delete[]: %p, heap: %p\n", memory, heap);
+        // OSReport("operator delete[]: %p, heap: %p\n", memory, heap);
         JKRHeap::free(memory, heap);
     } else {
         std::free(memory);

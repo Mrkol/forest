@@ -3,9 +3,15 @@
 
 #include "types.h"
 
+#if defined(TARGET_PC)
+#define IRQMGR_STACK_SIZE 0x2000
+#define PADMGR_STACK_SIZE 0x2000
+#define GRAPH_STACK_SIZE 0x2000
+#else
 #define IRQMGR_STACK_SIZE 0x1000
 #define PADMGR_STACK_SIZE 0x1000
 #define GRAPH_STACK_SIZE 0x2000
+#endif
 
 extern u8 graphStack[];
 extern u8 padmgrStack[];
