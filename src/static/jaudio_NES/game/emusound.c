@@ -1661,7 +1661,7 @@ void ForceProcessPhaseCounter() {
     ProcessPhaseCounter();
 }
 
-int Sound_Make_HVC(s32 count, s16* v) {
+void Sound_Make_HVC(s32 count, s16* v) {
     static int lastsample;
     HS_Event_Update();
     for (int i = 0; i < count; i++) {

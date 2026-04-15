@@ -219,6 +219,391 @@ extern "C" {
 #define COMBINER_TEV_GET_Ac1(words)((words.w0 >>  3) & 7)
 #define COMBINER_TEV_GET_Ad1(words)((words.w0 >>  0) & 7)
 
+#ifdef TARGET_PC
+typedef struct {
+    unsigned int c1:5;
+    unsigned int a1:4;
+    unsigned int Ac0:3;
+    unsigned int Aa0:3;
+    unsigned int c0:5;
+    unsigned int a0:4;
+    unsigned int cmd:8;
+
+    unsigned int Ad1:3;
+    unsigned int Ab1:3;
+    unsigned int d1:3;
+    unsigned int Ad0:3;
+    unsigned int Ab0:3;
+    unsigned int d0:3;
+    unsigned int Ac1:3;
+    unsigned int Aa1:3;
+    unsigned int b1:4;
+    unsigned int b0:4;
+} Gsetcombine_new;
+
+typedef struct {
+    unsigned int Ad1:3;
+    unsigned int Ac1:3;
+    unsigned int Ab1:3;
+    unsigned int Aa1:3;
+    unsigned int Ad0:3;
+    unsigned int Ac0:3;
+    unsigned int Ab0:3;
+    unsigned int Aa0:3;
+    int cmd:8; /* 0xCF */
+
+    unsigned int d1:4;
+    unsigned int c1:4;
+    unsigned int b1:4;
+    unsigned int a1:4;
+    unsigned int d0:4;
+    unsigned int c0:4;
+    unsigned int b0:4;
+    unsigned int a0:4;
+} Gsetcombine_tev;
+
+typedef struct {
+    unsigned int lower0:16;
+    unsigned int upper0:8;
+    int cmd:8;
+
+    unsigned int lower1:16;
+    unsigned int upper1:16;
+} Gsetcombine_raw;
+
+typedef struct {
+    unsigned int yl:12; /* Top-left y coord */
+    unsigned int xl:12; /* Top-left x coord */
+    unsigned int cmd:8;
+
+    unsigned int yh:12; /* Lower-right y coord */
+    unsigned int xh:12; /* Lower-right x coord */
+    unsigned int tile:3; /* Tile descriptor index */
+    unsigned int pad1:5;
+
+    unsigned int pad2:32;
+
+    unsigned int t:16; /* T (Y) texture coord at top left */
+    unsigned int s:16; /* S (X) texture coord at top left */
+
+    unsigned int pad3:32;
+
+    unsigned int dtdy:16; /* Change in T (Y) per change in Y */
+    unsigned int dsdx:16; /* Change in S (X) per change in X */
+} Gtexrect2;
+
+typedef struct {
+    unsigned int shift_t:4;
+    unsigned int shift_s:4;
+    unsigned int wrap_t:2;
+    unsigned int wrap_s:2;
+    unsigned int tlut_name:4;
+    unsigned int tile:3;
+    unsigned int pad0:1;
+    unsigned int dol_fmt:4;
+    int cmd:8;
+    unsigned int pad1:32;
+} Gsettile_dolphin;
+
+typedef struct {
+    unsigned int slen:10; /* Length of S coordinate */
+    unsigned int sl:14; /* Start of S coordinate */
+    int cmd:8;
+
+    unsigned int tlen:10; /* Length of T coordinate */
+    unsigned int tl:14; /* Start of T coordinate */
+    unsigned int tile:3; /* Tile descriptor */
+    unsigned int pad:4;
+    s8 isDolphin:1; /* If true, format is Gsettilesize_Dolphin. If false, format is Gsettilesize2 */
+} Gsettilesize_Dolphin;
+
+typedef struct {
+    unsigned int wd:10; /* Width, packed: width - 1 */
+    unsigned int ht:8; /* Height, packed: (height / 4) - 1 */
+    unsigned int isDolphin:1; /* Is this Gsetimg2 or Gsetimg */
+    unsigned int siz:2; /* Image format texel size */
+    unsigned int fmt:3; /* Image format */
+    int cmd:8; /* Command */
+
+    unsigned int imgaddr:32; /* Image RAM address */
+} Gsetimg2;
+
+typedef union {
+    Gsetimg setimg;
+    Gsetimg2 setimg2;
+} Gsetimg_new;
+
+typedef struct {
+    unsigned int count:14; /* Number of entries in the TLUT. Max by GC spec is 0x4000. */
+    unsigned int pad1:2;
+    unsigned int tlut_name:4; /* GC Palette/TLUT name(index). */
+    unsigned int pad0:2;
+    unsigned int type:2; /* Type - if 2, is Gloadtlut_dolphin. Otherwise is Gloadtlut. */
+    int cmd:8;
+
+    unsigned int tlut_addr:32;
+} Gloadtlut_dolphin;
+
+typedef struct {
+    unsigned int on:8; /* Should be 7 bits w/ 1 bit padding, but emulator doesn't do this */
+    unsigned int tile:3;
+    unsigned int level:3;
+    unsigned int pad:2;
+    unsigned int xparam:8;
+    unsigned int cmd:8;
+
+    unsigned short s;
+    unsigned short t;
+} Gtexture_internal;
+
+typedef struct {
+    unsigned int offset:16;
+    unsigned int index:8;
+    unsigned int cmd:8;
+    unsigned int data;
+} Gmoveword;
+
+typedef struct {
+    unsigned int index:8;
+    unsigned int offset:8;
+    unsigned int length:8;
+    unsigned int cmd:8;
+
+    unsigned int data;
+} Gmovemem;
+
+typedef struct Gsettexedgealpha {
+    unsigned int unused0:24;
+    unsigned int cmd:8;
+
+    unsigned int tex_edge_alpha:8;
+    unsigned int unused1:24;
+} Gsettexedgealpha;
+
+typedef struct {
+    unsigned int y0frac:2;
+    unsigned int y0:10;
+    unsigned int x0frac:2;
+    unsigned int x0:10;
+    int cmd:8;
+    unsigned int y1frac:2;
+    unsigned int y1:10;
+    unsigned int x1frac:2;
+    unsigned int x1:10;
+    unsigned int pad:8;
+} Gscissor;
+
+typedef struct {
+    unsigned int y0frac:2;
+    unsigned int y0:10;
+    unsigned int x0frac:2;
+    unsigned int x0:10;
+    int cmd:8;
+    unsigned int y1frac:2;
+    unsigned int y1:10;
+    unsigned int x1frac:2;
+    unsigned int x1:10;
+    unsigned int pad:8;
+} Gfillrect2;
+
+typedef struct Gnoop {
+    unsigned int param0:16;
+    unsigned int tag:8;
+    unsigned int cmd:8;
+
+    unsigned int param1;
+} Gnoop;
+
+typedef struct Gmtx {
+    unsigned int type:8;
+    unsigned int pad:8;
+    unsigned int par:8;
+    unsigned int cmd:8;
+
+    unsigned int addr;
+} Gmtx;
+
+typedef struct Gvtx {
+    unsigned int vn:8;
+    unsigned int pad1:4;
+    unsigned int n:8;
+    unsigned int pad0:4;
+    unsigned int cmd:8;
+
+    unsigned int addr;
+} Gvtx;
+
+typedef struct Gline3D_new {
+    unsigned int wd:8;
+    unsigned int v1:8;
+    unsigned int v0:8;
+    unsigned int cmd:8;
+
+    unsigned int pad;
+} Gline3D_new;
+
+typedef struct Gtri1 {
+    unsigned int v2:8;
+    unsigned int v1:8;
+    unsigned int v0:8;
+    unsigned int cmd:8;
+
+    unsigned int pad;
+} Gtri1;
+
+typedef struct Gtri2 {
+    unsigned int t0v2:8;
+    unsigned int t0v1:8;
+    unsigned int t0v0:8;
+    int cmd:8;
+
+    unsigned int t1v2:8;
+    unsigned int t1v1:8;
+    unsigned int t1v0:8;
+    unsigned int pad:8;
+} Gtri2;
+
+typedef struct Gtrin_independ {
+    unsigned int f1v2_1:2; // 2
+    unsigned int f2v0:5; // 7
+    unsigned int f2v1:5; // 12
+    unsigned int f2v2:5; // 17
+    unsigned int count:7; // 24
+    unsigned int cmd:8; // 32
+
+    unsigned int is7bit:1; // 1
+    unsigned int pad:3; // 4
+    unsigned int f0v0:5; // 9
+    unsigned int f0v1:5; // 14
+    unsigned int f0v2:5; // 19
+    unsigned int f1v0:5; // 24
+    unsigned int f1v1:5; // 29
+    unsigned int f1v2_0:3; // 32
+} Gtrin_independ;
+
+typedef struct Gtrin {
+    unsigned int f1v2_1:2; // 2
+    unsigned int f2v0:5; // 7
+    unsigned int f2v1:5; // 12
+    unsigned int f2v2:5; // 17
+    unsigned int f3v0:5; // 22
+    unsigned int f3v1:5; // 27
+    unsigned int f3v2:5; // 32
+
+    unsigned int is7bit:1; // 1
+    unsigned int pad:3; // 32
+    unsigned int f0v0:5; // 9
+    unsigned int f0v1:5; // 14
+    unsigned int f0v2:5; // 19
+    unsigned int f1v0:5; // 24
+    unsigned int f1v1:5; // 29
+    unsigned int f1v2_0:3; // 32
+} Gtrin;
+
+typedef struct Gtrin_7b {
+    unsigned int f1v1_1:4; // 4
+    unsigned int f1v2:7; // 11
+    unsigned int f2v0:7; // 18
+    unsigned int f2v1:7; // 25
+    unsigned int f2v2:7; // 32
+
+    unsigned int is7bit:1; // 1
+    unsigned int f0v0:7; // 8
+    unsigned int f0v1:7; // 15
+    unsigned int f0v2:7; // 22
+    unsigned int f1v0:7; // 29
+    unsigned int f1v1_0:3; // 32
+} Gtrin_7b;
+
+typedef struct Gquad_independ {
+    unsigned int f1v1_1:2; // 2
+    unsigned int f1v2:5; // 7
+    unsigned int f1v3:5; // 12
+    unsigned int unused:5; // 17
+    unsigned int count:7; // 24
+    unsigned int cmd:8; // 32
+
+    unsigned int is7bit:1; // 1
+    unsigned int pad:3; // 4
+    unsigned int f0v0:5; // 9
+    unsigned int f0v1:5; // 14
+    unsigned int f0v2:5; // 19
+    unsigned int f0v3:5; // 24
+    unsigned int f1v0:5; // 29
+    unsigned int f1v1_0:3; // 32
+} Gquad_independ;
+
+typedef struct Gquad {
+    unsigned int f1v1_1:2; // 2
+    unsigned int f1v2:5; // 7
+    unsigned int f1v3:5; // 12
+    unsigned int f2v0:5; // 17
+    unsigned int f2v1:5; // 22
+    unsigned int f2v2:5; // 27
+    unsigned int f2v3:5; // 32
+
+    unsigned int is7bit:1; // 1
+    unsigned int pad:3; // 4
+    unsigned int f0v0:5; // 9
+    unsigned int f0v1:5; // 14
+    unsigned int f0v2:5; // 19
+    unsigned int f0v3:5; // 24
+    unsigned int f1v0:5; // 29
+    unsigned int f1v1_0:3; // 32
+} Gquad;
+
+typedef struct Gquad_7b {
+    unsigned int pad:4; // 4
+    unsigned int f1v0_0:3; // 7
+    unsigned int f1v0_1:4; // 11
+    unsigned int f1v1:7; // 18
+    unsigned int f1v2:7; // 25
+    unsigned int f1v3:7; // 32
+
+    unsigned int is7bit:1; // 1
+    unsigned int pad0:3; // 4
+    unsigned int f0v0:7; // 11
+    unsigned int f0v1:7; // 18
+    unsigned int f0v2:7; // 25
+    unsigned int f0v3:7; // 32
+} Gquad_7b;
+
+typedef struct Gquad0 {
+    unsigned int v2:8;
+    unsigned int v1:8;
+    unsigned int v0:8;
+    int cmd:8;
+
+    unsigned int v3:8;
+    unsigned int pad:24;
+} Gquad0;
+
+typedef struct Gculldl {
+    unsigned int vstart:16;
+    unsigned int pad0:8;
+    int cmd:8;
+
+    unsigned int vend:16;
+    unsigned int pad1:16;
+} Gculldl;
+
+typedef struct Gspecial1 {
+    unsigned int param0:16;
+    int mode:8;
+    int cmd:8;
+
+    unsigned int param1;
+} Gspecial1;
+
+typedef struct {
+    u32 len:8;
+    u32 sft:8;
+    int pad0:8;
+    int cmd:8;
+    unsigned int data:32;
+} Gsetothermode_dolphin;
+
+#else
 typedef struct {
     unsigned int cmd:8;
     unsigned int a0:4;
@@ -602,6 +987,7 @@ typedef struct {
 		u32		len:8;
 		unsigned int	data:32;
 } Gsetothermode_dolphin;
+#endif
 
 typedef struct {
     unsigned char col[3];
@@ -876,22 +1262,22 @@ do { \
         xz, yz, zz, wz, \
         xw, yw, zw, ww) \
     {{                                  \
-        (IPART(xx) << 0x10) | IPART(xy),  \
-        (IPART(xz) << 0x10) | IPART(xw),  \
-        (IPART(yx) << 0x10) | IPART(yy),  \
-        (IPART(yz) << 0x10) | IPART(yw),  \
-        (IPART(zx) << 0x10) | IPART(zy),  \
-        (IPART(zz) << 0x10) | IPART(zw),  \
-        (IPART(wx) << 0x10) | IPART(wy),  \
-        (IPART(wz) << 0x10) | IPART(ww),  \
-        (FPART(xx) << 0x10) | FPART(xy),  \
-        (FPART(xz) << 0x10) | FPART(xw),  \
-        (FPART(yx) << 0x10) | FPART(yy),  \
-        (FPART(yz) << 0x10) | FPART(yw),  \
-        (FPART(zx) << 0x10) | FPART(zy),  \
-        (FPART(zz) << 0x10) | FPART(zw),  \
-        (FPART(wx) << 0x10) | FPART(wy),  \
-        (FPART(wz) << 0x10) | FPART(ww),  \
+        (IPART(xy) << 0x10) | IPART(xx),  \
+        (IPART(xw) << 0x10) | IPART(xz),  \
+        (IPART(yy) << 0x10) | IPART(yx),  \
+        (IPART(yw) << 0x10) | IPART(yz),  \
+        (IPART(zy) << 0x10) | IPART(zx),  \
+        (IPART(zw) << 0x10) | IPART(zz),  \
+        (IPART(wy) << 0x10) | IPART(wx),  \
+        (IPART(ww) << 0x10) | IPART(wz),  \
+        (FPART(xy) << 0x10) | FPART(xx),  \
+        (FPART(xw) << 0x10) | FPART(xz),  \
+        (FPART(yy) << 0x10) | FPART(yx),  \
+        (FPART(yw) << 0x10) | FPART(yz),  \
+        (FPART(zy) << 0x10) | FPART(zx),  \
+        (FPART(zw) << 0x10) | FPART(zz),  \
+        (FPART(wy) << 0x10) | FPART(wx),  \
+        (FPART(ww) << 0x10) | FPART(wz),  \
     }}
 
 

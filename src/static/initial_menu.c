@@ -348,7 +348,7 @@ static void* initialMenuStack;
 static OSMessage commandMsgBuf[2];
 static OSMessage statusMsgBuf[1];
 
-extern void proc(void* arg) {
+extern void* proc(void* arg) {
   u32 msg;
   int proc_done;
   OSTimer timer;
@@ -416,6 +416,8 @@ extern void proc(void* arg) {
   } while (!proc_done);
 
   osSendMesg(&statusQ, (OSMessage)msg, OS_MESSAGE_NOBLOCK); // signal done
+
+  return NULL;
 }
 
 static void* my_alloc(size_t size) {

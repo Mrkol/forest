@@ -137,7 +137,7 @@ static void irqmgr_HandleRetrace() {
  * 
  * @param arg unused OSThread func arg
  **/
-static void irqmgr_Main(void* arg) {
+static void* irqmgr_Main(void* arg) {
   OSMessage msg = (OSMessage)0;
 
   while (TRUE) {
@@ -162,6 +162,7 @@ static void irqmgr_Main(void* arg) {
         break;
     }
   }
+  return NULL;
 }
 
 /**

@@ -18,6 +18,10 @@ typedef struct {
     void* entryParam;
     OSThread* debugPrev;
     OSThread* debugNext;
+#ifdef FOREST_ASAN
+    const void* stack;
+    size_t stackSize;
+#endif
 } PrivateContext;
 
 void __OSPromoteThread(OSThread* thread, s32 priority);
