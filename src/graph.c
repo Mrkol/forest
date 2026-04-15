@@ -301,7 +301,7 @@ static void graph_main(GRAPH* this, GAME* game) {
 }
 #endif
 
-extern void graph_proc(void* arg) {
+extern void* graph_proc(void* arg) {
     GRAPH* __graph = &graph_class;
     DLFTBL_GAME* dlftbl = &game_dlftbls[0];
     graph_ct(&graph_class);
@@ -341,4 +341,6 @@ extern void graph_proc(void* arg) {
     }
 
     graph_dt(__graph);
+
+    return NULL;
 }

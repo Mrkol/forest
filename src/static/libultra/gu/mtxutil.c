@@ -5,6 +5,7 @@ void guMtxF2L(float mf[4][4], Mtx *m)
 	int	i, j;
 	int	e1,e2;
 	int	*ai,*af;
+	u32 ue1, ue2;
 
 
 	ai=(int *) &m->m[0][0];
@@ -14,8 +15,10 @@ void guMtxF2L(float mf[4][4], Mtx *m)
 	for (j=0; j<2; j++) {
 		e1=FTOFIX32(mf[i][j*2]);
 		e2=FTOFIX32(mf[i][j*2+1]);
-		*(ai++) = ( e1 & 0xffff0000 ) | ((e2 >> 16)&0xffff);
-		*(af++) = ((e1 << 16) & 0xffff0000) | (e2 & 0xffff);
+		ue1 = (u32)e1;
+		ue2 = (u32)e2;
+		*(ai++) = (int)((ue2 & 0xffff0000u) | (ue1 >> 16));
+		*(af++) = (int)((ue2 << 16) | (ue1 & 0xffffu));
 	}
 }
 

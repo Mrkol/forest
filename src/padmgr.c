@@ -322,7 +322,7 @@ extern void padmgr_ClearPadData(pad_t* pad) {
     }
 }
 
-static void padmgr_MainProc(void* arg) {
+static void* padmgr_MainProc(void* arg) {
     BOOL done = FALSE;
     int flags;
 
@@ -343,6 +343,7 @@ static void padmgr_MainProc(void* arg) {
             }
         }
     }
+    return NULL;
 }
 
 extern void padmgr_Init(OSMessageQueue* mq) {

@@ -122,6 +122,135 @@ project(forest
     DESCRIPTION "Animal Crossing GameCube PC Port"
 )
 
+# Optional sanitizer build mode.
+# Valid values: NONE, ADDRESS, UNDEFINED
+set(FOREST_SANITIZE "NONE" CACHE STRING "Sanitizer mode: NONE, ADDRESS, or UNDEFINED")
+set_property(CACHE FOREST_SANITIZE PROPERTY STRINGS NONE ADDRESS UNDEFINED)
+
+string(TOUPPER "${FOREST_SANITIZE}" FOREST_SANITIZE)
+if(NOT FOREST_SANITIZE STREQUAL "NONE" AND NOT FOREST_SANITIZE STREQUAL "ADDRESS" AND NOT FOREST_SANITIZE STREQUAL "UNDEFINED")
+  message(FATAL_ERROR "Invalid FOREST_SANITIZE='${FOREST_SANITIZE}'. Expected one of: NONE, ADDRESS, UNDEFINED.")
+endif()
+
+set(FOREST_SANITIZERS_ENABLED OFF)
+set(FOREST_SANITIZER_FLAG "")
+if(NOT FOREST_SANITIZE STREQUAL "NONE")
+  if(CMAKE_C_COMPILER_ID STREQUAL "MSVC" OR CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
+    if(FOREST_SANITIZE STREQUAL "ADDRESS")
+      set(FOREST_SANITIZERS_ENABLED ON)
+      set(FOREST_SANITIZER_FLAG "/fsanitize=address")
+      message(STATUS "forest: sanitizer enabled: ${FOREST_SANITIZE} (${FOREST_SANITIZER_FLAG})")
+    else()
+      message(FATAL_ERROR
+        "FOREST_SANITIZE=${FOREST_SANITIZE} is not supported by MSVC. Use FOREST_SANITIZE=ADDRESS or switch to clang/clang-cl.")
+    endif()
+  elseif(CMAKE_C_COMPILER_ID STREQUAL "Clang" OR CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
+    set(FOREST_SANITIZERS_ENABLED ON)
+    if(FOREST_SANITIZE STREQUAL "ADDRESS")
+      set(FOREST_SANITIZER_FLAG_VALUE "address")
+    elseif(FOREST_SANITIZE STREQUAL "UNDEFINED")
+      set(FOREST_SANITIZER_FLAG_VALUE "undefined")
+    endif()
+
+    if(CMAKE_C_COMPILER_FRONTEND_VARIANT STREQUAL "MSVC" OR CMAKE_CXX_COMPILER_FRONTEND_VARIANT STREQUAL "MSVC")
+      set(FOREST_SANITIZER_FLAG "-fsanitize=${FOREST_SANITIZER_FLAG_VALUE}")
+    else()
+      set(FOREST_SANITIZER_FLAG "-fsanitize=${FOREST_SANITIZER_FLAG_VALUE}")
+      add_compile_options(-fno-omit-frame-pointer)
+      add_link_options(-fno-omit-frame-pointer)
+    endif()
+
+    message(STATUS "forest: sanitizer enabled: ${FOREST_SANITIZE} (${FOREST_SANITIZER_FLAG})")
+  else()
+    message(FATAL_ERROR
+      "FOREST_SANITIZE=${FOREST_SANITIZE} requires MSVC (ADDRESS only) or Clang/clang-cl.")
+  endif()
+endif()
+
+if(FOREST_SANITIZERS_ENABLED AND WIN32 AND (MSVC OR CMAKE_C_COMPILER_FRONTEND_VARIANT STREQUAL "MSVC" OR CMAKE_CXX_COMPILER_FRONTEND_VARIANT STREQUAL "MSVC"))
+  # Sanitizer builds on Windows are much more reliable with the DLL CRT.
+  set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>DLL")
+  message(STATUS "forest: using dynamic MSVC runtime for sanitizer build")
+else()
+  # Default build uses static MSVC runtime (/MT or /MTd) for consistency with Dawn/abseil.
+  set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
+endif()
+
+if(FOREST_SANITIZERS_ENABLED)
+  # Apply sanitizer instrumentation globally so third-party and project targets stay compatible.
+  add_compile_options(${FOREST_SANITIZER_FLAG})
+  if(FOREST_SANITIZE STREQUAL "ADDRESS")
+    add_compile_definitions(FOREST_ASAN=1)
+  endif()
+  if(NOT (WIN32 AND (MSVC OR CMAKE_C_COMPILER_FRONTEND_VARIANT STREQUAL "MSVC" OR CMAKE_CXX_COMPILER_FRONTEND_VARIANT STREQUAL "MSVC")))
+    add_link_options(${FOREST_SANITIZER_FLAG})
+  endif()
+endif()
+
+set(FOREST_ASAN_RUNTIME_DLL "" CACHE FILEPATH "Path to AddressSanitizer runtime DLL for Win32 sanitizer builds")
+if(FOREST_SANITIZERS_ENABLED AND WIN32 AND FOREST_SANITIZE STREQUAL "ADDRESS")
+  if(NOT FOREST_ASAN_RUNTIME_DLL OR NOT EXISTS "${FOREST_ASAN_RUNTIME_DLL}")
+    unset(_forest_asan_candidate)
+
+    # MSVC /fsanitize=address commonly expects this beside cl.exe/link.exe.
+    get_filename_component(_forest_cc_dir "${CMAKE_C_COMPILER}" DIRECTORY)
+    set(_forest_try_clang_rt "${_forest_cc_dir}/clang_rt.asan_dynamic-i386.dll")
+    if(EXISTS "${_forest_try_clang_rt}")
+      set(_forest_asan_candidate "${_forest_try_clang_rt}")
+    endif()
+
+    # Fallback to LLVM runtime layout used by VS's bundled LLVM toolchain.
+    if(NOT _forest_asan_candidate)
+      file(GLOB _forest_asan_glob
+        "C:/Program Files/Microsoft Visual Studio/*/*/VC/Tools/Llvm/lib/clang/*/lib/windows/clang_rt.asan_dynamic-i386.dll"
+      )
+      if(_forest_asan_glob)
+        list(SORT _forest_asan_glob)
+        list(REVERSE _forest_asan_glob)
+        list(GET _forest_asan_glob 0 _forest_asan_candidate)
+      endif()
+      unset(_forest_asan_glob)
+    endif()
+
+    if(_forest_asan_candidate)
+      set(FOREST_ASAN_RUNTIME_DLL "${_forest_asan_candidate}" CACHE FILEPATH "Path to AddressSanitizer runtime DLL for Win32 sanitizer builds" FORCE)
+      message(STATUS "forest: ASan runtime DLL: ${FOREST_ASAN_RUNTIME_DLL}")
+    else()
+      message(WARNING
+        "forest: could not auto-detect clang_rt.asan_dynamic-i386.dll. "
+        "Set -DFOREST_ASAN_RUNTIME_DLL=<path> so sanitizer builds can launch.")
+    endif()
+
+    unset(_forest_asan_candidate)
+    unset(_forest_cc_dir)
+    unset(_forest_try_clang_rt)
+  endif()
+endif()
+
+if(WIN32 AND (MSVC OR CMAKE_C_COMPILER_FRONTEND_VARIANT STREQUAL "MSVC" OR CMAKE_CXX_COMPILER_FRONTEND_VARIANT STREQUAL "MSVC"))
+  get_filename_component(_forest_compiler_dir "${CMAKE_C_COMPILER}" DIRECTORY)
+  set(_forest_archiver "")
+
+  if(EXISTS "${_forest_compiler_dir}/lib.exe")
+    set(_forest_archiver "${_forest_compiler_dir}/lib.exe")
+  elseif(EXISTS "${_forest_compiler_dir}/llvm-lib.exe")
+    set(_forest_archiver "${_forest_compiler_dir}/llvm-lib.exe")
+  endif()
+
+  if(_forest_archiver)
+    set(CMAKE_AR "${_forest_archiver}" CACHE FILEPATH "Windows archiver for static libraries" FORCE)
+    set(CMAKE_C_COMPILER_AR "${_forest_archiver}" CACHE FILEPATH "Windows archiver for C" FORCE)
+    set(CMAKE_CXX_COMPILER_AR "${_forest_archiver}" CACHE FILEPATH "Windows archiver for CXX" FORCE)
+    message(STATUS "forest: using archiver: ${_forest_archiver}")
+  else()
+    message(FATAL_ERROR
+      "forest: could not find a Windows archiver next to ${CMAKE_C_COMPILER}. Expected lib.exe or llvm-lib.exe.")
+  endif()
+
+  # Ninja/MSVC does not need ranlib.
+  set(CMAKE_RANLIB "" CACHE FILEPATH "" FORCE)
+endif()
+
 if(PROJECT_SOURCE_DIR STREQUAL PROJECT_BINARY_DIR)
   message(
     FATAL_ERROR
@@ -206,9 +335,6 @@ if(CMAKE_HOST_WIN32 AND FOREST_USE_MSVC_LINKER)
     "/LIBPATH:${WINDOWS_VC_LIB_X86}"
   )
 endif()
-
-# Use static MSVC runtime (/MT or /MTd) for consistency with Dawn/abseil
-set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
 
 # Build all third-party dependencies as static libraries.
 # Only foresta_rel is explicitly SHARED (the game logic REL module).
@@ -1182,6 +1308,14 @@ if(WIN32)
             ${CMAKE_BINARY_DIR}
         COMMAND_EXPAND_LISTS
     )
+
+  if(FOREST_SANITIZERS_ENABLED AND FOREST_SANITIZE STREQUAL "ADDRESS" AND FOREST_ASAN_RUNTIME_DLL AND EXISTS "${FOREST_ASAN_RUNTIME_DLL}")
+    add_custom_command(TARGET forest_dol POST_BUILD
+      COMMAND ${CMAKE_COMMAND} -E copy_if_different
+        "${FOREST_ASAN_RUNTIME_DLL}"
+        ${CMAKE_BINARY_DIR}
+    )
+  endif()
 endif()
 
 # Load the executable at 0x80000000 so static data (e.g. display lists) lives in the high

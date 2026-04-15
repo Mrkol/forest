@@ -16,7 +16,7 @@ u8 _jsyswrap_autogen_match[0x40];
 #pragma force_active reset
 #endif
 
-JUTGamePad gamePad[4];
+JUTGamePad* gamePad;
 static void* jc_fader = nullptr;
 static void* forest_arc_aram_p = nullptr;
 static void* forest_arc_aram2_p = nullptr;
@@ -296,23 +296,23 @@ extern void JW_getPadStatus(PADStatus* padStatus) {
 }
 
 extern int JW_JUTGamepad_getErrorStatus() {
-    return (s8)((JUTGamePad*)gamePad)[0].mErrorStatus;
+    return (s8)gamePad[0].mErrorStatus;
 }
 
 extern u32 JW_JUTGamepad_getButton() {
-    return ((JUTGamePad*)gamePad)[0].mButtons.mButton;
+    return gamePad[0].mButtons.mButton;
 }
 
 extern u32 JW_JUTGamepad_getTrigger() {
-    return ((JUTGamePad*)gamePad)[0].mButtons.mTrigger;
+    return gamePad[0].mButtons.mTrigger;
 }
 
 extern f32 JW_JUTGamepad_getSubStickValue() {
-    return ((JUTGamePad*)gamePad)[0].mSubStick.mValue;
+    return gamePad[0].mSubStick.mValue;
 }
 
 extern s16 JW_JUTGamepad_getSubStickAngle() {
-    return ((JUTGamePad*)gamePad)[0].mSubStick.mAngle;
+    return gamePad[0].mSubStick.mAngle;
 }
 
 static bool FrameDrawing = false;
@@ -469,6 +469,9 @@ extern u32 JW_GetResSizeFileNo(int res_no) {
 extern void JW_Init() {
     const u32 soundAramSize = 0x810000;
     const u32 graphAramSize = 0x6A3780;
+
+    gamePad = ::new JUTGamePad[4];
+    ASSERT(gamePad);
 
     void* arena_hi = OSGetArenaHi();
     void* arena_lo = OSGetArenaLo();

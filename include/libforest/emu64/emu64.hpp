@@ -1,6 +1,7 @@
 #ifndef EMU64_HPP
 #define EMU64_HPP
 
+#define EMU64_DEBUG
 
 #include "types.h"
 // #include "va_args.h"
@@ -146,6 +147,8 @@ float fastcast_float(register unsigned char* s) {
     asm {
         psq_l f, 0(s), 1, 2
     }
+#else
+    f = (float)(*s);
 #endif // clang-format on
 
     return f;
@@ -158,6 +161,8 @@ float fastcast_float(register unsigned short* s) {
     asm {
         psq_l f, 0(s), 1, 3
     }
+#else
+    f = (float)(*s);
 #endif // clang-format on
 
     return f;
@@ -170,6 +175,8 @@ float fastcast_float(register signed char* s) {
     asm {
         psq_l f, 0(s), 1, 4
     }
+#else
+    f = (float)(*s);
 #endif // clang-format on
 
     return f;
@@ -182,6 +189,8 @@ float fastcast_float(register short* s) {
     asm {
         psq_l f, 0(s), 1, 5
     }
+#else
+    f = (float)(*s);
 #endif // clang-format on
 
     return f;
@@ -494,12 +503,12 @@ class emu64_print {
   protected:
     u8 print_flags;
 
-//   private:
+    //   private:
     // void Vprintf(const char* fmt, std::__tag_va_List va_list) const; // this is only in e+??
 };
 
 #define EMU64_ASSERTLINE(cond, line)        \
-    if (!(cond)) {                            \
+    if (!(cond)) {                          \
         this->panic(#cond, __FILE__, line); \
     }
 
@@ -557,17 +566,8 @@ class emu64_print {
     } while (0)
 
 #ifdef EMU64_DEBUG
-#define EMU64_TIMED_SEGMENT_BEGIN()       \
-    {                                     \
-        u32 __timer_start = osGetCount(); \
-        do {                              \
-        } while (0)
-#define EMU64_TIMED_SEGMENT_END(stat)              \
-    this->#stat += (osGetCount() - __timer_start); \
-    (void)__timer_start;                           \
-    }                                              \
-    do {                                           \
-    } while (0)
+#define EMU64_TIMED_SEGMENT_BEGIN() u32 __timer_start = osGetCount()
+#define EMU64_TIMED_SEGMENT_END(stat) this->stat += (osGetCount() - __timer_start)
 #else
 #define EMU64_TIMED_SEGMENT_BEGIN()
 #define EMU64_TIMED_SEGMENT_END(stat)
@@ -705,8 +705,8 @@ class emu64 : public emu64_print {
     static u32 warningTime[EMU64_WARNING_COUNT];
     static bool displayWarning;
     static const u16 fmtxtbl[8][4];
-    
-private:
+
+  private:
     /* 0x0000 */ // u8 emu64_print::print_flags;
     /* 0x0001 */ s8 print_commands;
     /* 0x0002 */ bool disable_polygons;
@@ -857,6 +857,6 @@ private:
     /* 0x2078 */ u8 dl_history_start;
 };
 
-typedef void (emu64::* dl_func)(void);
+typedef void (emu64::*dl_func)(void);
 
 #endif

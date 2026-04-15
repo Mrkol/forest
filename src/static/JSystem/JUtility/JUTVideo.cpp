@@ -26,8 +26,8 @@ void JUTVideo::destroyManager() {
 JUTVideo::JUTVideo(const GXRenderModeObj* renderModeObj) {
     mRenderModeObj = nullptr;
     VIInit();
-    setRenderMode(renderModeObj);
     mIsSetBlack = true;
+    setRenderMode(renderModeObj);
     mSetBlackFrameCount = 2;
     VISetBlack(TRUE);
     VIFlush();

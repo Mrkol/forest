@@ -102,6 +102,8 @@ static void init_main_thread_stack_bounds(OSThread* mainThread) {
     mainThread->stackEnd = nullptr;
 }
 
+static_assert(sizeof(PrivateContext) <= sizeof(((OSContext*)0)->storage),
+              "PrivateContext must fit in OSThread's context storage");
 static PrivateContext* ctx(OSThread* thread) {
     return reinterpret_cast<PrivateContext*>(thread->context.storage);
 }
@@ -187,10 +189,22 @@ OSThread* OSGetCurrentThread() {
     return __gCurrentThread;
 }
 
+#ifdef FOREST_ASAN
+void __sanitizer_start_switch_fiber(void** fake_stack_save, const void* bottom, size_t size);
+void __sanitizer_finish_switch_fiber(void* fake_stack_save, const void** bottom_old, size_t* size_old);
+#endif
+
 static void __OSSwitchThread(OSThread* nextThread) {
     __gCurrentThread = nextThread;
     assert(ctx(nextThread)->coro);
+#ifdef FOREST_ASAN
+    void* fakeStackSave;
+    __sanitizer_start_switch_fiber(&fakeStackSave, ctx(nextThread)->stack, ctx(nextThread)->stackSize);
+#endif
     co_switch(ctx(nextThread)->coro);
+#ifdef FOREST_ASAN
+    __sanitizer_finish_switch_fiber(&fakeStackSave, &ctx(nextThread)->stack, &ctx(nextThread)->stackSize);
+#endif
 }
 
 BOOL OSIsThreadTerminated(OSThread* thread) {
@@ -435,12 +449,18 @@ static int trampoline_seh_filter(unsigned int exceptionCode) {
 
 static void trampoline() {
     OSThread* thread = OSGetCurrentThread();
+#ifdef FOREST_ASAN
+    __sanitizer_finish_switch_fiber(nullptr, &ctx(thread)->stack, &ctx(thread)->stackSize);
+#endif
 #if defined(_MSC_VER) && defined(_WIN32)
     __try {
         thread_main(thread);
     } __except (trampoline_seh_filter(_exception_code())) { OSExitThread(nullptr); }
 #else
     thread_main(thread);
+#endif
+#ifdef FOREST_ASAN
+    __sanitizer_start_switch_fiber(nullptr, ctx(thread)->stack, ctx(thread)->stackSize);
 #endif
 }
 
