@@ -1,7 +1,9 @@
 #ifndef EMU64_HPP
 #define EMU64_HPP
 
+#ifndef NDEBUG
 #define EMU64_DEBUG
+#endif
 
 #include "types.h"
 // #include "va_args.h"

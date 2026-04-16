@@ -19,6 +19,7 @@ typedef struct {
     OSThread* debugPrev;
     OSThread* debugNext;
 #ifdef FOREST_ASAN
+    void* fakeStack;
     const void* stack;
     size_t stackSize;
 #endif

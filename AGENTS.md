@@ -285,6 +285,8 @@ The project uses CMake for building. Theoretically should support any compiler, 
 
 ### Configure
 
+Always prefere an available MCP tool to configure, e.g. CMake Tools VScode extension.
+
 ```
 cmake -G Ninja -B build_pc `
     -DCMAKE_C_COMPILER="C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/Llvm/bin/clang-cl.exe" `
@@ -298,6 +300,8 @@ To use MSVC's **link.exe** instead of lld-link (e.g. for reliable `animal_crossi
 This generates Ninja build files in `build_pc/`. A `compile_commands.json` is also produced for IDE/tooling support.
 
 ### Build
+
+Always prefere an available MCP tool to configure, e.g. CMake Tools VScode extension.
 
 ```
 cmake --build build_pc

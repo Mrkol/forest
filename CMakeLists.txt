@@ -179,6 +179,10 @@ endif()
 if(FOREST_SANITIZERS_ENABLED)
   # Apply sanitizer instrumentation globally so third-party and project targets stay compatible.
   add_compile_options(${FOREST_SANITIZER_FLAG})
+  if(WIN32 AND (MSVC OR CMAKE_C_COMPILER_FRONTEND_VARIANT STREQUAL "MSVC" OR CMAKE_CXX_COMPILER_FRONTEND_VARIANT STREQUAL "MSVC"))
+    # Keep frame pointers for reliable ASan stack unwinding/symbolization on Windows.
+    add_compile_options(/Oy-)
+  endif()
   if(FOREST_SANITIZE STREQUAL "ADDRESS")
     add_compile_definitions(FOREST_ASAN=1)
   endif()

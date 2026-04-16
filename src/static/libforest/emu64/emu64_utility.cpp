@@ -1,14 +1,45 @@
 #include "libforest/emu64/emu64.hpp"
 
+#include "dolphin/os.h"
 #include "boot.h"
 #include "terminal.h"
 #include <math.h>
+
+#ifdef _WIN32
+#define WIN32_LEAN_AND_MEAN
+#include <Windows.h>
+#include <Psapi.h>
+#pragma comment(lib, "Psapi.lib")
+
+static bool IsAddressInExecutable(u32 addr) {
+    MODULEINFO moduleInfo;
+    HMODULE hModule = GetModuleHandle(NULL);
+
+    if (hModule == NULL) {
+        return false;
+    }
+
+    if (!GetModuleInformation(GetCurrentProcess(), hModule, &moduleInfo, sizeof(moduleInfo))) {
+        return false;
+    }
+
+    uintptr_t moduleBase = reinterpret_cast<uintptr_t>(moduleInfo.lpBaseOfDll);
+    uintptr_t moduleEnd = moduleBase + moduleInfo.SizeOfImage;
+    uintptr_t checkAddr = static_cast<uintptr_t>(addr);
+
+    return checkAddr >= moduleBase && checkAddr < moduleEnd;
+}
+#endif
+
+bool isAddressInGcMemory(u32 addr) {
+    return addr >= OSBaseAddress && addr < OSBaseAddress + OSGetPhysicalMemSize();
+}
 
 u32 emu64::seg2k0(u32 segadr) {
     u32 k0;
 
     if ((segadr >> 28) == 0) {
-        if (segadr < 0x03000000) {
+        if (segadr >= 0x03000000) {
             this->Printf0(VT_COL(RED, WHITE) "segadr=%08x" VT_RST "\n", segadr);
             this->panic("segadr is over 0x03000000.", __FILE__, 20);
             k0 = segadr + OSBaseAddress;
@@ -20,7 +51,7 @@ u32 emu64::seg2k0(u32 segadr) {
         k0 = segadr;
     }
 
-    if ((k0 >> 31) == 0 || k0 < 0x80000000 || k0 >= 0x83000000) {
+    if (!isAddressInGcMemory(k0) && !IsAddressInExecutable(k0)) {
         this->Printf0("異常なアドレスです。%08x -> %08x\n", segadr, k0);
         this->panic("異常なアドレスです。", __FILE__, 77);
         this->abnormal_addresses++;
